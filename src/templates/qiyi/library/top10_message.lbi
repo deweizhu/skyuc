@@ -1,0 +1,18 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<!-- {if $top_month} -->
+		   <div class="right">
+			<div class="rs_u">&nbsp;</div>
+			<div class="container">
+				<h2><span class="border_line">本月点播排行</span></h2>
+				<ul>
+					<!-- {foreach name=top_month from=$top_month item=top_month}-->
+						<li>
+							<a href="{$top_month.url}">{$top_month.title} </a>
+						</li>
+				     <!--{/foreach}-->
+				</ul>
+
+			</div>
+			<div class="rs_d">&nbsp;</div>
+	</div>
+	<!--{/if}-->

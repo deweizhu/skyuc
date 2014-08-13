@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<help>
+  <section id="list">
+    <title>用戶評論列表</title>
+    <content>
+    <![CDATA[
+	<p>此頁面列出所有站內的評論信息</p>
+	<p>在此您可以進行如下操作:</p>
+	
+	<strong>瀏覽用戶評論信息</strong>
+	<p>此頁面列出最新的用戶評論信息，包括用戶名，評論的類型，評論的對象，發表的時間等等。<br>
+	評論內容可以按字段一排序，點擊相應的字段便可以。<br>
+	點擊列表右側的 <span class="link"> 查看詳情 </span>鏈接，便可查看詳細的評論內容。</p>
+	
+	<strong>回復用戶的評論</strong>
+	<p>您只要點擊列表右邊的<span class="link"> 查看詳情 </span>鏈接，即可進入到評論詳情頁面，進行回復的操作。</p>
+	
+	<strong>批量刪除用戶評論</strong>
+	<p>單擊<span class="link"> 編號 </span>右邊選擇框，評論將處於被選中狀態。此時點擊右下角的<span class="link"> 刪除評論 </span>按鈕，按系統提示即可完成刪除的操作。</p>
+	
+	]]>
+    </content>
+  </section>
+  <section id="reply">
+    <title>查看評論詳情</title>
+    <content>
+    <![CDATA[
+	<p>此頁面列出了評論的詳細信息。</p>
+	<p>您可以在此頁面對評論進行<br><span class="link"> 回復、審核 </span>的操作。</p>
+	
+	<strong>評論的審核：</strong>
+	<p>在評論內容的右側，顯示出當前的評論的狀態。<br>如果是<span class="link"> 允許顯示 </span>，那麼此條評論處於禁止狀態。點擊此鏈接將允許顯示，此條評論審核通過。反之將被禁止。</p>
+	
+	<strong>評論的回復：</strong>
+	<p>在評論內容的下方，是回復評論的表單。<br>如果當前評論已被回復過，那麼回復的內容會顯示。再次回復將更新原來回復的內容。</p>
+	
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	]]>
+    </content>
+  </section>
+</help>

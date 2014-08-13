@@ -1,0 +1,26 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<!-- {if $top_month} -->
+		<div class="paihang" id="reping"><img src="images/reping.gif" alt="本月点播排行" /></div>
+              <div class="paihang_con">
+			  <DIV class="con4_right_stow_tit">
+
+			<!-- {foreach name=top_month from=$top_month item=top_month}-->
+		<DIV class="con4_right_update_tit3"
+		onmouseover="changTop2('con4_right_update_mo{$smarty.foreach.top_month.iteration}')"><IMG
+		class="con1_right_update_tit1img padl_5" height="13" alt=""
+		src="images/dia{$smarty.foreach.top_month.iteration}.gif" width="13"> <A class="f_l padl_8"
+		href="{$top_month.url}"
+		target="_blank">{$top_month.title|truncate:10}</A></DIV>
+		<DIV class="con4_right_update_tit2" id="con4_right_update_mo{$smarty.foreach.top_month.iteration}">
+		<DIV class="con4_right_update_tit2img"><A href="{$top_month.url}"
+		target="_blank"><IMG height="120" alt="{$top_month.title|escape:html}" src="{$top_month.thumb}"
+		width="90" border="0"> <img class="pic_120" src="images/pic_90x120.gif" border="0" /></A></DIV>
+		<DIV>
+		  <span>{$top_month.description|truncate:30:true}</span><br><br>
+		  <span style="background-color: #ff0000;width:100px;"><a href="{$top_month.url}">预览影片</a></span>
+		</DIV></DIV>
+		<!--{/foreach}-->
+			</DIV>
+			  </div><!--paihang_con end-->
+			  <div class="paihang_bottom"></div>
+	<!--{/if}-->

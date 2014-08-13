@@ -1,0 +1,227 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Language" content="zh-CN" />
+<meta content="all" name="robots" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<meta http-equiv="imagetoolbar" content="no" />
+<link rel="bookmark" href="favicon.ico" />
+<link rel="icon" type="image/x-icon" href="favicon.ico" />
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+<link rel="alternate" type="application/rss+xml" title="RSS|{$page_title}" href="{$feed_url}" />
+<link href="css/user.css" rel="stylesheet" type="text/css" />
+<title>{$page_title}</title>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+ var process_request = "{$lang.process_request}";
+  {foreach from=$lang.passport_js item=item key=key}
+  var {$key} = "{$item}";
+  {/foreach}
+  var username_exist = "{$lang.username_exist}";
+//-->
+</SCRIPT>
+</head>
+<body>
+{insert_scripts files="skyuc_global.js,skyuc_common.js,skyuc_utils.js,skyuc_user.js"}
+<!--header start-->
+<!-- #BeginLibraryItem "/library/user_header.lbi" -->
+<!-- #EndLibraryItem -->
+<!--header end-->
+<!--主体-->
+<div id="main" >
+    <!--*会员登陆界面-->
+    <!--{if $action eq 'login'}-->
+	 <div class="mode">
+			<div class="rl_u">&nbsp;</div>
+			<div class="container clearfix">
+				<h1>会员登录</h1>
+				<form name="frm_login" id="formEdit" method="post" action="user.php" onsubmit="return check_login(this);">
+						<ul>
+                       	  	<li>{$lang.label_username}&nbsp;:&nbsp;<input name="username" id="username" type="text"  value=""  class="inputstyle" /> &nbsp;
+                            <a href="user.php?act=register" class="k"/>注册新用户</a></li>
+                            <li>&nbsp;&nbsp;&nbsp;{$lang.label_password}&nbsp;:&nbsp;<input name="password" id="password" type="password"  class="inputstyle" />　<a href="user.php?act=get_password" class="k">忘记密码？</a></li>
+							<!-- {if $enabled_captcha} 判断是否启用验证码 -->
+						    <li>{$lang.comment_captcha}&nbsp;:&nbsp;<input type="text"  name="humanverify[input]"  id="verifycode"  size="10" maxlength="6"  onfocus="try{opencode('menu_gd',this)}catch(e){}"  class="inputstyle"/>
+								<input type="hidden" name="humanverify[hash]" id="hash"  value="{$humanverify.hash}" />
+								<div class="menu" id="menu_gd" style="visibility:hidden;"><img src="image.php?{$session.sessionurl}type=hv&amp;hash={$humanverify.hash}" id="verifyimage"  align="absmiddle" style="cursor:pointer;"  title="{$lang.click_for_another}"  border="0" /></div>
+                            </li>
+							 <!-- {/if} -->
+
+							<li>
+							 <input type="hidden" name="act" value="act_login" />
+							 <input type="hidden" name="back_act" value="{$back_act}" />
+							 <button type="submit" name="submit" id="submit" class="btn_blue_i">{$lang.confirm_login}</button>
+							</li>
+				  </ul>
+			  </form>
+
+		</div>
+			<div class="rl_d">&nbsp;</div>﻿
+</div>
+
+			<!--{/if}-->
+    <!--#会员登陆界面-->
+
+    <!--*会员注册界面-->
+    <!--{if $action eq 'register'}-->
+ <div class="mode">
+			<div class="rl_u">&nbsp;</div>
+			<div class="container clearfix">
+				<h1>会员注册</h1>
+				<form name="frm_reg"  id="formReg"  method="post" action="user.php">
+				<ul>
+					<li>&nbsp;&nbsp;&nbsp;{$lang.label_username}&nbsp;:&nbsp;
+						<input id="username" name="username" type="text" class="inputstyle" onchange="chk_frm('username');" /> <span id="username_notice"></span></li>
+					<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$lang.other_phone}&nbsp;:&nbsp;
+						<input id="mobile" name="other[phone]" type="text" class="inputstyle" maxlength="11" onchange="chk_frm('mobile');" /> <span id="mobile_notice"></span></li>
+					<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$lang.label_password}&nbsp;:&nbsp;
+						<input id="password" name="password" type="password" class="inputstyle" onchange="chk_frm('password');" onkeyup="checkIntensity(this.value)" /> <span id="password_notice"></span></li>
+					<li style="height:21px;">{$lang.label_password_intensity}&nbsp;:&nbsp;
+							 <table id="pwd_table">
+								<tr align="center">
+								  <td width="33%" id="pwd_lower">{$lang.pwd_lower}</td>
+								  <td width="33%" id="pwd_middle">{$lang.pwd_middle}</td>
+								  <td width="33%" id="pwd_high">{$lang.pwd_high}</td>
+								</tr>
+							  </table> </li>
+					<li>{$lang.label_confirm_password}&nbsp;:&nbsp;
+						<input id="conform_password" name="conform_password" type="password" class="inputstyle" onchange="chk_frm('conform_password');" /> <span id="conform_password_notice"></span></li>
+					<li>{$lang.label_email}&nbsp;:&nbsp;
+						<input id="email" name="email" type="text" class="inputstyle" onchange="chk_frm('email');" /> <span id="email_notice"></span></li>
+				    <li>{$lang.other_referrer}:
+						<input id="referrer" name="other[referrer]" type="text" class="inputstyle" maxlength="20"  style="color:#aaa;"  {if $referrer}value="{$referrer}" readonly{else}value='可不填'  onfocus="if (this.value == '可不填'){this.value='';this.style.color='#000';}"{/if} /></li>
+
+					<!-- 判断是否启用验证码{if $enabled_captcha} -->
+					<li>&nbsp;&nbsp;&nbsp;{$lang.comment_captcha}&nbsp;:&nbsp;
+						<input type="text"  name="humanverify[input]"  id="verifycode"  size="10" maxlength="6"  onfocus="try{opencode('menu_gd',this)}catch(e){}"  class="inputstyle"/>
+						<input type="hidden" name="humanverify[hash]" id="hash"  value="{$humanverify.hash}" />
+					<div class="menu" id="menu_gd" style="visibility:hidden;"><img src="image.php?{$session.sessionurl}type=hv&amp;hash={$humanverify.hash}" id="verifyimage"  align="absmiddle" style="cursor:pointer;"  title="{$lang.click_for_another}"  border="0" /></div>
+						<span id="verifycode_notice"></span></li>
+					 <!--{/if}-->
+
+					<li>
+						<input name="act" type="hidden" value="act_register" />
+						<button type="submit" name="submit" id="submit" onclick="javascript:return chek_reg();"  class="btn_blue_i">{$lang.confirm_register}</button>
+					</li>
+				</ul>
+			  </form>
+		</div>
+			<div class="rl_d">&nbsp;</div>﻿
+	</div>
+			<!--{/if}-->
+    <!--#会员注册界面-->
+
+	  <!--*找回密码界面 -->
+    <!--{if $action eq 'get_password'} -->
+	<SCRIPT LANGUAGE="JavaScript">
+	<!--
+	{foreach from=$lang.password_js item=item key=key}
+      var {$key} = "{$item}";
+    {/foreach}
+	//-->
+	</SCRIPT>
+	 <div class="mode">
+			<div class="rl_u">&nbsp;</div>
+			<div class="container clearfix">
+				<h1>忘记密码</h1>
+				<form name="frm_sdmail"  id="formEdit"  method="post" action="user.php">
+						<ul>
+						 <li>{$lang.username_and_email}</li>
+						 <li>{$lang.username}&nbsp;:&nbsp;<input name="user_name" id="user_name" type="text" class="inputstyle" /><span id="errinfo_name" style="color:red;height:20px;"></span></li>
+						 <li>&nbsp;&nbsp;{$lang.email}&nbsp;:&nbsp;<input name="email" id="email" type="text" class="inputstyle" /><span id="errinfo" style="color:red;height:20px;"></span></li>
+						 <li>
+							 <input type="hidden" name="act" value="send_pwd_email" />
+							 <button type="submit" name="submit" id="submit" onclick="sendmail();"  class="btn_blue_i">{$lang.confirm_submit}</button>
+						</li>
+				  </ul>
+			  </form>
+		</div>
+			<div class="rl_d">&nbsp;</div>﻿
+	</div>
+	    <!--{/if}-->
+    <!-- {if $action eq 'reset_password'} -->
+	<SCRIPT LANGUAGE="JavaScript">
+	<!--
+	{foreach from=$lang.password_js item=item key=key}
+      var {$key} = "{$item}";
+    {/foreach}
+	//-->
+	</SCRIPT>
+		 <div class="mode">
+			<div class="rl_u">&nbsp;</div>
+			<div class="container clearfix">
+				<h1>重设密码</h1>
+				<form name="frm_sdmail"  id="formEdit"  method="post" action="user.php">
+						<ul>
+						 <li>{$lang.reset_pwd_title}</li>
+						 <li>{$lang.enter_new_password}&nbsp;:&nbsp;<input name="new_password" id="new_password" type="password"  class="inputstyle"  /><span id="errinfo_newpwd" style="color:red;height:20px;"></span></li>
+						 <li>{$lang.confirm_password}&nbsp;:&nbsp;<input name="confirm_password" id="confirm_password" type="password" class="inputstyle" /><span id="errinfo" style="color:red;height:20px;"></span></li>
+						 <li>
+							 	<input type="hidden" name="act" value="act_edit_password" />
+								<input type="hidden" name="uid" value="{$uid}" />
+								<input type="hidden" name="code" value="{$code}" />
+							 <button type="submit" name="submit" id="submit" onclick="resetpwd();" class="btn_blue_i">{$lang.confirm_submit}</button>
+						</li>
+				  </ul>
+			  </form>
+		</div>
+			<div class="rl_d">&nbsp;</div>﻿
+	</div>
+	   <!-- {/if} -->
+	       <!--*验证手机号码页面-->
+    <!--{if $action eq 'verify_phone'}-->
+	 <div class="mode">
+				<div class="rl_u">&nbsp;</div>
+				<div class="container clearfix">
+					<h1>验证手机号码</h1>
+					<form name="frm_sdmail"  id="formEdit"  method="post" action="user.php">
+							<ul>
+							 <li>{$lang.sms_title}</li>
+							 <li>{$lang.phone_num}&nbsp;:&nbsp; <strong>{$phone}</strong></li>
+							 <li>{$lang.sms_code}&nbsp;:&nbsp;<input name="code" id="code" type="text" class="inputstyle"  maxlength="6" /></li>
+
+							 <li>
+								<input type="hidden" name="act" value="act_verify_phone" />
+									<input type="hidden" name="uid" value="{$uid}" />
+									<input type="hidden" name="phone" value="{$phone}" />
+								 <button type="submit" name="submit" id="submit"  class="btn_blue_i">{$lang.confirm_submit}</button>
+							</li>
+					  </ul>
+				  </form>
+			</div>
+				<div class="rl_d">&nbsp;</div>﻿
+		</div>
+	<!-- {/if} -->
+</div>
+<!--主体 end-->
+
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+	/**
+ * 获取图像验证码
+*/
+function getimage()
+ {
+	var url = 'ajax.php?{$session.sessionurl_js}type=hv&do=imagereg&hash=' + $('#verifyimage').attr('alt');
+
+	Ajax.call(url, '', function(data){
+			   var src= 'image.php?{$session.sessionurl_js}type=hv&hash=' + data.message;
+				$('#verifyimage').attr('src', src);
+				$('#verifyimage').attr('alt', data.message);
+				$('#hash').attr('value', data.message);
+			}, 'POST', 'JSON');
+}
+
+//-->
+</SCRIPT>
+
+
+<!--footer start-->
+<!-- #BeginLibraryItem "/library/user_footer.lbi" -->
+<!-- #EndLibraryItem -->
+<!--footer end-->
+
+</body>
+</html>

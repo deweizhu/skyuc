@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<help>
+  <section id="list">
+    <title>會員資料整合</title>
+    <content>
+    <![CDATA[
+    <p>會員資料整合允許您將任何帶有會員系統的第三方程序與 SKYUC! 進行會員資料的整合，從而實現會員資料共享。</p>
+    <p>右側列表是您目前可用的會員資料整合插件，點擊每一個插件右側的“<span class="link">安裝</span>”即可啟用該整合插件。</p>
+    <p>如果您從 SKYUC! 官方站或其他第三方站點下載了整合插件，解壓縮後將他們放置到 /includes/modules/integrates 目錄，即可啟用該整合插件。
+    ]]>
+    </content>
+  </section>
+  <section id="install">
+    <title>安裝會員資料整合插件</title>
+    <content>
+    <![CDATA[
+    <p><strong>資料庫帳號</strong></p>
+    <p>在這裡填寫需要整合的第三方系統正在使用的資料庫相關信息，這些信息也就是您在安裝第三方系統時所使用的信息。</p>
+    <p class="tips">如果資料庫與 SKYUC! 不在同一伺服器，請確認您的帳號是否有遠程訪問權限。</p>
+    <p><strong>Cookie 設置</strong></p>
+    <p>為了使在網站登錄後轉到被整合系統，或者在被整合系統登錄轉到網站後不需要進行第二次登錄，您還需要對 Cookie 進行相應的設置。</p>
+    <p>1. 同一域名不同目錄</p>
+    <p>例如：您的網站在 http://www.yourdomain.com，您的論壇在 http://www.yourdomain.com/bbs。您可以將 Cookie 域名設置為空，Cookie 路徑設置為 /。</p>
+    <p>2 .一級域名相同，二級域名不同</p>
+    <p>例如：您的網站在 http://www.yourdomain.com，您的論壇在 http://bbs.yourdomain.com。這時您可以將 Cookie 域名設置為 .yourdomain.com（<span class="tips">注意 yourdomain.com 前面有一個句點。</span>）， Cookie 路徑設置為 /。</p>
+    
+    ]]>
+    </content>
+  </section>
+  <section id="setup">
+    <title>設置會員資料整合插件</title>
+    <content>
+    <![CDATA[請參考“安裝會員資料整合插件”]]>
+    </content>
+  </section>
+  <section id="sync">
+    <title>同步會員資料</title>
+    <content>
+    <![CDATA[
+    <p>當您使用 SKYUC! 網站運行一段時間後，需整合一個論壇，此時需要把資料同步到“目前整合的第三方系統”；當您想更換論壇時，可以把資料同步到SKYUC!，然後再同步到新論壇。</p>
+    <p>如果您的會員資料很多，在同步時您會需要分批次進行導入，這時您在第一次操作時需要設置導入的起始位置和每次導入的記錄數量。第一次操作成功後系統會自動修改相應的數值。</p>
+    ]]>
+    </content>
+  </section>
+</help>

@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Language" content="zh-CN" />
+<meta content="all" name="robots" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<meta http-equiv="imagetoolbar" content="no" />
+<link rel="bookmark" href="favicon.ico" />
+<link rel="icon" type="image/x-icon" href="favicon.ico" />
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+<link rel="alternate" type="application/rss+xml" title="RSS|{$page_title}" href="{$feed_url}" />
+<title>{$page_title}</title>
+<link href="css/user.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+       	<!--header start-->
+             <!-- #BeginLibraryItem "/library/user_header.lbi" -->
+			<!-- #EndLibraryItem -->
+        <!--header end-->
+<!--mainbody start-->
+ <div id="main" >
+	 <div id="content">
+ <!-- TemplateBeginEditable name="主区域-文章内容" -->
+
+	<!-- #BeginLibraryItem "/library/article_detail.lbi" -->
+	<!-- #EndLibraryItem -->
+<!-- TemplateEndEditable-->
+        </div>
+			<div id="sidebar">
+			<!-- TemplateBeginEditable name="主区域-右侧" -->
+
+	<!-- #BeginLibraryItem "/library/related_article.lbi" -->
+	<!-- #EndLibraryItem -->
+
+	<!-- #BeginLibraryItem "/library/article_cate_tree.lbi" -->
+	<!-- #EndLibraryItem -->
+
+	<!-- #BeginLibraryItem "/library/new10_article.lbi" -->
+	<!-- #EndLibraryItem -->
+<!-- TemplateEndEditable-->
+			</div>
+</div>
+<!--mainbody end-->
+  <!--footer start-->
+			<!-- #BeginLibraryItem "/library/user_footer.lbi" -->
+			<!-- #EndLibraryItem -->
+  <!--footer end-->
+</body>
+</html>

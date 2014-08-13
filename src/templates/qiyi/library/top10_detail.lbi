@@ -1,0 +1,35 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- {if $top_month} -->
+ <div class="top">
+            	<div class="top_1" >
+                	<span>本类热播排行榜</span>
+                </div>
+			<!-- 排行start -->
+                <div class="top_2">
+				  <!-- {foreach name=top_month from=$top_month item=top_month}-->
+
+                       <!--{if $smarty.foreach.top_month.iteration eq 1 }-->
+                	<div class="top_2_1">
+					 <span><a href="{$top_month.url}" class="imgBg1"><img src="{$top_month.thumb}" alt="{$top_month.title|escape:html}"/></a><p></p></span>
+                        <h1><a href="{$top_month.url}">{$top_month.title|truncate:10}</a></h1>
+                        <ul>
+                        	<li>{$lang.click_count}{$top_month.click_count}{$lang.unit_order}</li>
+                        	<li>{$lang.actor}<!--{foreach from=$top_month.actor item=val name=val}-->
+							<!--{if $smarty.foreach.val.iteration eq 1}-->
+							<a href="search.php?keywords={$val|escape:url}" target="_blank">{$val}</a>
+							<!--{/if}-->
+							<!--{/foreach}--></li>
+                        </ul>
+                    </div>
+                    <div class="top_2_2">
+							<!--{else}-->
+                    	     <li style="background-image: url(images/icon_{$smarty.foreach.top_month.iteration}.jpg);"><a href="{$top_month.url}">{$top_month.title|truncate:10}</a><span>{$top_month.click_count}{$lang.unit_order}</span></li>
+							    <!--{/if}-->
+                          <!--{/foreach}-->
+                    </div>
+                </div>
+
+            <!-- 排行end -->
+
+            </div>
+<!--{/if}-->

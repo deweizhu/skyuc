@@ -1,0 +1,16 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- {if $new_show} -->
+<div class="title-01">
+  <div class="title-01-arrow">新片上映New</div>
+</div>
+<div class="sort-box01" id="top10">
+  <ul>
+    <!-- {foreach name=new_show from=$new_show item=new_show}-->
+    <li>
+		<img src="../images/top_{$smarty.foreach.new_show.iteration}.gif"  />
+		<span><a href="{$new_show.url}" title="{$new_show.title|escape:html}">{$new_show.title|truncate:12}</a></span>
+	</li>
+    <!--{/foreach}-->
+  </ul>
+</div>
+<!--{/if}-->

@@ -1,0 +1,24 @@
+<table width="400" border="1" cellspacing="0" cellpadding="0" bordercolorlight="#666666" bordercolordark="#ffffff" align="center">
+<tr>
+<td width="100%"><div align="center"><br />
+<a href="{$skyuc_src}"> <img src="../images/download.gif" border="0"></a>
+</div></td>
+</tr><tr>
+<td width="100%"><table width="338"  border="0" align="center" cellpadding="0" cellspacing="4">
+    <tr>
+      <td width="330">提示：</td>
+    </tr>
+    <tr>
+      <td>1、本站支持断点续传！下载过程中可暂停！</td>
+    </tr>
+    <tr>
+      <td>2、单个IP最多支持2个线程！每个线程100K</td>
+    </tr>
+     <tr>
+      <td>3、推荐使用 <a href=download/flashget.exe> 网际快车(FlashGet) </a> 下载站本节目，点击此处下载 <a href=download/flashget.exe> 网际快车(FlashGet)！</a></td>
+    </tr>
+    <tr>
+      <td>4、本站采用了防盗技术，如果下载到中途无法继续，请先双击停止下载任务，使用账户登陆网站，然后双击任务继续下载！</td>
+    </tr>
+  </table>
+ </td></tr></table>

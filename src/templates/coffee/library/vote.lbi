@@ -1,0 +1,102 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- {if $vote} -->
+
+{insert_scripts files="skyuc_global.js"}
+<div id="SKYUC_VOTE">
+  <div class="title-01">
+    <div class="title-01-arrow">网站调查</div>
+  </div>
+  <div class="sort-box01" style="padding:3px;">
+    <form id="SKYUC_VOTEFORM" name="SKYUC_VOTEFORM" method="post" action="javascript:submit_vote()">
+      <table id="vote_zone" width="100%" border="0" align="center" cellpadding="0" cellspacing="1">
+        <tr>
+          <!-- {foreach from=$vote item=title} -->
+          <td align="center">{$title.vote_name}<br />
+          ({$lang.vote_times}:{$title.vote_count})</td>
+          <!-- {/foreach} -->
+        </tr>
+        <tr>
+          <!-- {foreach from=$vote item=title} -->
+          <td bgcolor="#FFFFFF" valign="top"><!-- {foreach from=$title.options item=item} -->
+            <!-- {if $title.can_multi eq 0} -->
+            <input type="checkbox" name="option_id" value="{$item.option_id}" />
+            {$item.option_name} ({$item.percent}%)<br />
+            <!-- {else} -->
+            <input type="radio" name="option_id" value="{$item.option_id}" />
+            {$item.option_name} ({$item.percent}%)<br />
+            <!-- {/if} -->
+            <!-- {/foreach} -->
+            <input type="hidden" name="type" value="{$title.can_multi}" />
+          </td>
+          <!-- {/foreach} -->
+        </tr>
+        <tr>
+          <td align="center"><br />
+            <input type="hidden" name="id" value="{$vote_id}" />
+            <input type="submit" name="submit" value="{$lang.submit_vote}" />
+            <input type="reset" value="{$lang.submit_reset}" />
+          </td>
+        </tr>
+      </table>
+    </form>
+  </div>
+</div>
+<script type="text/javascript">
+
+/**
+ * 处理用户的投票
+ */
+function submit_vote()
+{
+  var frm     = document.forms['SKYUC_VOTEFORM'];
+  var type    = frm.elements['type'].value;
+  var vote_id = frm.elements['id'].value;
+  var option_id = 0;
+
+  if (frm.elements['option_id'].checked)
+  {
+    option_id = frm.elements['option_id'].value;
+  }
+  else
+  {
+    for (i=0; i<frm.elements['option_id'].length; i++ )
+    {
+      if (frm.elements['option_id'][i].checked)
+      {
+        option_id = (type == 0) ? option_id + "," + frm.elements['option_id'][i].value : frm.elements['option_id'][i].value;
+      }
+    }
+  }
+
+  if (option_id == 0)
+  {
+    return;
+  }
+  else
+  {
+    Ajax.call('vote.php', 'vote=' + vote_id + '&options=' + option_id + "&type=" + type, voteResponse, 'POST', 'JSON');
+  }
+}
+
+/**
+ * 处理投票的反馈信息
+ */
+function voteResponse(result)
+{
+  if (result.message.length > 0)
+  {
+    alert(result.message);
+  }
+  if (result.error == 0)
+  {
+    var layer = document.getElementById('SKYUC_VOTE');
+
+    if (layer)
+    {
+      layer.innerHTML = result.content;
+    }
+  }
+}
+
+</script>
+<!-- {/if} -->

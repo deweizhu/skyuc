@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<help>
+
+  <section id="list">
+    <title>伺服器列表</title>
+    <content>
+    <![CDATA[
+    <p><strong>快速編輯伺服器</strong></p>
+	<p>你可以直接點擊某個伺服器的伺服器的名稱、伺服器地址、排序後該區域將變為編輯區。編輯完成回車就完成編輯。放棄編輯只有單擊編輯區外任何區域即可。<span class="tips">排序按順序排序，即序號越小排前面</span>。更多編輯選項請點擊操作列中編輯鏈接。</p>
+	<p><strong>添加新伺服器</strong></p>
+	<p>點擊右上角的<a href="brand.php?act=add" target="main-frame"><span class="link">添加新伺服器</span></a>鏈接就可進入添加新伺服器界面</p>
+	
+
+	
+	
+	]]>
+    </content>
+    </section>
+
+    <section id="add">
+    <title>添加新伺服器</title>
+    <content>
+    <![CDATA[
+	<p><strong>添加新伺服器</strong></p>
+	<p>伺服器名必須填寫。其它選填。點擊右上角的<a href="server.php?act=list" target="main-frame"><span class="link">伺服器列表<span></a>鏈接即可返回列表頁面<p>
+	
+	]]>
+    </content>
+  </section>
+
+  <section id="edit">
+    <title>編輯伺服器</title>
+    <content>
+    <![CDATA[
+	<p><strong>編輯伺服器</strong></p>
+	<p>伺服器名必須填寫。其它選填。<br />點擊右上角的<a href="server.php?act=list" target="main-frame"><span class="link">伺服器列表<span></a>鏈接即可返回列表頁面<p>
+	
+	]]>
+    </content>
+  </section>
+
+</help>

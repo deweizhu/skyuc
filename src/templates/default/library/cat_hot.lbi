@@ -1,0 +1,43 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- {if $cat_hot} -->
+            <div class="i_top10">
+                <div class="movieSearchBillboard">
+                     <div class="movieSearchBillboardT">
+						<ul>
+						<li><img src="images/movieSearchBillboard.jpg" alt="{$show_cat.name|escape:html}点播排行榜" />
+
+						</li>
+						</ul>
+					</div>
+                        <!-- 排行start -->
+                        <div class="same_movie_info" id="i_top10_label1_div">
+
+					     <!-- {foreach name=cat_hot from=$cat_hot item=cat_hot}-->
+
+                        <!--{if $smarty.foreach.cat_hot.iteration lt 4 }-->
+                          <div class="homeGuessCon1 clearfix">
+								<a href="{$cat_hot.url}" target="_blank"><img src="{$cat_hot.thumb}" alt="{$cat_hot.title|escape:html}" width="90" height="120" /><img src="images/pic_90x120.gif" alt="{$cat_hot.title|escape:html}" class="pic_120" /></a>
+				<h1 class="HotNo0{$smarty.foreach.cat_hot.iteration}"><a href="{$cat_hot.url}" target="_blank">{$cat_hot.title}</a></h1><span class="HotListImg"><a href="{$cat_hot.url}" target="_blank"><img src="images/movie_note_dot.gif"  /></a></span>
+										<p><b>看点:</b>{$cat_hot.description|truncate:40:true}</p>
+									</div>
+                          <div class="clear"></div>
+                          <!--{else}-->
+
+                            <div class="TvCon1LeftConCCTit" id="TvCon1LeftConCCTit{$smarty.foreach.cat_hot.iteration}" >
+                                <div class="TvCon1LeftConCCMoreInfNumPos TvCon1LeftConCCMoreInfNumBg{$smarty.foreach.cat_hot.iteration}"></div>
+                                <div class="TvCon1LeftConCCMoreInfTitName"><a href="{$cat_hot.url}" target="_blank">{$cat_hot.title}</a></div>
+                          </div>
+                            <!--{/if}-->
+                          <!--{/foreach}-->
+
+
+				  </div>
+                  <!-- 排行end -->
+
+                        <div class="movieHomeBroadcastConLD"><ul><li></li></ul></div>
+
+                    </div>
+            </div>
+
+
+<!--{/if}-->

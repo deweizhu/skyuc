@@ -1,0 +1,42 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- {if $categories} -->
+<div class="mode_list">
+			<h2 class="title current">
+				<span class="t_01"><a>分类索引</a></span>
+
+			</h2>
+			<div class="content_cate">
+			   <dl class="list_item_all">
+					<dt></dt>
+				</dl>
+			<!--{foreach from=$categories item=cat}-->
+				<dl>
+					<dt><a href="{$cat.url}" class="c_txt3">{$cat.name|escape:html}</a> </dt>
+						<!--{foreach from=$cat.children item=child}-->
+						<dd><a href="{$child.url}" title="{$child.name|escape:html}">{$child.name|truncate:3}</a></dd>
+						<!--{/foreach}-->
+                    <dt></dt>
+				</dl>
+				<!--{/foreach}-->
+
+				<dl>
+
+					<dt>{$lang.cate_type_area}</dt>
+						<!--{foreach from=$area_list item=item name=item}-->
+						<!-- {if $smarty.foreach.item.iteration lt 9} -->
+						<dd><a href="search.php?area={$item|escape:url}&category={$category}" title="{$item|escape:html}">{$item}</a></dd>
+						<!-- {/if} -->
+						<!--{/foreach}-->
+					<dt></dt>
+					<!-- 按语言搜索隐藏：开始 -->
+					<!-- <dt>{$lang.cate_type_lang}</dt> -->
+					<!--{foreach from=$lang_list item=item}-->
+					<!-- <dd><a href="search.php?lang={$item|escape:url}&category={$category}" title="{$item|escape:html}">{$item}</a></dd> -->
+					<!--{/foreach}-->
+					<!-- 按语言搜索隐藏：结束 -->
+				</dl>
+
+			</div>
+
+		</div>
+<!-- {/if} -->

@@ -1,0 +1,38 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- {if $categories} -->
+<div class="title-01" >
+  <div class="title-01-arrow">影片分类</div>
+</div>
+<div class="sort-box01" id="category-tree">
+  <!--{foreach from=$categories item=cat}-->
+  <ul>
+    <li>
+      <div class="parent-cat"><a href="{$cat.url}">{$cat.name|escape:html}</a></div>
+      <!--{foreach from=$cat.children item=child}-->
+      <span><a href="{$child.url}">{$child.name|escape:html}</a></span>
+      <!--{/foreach}-->
+    </li>
+  </ul>
+  <!-- {/foreach}-->
+
+  <ul>
+    <li>
+      <div class="parent-cat"><a href="#">{$lang.cate_type_area}</a></div>
+      <!--{foreach from=$area_list item=item}-->
+      <span><a href="search.php?area={$item|escape:url}" title="{$item|escape:html}">{$item}</a></span>
+      <!--{/foreach}-->
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <div class="parent-cat"><a href="#">{$lang.cate_type_lang}</a></div>
+      <!--{foreach from=$lang_list item=item}-->
+      <span><a href="search.php?lang={$item|escape:url}" title="{$item|escape:html}">{$item}</a></span>
+      <!--{/foreach}-->
+    </li>
+  </ul>
+
+  <div class="hack"></div>
+</div>
+ <!-- {/if} -->

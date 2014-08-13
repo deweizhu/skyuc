@@ -1,0 +1,37 @@
+<div class="infoSidebar">
+	<!-- {if $new_show} -->
+		 <!--最新上映 start-->
+		   <div class="new_movie">
+		    <div class="tit"><img src="images/news_detail_newm_tit.gif" alt="最新影片" width="239" height="26" /></div>
+			<div class="con">
+
+           <!-- {foreach name=new_show from=$new_show item=new_show}-->
+
+		  <div class="num{$smarty.foreach.new_show.iteration}" id="num{$smarty.foreach.new_show.iteration}" onmouseover="showMore('num_pic{$smarty.foreach.new_show.iteration}')">
+			   <div class="lab">
+				<div class="movietit"><a href="{$new_show.url}" target="_blank">{$new_show.title}</a></div>
+				<div class="dotimg"><a href="#"><img src="images/movie_note_dot.gif" alt="d" width="15" height="12" border="0" align="absmiddle" /></a></div>
+				</div>
+			  </div>
+			  <div class="num_pic{$smarty.foreach.new_show.iteration}" id="num_pic{$smarty.foreach.new_show.iteration}" {if $smarty.foreach.new_show.iteration gt 1}style="display:none"{/if}>
+			   <div class="pic"><img src="{$new_show.thumb}" alt="{$new_show.title|escape}" width="90" height="120" border="0" /><a href="{$new_show.url}" target="_blank"><img src="images/pic_90x120.gif" width="90" height="120" class="mask_pic" alt="{$new_show.title|escape}" border="0" /></a></div>
+			   <div class="context">
+			    <span class="blacktit">{$lang.actor}</span><!--{foreach from=$new_show.actor item=val name=val}-->
+							<!--{if $smarty.foreach.val.iteration lt 2}-->
+							<a href="search.php?keywords={$val|escape:url}" target="_blank">{$val}</a>
+							<!--{/if}-->
+							<!--{/foreach}--><br />
+
+				<span class="blacktit">{$lang.description}</span>{$new_show.description|truncate:30:true}
+				</div>
+			   <div class="clear"></div>
+			  </div>
+
+                <!--{/foreach}-->
+
+			</div>
+			<div class="bottom"></div>
+		   </div>
+		   <!--最新上映 end-->
+
+<!--{/if}-->

@@ -1,0 +1,9 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!--浏览记录 start-->
+<div class="top_1_b" style="margin-top:12px;"><span>点播历史记录</span></div>
+				<div class="top_2_c">
+					<div class="top_2_2_c">
+							{insert name="history"}
+						</div>
+				</div>
+<!--浏览记录 end-->

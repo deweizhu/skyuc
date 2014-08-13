@@ -1,0 +1,15 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<div class="sort-box01" style="padding:10px;">
+        <dl>
+          <dt class="art-title" style="border-bottom:2px solid #CCC;"><strong>{$lang.article_title}</strong></dt>
+          <dt class="art-author" style="border-bottom:2px solid #CCC;"><strong>{$lang.article_author}</strong></dt>
+          <dt class="art-date" style="border-bottom:2px solid #CCC;"><strong>{$lang.article_add_time}</strong></dt>
+        </dl>
+        <!-- {foreach from=$artciles_list item=article} -->
+        <dl>
+          <dt class="art-title"><a href="{$article.url}">{$article.title|truncate:45}</a></dt>
+          <dt class="art-author">{$article.author}</dt>
+          <dt class="art-date" style="font-size:10px;color:#666;">{$article.add_time}</dt>
+        </dl>
+        <!--{/foreach}-->
+        <div class="hack"></div>

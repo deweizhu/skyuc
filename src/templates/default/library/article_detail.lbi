@@ -1,0 +1,19 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!--文章内容部分-->
+			 <div class="article">
+			  <div class="article_top"></div>
+			  <div class="article_con">
+
+				   <div class="title">{$article.title} </div>
+				   <div class="date" >{$article.add_time} 作者：<span id="clickNum">{$article.author|escape:html}</span></div>
+					   <div class="main_text">
+								{$article.content}
+						{if $article.open_type eq 2 or $article.open_type eq 1}<br />
+						<p><a href="{$article.file_url}" target="_blank">{$lang.relative_file}</a></p>
+						{/if}
+						</div>
+			   </div>
+
+			  <div class="article_bottom"></div>
+			 </div>
+  <!--文章内容部分结束-->

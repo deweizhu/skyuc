@@ -1,0 +1,39 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- {if $cat_hot} -->
+ <div class="dewei_3">
+            	<div class="dewei_3_1" id="myTab1">
+                	<span>{$show_cat.name}热播榜</span>
+                </div>
+			<!-- 排行start -->
+                <div class="dewei_3_2" id="myTab1_Content0">
+				  <!-- {foreach name=cat_hot from=$cat_hot item=cat_hot}-->
+
+                       <!--{if $smarty.foreach.cat_hot.iteration eq 1 }-->
+                	<div class="dewei_3_2_1">
+					 <span><a href="{$cat_hot.url}" class="imgBg1"><img src="{$cat_hot.thumb}" alt="{$cat_hot.title|escape:html}"/></a><p></p></span>
+                        <h1><a href="{$cat_hot.url}">{$cat_hot.title|truncate:10}</a></h1>
+                        <ul>
+                        	<li>{$lang.click_count}{$cat_hot.click_count}{$lang.unit_order}</li>
+                        	<li>{$lang.actor}<!--{foreach from=$cat_hot.actor item=val name=val}-->
+							<!--{if $smarty.foreach.val.iteration eq 1}-->
+							<a href="search.php?keywords={$val|escape:url}" target="_blank">{$val}</a>
+							<!--{/if}-->
+							<!--{/foreach}--></li>
+                        </ul>
+                    </div>
+                    <div class="dewei_3_2_2">
+							<!--{else}-->
+                    	     <li style="background-image: url(images/icon_{$smarty.foreach.cat_hot.iteration}.jpg);"><a href="{$cat_hot.url}">{$cat_hot.title|truncate:10}</a><span>{$cat_hot.click_count}{$lang.unit_order}</span></li>
+							    <!--{/if}-->
+                          <!--{/foreach}-->
+                    </div>
+                    <div class="dewei_3_2_3"><a href="{$show_cat.url}">TOP50 >></a></div>
+                </div>
+
+            <!-- 排行end -->
+
+            </div>
+<!--{/if}-->
+        </div>
+ </div>
+ <!-- 一个分类通栏结束 -->

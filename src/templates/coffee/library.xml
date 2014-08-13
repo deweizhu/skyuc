@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library>
+  <dwt file="index.dwt">
+      <lib num="0">/library/new_articles.lbi</lib>
+      <lib num="10">/library/top10.lbi</lib>
+      <lib num="10">/library/new10.lbi</lib>
+      <lib num="6">/library/recom.lbi</lib>
+      <lib num="0">/library/vote.lbi</lib>
+	  <lib num="0">/library/tree.lbi</lib>
+	  <lib num="0">/library/member.lbi</lib>
+	  <lib num="0">/library/search_form.lbi</lib>
+    </dwt>
+  <dwt file="list.dwt">
+      <lib num="0">/library/ur_here.lbi</lib>
+      <lib num="10">/library/top10_cate.lbi</lib>
+      <lib num="10">/library/new10_cate.lbi</lib>
+      <lib num="0">/library/show_list.lbi</lib>
+	  <lib num="0">/library/pages.lbi</lib>
+	  <lib num="0">/library/tree_cate.lbi</lib>
+	  <lib num="6">/library/recom_cate.lbi</lib>
+	  <lib num="0">/library/member.lbi</lib>
+	  <lib num="0">/library/history.lbi</lib>
+	  <lib num="0">/library/search_form.lbi</lib>
+    </dwt>
+  <dwt file="show.dwt">
+	  <lib num="0">/library/ur_here.lbi</lib>
+      <lib num="0">/library/history.lbi</lib>
+      <lib num="10">/library/top10_detail.lbi</lib>
+	  <lib num="10">/library/new10_detail.lbi</lib>
+      <lib num="0">/library/related_actor.lbi</lib>
+	  <lib num="0">/library/related_director.lbi</lib>
+	  <lib num="0">/library/same_movie.lbi</lib>
+	  <lib num="0">/library/member.lbi</lib>
+	  <lib num="0">/library/comments.lbi</lib>
+	  <lib num="0">/library/search_form.lbi</lib>
+	  <lib num="0">/library/tree_detail.lbi</lib>
+	  <lib num="0">/library/show_detail.lbi</lib>
+    </dwt>
+  <dwt file="search.dwt">
+      <lib num="0">/library/ur_here.lbi</lib>
+      <lib num="10">/library/top10_cate.lbi</lib>
+      <lib num="10">/library/new10_cate.lbi</lib>
+      <lib num="0">/library/show_list.lbi</lib>
+	  <lib num="0">/library/pages.lbi</lib>
+	  <lib num="0">/library/tree_cate.lbi</lib>
+	  <lib num="0">/library/member.lbi</lib>
+	  <lib num="0">/library/history.lbi</lib>
+	  <lib num="0">/library/search_form.lbi</lib>
+    </dwt> 
+	<dwt file="message_board.dwt">
+      <lib num="0">/library/ur_here.lbi</lib>
+      <lib num="10">/library/top10_cate.lbi</lib>
+      <lib num="10">/library/new10_cate.lbi</lib>
+	  <lib num="10">/library/message_list.lbi</lib>
+	  <lib num="0">/library/tree_cate.lbi</lib>
+	  <lib num="0">/library/member.lbi</lib>
+	  <lib num="0">/library/history.lbi</lib>
+	  <lib num="0">/library/search_form.lbi</lib>
+    </dwt> 
+
+ <dwt file="article.dwt">
+      <lib num="0">/library/ur_here.lbi</lib>
+	  <lib num="0">/library/member.lbi</lib>
+	  <lib num="0">/library/history.lbi</lib>
+      <lib num="10">/library/new10_article.lbi</lib>
+	  <lib num="0">/library/related_article.lbi</lib>
+	  <lib num="0">/library/article_detail.lbi</lib>
+	  <lib num="0">/library/search_form.lbi</lib>
+	  <lib num="0">/library/comments.lbi</lib>
+	  <lib num="10">/library/new10_article.lbi</lib>
+	  <lib num="10">/library/top10_article.lbi</lib>
+	  <lib num="0">/library/article_cate_tree.lbi</lib>
+    </dwt>   
+ <dwt file="article_cat.dwt">
+      <lib num="0">/library/ur_here.lbi</lib>
+	  <lib num="0">/library/member.lbi</lib>
+	  <lib num="0">/library/history.lbi</lib>
+	  <lib num="0">/library/article_cate_tree.lbi</lib>
+	  <lib num="0">/library/article_cate.lbi</lib>
+	  <lib num="0">/library/search_form.lbi</lib>
+	  <lib num="0">/library/pages.lbi</lib>
+	  <lib num="10">/library/new10_article.lbi</lib>
+	  <lib num="10">/library/top10_article.lbi</lib>
+    </dwt>   
+</library>

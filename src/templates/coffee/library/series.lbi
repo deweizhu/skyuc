@@ -1,0 +1,14 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- {if $series} -->
+<div class="title-01">
+  <div class="title-01-arrow">{$show_cat.name}连载更新
+</div>
+</div>
+<div class="sort-box01" id="top10">
+  <ul>
+    <!-- {foreach name=series from=$series item=series}-->
+    <li><img src="images/top_{$smarty.foreach.series.iteration}.gif" alt="" /> <span><a href="{$series.url}" title="{$series.title|escape:html}">{$series.title|truncate:12:true}</a></span></li>
+    <!--{/foreach}-->
+  </ul>
+</div>
+<!--{/if}-->

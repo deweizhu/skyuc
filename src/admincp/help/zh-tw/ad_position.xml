@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<help>
+  <section id="list">
+    <title>廣告位置列表</title>
+    <content>
+    <![CDATA[
+	<p>廣告位置列表頁面列出您所有的廣告位置信息</p>
+	<p>在此您可以進行如下操作:</p>
+	
+	<strong>快速編輯廣告位置信息</strong>
+	<p>您可以快速編輯包括：<br><span class="link">位置名稱</span> <span class="link">位置寬度</span> 
+	<span class="link">位置高度</span> <span class="link">描述信息</span> 等內容。<br>單擊即可出現編輯文本框。輸入您的新內容後回車，修改即可生效！</p>
+	<p class="tips"> 提示：在輸入新的廣告位置名稱時，不能與現有名稱的重復！</p>
+	
+	<strong>快速查看廣告信息</strong>
+	<p>單擊列表右邊的<span class="link"> 廣告內容 </span>鏈接,即可查看該廣告位置的廣告信息。</p>
+	
+	<strong>添加廣告位置</strong>
+	<p>您只要點擊列表右邊的<a href="ads_position.php?act=add" target="main-frame"><span class="link"> 添加廣告位 </span></a>鏈接，即可進入到添加廣告位的操作頁面。</p>
+	
+	<strong>編輯廣告位置</strong>
+	<p>您只要單擊列表右邊的<span class="link"> 編輯 </span>鏈接，即可進行相應的編輯操作。</p>
+	
+	<strong>刪除廣告位置</strong>
+	<p>您只要點擊列表右邊的<span class="link"> 刪除 </span>鏈接，按系統提示即可完成刪除的操作。</p>
+	
+	]]>
+    </content>
+  </section>
+  <section id="add">
+    <title>添加廣告位置</title>
+    <content>
+    <![CDATA[
+	<p>您可以在此進行廣告位置的添加操作</p>
+	
+	<strong>廣告位置名稱</strong>
+	<p>在此您可以輸入如：<br>LOGO廣告 頁腳廣告 通欄廣告 頁面左側廣告等等簡潔明了的廣告位置名稱。</p>
+	
+	<strong>廣告位置寬度</strong>
+	<p>在此輸入該位置的廣告所要顯示的寬度，單位為像素。必須為整數，大小應在1～1024之間。</p>
+
+	<strong>廣告位置高度</strong>
+	<p>在此輸入該位置的廣告所要顯示的高度，單位為像素。必須為整數，大小應在1～1024之間。</p>
+
+	<strong>廣告位模板</strong>
+	<p>系統已有默認的位置模板，如果覺得不合適當前的廣告位，您也可以按自己的廣告位情況進行相應的修改。</p>
+	<p></p>
+	<p></p>
+	]]>
+    </content>
+  </section>
+  <section id="edit">
+    <title>編輯廣告位置</title>
+    <content>
+    <![CDATA[
+	<p>您可以在此進行廣告位置信息的編輯操作<br>(詳細幫助信息請參見 <span class="link">添加廣告位置</span> 部分)</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+]]>
+    </content>
+  </section>
+</help>

@@ -1,0 +1,199 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- 网友评论 开始 -->
+<!--{if $comments}-->
+	<div id="comment">
+	 <!--{foreach from=$comments item=comment}-->
+	 <div class="row">
+		<h3><span>{if $comment.isadmin}{$lang.admin_username}{else}{$lang.nickname}{/if}:{$comment.username}</span>
+		<label>{$comment.ip}{$lang.publish_comment}:{$comment.add_time}</label></h3>
+		<div class="con">
+		<!--{if $comment.reply}-->
+		   <!-- {if $comment.retotal gt 2} -->
+		   <div id="conbox{$comment.id}" style="display:none">
+		   <!--{/if}-->
+		   <!--{foreach from=$comment.reply item=reply}-->
+			<div class="reply">
+			<!--{/foreach}-->
+			<!--{foreach from=$comment.reply item=reply name=reply}-->
+			  		<h4><span>{if $reply.isadmin}{$lang.admin_username}{else}{$lang.nickname}{/if}:{$reply.username}</span>
+					<label>{$smarty.foreach.reply.iteration}</label></h4>
+						<p>{$reply.content}</p>
+			</div>
+			<!--{/foreach}-->
+		   <!-- {if $comment.retotal gt 2} -->
+		   </div>
+		    <div class="reply" id="conboxone{$comment.id}">
+			<div class="reply">
+			  	<h4><span>{if $reply.isadmin}{$lang.admin_username}{else}{$lang.nickname}{/if}:{$replay.username}</span><label>1</label></h4>
+			    <p>{$comment.reply.0.content}</p>
+			</div>
+		   <p class="hideTips"  onclick="return expandconbox({$comment.id});" title="{$lang.showtyps}">{$lang.hidetyps}<span>[{$lang.showtyps}]</span></p>
+		   </div>
+		   <!--{/if}-->
+	   <!--{/if}-->
+	   		 <div class="mycon">{$comment.content}</div>
+		</div>
+	    <div class="cmtmenu"><a onclick="return commentIdea(this, {$comment.id},3);" class="item3">{$lang.against}[-{$comment.against}]</a><a onclick="return commentIdea(this, {$comment.id},2);" class="item2" >{$lang.agree}[+{$comment.agree}]</a><a  onclick="commentIdea(this, {$comment.id}, 1, '<b>{$lang.reply}：</b>{$comment.content|truncate:16}');" class="item1">{$lang.reply}</a></div>
+	 </div>
+  <!--{foreachelse}-->
+  {$lang.no_comments}
+  <!--{/foreach}-->
+  		<div class="cmtpager">
+		{$lang.pager_1}{$pager.record_count}{$lang.pager_2}{$lang.pager_3}{$pager.size}{$lang.pager_2}{$lang.pager_4} {$pager.page_count}{$lang.pager_5}
+		<span><a href="{$pager.page_first}">{$lang.page_first}</a> <a href="{$pager.page_prev}">{$lang.page_prev}</a> <a href="{$pager.page_next}">{$lang.page_next}</a> <a href="{$pager.page_last}">{$lang.page_last}</a> </span></div>
+	</div>
+	<!--{/if}-->
+<!-- 网友评论 结束 -->
+<!-- 添加评论 开始 -->
+<form action="javascript:;" onsubmit="submitComment(this)" method="post" name="commentForm" id="commentForm">
+  <table width="100%" border="0" cellspacing="1" style="border-top: 1px solid #DADADA;">
+    <tr>
+      <td>{$lang.username}</td>
+      <td><input type="text" name="username" id="username"  maxlength="60"   size="20"  <!--{if $username}--> value="{$username}"<!--{else}--> value="{$lang.anonymous}"<!--{/if}--> readonly="true"/></td>
+    </tr>
+    <tr>
+      <td>{$lang.email}</td>
+      <td><input type="text" name="email" id="email" size="30" maxlength="60"  {if $email} value="{$email}" {/if} /></td>
+    </tr>
+	<tr>
+      <td id="recmt" colspan="2"></td>
+    </tr>
+	<!--{if $enabled_captcha eq 1}-->
+    <tr>
+      <td valign="top">{$lang.comment_captcha}</td>
+      <td><input type="text"  name="humanverify[input]"  id="verifycode"  size="10" maxlength="6"  onfocus="try{opencode('menu_gd',this)}catch(e){}" /><input type="hidden" name="humanverify[hash]" id="hash"  value="{$humanverify.hash}" />
+		<div class="menu" id="menu_gd" style="visibility:hidden;height:0;"><img src="image.php?{$session.sessionurl}type=hv&amp;hash={$humanverify.hash}" id="verifyimage"  align="absmiddle" style="cursor:pointer;"  title="{$lang.click_for_another}"  border="0" /></div></td>
+    </tr>
+    <!--{/if}-->
+    <tr>
+      <td valign="top">{$lang.comment_content}</td>
+      <td><textarea name="content"  sborient="vertical" orient="vertical" id="msg_content"></textarea></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td><input type="hidden" name="cmt_type" value="{$comment_type}" />
+        <input type="hidden" name="id" value="{$id}" />
+		<input type="hidden" name="reid" value="0" id="recmtid" />
+        <input type="submit" name="Submit" value="{$lang.submit_comment}" />
+        <input type="reset" name="Submit2" value="{$lang.button_reset}" />
+      </td>
+    </tr>
+  </table>
+</form>
+		<!-- 添加评论 结束 -->
+
+<script type="text/javascript">
+{foreach from=$lang.cmt_lang item=item key=key}
+var {$key} = "{$item}";
+{/foreach}
+
+/**
+ * 获取图像验证码
+*/
+function getimage()
+ {
+	var url = 'ajax.php?{$session.sessionurl_js}type=hv&do=imagereg&hash=' + $('#verifyimage').attr('alt');
+
+	Ajax.call(url, '', function(data){
+			   var src= 'image.php?{$session.sessionurl_js}type=hv&hash=' + data.message;
+				$('#verifyimage').attr('src', src);
+				$('#verifyimage').attr('alt', data.message);
+				$('#hash').attr('value', data.message);
+			}, 'POST', 'JSON');
+}
+/**
+ * 展开评论楼层
+*/
+function expandconbox(id)
+{
+	 $('#conboxone'+id).hide();
+	 $('#conboxdo'+id).hide();
+	 $('#conbox'+id).show();
+}
+/**
+ * 评论顶踩
+*/
+function commentIdea(zone, cmtid, id, data)
+{
+    if (id == 1)
+    {
+	  $("#recmt").show();
+	  $("#recmt").html(data)
+	  $("#recmtid").val(cmtid);
+    }
+	else {
+	  var url = 'ajax.php?do=cmtidea&{$session.sessionurl_js}';
+	  Ajax.call(url, 'cmtid=' + cmtid +'&id=' + id,  function(data){
+				$(zone).text(data);
+			}, 'POST', 'JSON');
+   }
+}
+/**
+ * 提交评论信息
+*/
+function submitComment(frm)
+{
+  var cmt = new Object;
+
+  cmt.username        = frm.elements['username'].value;
+  cmt.email           = frm.elements['email'].value;
+  cmt.content         = frm.elements['content'].value.replace(/\\/g, '\\\\');
+  cmt.type            = frm.elements['cmt_type'].value;
+  cmt.id              = frm.elements['id'].value;
+  cmt.reid            = frm.elements['reid'].value;
+  cmt.input			  = document.getElementById('verifycode') ? document.getElementById('verifycode').value : '';
+  cmt.hash            = document.getElementById('hash') ?  document.getElementById('hash').value : '';
+
+
+  if (cmt.username.length == 0)
+  {
+     alert(cmt_empty_username);
+     return false;
+  }
+
+  if (cmt.email.length > 0)
+  {
+     if (!(Utils.isEmail(cmt.email)))
+     {
+        alert(cmt_error_email);
+        return false;
+      }
+   }
+
+   if (cmt.content.length == 0)
+   {
+      alert(cmt_empty_content);
+      return false;
+   }
+
+   if (cmt.verifycode > 0 && cmt.verifycode.length == 0 )
+   {
+      alert(verifycode_not_null);
+      return false;
+   }
+   Ajax.call('ajax.php?do=comment', 'cmt=' + $.toJSON(cmt), commentResponse, 'POST', 'JSON');
+   return false;
+}
+
+/**
+ * 处理提交评论的反馈信息
+*/
+  function commentResponse(result)
+  {
+    if (result.message)
+    {
+      alert(result.message);
+    }
+
+    if (result.error == 0)
+    {
+      var layer = document.getElementById('SKYUC_COMMENT');
+
+      if (layer)
+      {
+        layer.innerHTML = result.content;
+      }
+    }
+  }
+
+</script>

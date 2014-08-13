@@ -1,0 +1,22 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<div id="article">
+<!-- 开始相关声{foreach name=nav_bottom_list from=$navigator_list.bottom item=nav} -->
+        <a href="{$nav.url}" <!-- {if $nav.opennew eq 1} --> target="_blank" <!-- {/if} -->>{$nav.name}</a>
+        <!-- {if !$smarty.foreach.nav_bottom_list.last} -->
+        <img src="../images/nav-line.gif" alt="" />
+        <!-- {/if} -->
+  <!-- 相关声明{/foreach}-->
+</div>
+<!--End #article-->
+<img src="images/footer-logo.gif" alt="" id="footer-logo" />
+<div>{$copyright}</div>
+<div>
+  <!-- ICP 证书{if $icp_number} -->
+  {$lang.icp_number}:<a href="http://www.miibeian.gov.cn/" target="_blank">{$icp_number}</a><br />
+  <!-- 结束ICP 证书{/if} -->
+  {insert name="query_info"}<br />
+  <!-- {if $licensed}--><A href="http://www.skyuc.com" target="_blank" style="font-size:10px">Powered by <strong><span style="color: #3366FF">SKYUC!</span> <span style="color: #FF9966">{$skyuc_version}</span></strong></A> {$licensed}<!-- {/if}--><br /></div>
+<script type="text/javascript">
+var process_request = "{$lang.process_request}";
+</script>
+{$stats_code}

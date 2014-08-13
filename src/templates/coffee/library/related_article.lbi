@@ -1,0 +1,14 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- {if $related_article} -->
+<div class="title-01">
+  <div class="title-01-arrow">相关影片
+</div>
+</div>
+<div class="sort-box01" id="top10">
+  <ul>
+    <!-- {foreach name=related_article from=$related_article item=related_article}-->
+    <li><img src="images/top_{$smarty.foreach.related_article.iteration}.gif" alt="" /> <span><a href="{$related_article.url}" title="{$related_article.title|escape:html}">{$related_article.title|truncate:12:true}</a></span></li>
+    <!--{/foreach}-->
+  </ul>
+</div>
+<!--{/if}-->

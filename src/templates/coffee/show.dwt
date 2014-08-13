@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>{$page_title}</title>
+<!-- TemplateEndEditable -->
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="icon" href="animated_favicon.gif" type="image/gif" />
+<link href="{$skyuc_css_path}" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/pointstar.js"></script>
+</head>
+<body>
+<!-- #BeginLibraryItem "/library/page_header.lbi" -->
+<!-- #EndLibraryItem -->
+<div id="globalWrapper">
+<!-- TemplateBeginEditable name="搜索条上方通栏广告位" -->
+<!-- TemplateEndEditable -->
+<!-- TemplateBeginEditable name="导航栏下方搜索条" -->
+	<!-- #BeginLibraryItem "/library/search_form.lbi" -->
+	<!-- #EndLibraryItem -->
+<!-- TemplateEndEditable-->
+<div id="container">
+ <div id="page-left">
+ <!-- TemplateBeginEditable name="主区域左侧" -->
+	<!-- #BeginLibraryItem "/library/member.lbi" -->
+	<!-- #EndLibraryItem -->
+
+	<!-- #BeginLibraryItem "/library/new10_detail.lbi" -->
+	<!-- #EndLibraryItem -->
+
+	<!-- #BeginLibraryItem "/library/tree_detail.lbi" -->
+	<!-- #EndLibraryItem -->
+
+	<!-- #BeginLibraryItem "/library/same_movie.lbi" -->
+	<!-- #EndLibraryItem -->
+
+	<!-- #BeginLibraryItem "/library/history.lbi" -->
+	<!-- #EndLibraryItem -->
+<!-- TemplateEndEditable--></div>
+    <!--End #page-left-->
+    <div style="float:left;width:784px;padding-left:1px;">
+		<!-- TemplateBeginEditable name="当前位置" -->
+	<!-- #BeginLibraryItem "/library/ur_here.lbi" -->
+	<!-- #EndLibraryItem -->
+<!-- TemplateEndEditable -->
+<!-- TemplateBeginEditable name="影片内容详情" -->
+	<!-- #BeginLibraryItem "/library/show_detail.lbi" -->
+	<!-- #EndLibraryItem -->
+<!-- TemplateEndEditable -->
+
+        <!-- TemplateBeginEditable name="主区域中间" -->
+	<!-- #BeginLibraryItem "/library/comments.lbi" -->
+	<!-- #EndLibraryItem -->
+<!-- TemplateEndEditable--></div>
+      <!--End #page-middle-->
+			 <div id="page-right">
+			 <!-- TemplateBeginEditable name="主区域右侧" -->
+	<!-- #BeginLibraryItem "/library/top10_detail.lbi" -->
+	<!-- #EndLibraryItem -->
+
+	<!-- #BeginLibraryItem "/library/related_director.lbi" -->
+	<!-- #EndLibraryItem -->
+
+	<!-- #BeginLibraryItem "/library/related_actor.lbi" -->
+	<!-- #EndLibraryItem -->
+<!--TemplateEndEditable--> </div>
+      <!--End #page-right-->
+    </div>
+    <br />
+    <div class="hack"></div>
+  </div>
+  <!-- End #container -->
+</div>
+<!--End #globalWrapper-->
+<a name="lxkf"></a>
+<div id="footer"><!-- #BeginLibraryItem "/library/help.lbi" -->
+<!-- #EndLibraryItem -->
+
+<!-- #BeginLibraryItem "/library/page_footer.lbi" -->
+<!-- #EndLibraryItem -->
+</div>
+<!--End #footer-->
+<script type="text/javascript">
+{foreach from=$lang.show_js item=item key=key}
+var {$key} = "{$item}";
+{/foreach}
+
+<!--  -->
+onload = function()
+{
+try
+{
+  onload_leftTime();
+}
+catch (e)
+{}
+}
+<!--  -->
+</script>
+</body>
+</html>

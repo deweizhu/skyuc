@@ -1,0 +1,15 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- {if $tags} -->
+<div class="i_tag">
+				<!--标签-->
+				<div class="movieLabelsSummary">
+						<div class="movieSearchLTitle"><ul><li><img src="images/i_tag.jpg" alt="标签汇总" /></li></ul></div>
+						<div class="movieLabelsSummaryCon clearfix">
+							<ul>
+							   <!--{foreach from=$tags item=tag}-->
+								<li><a href="search.php?keywords={$tag.tag_words|escape:url}" target="_blank">{$tag.tag_words|escape:html}</a></li>
+							   <!--{/foreach}-->
+							</ul>
+						</div>
+					</div>
+  <!-- {/if} -->

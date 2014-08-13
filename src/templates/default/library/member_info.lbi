@@ -1,0 +1,92 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<div id="append_parent"></div>
+{if $netbar}
+<div class="login_con">
+		<span id="head_logininfo">
+		<b>{$lang.netbar_user}</b>：〖{$netbar.title}〗 |
+	    <b>{$lang.endtime}</b>：{$netbar.endtime} |
+		<b>{$lang.netbarip}</b>：{$netbar.curip}|
+		</span>
+		<input type="button" value="{$lang.netbar_center}" class="k_btn"  onclick="window.location.href='netbar.php'"/>
+	</div>
+{else}
+{if $user_info}
+<div class="login_con">
+		<span id="head_logininfo">
+		<b>{$lang.member_name}</b>：{$user_info.username|truncate:18} |
+		<b>{$lang.your_type}</b>：{$user_info.usertype} | <b>{$user_info.your_endlook}</b>：{$user_info.endlook} |
+		<a href="user.php">{$lang.user_center}</a> <!--{if $pmopen}--> | <a href="###" onclick="pmwin('open')">{$lang.pmopen}</a><!--{/if}-->
+		</span>
+		<input type="button" value="{$lang.logout}" class="k_btn"  onclick="window.location.href='user.php?act=logout'"/>
+	</div>
+{else}
+
+<div class="login_con">
+		<form id="SKYUC_LOGINFORM" name="SKYUC_LOGINFORM" method="post" action="javascript:signIn()">
+		<span id="head_logininfo">
+		<p class="h_user"><b>{$lang.member_name}</b><input name="username_head" id="username_head" type="text" value="{$skyuc_username}" /></p>
+		<p class="h_pwl"><b>{$lang.password}</b><input name="password_head" id="password_head" type="password" /></p>
+		<input type="submit" value="{$lang.login}" class="l_btn" />
+		<input type="button" value="{$lang.register}" class="r_btn" onclick="window.location.href='user.php?act=register'"/>
+		</span>
+		</form>
+	</div>
+<script type="text/javascript">
+/**
+ * 会员登录
+ */
+function signIn()
+{
+  var frm = document.forms['SKYUC_LOGINFORM'];
+
+  if (frm)
+  {
+    var username = frm.elements['username_head'].value;
+    var password = frm.elements['password_head'].value;
+
+    if (username.length == 0 || password.length == 0)
+    {
+
+       alert("{$lang.empty_username_password}");
+
+        return;
+    }
+    else
+    {
+       Ajax.call('user.php?act=signin', 'username=' + username + '&password=' + password, signinResponse, "POST", "TEXT");
+    }
+  }
+  else
+  {
+    alert('Template error!');
+  }
+}
+
+function signinResponse(result)
+{
+  var mzone = document.getElementById("SKYUC_MEMBERZONE");
+  var res   = $.evalJSON(result);
+
+  if (res.error > 0)
+  {
+    // 登录失败
+    alert(res.content);
+  }
+  else
+  {
+    if (mzone)
+    {
+      mzone.innerHTML = res.content;
+	  evalscript(res.ucdata);
+	  //alert(res.ucdata);
+    }
+    else
+    {
+      alert("Template Error!");
+    }
+  }
+}
+</script>
+
+{/if}
+{/if}

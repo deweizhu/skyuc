@@ -1,0 +1,9 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<div class="infoSidebar_listTitle"><img src="images/new_infolist.jpg" alt="{$lang.article_title}" /><span>{$lang.article_author}--{$lang.article_add_time}</span></div>
+			<div class="infoSidebar_list_list">
+					<ul>
+					<!-- {foreach from=$artciles_list item=article} -->
+					<li><span>{$article.author} 发表于：{$article.add_time} </span>·<a href="{$article.url}">{$article.title|truncate:45}</a></li>
+					<!--{/foreach}-->
+					</ul>
+				</div>

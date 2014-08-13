@@ -1,0 +1,27 @@
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<!-- {if $new_show} -->
+			<div class="i_new_upload">
+            	<dl>
+            	  <!-- {foreach name=new_show from=$new_show item=new_show}-->
+					<!--{if $smarty.foreach.new_show.iteration eq 1 }-->
+            	<dt class="num1"><a href="{$new_show.url}" target="_blank" title="{$new_show.title|escape:html}">{$new_show.title}</a></dt>
+            	<dd><p class="num1_a"><b>{$lang.actor}</b><span>
+							<!--{foreach from=$new_show.actor item=val name=val}-->
+							<!--{if $smarty.foreach.val.iteration lt 3}-->
+							<a href="search.php?keywords={$val|escape:url}" target="_blank">{$val}</a>
+							<!--{/if}-->
+							<!--{/foreach}--></span></p>
+                <p class="num1_b"><b>{$lang.description}</b><span title="{$new_show.description|truncate:40:true|escape:html}">{$new_show.description|truncate:40:true}</span></p></dd>
+            	<!--{elseif $smarty.foreach.new_show.iteration lt 6}-->
+                <dt class="num{$smarty.foreach.new_show.iteration}"><a href="{$new_show.url}" target="_blank">{$new_show.title|truncate:14:true}</a></dt>
+					<!--{/if}-->
+                <!--{/foreach}-->
+                </dl>
+                <div class="img_float_r">
+				   <!-- {foreach name=new_show from=$new_show item=new_show}-->
+					<!--{if $smarty.foreach.new_show.iteration eq 1 }-->
+                <a href="{$new_show.url}" target="_blank"><img src="{$new_show.thumb}"  width="110" height="150" /><img src="images/pic_110x150.gif" class="pic_150" alt="{$new_show.title|escape:html}" /></a>
+					<!--{/if}-->
+                <!--{/foreach}-->
+                </div>
+<!--{/if}-->

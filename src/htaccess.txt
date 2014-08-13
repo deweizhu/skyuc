@@ -1,0 +1,25 @@
+<FilesMatch "\.(bak|inc|lib|sh|tpl|lbi|dwt)$">
+    order deny,allow
+    deny from all
+</FilesMatch>
+
+RewriteEngine On
+#RewriteBase /
+
+# direct one-word access
+RewriteRule ^index.html$    index.php [L]
+RewriteRule ^list.html$     index.php [L]
+RewriteRule ^show.html$     index.php [L]
+
+# access any object by its numeric identifier
+RewriteRule ^rss.xml$                 rss.php [L]
+
+
+RewriteRule ^list-([0-9]+)-([0-9]+)-(.+)-([a-zA-Z]+)-([a-zA-Z]+)(.*)\.html$    list.php?id=$1&page=$2&sort=$3&order=$4&display=$5  [QSA,L]
+RewriteRule ^list-([0-9]+)(.*)\.html$                              list.php?id=$1 [QSA,L]
+RewriteRule ^show-([0-9]+)(.*)\.html$                                   show.php?id=$1 [QSA,L]
+RewriteRule ^article_cat-([0-9]+)-([0-9]+)-(.+)-([a-zA-Z]+)(.*)\.html$  article_cat.php?id=$1&page=$2&sort=$3&order=$4  [QSA,L]
+RewriteRule ^article_cat-([0-9]+)-([0-9]+)(.*)\.html$                   article_cat.php?id=$1&page=$2                   [QSA,L]
+RewriteRule ^article_cat-([0-9]+)(.*)\.html$                            article_cat.php?id=$1                          [QSA,L]
+RewriteRule ^article-([0-9]+)(.*)\.html$                                article.php?id=$1                               [QSA,L]
+RewriteRule ^subject-([0-9]+)(.*)\.html$				subject.php?id=$1 [QSA,L]

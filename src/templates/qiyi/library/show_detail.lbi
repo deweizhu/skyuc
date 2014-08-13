@@ -1,0 +1,132 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+			<div class="mod_details">
+				<div class="mod_info">
+                	<div class="pic"><img src="{$show.image}" alt="{$show.title|escape:html}"  /></div>
+                    <div class="text">
+						<div class="mod_name">
+							<h2>{$show.title_style}</h2><p><!-- {if $show.status neq ''} -->{$show.status} <!--{/if}--></p>
+						</div>
+						<ul class="details_list">
+							<!-- {if $show.title_alias neq ''} -->
+							<li>{$lang.title_alias}：{$show.title_alias}</li>
+							<!--{/if}-->
+							<!-- {if $show.title_english neq ''} -->
+							<li>{$lang.title_english} ：{$show.title_english}</li>
+							<!--{/if}-->
+										<dt>{$lang.tags} ：</dt>
+			<li class="tag_info" id="SKYUC_TAGS">&nbsp;
+			<!-- 标记{foreach from=$tags item=tag}-->
+        <a href="search.php?keywords={$tag.tag_words|escape:url}">{$tag.tag_words|escape:html}[{$tag.tag_count}]</a>
+        <!-- 结束标记{/foreach} -->
+		  <form name="tagForm" action="javascript:;" onsubmit="return submitTag(this)">
+		   <input type="hidden" name="show_id" value="{$show.show_id}" />
+		   <script type="text/javascript">
+			//<![CDATA[
+			/**
+			 * 用户添加标记的处理函数
+			 */
+			function submitTag(frm)
+			{
+			  var tag_not_empty = "{$lang.tag_not_empty}";
+
+			  try
+			  {
+				var tag = frm.elements['tag'].value;
+				var idx = frm.elements['show_id'].value;
+
+				if (tag.length > 0 && parseInt(idx) > 0)
+				{
+				  Ajax.call('user.php?act=add_tag', "id=" + idx + "&tag=" + encodeURIComponent(tag), submitTagResponse, "POST", "JSON");
+				}
+				else{
+				   alert(tag_not_empty);
+				}
+			  }
+			  catch (e) { alert(e); }
+
+			  return false;
+			}
+
+			function submitTagResponse(result)
+			{
+			  var div = document.getElementById('SKYUC_TAGS');
+
+			  if (result.error > 0)
+			  {
+				alert(result.message);
+			  }
+			  else
+			  {
+				try
+				{
+				  div.innerHTML = '';
+				  var tags = result.content;
+
+				  for (i = 0; i < tags.length; i++)
+				  {
+					div.innerHTML += '<a href="search.php?keywords='+tags[i].word+'">' +tags[i].word + '[' + tags[i].count + ']<\/a>&nbsp;&nbsp; ';
+				  }
+				}
+				catch (e) { alert(e); }
+			  }
+			}
+		//]]>
+		</script>
+			<input type="text" name="tag" id="tag" style="vertical-align:middle;border:1px solid #CCC;" />
+			<button>{$lang.add_tag}</button>
+			  </form>
+			</li>
+							<li><span class="detail_title">{$lang.actor}</span>
+							<div class="detail_content"> {foreach from=$show.actor item=val}<a href="search.php?keywords={$val|escape:url}">{$val}</a>{/foreach}</div></li>
+
+							<li>
+							<!-- {if $show.director neq ''} -->
+							<li>{$lang.director} {foreach from=$show.director item=val}<a href="search.php?keywords={$val|escape:url}">{$val}</a>{/foreach}</li>
+							 <!--{/if}-->
+							<li><span>{$lang.area}<a href="search.php?area={$show.area|escape:url}" target="_blank">{$show.area}</a></span></li>
+							<li><span>{$lang.lang}<a href="search.php?lang={$show.lang|escape:url}" target="_blank">{$show.lang}</a></span></li>
+							<li>{$lang.runtime}{$show.runtime} {$lang.unit_minute}</li>
+							<li>{$lang.points}{$show.points}  {$lang.unit_point}</li>
+							<li>{$lang.pubdate}{$show.pubdate}</li>
+							<li>{$lang.click_count}{$lang.the_week}：{$show.click_week} {$lang.unit_order}  {$lang.the_month}：{$show.click_month} {$lang.unit_order}  {$lang.the_total}：{$show.click_count} {$lang.unit_order}</li>
+							<li>{$lang.add_time}{$show.add_time}</li>
+						</ul>
+
+
+
+                    </div>
+
+                     <div class="detail_about">
+                    	<ul>
+                           <li class="detail_point">
+							<em class="point_num"> <strong class="point_num{$show.moviepoint}" id="point_pic"></strong></em> <em class="point_tit">{$lang.user_score}:</em> <em class="point_star"> <a class="point{$show.moviepoint}" href="#" id="userspoint">{$show.moviepoint} {$lang.unit_fraction}</a> </em>
+							<em class="point_tit">{$lang.my_score}:</em> <em class="point_star"> <a class="point5" href="#" id="{$show.show_id}" onmousemove="_movepoint(event);">5 {$lang.unit_fraction}</a> </em>
+							<em class="point_tit">{$lang.score_users}:</em><em class="point_tit">{$show.score_users} {$lang.unit_order}</em>
+							</li>
+							<li class="detail_company"></li>
+                        </ul>
+                    </div>
+					</div>
+                </div>
+
+                <div class="detail_info">
+                		<span class="tab"><!-- {foreach from=$playlist item=play name='play'}-->
+						 <b {if $smarty.foreach.play.first}class="on"{/if} onclick="lable3('detail_play_label{$smarty.foreach.play.iteration}');" id="detail_play_label{$smarty.foreach.play.iteration}">{$play.player_name}</b>
+						 <!--{/foreach}-->
+						</span>
+						 <!-- {foreach from=$playlist item=play name='play'}-->
+						<ul class="player"  id="detail_play_label{$smarty.foreach.play.iteration}_div" {if $smarty.foreach.play.first neq true}style="display:none"{/if}>
+							 <!-- {foreach name=playlist from=$play.url item=playlist}-->
+							<li><a href="javascript:OpenPlay({$show.show_id},{$smarty.foreach.playlist.iteration},{$playerwidth},{$playerheight},'{$play.player}')" title='立即观看！'>{$playlist.title}</a><!--{if $playlist.freeorvip eq 'free'}--><img src="images/free_v.gif" width="31" height="15" border="0" alt="本集免费"><!--{/if}--></li>
+							<!--{/foreach}-->
+						</ul>
+					<!--{/foreach}-->
+
+                </div>
+
+                <div class="detail_info">
+                	<span class="tab"><b class="on">剧情简介</b></span>
+                    <ul class="detail">{$show.detail}</ul>
+                </div>
+

@@ -1,0 +1,88 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!--{if $show_list}-->
+<div style="text-align:right;padding:5px 10px 0 0;height:25px;background:url(images/tabbar_bg.gif) repeat-x;">
+    <div style="float:left;padding-left:10px;">
+      {$lang.btn_display}: <a href="javascript:;" onclick="javascript:display_mode('list')"><img src="../images/btn_display_mode_list<!-- {if $pager.display eq 'list'} -->_act<!-- {/if} -->.gif" alt="{$lang.display.list}" /></a> <a href="javascript:;" onClick="javascript:display_mode('grid')"><img src="../images/btn_display_mode_grid<!-- {if $pager.display eq 'grid'} -->_act<!-- {/if} -->.gif" alt="{$lang.display.grid}" /></a> <a href="javascript:;" onClick="javascript:display_mode('text')"><img src="../images/btn_display_mode_text<!-- {if $pager.display eq 'text'} -->_act<!-- {/if} -->.gif" alt="{$lang.display.text}" /></a>
+    </div>
+  <form action="{$smarty.server.PHP_SELF}" method="get" class="sort" name="listform">
+    排序方式:
+    <select name="sort">
+      {html_options options=$lang.sort selected=$pager.sort}
+    </select>
+    <select name="order">
+      {html_options options=$lang.order selected=$pager.order}
+    </select>
+    <input type="submit" value="提交" style="height:22px;" />
+    <input type="hidden" name="category" value="{$category}" />
+	<input type="hidden" name="keywords" value="{$keywords}" />
+	<input type="hidden" name="display" value="{$pager.display}" id="display" />
+    <input type="hidden" name="page" value="{$pager.page}" />
+  </form>
+</div>
+
+  <!-- {if $pager.display eq 'list'} -->
+<div class="sort-box01" style="background:#FFF;padding:10px;">
+    <ul class="itemList">
+      <!--{foreach name=show from=$show_list item=show}-->
+			<li>
+        <div class="photo"><a href="{$show.url}"><img src="{$show.thumb}" alt="《{$show.title}》{$show.performer}" class="photo" width="120" height="168" /></a> </div>
+				<div class="info">
+					<div class="name"><a href="{$show.url}">《{$show.title|truncate:11:"..."true}》</a></div>
+					<div class="show">{$lang.actor}
+					<!--{foreach from=$show.actor item=val name=val}-->
+							<!--{if $smarty.foreach.val.iteration lt 3}-->
+							<a href="search.php?keywords={$val|escape:url}" target="_blank">{$val}</a>
+							<!--{/if}-->
+							<!--{/foreach}--></div>
+					 <!-- {if $show.director neq ''} -->
+					<div class="show">{$lang.director}
+					<!--{foreach from=$show.director item=val name=val}-->
+								<!--{if $smarty.foreach.val.iteration lt 3}-->
+								<a href="search.php?keywords={$val|escape:url}" target="_blank">{$val}</a>
+								<!--{/if}-->
+								<!--{/foreach}--></div>
+					<!--{/if}-->
+					<div class="show">{$lang.click_count}{$show.click_count}</div>
+					<div class="show">{$lang.add_time}{$show.add_time}</div>
+					<div style="margin-top:5px;"><a href="{$show.url}"><img src="images/play4.jpg"  /></a>&nbsp;&nbsp;<a href="{$show.url}"><img src="images/play5.jpg"  /></a></div>
+					</li>
+					<!--{/foreach}-->
+    </ul>
+  <div class="hack"></div>
+</div>
+<!--End sort-box01-->
+  <!-- {elseif $pager.display eq 'grid'} -->
+ <div class="sort-box01" style="background:#FFF;padding:10px;">
+    <ul class="itemGrid">
+      <!--{foreach name=show from=$show_list item=show}-->
+		<li>
+		<span class="name"><a href="{$show.url}">{$show.title|truncate:10:true}</a></span><BR />
+        <div class="photo"><a href="{$show.url}"><img src="{$show.thumb}" alt="{$show.description|truncate:40:true|escape:html}" class="photo" width="120" height="168" /></a> </div>
+		</li>
+		<!--{/foreach}-->
+    </ul>
+  <div class="hack"></div>
+</div>
+  <!-- {elseif $pager.display eq 'text'} -->
+  <div class="sort-box01" style="background:#FFF;padding:10px;">
+    <ul class="itemText">
+      <!--{foreach name=show from=$show_list item=show}-->
+			<li style="width:350px;">
+			<span class="name"><a href="{$show.url}">{$show.title}</a></span>
+			<p class="show">{$lang.actor}<!--{foreach from=$show.actor item=val name=val}-->
+							<!--{if $smarty.foreach.val.iteration lt 3}-->
+							<a href="search.php?keywords={$val|escape:url}" target="_blank">{$val}</a>
+							<!--{/if}-->
+							<!--{/foreach}-->
+						</p>
+			<p>{$lang.click_count}{$show.click_count} 次&nbsp;&nbsp;&nbsp;{$lang.add_time}{$show.add_time} </p>
+			<p><b>{$lang.description}</b>{$show.description|truncate:180:true}</p>
+			 </li>
+					<!--{/foreach}-->
+    </ul>
+  <div class="hack"></div>
+</div>
+  <!-- {/if} -->
+<!--{else}-->
+<h3 style="text-align:center;padding:50px;">此分类无影片</h3>
+<!--{/if}-->

@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Language" content="zh-CN" />
+<meta content="all" name="robots" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<meta http-equiv="imagetoolbar" content="no" />
+<link rel="bookmark" href="favicon.ico" />
+<link rel="icon" type="image/x-icon" href="favicon.ico" />
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+<link rel="alternate" type="application/rss+xml" title="RSS|{$page_title}" href="{$feed_url}" />
+<link href="css/basic.css" rel="stylesheet" type="text/css" />
+<link href="css/header_footer.css" rel="stylesheet" type="text/css" />
+<link href="css/notelist_comment.css" rel="stylesheet" type="text/css" />
+<title>{$page_title}</title>
+<script type="text/javascript" src="js/base.js"></script>
+<script type="text/javascript" src="js/movieTree.js"></script>
+<script type="text/javascript" src="js/movie_toptab.js"></script>
+</head>
+
+<body id="index">
+    <!--wrapper start -->
+    <div id="wrapper" class="index">
+    <div id="innerwrapper">
+          <!--header start-->
+             <!-- #BeginLibraryItem "/library/page_header.lbi" -->
+			<!-- #EndLibraryItem -->
+        <!--header end-->
+
+		 <!--mainbody start-->
+	<div id="mainbody">
+	<div id="innermainbody">
+		<div class="movie_current">
+		  <p>{$lang.ur_here}</p><span>{$ur_here} </span>		</div>
+	<div id="sider_l">
+<!-- TemplateBeginEditable name="主区域左侧" -->
+
+	<!-- #BeginLibraryItem "/library/new10_message.lbi" -->
+	<!-- #EndLibraryItem -->
+
+	<!-- #BeginLibraryItem "/library/top10_message.lbi" -->
+	<!-- #EndLibraryItem -->
+<!-- TemplateEndEditable -->
+			</div><!--sider_l end-->
+			<div id="content">
+
+	  <!-- TemplateBeginEditable name="主区域-留言板" -->
+
+	<!-- #BeginLibraryItem "/library/message_list.lbi" -->
+	<!-- #EndLibraryItem -->
+<!-- TemplateEndEditable -->
+
+			</div><!--content end-->
+
+	</div>
+</div>
+ <!--mainbody end-->
+	<!--footer start-->
+			<!-- #BeginLibraryItem "/library/page_footer.lbi" -->
+			<!-- #EndLibraryItem -->
+        <!--footer end-->
+    </div>
+    </div>
+    <!--wrapper end-->
+</body>
+</html>

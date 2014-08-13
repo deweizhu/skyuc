@@ -1,0 +1,951 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Language" content="zh-CN" />
+<meta content="all" name="robots" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<meta http-equiv="imagetoolbar" content="no" />
+<link rel="bookmark" href="favicon.ico" />
+<link rel="icon" type="image/x-icon" href="favicon.ico" />
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+<link rel="alternate" type="application/rss+xml" title="RSS|{$page_title}" href="{$feed_url}" />
+<link href="css/basic.css" rel="stylesheet" type="text/css" />
+<link href="css/header_footer.css" rel="stylesheet" type="text/css" />
+<link href="css/member_center.css" rel="stylesheet" type="text/css" />
+<title>{$page_title}</title>
+<script type="text/javascript" src="js/base.js"></script>
+<script type="text/javascript" src="js/dialog.js"></script>
+</head>
+
+<body>
+{insert_scripts files="skyuc_global.js,skyuc_common.js,skyuc_utils.js,skyuc_user.js"}
+<!--wrapper start -->
+<div id="wrapper" class="index">
+<div id="innerwrapper">
+		<!--header start-->
+             <!-- #BeginLibraryItem "/library/page_header.lbi" -->
+			<!-- #EndLibraryItem -->
+        <!--header end-->
+<!--mainbody start-->
+<div id="mainbody">
+<div id="innermainbody">
+<div class="voucher_main">
+   <!--#会员中心头部横副 Start#-->
+   <div class="spaceNameBg">
+	   <ul>
+		   <li>
+		   <h1>用户中心公告</h1>
+			   <p>{$user_notice}</p>
+		   </li>
+	   </ul>
+   </div>
+   <!--#会员中心头部横副 End#-->
+
+   	  <!-- #BeginLibraryItem "/library/user_menu.lbi" -->
+      <!-- #EndLibraryItem -->
+<!-- *用户中心默认显示页面 -->
+ <!-- {if $action eq 'default'} -->
+<div class="informationManagementContent">
+		<div class="Personal_information" >
+			<div class="spaceCommonTitle1"><ul><li><img src="images/spaceWelcome.jpg" alt="账户信息" /></li></ul></div>
+	 <div class="Personal_Welcome">
+		<div class="Personal_left">
+	 		{if $info.is_validate eq 0}
+		<ul>
+				<li class="Data"><p class="Title">{$lang.validate}：</p></li>
+				<li class="Data"><p class="Front">{$lang.not_validated}  <a href="javascript:sendHashMail()" style="color:#F00;">{$lang.resend_hash_mail}</a></p> </li>
+		</ul>
+        {/if}
+	 	<ul>
+				<li class="Data"><p class="Title">{$lang.your_type}：</p></li>
+				<li class="Data"><p class="Front">{$info.usertype}</p> </li>
+		</ul>
+		<ul>
+				<li class="Data"><p class="Title">{$lang.your_rank}：</p></li>
+				<li class="Data"><p class="Front">{$info.rank_name}</p></li>
+		</ul>
+		<ul>
+				<li class="Data"><p class="Title">{$info.your_endlook}：</p></li>
+				<li class="Data"><p class="Front">{$info.endlook}</p></li>
+		</ul>
+
+		<ul>
+				<li class="Data"><p class="Title">{$lang.your_integral}：</p></li>
+				<li class="Data"><p class="Front">{$info.integral}</p></li>
+		</ul>
+		<ul>
+				<li class="Data"><p class="Title">{$lang.your_surplus}：</p></li>
+				<li class="Data"><p class="Front"><a href="user.php?act=account_log" style="color:#06c;">{$info.surplus}</a></p></li>
+		</ul>
+		<ul>
+				<li class="Data"><p class="Title">{$lang.visit_count}：</p></li>
+				<li class="Data"><p class="Front">{$info.visit_count}</p></li>
+		</ul>
+		<ul>
+				<li class="Data"><p class="Title">{$lang.minute}：</p></li>
+				<li class="Data"><p class="Front">{$info.minute}</p></li>
+		</ul>
+		<ul>
+				<li class="Data"><p class="Title">{$lang.playcount}：</p></li>
+				<li class="Data"><p class="Front">{$info.playcount}</p></li>
+		</ul>
+		<ul>
+				<li class="Data"><p class="Title">{$lang.lastvisit}：</p></li>
+				<li class="Data"><p class="Front">{$info.lastvisit}</p></li>
+		</ul>
+		<ul>
+				<li class="Data"><p class="Title">{$lang.last_ip}：</p></li>
+				<li class="Data"><p class="Front">{$info.last_ip}</p></li>
+		</ul>
+		<ul>
+				<li class="Data"><p class="Title">{$lang.reg_time}：</p></li>
+				<li class="Data"><p class="Front">{$info.reg_time}</p></li>
+		</ul>
+
+		</div>
+		<div class="Personal_right">
+			<ul>
+				<li class="Data"><p class="Title">{$lang.your_notice}：</p></li>
+				<li class="Data"><p class="Front">{$lang.last_month_order}<span style="color:red;">{$info.order_count}</span>{$lang.order_unit}</p> </li>
+			</ul>
+
+		<!-- {if $info.payed_order} -->
+		  <!-- {foreach from=$info.payed_order item=item}-->
+			<ul>
+				<li class="Data"><p class="Title">{$lang.detail_order_sn}:</p></li>
+				<li class="Data"><p class="Front"> <a href="user.php?act=order_detail&order_id={$item.order_id}" style="border-bottom:1px dashed #DADADA;display:block;">{$item.order_sn}</a></p> </li>
+			</ul>
+			 <!-- {/foreach} -->
+        <!-- {/if}-->
+		</div>
+
+	</div>
+</div>
+</div>
+       <!-- {/if} -->
+<!-- #用户中心默认显示页面 -->
+  <!--#个人资料-->
+        <!--{if $action eq 'profile'}-->
+        <script type="text/javascript">
+            {foreach from=$lang.profile_js item=item key=key}
+              var {$key} = "{$item}";
+            {/foreach}
+          </script>
+	<div class="informationManagementContent">
+		<div class="Personal_information" >
+			<div class="spaceCommonTitle1"><ul><li><img src="images/spacePersonalInformation.jpg" alt="个人信息" /></li></ul></div>
+	 <div class="Personal_informationContent">
+		  <form name="formEdit" action="user.php" method="post" onSubmit="return userEdit()" >
+			 <ul>
+                <li class="PersonalData"><p class="Title">{$lang.birthday}：</p></li>
+                <li class="PersonalData">{html_select_date field_order=YMD prefix=birthday start_year=-60 end_year=+1 display_days=true month_format=%m day_value_format=%02d time=$profile.birthday}</li>
+              </ul>
+              <ul>
+                <li class="PersonalData"><p class="Title">{$lang.gender}：</p></li>
+                <li class="PersonalData">
+				<p class="FrontXB">
+
+					<input type="radio" name="gender" value="0" {if $profile.gender eq 0}checked="checked"{/if} />
+                  {$lang.secrecy}&nbsp;&nbsp;
+                  <input type="radio" name="gender" value="1" {if $profile.gender eq 1}checked="checked"{/if} />
+                  {$lang.male}&nbsp;&nbsp;
+                  <input type="radio" name="gender" value="2" {if $profile.gender eq 2}checked="checked"{/if} />
+                  {$lang.female}&nbsp;&nbsp;</p></li>
+              </ul>
+
+			  <ul>
+					<li class="PersonalData"><p class="Title">{$lang.email}：</p></li>
+					<li class="PersonalData"><input name="email" type="text"  value="{$profile.email}" maxlength="60" size="30"  /><li>
+			  </ul>
+			   <ul>
+					<li class="PersonalData"><p class="Title">{$lang.other_firstname}：</p></li>
+					<li class="PersonalData"><input name="other[firstname]" type="text"  value="{$profile.firstname}" maxlength="20" size="20"  /></li>
+			  </ul>
+			  <ul>
+					<li class="PersonalData"><p class="Title">{$lang.other_qq}：</p></li>
+					<li class="PersonalData"><input name="other[qq]" type="text"  value="{$profile.qq}" maxlength="20" size="20"  /> </li>
+			  </ul>
+			   <ul>
+					<li class="PersonalData"><p class="Title">{$lang.other_msn}：</p></li>
+					<li class="PersonalData"><input name="other[msn]" type="text"  value="{$profile.msn}" maxlength="60" size="30"  /> </li>
+			  </ul>
+			  <ul>
+					<li class="PersonalData"><p class="Title">{$lang.other_phone}：</p></li>
+					<li class="PersonalData"><input name="other[phone]" type="text"  value="{$profile.phone}" maxlength="20" size="20"  /></li>
+			  </ul>
+			  <ul>
+
+			 <li><p class="SaveCancel">
+			 	<input name="act" type="hidden" value="act_edit_profile" />
+			 <span class="Personal_inforConBtn"><button type="submit" name="submit" id="submit" class="Btn" >{$lang.confirm_edit}</button></span><span class="Personal_inforConBtn"><button type="reset" class="Btn" >取 消</button></span></p></li>
+			  </ul>
+          </form>
+
+          <form name="formPassword" action="user.php" method="post" onSubmit="return editPassword()">
+			<ul>
+				 <li class="PersonalData"><p class="Title">{$lang.old_password}：</p></li>
+				 <li class="PersonalData"><input name="old_password" type="password" size="25" maxlength="32"  /></li>
+			</ul>
+			<ul>
+				<li class="PersonalData"><p class="Title">{$lang.new_password}：</p></li>
+				<li class="PersonalData"><input name="new_password" type="password" size="25" maxlength="32"  /> </li>
+			</ul>
+			<ul>
+				<li class="PersonalData"><p class="Title">{$lang.confirm_password}：</p></li>
+				<li class="PersonalData"><input name="comfirm_password" type="password" size="25" maxlength="32"  /> </li>
+			</ul>
+			 <ul>
+			 <li><p class="SaveCancel">
+			 <input name="act" type="hidden" value="act_edit_password" />
+			 <span class="Personal_inforConBtn"><button type="submit" name="submit" id="submit" class="Btn" >{$lang.confirm_edit}</button></span><span class="Personal_inforConBtn"><button type="reset" class="Btn" >取 消</button></span></p></li>
+			</ul>
+          </form>
+	</div>
+</div>
+</div>
+      <!--{/if}-->
+  <!--#个人资料 -->
+
+      <!--#会员价格列表界面-->
+ <!-- {if $action eq 'buyrank'} -->
+ <script type="text/javascript">
+    var flow_no_payment = "{$flow_no_payment}";
+ </script>
+ <div class="voucher_body">
+			<div class="spaceTitle"><ul><li><img src="images/tit2_log_list.gif" alt="购买会员" /></li></ul></div>
+		<div class="log_admin_cout" >
+			<form action="user.php" method="post" name="theForm" id="theForm" onsubmit="return checkOrderForm(this)">
+		  <table class="log_amdin_table">
+				 <tr>
+					<th width="110">{$lang.select_rank}</th>
+					<th width="80">{$lang.buy_type}</th>
+					<th>{$lang.buy_money}</th>
+					<th>{$lang.buy_count}</th>
+					<th>{$lang.buy_content}</th>
+				  </tr>
+				   <!--{foreach from=$buyrank item=item name=item}-->
+				<tr class="tr0">
+				  	<td class="text_c"><input name="buy_id" type="radio" value="{$item.id}" {if $smarty.foreach.item.first}checked{/if}>{$item.rank_name}</td>
+					<td class="date">{$item.b_type}</td>
+					<td class="text_l">{$item.b_money}</td>
+					<td class="text_c">{$item.b_count}</td>
+					<td class="text_l">{$item.content}</td>
+				  </tr>
+				   <!--{/foreach}-->
+				   <tr class="tr0">
+				  	<td class="text_c">{$lang.multiple}：</td>
+					<td colspan="3"><input type="text" name="multiple" value="1" ></td>
+					<td class="text_l">{$lang.multiple_desc}</td>
+				  </tr>
+			</table>
+			<table class="log_amdin_table">
+				 <tr>
+					<th width="110">{$lang.payment}</th>
+					<th width="80">{$lang.pay_fee}</th>
+					<th>{$lang.pay_desc}</th>
+				  </tr>
+				    <!-- {foreach from=$payment item=pay name=pay} -->
+				<tr class="tr0">
+				  	<td class="text_l"><input type="radio" name="payment" value="{$pay.pay_id}"  {if $smarty.foreach.pay.first}checked{/if}/>{$pay.pay_name}</td>
+					<td class="date">{$pay.pay_fee}</td>
+					<td class="text_l">{$pay.pay_desc}</td>
+				  </tr>
+				   <!--{/foreach}-->
+			</table>
+			 <input type="hidden" name="act" value="buydone" />
+			<div class="btn" > <button type="submit" class="btn5" >{$lang.submit_request}</button></div>
+			</form>
+
+		</div>
+
+		<div class="clear"></div>
+
+<div>
+         <!--{/if}-->
+    <!--#会员价格列表界面 -->
+
+<!--#订单提交成功 -->
+<!-- {if $action eq "buydone"} -->
+  <div class="informationManagementContent">
+			 <div class="Personal_OrderSubmit" >
+				   <div class="spaceCommonTitle1"><ul><li><img src="images/spaceOrderSubmit.jpg" alt="订单提交" /></li></ul></div>
+				   <div class="OrderSubmit">
+					   <ul>
+						   <li><span style="font-size: 14px;">{$lang.remember_order_number}: <b style="color:red">{$order.order_sn}</b>。 </span></li>
+						   <li><p>{$lang.select_payment}：</p> <b>{$order.pay_name} </b></li>
+						   <li><p>{$lang.order_amount}：</p><b>{$order.amount_formated}</b></li>
+						   <li>{$order.pay_desc}</li>
+						     <!-- {if $pay_online}如果是线上支付则显示支付按钮 -->
+							 <li>{$pay_online}</li>
+							<!-- {/if} -->
+							<li> {$order_submit_back}。</li>
+						</ul>
+
+				   </div>
+
+		   </div>
+		 </div>
+	    <!-- {/if} -->
+<!--#订单提交成功 -->
+
+
+	  <!--#影卡充值 -->
+        <!--{if $action eq 'card'}-->
+        {insert_scripts files="utils.js"}
+        <script type="text/javascript">
+            {foreach from=$lang.card_js item=item key=key}
+              var {$key} = "{$item}";
+            {/foreach}
+          </script>
+		  <div class="informationManagementContent">
+			 <div class="Personal_ChangePassword" >
+				   <div class="spaceCommonTitle1"><ul><li><img src="images/spaceCard.jpg" alt="影卡充值" /></li></ul></div>
+				   <div class="ChangePasswordConter">
+				      <form name="formEdit" action="user.php" method="post" onSubmit="return card()" >
+					   <ul>
+						   <li><p>{$lang.carduser}：</p><input name="carduser" type="text" value="{$username}"/></li>
+						   <li><p>{$lang.cardid}：</p><input name="cardid"   type="text" /></li>
+						   <li><p>{$lang.cardpwd}：</p><input name="cardpwd"  type="text" /></li>
+						   <li>
+						   <input name="act" type="hidden" value="act_card_ok" /><p class="SaveCancel"><span class="Personal_inforConBtn"><button type="submit" class="Btn" >{$lang.btn_card}</button></span> <span class="Personal_inforConBtn"><button type="reset" class="Btn" >取 消</button></span></p></li>
+						</ul>
+						</form>
+				   </div>
+
+		   </div>
+		 </div>
+
+      <!--{/if}-->
+	  <!--#影卡充值 -->
+
+	 <!--#点播记录-->
+        <!-- {if $action eq 'play_log'} -->
+		<div class="voucher_body">
+			<div class="spaceTitle"><ul><li><img src="images/spaceplay_log.jpg" alt="点播记录" /></li></ul></div>
+		<div class="log_admin_cout" >
+		  <table class="log_amdin_table">
+				 <tr>
+					<th width="200">{$lang.play_log_name}</th>
+					<th >{$lang.play_log_movid}</th>
+					<th>{$lang.play_log_time}</th>
+					<th>{$lang.play_log_type}</th>
+					<th>{$lang.play_log_counts}</th>
+					<th>{$lang.play_log_minute}</th>
+					<th>{$lang.user_ip}</th>
+				  </tr>
+				     <!--{foreach from=$play_log item=item}-->
+				<tr class="tr0">
+				  	<td class="text_c"><a href="show.php?id={$item.mov_id}" target='_blank'>{$item.title}</a></td>
+					<td class="text_c">{$item.lookid}</td>
+					<td class="date">{$item.looktime}</td>
+					<td class="text_c">{$item.looktype}</td>
+					<td class="text_c">{$item.counts}</td>
+					<td class="text_c">{$item.minute}</td>
+					<td class="text_c">{$item.host}</td>
+				  </tr>
+				   <!--{/foreach}-->
+			</table>
+			 <!-- #BeginLibraryItem "/library/pages.lbi" -->
+          <!-- #EndLibraryItem -->
+
+		</div>
+
+		<div class="clear"></div>
+
+<div>
+		<!--{/if}-->
+        <!--#点播记录 -->
+
+  <!--#我的标签 -->
+   <!-- {if $action eq 'tag_list'} -->
+   <div class="informationManagementContent">
+	<div class="Personal_information" >
+	   <div class="spaceCommonTitle1"><ul><li><img src="images/spaceMytag.jpg" alt="我的标签" /></li></ul></div>
+	   	<div class="spaceContent">
+        <div  style="padding:10px;">
+          <!-- {if $tags} -->
+          <!-- 标签云开始 {foreach from=$tags item=tag}-->
+          <a href="search.php?keywords={$tag.tag_words|escape:url}" style="padding-right:10px;color:{$tag.color};font-size:{$tag.size};">{$tag.tag_words}</a> <a href="user.php?act=act_del_tag&amp;tag_words={$tag.tag_words|escape:url}" onclick="if (!confirm('{$lang.confirm_drop_tag}')) return false;" title="{$lang.drop}-{$tag.tag_words|escape:html}"><img src="images/btn_delete.gif" alt="{$lang.drop}" /></a>
+          <!-- 标签云结束 {/foreach}-->
+          <!-- {else} -->
+		  <h3 style="text-align:center;padding:50px;">{$lang.no_tag}</h3>
+          <!-- {/if} -->
+        </div>
+		 </div>
+	</div>
+</div>
+   	<!--{/if}-->
+   <!--#我的标签 -->
+
+ <!--#我的评论-->
+<!-- {if $action eq 'comment_list'} -->
+<div class="informationManagementContent">
+	<div class="Personal_information" >
+	   <div class="spaceCommonTitle1"><ul><li><img src="images/spaceComment.jpg" alt="我的评论" /></li></ul></div>
+	   	<div class="spaceContent">
+
+		 <table class="log_amdin_table">
+				 <tr>
+					<th width="160">我的评论</th>
+					<th>评论内容</th>
+					<th width="40">操作</th>
+				  </tr>
+				     <!-- {foreach from=$comment_list item=comment} -->
+				<tr class="tr0">
+				  	<td>{$comment.formated_add_time} <BR>&nbsp;&nbsp;&nbsp;<!-- {if $comment.comment_type eq '0'} -->
+                {$lang.show_comment} <!-- {else} --> {$lang.article_comment}<!-- {/if} -->: {$comment.comment_id}</td>
+				    <td>{$comment.content}</td>
+					<td class="text_c"><a href="user.php?act=del_cmt&amp;id={$comment.comment_id}" onclick="if (!confirm('{$lang.confirm_remove_msg}')) return false;"><img src="images/msg_delete.gif" alt="{$lang.drop}" border="0" /></a></td>
+				  </tr>
+
+				 <!--{if $comment.reply_content}-->
+				<tr class="tr0">
+					<td>{$comment.formated_reply_time} <BR>&nbsp;&nbsp;&nbsp;{$lang.siteman_reply}：</td>
+					<td>{$comment.reply_content}</td>
+					<td></td>
+				</tr>
+		          <!-- {/if} -->
+				   <!--{/foreach}-->
+			</table>
+
+		 </div>
+		<!-- {if $comment_list} -->
+		<div style="margin-left:100px;">
+			<!-- #BeginLibraryItem "/library/pages.lbi" -->
+			<!-- #EndLibraryItem -->
+		<div>
+		 <!-- {else} -->
+		   <h3 style="text-align:center;">{$lang.no_comments}</h3>
+		<!-- {/if} -->
+	</div>
+</div>
+      <!--{/if} -->
+        <!--#我的评论 -->
+ <!--#我的订单-->
+  <!-- {if $action eq 'order_list'} -->
+		<div class="voucher_body">
+			<div class="spaceTitle"><ul><li><img src="images/Consumptionlist.jpg" alt="我的订单" /></li></ul></div>
+		<div class="log_admin_cout" >
+		  <table class="log_amdin_table">
+				 <tr>
+					<th width="160">{$lang.order_number}</th>
+					<th>{$lang.order_addtime}</th>
+					<th>{$lang.order_money}</th>
+					<th>{$lang.order_buyinfo}</th>
+					<th>{$lang.order_status}</th>
+					<th>{$lang.handle}</th>
+				  </tr>
+				     <!--{foreach from=$orders item=item}-->
+				<tr class="tr0">
+				  	<td class="text_c"><a href="user.php?act=order_detail&order_id={$item.order_id}">{$item.order_sn}</a></td>
+					<td class="date">{$item.order_time}</td>
+					<td class="text_c">{$item.order_amount}</td>
+					<td class="text_c">{$item.order_buyinfo}</td>
+					<td class="text_c">{$item.pay_status}</td>
+					<td class="text_c">{$item.handler}</td>
+				  </tr>
+				   <!--{/foreach}-->
+			</table>
+			 <!-- #BeginLibraryItem "/library/pages.lbi" -->
+          <!-- #EndLibraryItem -->
+
+		</div>
+
+		<div class="clear"></div>
+
+<div>
+		<!--{/if}-->
+        <!--#我的订单 -->
+      <!--*订单详情页面 -->
+	<!--{if $action eq order_detail} -->
+	<div class="informationManagementContent">
+		<div class="Personal_information" >
+			<div class="spaceCommonTitle1"><ul><li><img src="images/Consumptioninfo.jpg" alt="订单详情" /></li></ul></div>
+	 <div class="Personal_informationContent">
+	 	<ul>
+				<li class="PersonalData"><p class="Title">{$lang.detail_order_sn}：</p></li>
+				<li class="PersonalData"><p class="Front">{$order.order_sn}</p> </li>
+		</ul>
+		<ul>
+				<li class="PersonalData"><p class="Title">{$lang.order_addtime}：</p></li>
+				<li class="PersonalData"><p class="Front">{$order.order_time}</p></li>
+		</ul>
+		<ul>
+				<li class="PersonalData"><p class="Title">{$lang.detail_pay_status}：</p></li>
+				<li class="PersonalData"><p class="Front">{$order.pay_status}&nbsp;&nbsp;{$order.pay_time}</p></li>
+		</ul>
+
+		<ul>
+				<li class="PersonalData"><p class="Title">{$lang.total_money}：</p></li>
+				<li class="PersonalData"><p class="Front"> {$lang.order_total_fee}{$order.formated_order_amount}<!-- {if $order.surplus > 0} -->
+                {$lang.minus}  {$lang.use_surplus}：{$order.formated_surplus}
+                <!-- {/if} -->
+                <!-- {if $order.integral> 0} -->
+                {$lang.minus}  {$lang.use_integral}：{$order.formated_integral}，
+                <!-- {/if} -->{$lang.order_amount}：{$order.formated_pay_amount}</p></li>
+		</ul>
+		<ul>
+				<li class="PersonalData"><p class="Title">{$lang.payment}：</p></li>
+				<li class="PersonalData"><p class="Front"> {$lang.select_payment}： {$order.pay_name}。<br>{$lang.order_amount}：  {$order.formated_order_amount} </p></li>
+		</ul>
+		<ul>
+				<li class="PersonalData"><p class="Title">{$lang.order_buyinfo}：</p></li>
+				<li class="PersonalData"><p class="Front">{$order.buyinfo}</p></li>
+		</ul>
+		<ul>
+				<li class="PersonalData"><p class="Title">{$lang.user_ip}：</p></li>
+				<li class="PersonalData"><p class="Front">{$order.user_ip}</p></li>
+		</ul>
+
+	</div>
+</div>
+</div>
+	<!--{/if}-->
+        <!--#订单详情 -->
+
+   <!--我的留言 -->
+      <!-- {if $action eq 'message_list'} -->
+<script type="text/javascript">
+//<![CDATA[
+	{foreach from=$lang.clips_js item=item key=key}
+	var {$key} = "{$item}";
+	{/foreach}
+//]]>
+</script>
+<div class="informationManagementContent">
+	<div class="Personal_information" >
+	   <div class="spaceCommonTitle1"><ul><li><img src="images/spaceSetTitle.jpg" alt="我的留言" /></li></ul></div>
+	   	<div class="spaceContent">
+
+		<table class="log_amdin_table">
+				 <tr>
+					<th width="160">我的留言</th>
+					<th>留言内容</th>
+					<th width="80">操作</th>
+				  </tr>
+				    <!--{foreach from=$message_list item=message key=key} -->
+				<tr class="tr0">
+				  	<td>{$message.msg_time} <BR>&nbsp;&nbsp;&nbsp;{$message.msg_type}: {$message.msg_title}</td>
+				    <td>{$message.msg_content}</td>
+					<td class="text_c"><a href="user.php?act=del_msg&amp;id={$key}" title="{$lang.drop}" onclick="if (!confirm('{$lang.confirm_remove_msg}')) return false;"><img src="images/msg_delete.gif" alt="{$lang.drop}" border="0" /></a></td>
+				  </tr>
+
+				 <!-- {if $message.re_msg_content} -->
+				<tr class="tr0">
+					<td>{$message.re_msg_time} <BR>&nbsp;&nbsp;&nbsp;<a href="mailto:{$message.re_user_email}">{$lang.siteman_reply}</a></td>
+					<td>{$message.re_msg_content}</td>
+					<td> <!-- {if $message.message_img} --><a href="upload/feedbackimg/{$message.message_img}" target="_bank">{$lang.view_upload_file}</a></span></li>
+			          <!-- {/if} --></td>
+				</tr>
+		          <!-- {/if} -->
+				   <!--{/foreach}-->
+			</table>
+		 </div>
+        <!-- {if $message_list}-->
+		<div style="margin-left:100px;">
+			<!-- #BeginLibraryItem "/library/pages.lbi" -->
+			<!-- #EndLibraryItem -->
+		<div>
+        <!-- {/if}-->
+		<form action="user.php" method="post" enctype="multipart/form-data" name="formMsg" onSubmit="return submitMsg()">
+	   <div class="spaceSetContent">
+			<ul>
+				<li><h1>{$lang.message_title}：</h1><p><input name="msg_title" id="msg_title" type="text" value="" maxlength="40" /><span>200个字符(数字、字母和下划线)或200个汉字以内</span></p></li>
+				<li><h1>{$lang.message_type}：</h1><input name="msg_type" type="radio" value="0" checked="checked" />
+                {$lang.type[0]}
+                <input type="radio" name="msg_type" value="1" />
+                {$lang.type[1]}
+                <input type="radio" name="msg_type" value="2" />
+                {$lang.type[2]}
+                <input type="radio" name="msg_type" value="3" />
+                {$lang.type[3]}</li>
+				<li><h1>{$lang.upload_img}：</h1><p><input type="file" name="message_img" id="message_img" size="45" /></p></li>
+				<li><h1>{$lang.message_content}：</h1>
+				<p><textarea name="msg_content" id="msg_content" cols="" rows="" ></textarea><span></span></p></li>
+
+				<li><p class="spaceSetBtn"><span class="Personal_inforConBtn">
+				<input type="hidden" name="act" value="act_add_message" /><button type="submit" class="Btn" >{$lang.submit_message}</button></span><span class="Personal_inforConBtn"><button type="reset" class="Btn" >取 消</button></span></p></li>
+				<li>{$lang.img_type_tips}<br />
+                {$lang.img_type_list}</li>
+			</ul>
+	   </div>
+</form>
+	</div>
+</div>
+      <!--{/if} -->
+      <!--#我的留言 -->
+<!--#充值提现申请结果 -->
+<!-- {if $action eq "act_account"} -->
+<div class="informationManagementContent">
+		<div class="Personal_OrderSubmit" >
+			<div class="spaceCommonTitle1"><ul><li><img src="images/spaceAat_account.jpg" alt="提交申请" /></li></ul></div>
+			 <div class="OrderSubmit">
+			 <ul>
+			  	<li><p>{$lang.surplus_amount}</p> {$amount}</li>
+				<li><p>{$lang.payment_name}</p>{$payment.pay_name}</li>
+				<li><p>{$lang.payment_fee}</p>{$pay_fee}</li>
+				<li><p>{$lang.payment_desc}</p>{$payment.pay_desc}</li>
+				<li>{$payment.pay_button}</li>
+			 </ul>
+			 </div>
+		 </div>
+</div>
+</div>
+<!--{/if} -->
+<!--#充值提现申请结果 -->
+<!--#账目明细 -->
+<!--{if $action eq "account_raply" || $action eq "account_log" || $action eq "account_deposit"} -->
+       <script type="text/javascript">
+            {foreach from=$lang.account_js item=item key=key}
+              var {$key} = "{$item}";
+            {/foreach}
+          </script>
+
+<div class="voucher_body">
+		   <!-- {if $action eq "account_raply"} -->
+			<div class="spaceTitle"><ul><li style="text-align:right;"><img src="images/spaceAccount_raply.jpg" alt="我要提现" /><a href="user.php?act=account_raply">{$lang.surplus_type_1}</a> | <a href="user.php?act=account_deposit">{$lang.surplus_type_0}</a> | <a href="user.php?act=account_log">{$lang.add_surplus_log}</a>&nbsp;&nbsp;</li></ul></div>
+			 <form name="formSurplus" method="post" action="user.php" onSubmit="return submitSurplus()">
+			<div class="account_deposit">
+				<ul>
+					<li class="Data"><p class="Title">{$lang.repay_money}：</p> </li>
+					<li class="Data"><p class="Front"><input type="text" name="amount" value="{$order.amount}" /></p></li>
+				</ul>
+				<ul>
+					<li class="Data"><p class="Title">{$lang.process_notic}：</p></li>
+					<li class="Data"><p class="Front"><textarea name="user_note" >{$order.user_note}</textarea></p></li>
+				</ul>
+				</div>
+					<input type="hidden" name="surplus_type" value="1" />
+                  <input type="hidden" name="act" value="act_account" />
+				  <div class="log_admin_cout">
+					<div class="btn" > <button type="submit" class="btn5" >{$lang.submit_request}</button> <button type="submit" class="btn5" >{$lang.button_reset}</button></div>
+				 </div>
+			</form>
+		     <!-- {/if} -->
+		 <!-- {if $action eq "account_deposit"} -->
+			<div class="spaceTitle"><ul><li style="text-align:right;"><img src="images/spaceAccount_deposit.jpg" alt="我要充值" /><a href="user.php?act=account_raply">{$lang.surplus_type_1}</a> | <a href="user.php?act=account_deposit">{$lang.surplus_type_0}</a> | <a href="user.php?act=account_log">{$lang.add_surplus_log}</a>&nbsp;&nbsp;</li></ul></div>
+
+				<form name="formSurplus" method="post" action="user.php" onSubmit="return submitSurplus()">
+			<div class="account_deposit">
+				<ul>
+					<li class="Data"><p class="Title">{$lang.deposit_money}：</p> </li>
+					<li class="Data"><p class="Front"><input type="text" name="amount" value="{$order.amount}" /></p></li>
+				</ul>
+				<ul>
+					<li class="Data"><p class="Title">{$lang.process_notic}：</p></li>
+					<li class="Data"><p class="Front"><textarea name="user_note" >{$order.user_note}</textarea></p></li>
+				</ul>
+				</div>
+
+			<div class="log_admin_cout" >
+			<table class="log_amdin_table">
+				 <tr>
+					<th width="110">{$lang.payment}</th>
+					<th width="80">{$lang.pay_fee}</th>
+					<th>{$lang.pay_desc}</th>
+				  </tr>
+				    <!-- {foreach from=$payment item=pay name=pay} -->
+				<tr class="tr0">
+				  	<td class="text_c"><input type="radio" name="payment_id" value="{$pay.pay_id}"  {if $smarty.foreach.pay.iteration eq 1}checked{/if}/>{$pay.pay_name}</td>
+					<td class="date">{$pay.pay_fee}</td>
+					<td class="text_c">{$pay.pay_desc}</td>
+				  </tr>
+				   <!--{/foreach}-->
+			</table>
+			<input type="hidden" name="surplus_type" value="0" />
+                  <input type="hidden" name="rec_id" value="{$order.id}" />
+                  <input type="hidden" name="act" value="act_account" />
+				 <div class="btn" > <button type="submit" class="btn5" >{$lang.submit_request}</button> <button type="submit" class="btn5" >{$lang.button_reset}</button></div>
+			</form>
+		</div>
+		 <!-- {/if} -->
+		 <!-- {if $action eq "account_log"} -->
+			<div class="spaceTitle"><ul><li style="text-align:right;"><img src="images/spaceAccount_log.jpg" alt="账目明细" /><a href="user.php?act=account_raply">{$lang.surplus_type_1}</a> | <a href="user.php?act=account_deposit">{$lang.surplus_type_0}</a> | <a href="user.php?act=account_log">{$lang.add_surplus_log}</a>&nbsp;&nbsp;</li></ul></div>
+		<div class="log_admin_cout" >
+			  <table class="log_amdin_table">
+					 <tr>
+						<th>{$lang.process_time}</th>
+						<th>{$lang.surplus_pro_type}</th>
+						<th>{$lang.money}</th>
+						<th>{$lang.process_notic}</th>
+						<th>{$lang.admin_notic}</th>
+						<th>{$lang.is_paid}</th>
+						<th>{$lang.handle}</th>
+					  </tr>
+					<!--{foreach from=$account_log item=item}-->
+					<tr class="tr0">
+						<td class="date">{$item.add_time}</td>
+						<td class="text_c">{$item.type}</td>
+						<td class="text_c">{$item.amount}</td>
+						<td class="text_c"><a href="#" title="{$item.user_note}">{$item.short_user_note}</a></td>
+						<td class="text_c"><a href="#" title="{$item.admin_note}">{$item.short_admin_note}</a></td>
+						<td class="text_c">{$item.pay_status}</td>
+						<td class="text_c">{$item.handle}
+                <!-- {if ($item.is_paid eq 0 && $item.process_type eq 1) || $item.handle} -->
+                <a href="user.php?act=cancel&id={$item.id}" onclick="if (!confirm('{$lang.confirm_remove_account}')) return false;">{$lang.cancel}</a>
+                <!-- {/if} -->         </td>
+					  </tr>
+					   <!--{/foreach}-->
+				 <tr>
+				   <td class="tr0" colspan="7" align="right">{$lang.current_surplus}{$surplus_amount}</td>
+				   </tr>
+
+				</table>
+			 <!-- #BeginLibraryItem "/library/pages.lbi" -->
+          <!-- #EndLibraryItem -->
+
+		</div>
+          <!-- {/if} -->
+   <div class="clear"></div>
+<div>
+<!-- {/if} -->
+<!--#账目明细 -->
+
+<!--* 积分兑换-->
+<!--{if $action eq 'transform_points'} -->
+ 	<div class="voucher_body">
+			<div class="spaceTitle"><ul><li><img src="images/spaceTransform_point.jpg" alt="积分兑换" /></li></ul></div>
+ <!--{if $exchange_type eq 'ucenter'}-->
+        <script type="text/javascript">
+        {foreach from=$lang.exchange_js item=lang_js key=key}
+        var {$key} = '{$lang_js}';
+        {/foreach}
+
+        var out_exchange_allow = new Array();
+        {foreach from=$out_exchange_allow item=ratio key=key}
+        out_exchange_allow['{$key}'] = '{$ratio}';
+        {/foreach}
+
+        function calcredit()
+        {
+            var frm = document.forms['transForm'];
+            var src_credit = frm.fromcredits.value;
+            var dest_credit = frm.tocredits.value;
+            var in_credit = frm.amount.value;
+            var org_title = frm.fromcredits[frm.fromcredits.selectedIndex].innerHTML;
+            var dst_title = frm.tocredits[frm.tocredits.selectedIndex].innerHTML;
+            var radio = 0;
+            var site_points = ['pay_points'];
+            if (parseFloat(in_credit) > parseFloat(document.getElementById(site_points[src_credit]).value))
+            {
+                alert(balance.replace('{%s}', org_title));
+                frm.amount.value = frm.desamount.value = 0;
+                return false;
+            }
+            if (typeof(out_exchange_allow[dest_credit+'|'+src_credit]) == 'string')
+            {
+                radio = (1 / parseFloat(out_exchange_allow[dest_credit+'|'+src_credit])).toFixed(2);
+            }
+            document.getElementById('orgcredittitle').innerHTML = org_title;
+            document.getElementById('descreditamount').innerHTML = radio;
+            document.getElementById('descredittitle').innerHTML = dst_title;
+            if (in_credit > 0)
+            {
+                if (typeof(out_exchange_allow[dest_credit+'|'+src_credit]) == 'string')
+                {
+                    frm.desamount.value = Math.floor(parseFloat(in_credit) / parseFloat(out_exchange_allow[dest_credit+'|'+src_credit]));
+                    frm.transfrom.disabled = false;
+                    return true;
+                }
+                else
+                {
+                    frm.desamount.value = deny;
+                    frm.transfrom.disabled = true;
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
+       </script>
+		<div class="log_admin_cout" >
+			 <form action="user.php" method="post" name="transForm" onsubmit="return calcredit();">
+			    <table class="log_amdin_table">
+				 <tr>
+					<th>{$lang.cur_points}</th>
+				   <th>{$lang.rule_list}</th>
+				  </tr>
+				<tr class="tr0">
+				 <td class="text_c">
+						<table style="width:400px;">
+						  <tr class="tr0">
+							<td style="width:120px;" class="text_c">{$lang.exchange_points.0}：</td>
+							<td class="text_c"><input type="text" size="15" id="pay_points" name="pay_points" value="{$site_points.pay_point}" style="border:0;border-bottom:1px solid #DADADA;" readonly="readonly" /></td>
+						  </tr>
+						  <tr class="tr0">
+						   <td class="text_c">{$lang.exchange_amount}：</td>
+						  <td class="text_c">
+						  <input size="15" name="amount" id="amount" value="0" onkeyup="calcredit();" type="text" />
+							<select name="fromcredits" id="fromcredits" onchange="calcredit();">
+							  {html_options options=$lang.exchange_points selected=$selected_org}
+							</select></td>
+						  </tr>
+						<tr class="tr0">
+						   <td class="text_c">{$lang.exchange_desamount}：</td>
+						  <td class="text_c">
+						  <input type="text" name="desamount" id="desamount" disabled="disabled" value="0" size="15" />
+						  <select name="tocredits" id="tocredits" onchange="calcredit();">
+							{html_options options=$to_credits_options selected=$selected_dst}
+						  </select>
+						  </tr>
+						  <tr class="tr0">
+						   <td class="text_c">{$lang.exchange_ratio}：</td>
+						  <td class="text_c">
+						 1 <span id="orgcreditunit">{$orgcreditunit}</span> <span id="orgcredittitle">{$orgcredittitle}</span> {$lang.exchange_action} <span id="descreditamount">{$descreditamount}</span> <span id="descreditunit">{$descreditunit}</span> <span id="descredittitle">{$descredittitle}</span>
+						  </tr>
+						<tr class="tr0">
+						  <td class="text_c" colspan="2">
+						<input type="hidden" name="act" value="act_transform_ucenter_points" /><input type="submit" name="transfrom" value="{$lang.transform_now}" />
+						  </tr>
+						</table>
+					</td>
+				 <td class="text_c">
+				       {$lang.transform_points_desc}
+					</td>
+				  </tr>
+			</table>
+			 </form>
+
+		</div>
+ <!--{else}-->
+        <script type="text/javascript">
+          //<![CDATA[
+            var rule_list = new Object();
+            var invalid_input = '{$lang.invalid_input}';
+            {foreach from=$rule_list item=rule key=key}
+            rule_list['{$key}'] = '{$rule.rate}';
+            {/foreach}
+            function calPoints()
+            {
+              var frm = document.forms['theForm'];
+              var rule_index = frm.elements['rule_index'].value;
+              var num = parseInt(frm.elements['num'].value);
+              var rate = rule_list[rule_index];
+
+              if (isNaN(num) || num < 0 || num != frm.elements['num'].value)
+              {
+                document.getElementById('SKYUC_RESULT').innerHTML = invalid_input;
+                rerutn;
+              }
+              var arr = rate.split(':');
+              var from = parseInt(arr[0]);
+              var to = parseInt(arr[1]);
+
+              if (from <=0 || to <=0)
+              {
+                from = 1;
+                to = 0;
+              }
+              document.getElementById('SKYUC_RESULT').innerHTML = parseInt(num * to / from);
+            }
+
+            function changeRule()
+            {
+              document.forms['theForm'].elements['num'].value = 0;
+              document.getElementById('SKYUC_RESULT').innerHTML = 0;
+            }
+          //]]>
+        </script>
+
+		<div class="log_admin_cout" >
+		  <table class="log_amdin_table">
+				 <tr>
+					<th>{$lang.cur_points}</th>
+				   <th>{$lang.rule_list}</th>
+				  </tr>
+				<tr class="tr0">
+				 <td class="text_c" style="width:300px;">
+						<table style="width:250px;">
+						  <!--{foreach from=$bbs_points item=points}-->
+						  <tr class="tr0">
+							<td style="width:120px;">{$points.title}:</td>
+							<td style="width:120px;">{$points.value}</td>
+						  </tr>
+						  <!--{/foreach} -->
+						  <tr class="tr0">
+						   <td class="text_c">{$lang.pay_point}</td>
+						  <td class="text_c">{$site_points.pay_point}</td>
+						  </tr>
+						</table>
+					</td>
+				 <td class="text_c">
+				        <ul>
+						  <!-- {foreach from=$rule_list item=rule} -->
+						  <li>"{$rule.from}" {$lang.transform} "{$rule.to}" {$lang.rate_is} {$rule.rate}</li>
+						  <!-- {/foreach} -->
+						</ul>
+					</td>
+				  </tr>
+			</table>
+			 <form action="user.php" method="post" name="theForm">
+			   <table class="log_amdin_table">
+				 <tr>
+					<th>{$lang.rule}</th>
+					<th>{$lang.transform_num}</th>
+					<th>{$lang.transform_result}</th>
+				  </tr>
+			   <tr class="tr0">
+					   <td class="text_c">
+					   <select name="rule_index" onchange="changeRule()">
+						<!--{foreach from=$rule_list item=rule key=key}-->
+						<option value="{$key}">{$rule.from}->{$rule.to}</option>
+						<!--{/foreach}-->
+					  </select></td>
+					  <td class="text_c"> <input type="text" name="num" value="0" onkeyup="calPoints()"/>&nbsp;<input type="hidden" name="act" value="act_transform_points"  /><input  name="Submit" id="Submit" type="submit"   value="{$lang.transform_now}"></td>
+					  <td class="text_c"><span id="SKYUC_RESULT">0</span></td>
+				</tr>
+			 </table>
+			 </form>
+
+		</div>
+        <!--{/if} -->
+		<div class="clear"></div>
+<div>
+
+<!--{/if} -->
+<!--#积分兑换 -->
+	<!-- 积分获取 -->
+<!--{if $action eq 'get_integral'}-->
+<script>
+function oCopy(obj){
+		obj.select();
+		js=obj.createTextRange();
+		js.execCommand("Copy");
+		  alert("下线推广地址已复制！");
+}
+</script>
+  <div class="informationManagementContent">
+	 <div class="Personal_ChangePassword" >
+		   <div class="spaceCommonTitle1"><ul><li><img src="images/spaceIntegral.jpg" alt="下线推广" /></li></ul></div>
+		   <div class="ChangeIntegralConter">
+			   <ul>
+				   <li><p>推广地址：</p>	<input name="textfield" type="text" value="{$hosturl}affiche.php?id={$userid}" onClick="oCopy(this);"/></li>
+					<li>1、完整复制以上URL发送给网友，每当有一个网友通过<font color="#FF0000">以上的URL</font>访问网站，则随机奖励 1-10 积分。</li>
+				   <li>2、为防止作弊，24小时内同一IP访问不计积分。</li>
+				   <li>3、通过以上URL注册成为本站会员，并在本站成功消费（购买VIP会员）后，你可以获得 10% 的佣金。</span></li>
+				</ul>
+		   </div>
+
+   </div>
+ </div>
+<!--{/if}-->
+<!--#积分获取-->
+<div class="clear"></div>
+</div>
+</div>
+<!--mainbody end-->
+
+
+	<!--footer start-->
+			<!-- #BeginLibraryItem "/library/page_footer.lbi" -->
+			<!-- #EndLibraryItem -->
+        <!--footer end-->
+    </div>
+    </div>
+    <!--wrapper end-->
+</body>
+</html>

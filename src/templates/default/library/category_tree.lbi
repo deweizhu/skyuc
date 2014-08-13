@@ -1,0 +1,62 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- {if $categories} -->
+<div id="allsort" class="w">
+			<div class="fl">
+
+				<!--{foreach from=$categories item=cat name=cat}-->
+				<!-- {if $smarty.foreach.cat.iteration lte $catenum }-->
+			        <div class="m">
+				        <div class="mt">
+					        <h2><a href="{$cat.url}">{$cat.name|escape:html}</a></h2>
+				         </div>
+
+				        <div class="mc">
+						<!--{foreach from=$cat.children item=child name=child}-->
+				            <dl <!-- {if $smarty.foreach.child.iteration eq 1 } -->class="fore"<!-- {/if} -->>
+				                <dt><a href="{$child.url}" title="{$child.name|escape:html}">{$child.name}</a></dt>
+				                <dd>
+								<!--{foreach from=$child.children item=children}-->
+								<em><a href="{$children.url}">{$children.name|escape:html}</a></em>
+								<!--{/foreach}-->
+								</dd>
+			                </dl><!--{/foreach}-->
+
+				        </div><!-- mc end -->
+			        </div><!--m end  -->
+					<!-- {/if} -->
+					<!--{/foreach}-->
+
+				</div><!--fl end-->
+
+				<div class="fr">
+
+				<!--{foreach from=$categories item=cat name=cat}-->
+				<!-- {if $smarty.foreach.cat.iteration gt $catenum }-->
+			        <div class="m">
+				        <div class="mt">
+					        <h2><a href="{$cat.url}">{$cat.name|escape:html}</a></h2>
+				         </div>
+
+				        <div class="mc">
+						<!--{foreach from=$cat.children item=child name=child}-->
+				            <dl <!-- {if $smarty.foreach.child.iteration eq 1 } -->class="fore"<!-- {/if} -->>
+				                <dt><a href="{$child.url}" title="{$child.name|escape:html}">{$child.name}</a></dt>
+				                <dd>
+								<!--{foreach from=$child.children item=children}-->
+								<em><a href="{$children.url}">{$children.name|escape:html}</a></em>
+								<!--{/foreach}-->
+								</dd>
+			                </dl><!--{/foreach}-->
+
+				        </div><!-- mc end -->
+			        </div><!--m end  -->
+					<!-- {/if} -->
+					<!--{/foreach}-->
+
+				</div><!--fr end-->
+
+		<span class="clr"></span>
+
+	</div>
+
+<!-- {/if} -->

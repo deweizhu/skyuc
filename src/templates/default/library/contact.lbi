@@ -1,0 +1,49 @@
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+	<div class="movieFilmPeople">
+				<div class="movieFilmReviewTop"><ul><li></li></ul></div>
+				<div class="movieFilmReviewCon">
+					<ul class="Down clearfix">
+					<li class="movieFilmPeopleTop"> </li>
+
+						<li>
+							<!-- 客服电话{if $service_phone} -->
+							  电话: {$service_phone} &nbsp;&nbsp;
+							  <!-- 结束客服电话{/if} -->
+							  <!-- QQ 号码 {foreach from=$qq item=im}  -->
+							  <!-- {if $im}  -->
+							  <a href="http://wpa.qq.com/msgrd?V=1&amp;Uin={$im}&amp;Site={$site_name}&amp;Menu=yes" target="_blank"><img src="http://wpa.qq.com/pa?p=1:{$im}:4" border="0" alt="QQ" />{$im}</a>&nbsp;&nbsp;
+							  <!-- {/if} -->
+							  <!-- {/foreach}    结束QQ号码 -->
+							  <!-- 淘宝旺旺    {foreach from=$ww item=im} -->
+							  <!-- {if $im}  -->
+							  <a href="http://amos1.taobao.com/msg.ww?v=2&uid={$im|escape:url}&s=2" target="_blank"><img src="http://amos1.taobao.com/online.ww?v=2&uid={$im|escape:url}&s=2" border="0" alt="淘宝旺旺" />{$im}</a>&nbsp;&nbsp;
+							  <!--  {/if} -->
+							  <!--{/foreach}  结束淘宝旺旺 -->
+							  <!-- Yahoo Messenger    {foreach from=$ym item=im} -->
+							  <!-- {if $im} -->
+							  <a href="http://edit.yahoo.com/config/send_webmesg?.target={$im}n&.src=pg" target="_blank"><img src="../images/yahoo.gif" border="0" alt="Yahoo Messenger" /> {$im}</a>&nbsp;&nbsp;
+							  <!-- {/if} -->
+							  <!-- {/foreach}   结束Yahoo Messenger -->
+							  <!-- MSN Messenger   {foreach from=$msn item=im} -->
+							  <!-- {if $im}  -->
+							  <img src="../images/msn.gif" border="0" alt="MSN" /> {$im}&nbsp;&nbsp;
+							  <!-- {/if} -->
+							  <!-- {/foreach}  结束MSN Messenger -->
+							  <!-- Skype {foreach from=$skype item=im} -->
+							  <!-- {if $im} -->
+							  <img src="http://mystatus.skype.com/smallclassic/{$im|escape:url}" alt="Skype" /><a href="skype:{$im|escape:url}?call">{$im}</a>&nbsp;&nbsp;
+							  <!-- {/if} -->
+							  <!-- {/foreach} -->
+							 <!-- 客服邮件 {foreach from=$service_email item=im} -->
+							  <!-- {if $im} -->
+							 客服邮箱: <a href="mailto:{$im|escape:url}">{$im}</a>&nbsp;&nbsp;
+							  <!-- {/if} -->
+							  <!-- {/foreach} -->
+							  {$site_address}
+						</li>
+					  <div class="clear"></div>
+					</ul>
+				</div>
+				<div class="movieFilmReviewDown"><ul><li></li></ul></div>
+			</div>

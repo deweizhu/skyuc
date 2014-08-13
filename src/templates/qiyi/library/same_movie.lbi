@@ -1,0 +1,18 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- {if $same_movie} -->
+
+<!--看过还看过 start-->
+<div class="top_1_b" style="margin-top:12px;"><span>看过本片的人还看了</span></div>
+				<div class="top_2_c">
+					<div class="top_2_2_c">
+							<!-- {foreach name=same_movie from=$same_movie item=same_movie}-->
+								<!--{if $smarty.foreach.same_movie.iteration lt 11}-->
+								<dl><a href="{$same_movie.url}" target="_blank">{$same_movie.title}</a></dl>
+
+								<!--{/if}-->
+								<!--{/foreach}-->
+						</div>
+				</div>
+
+	<!--{/if}-->
+<!--看过还看过 end-->

@@ -1,0 +1,26 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- {if $new_articles} -->
+				<div class="movieFilmReview">
+				<div class="movieFilmReviewTop" ><ul><li></li></ul></div>
+				<div class="movieFilmReviewCon">
+					<ul class="Top">
+						<li><span>&nbsp;</span><img src="images/movieFilmReviewConTitle.jpg" alt="最新资讯" /></li>
+				  </ul>
+					<ul class="Down clearfix">
+			<!--{foreach from=$new_articles item=article}-->
+				<!-- {if $smarty.foreach.new_articles.iteration lt 7}限制文章显示数量 -->
+						<li class="oneSpeak">
+								<span>[<a href="{$article.cat_url}" target="_blank">{$article.cat_name}</a>]
+							</span>
+							<a href="{$article.url}" title="{$article.title|escape:html}">{$article.title|truncate:18}</a>
+						</li>
+				<!--{/if}-->
+			<!--{/foreach}-->
+
+					  <div class="clear"></div>
+					</ul>
+				</div>
+				<div class="clear"></div>
+				<div class="movieFilmReviewDown"><ul><li></li></ul></div>
+				</div>
+ <!-- {/if} -->

@@ -1,0 +1,10 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<div class="sort-box01" style="padding:10px;">
+        <div style="text-align:right;margin-bottom:15px;">{$article.author|escape:html} <span style="font-size:10px;color:#888;">/ {$article.add_time}</span></div>
+        <!-- {if $article.content } -->
+        <div>{$article.content}</div>
+        <!-- {/if} -->
+        {if $article.open_type eq 2 or $article.open_type eq 1}<br />
+        <div><a href="{$article.file_url}" target="_blank">{$lang.relative_file}</a></div>
+        {/if}
+</div>

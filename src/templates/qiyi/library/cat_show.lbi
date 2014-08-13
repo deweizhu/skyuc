@@ -1,0 +1,63 @@
+ <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <!-- 一个分类通栏开始 -->
+ <div class="content">
+    <div class="dewei">
+<!-- {if $cat_show} -->
+        	<div class="dewei_1">
+            	<h2><a href="{$show_cat.url}"><img src="images/t_{$show_cat.id}.jpg" width="80" height="42" /></a></h2>
+                <h3>按类型</h3>
+                <ul>
+					<!--{foreach from=$show_cat.sub item=sub name=sub}-->
+					<!--{if $smarty.foreach.sub.iteration lt 9}-->
+					<li><a href="{$sub.url}" target="_blank">{$sub.name}</a></li>
+					<!--{/if}-->
+					<!--{/foreach}-->
+				 </ul>
+				 <h3>{$lang.cate_type_area}</h3>
+                <ul>
+				<!--{foreach from=$area_list item=item  name=name}-->
+				<!--{if $smarty.foreach.name.iteration lt 7}-->
+				   <li><a href="search.php?area={$item|escape:url}&category={$show_cat.id}" title="{$item|escape:html}">{$item|truncate:2}</a></li>
+				   <!--{/if}-->
+				 <!--{/foreach}-->
+				 </ul>
+				 <h3>{$lang.cate_type_lang}</h3>
+                <ul>
+					<!--{foreach from=$lang_list item=item name=name}-->
+					<!--{if $smarty.foreach.name.iteration lt 7}-->
+					 <li><a href="search.php?lang={$item|escape:url}&category={$show_cat.id}" title="{$item|escape:html}">{$item|truncate:2}</a></li>
+					 <!--{/if}-->
+					<!--{/foreach}-->
+				 </ul>
+                <p><a href="{$show_cat.url}">{$lang.more} >>>></a></p>
+            </div>
+		<div class="dewei_2">
+						<div class="dewei_2_1">
+								 <!--{foreach from=$cat_show item=show name=show}-->
+								 <!--  {if $smarty.foreach.show.iteration eq 1} -->
+								  <div class="dewei_2_1_1">
+									<a class="imgBg1" href="{$show.url}" title="{$show.title|escape:html}"><img src="{$show.image}" alt="{$show.title|escape:html}" /></a>
+									</div>
+									<div class="dewei_2_1_2">
+										<h1><a href="{$show.url}">{$show.title|truncate:14:true}</a><p></p></h1>
+										<li>{$lang.actor}<!--{foreach from=$show.actor item=val name=val}-->
+									<!--{if $smarty.foreach.val.iteration lt 3}-->
+									<a href="search.php?keywords={$val|escape:url}" target="_blank">{$val}</a>
+									<!--{/if}-->
+									<!--{/foreach}--></li>
+										<li>{$lang.area}{$show.area}</li>
+										<li>{$show.description|truncate:68:true}&nbsp;&nbsp;&nbsp;&nbsp;<a href="{$show.url}">详细 >></a></li></li>
+									</div>
+								<!-- {/if} -->
+							<!--{/foreach}-->
+							</div>
+
+						<div class="dewei_2_2">
+							<!--{foreach from=$cat_show item=show name=show}-->
+								 <!--  {if $smarty.foreach.show.iteration gt 1 AND $smarty.foreach.show.iteration lt 6} -->
+								<div class="dewei_2_2_1"><a class="imgBg1" href="{$show.url}"><img src="{$show.thumb}" alt="{$show.title|escape:html}" /><br />{$show.title|truncate:8}</a><p>{$show.description|truncate:18:true}</p></div>
+								<!-- {/if} -->
+							<!--{/foreach}-->
+						 </div>
+					</div>
+<!--{/if}-->

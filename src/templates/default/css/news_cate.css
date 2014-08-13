@@ -1,0 +1,82 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+.NewTopBanner{ width:980px; height:370px; float:left; margin:8px 0; background-color:#FFFFCC;}
+.NewSidebar_A1{ width:270px; float:left;}
+.NewSidebar_A1TitleBg{background:url(../images/newArrival_newsBg.gif) repeat-x 0 -23px;height:22px;overflow:hidden; margin-bottom:8px;}
+.NewSidebar_A1TitleBg ul{background:url(../images/newArrival_newsBg.gif) no-repeat;height:25px;}
+.NewSidebar_A1TitleBg li{background:url(../images/newArrival_newsBg.gif) no-repeat right -46px;height:22px;padding:3px 0 0 8px;}
+.NewSidebar_A1TitleBg li img{float: left;}
+.NewSidebar_A1TitleBg li span{ display:block; float:right; margin-right:8px;}
+.NewSidebar_A1 p img{ width:250px; height:70px; border:0px; margin-left: 10px;}
+.NewSidebar_A1_list { margin:10px 0px;}
+.NewSidebar_A1_list li{height:24px;width:230px;margin-left:10px;line-height:24px;list-style: disc inside;overflow:hidden;}
+#innermainbody a{text-decoration: none;}
+#innermainbody a:hover{text-decoration: underline;}
+.NewContent_A2{ width:450px; float:left; margin:0 9px; display:inline;}
+.NewContent_A2Title{ height:13px; border-top:solid 1px #d4d4d4;padding:3px 0 0 8px;margin-bottom:10px; float:left; width:445px;}
+.NewContent_A2Title img{ float:left;}
+.NewContent_A2Title span{ display:block; float:right; margin-right:8px;}
+.NewContent_A2Cont{border:solid 1px #d4d4d4; float:left;}
+.NewContent_A2Cont ul{ width:450px;}
+.NewContent_A2Cont li{ width:120px; margin:10px 0 0px 20px; float:left; display:inline;}
+.NewContent_A2Cont li p{ height:20px; line-height:20px; overflow:hidden;}
+.NewContent_A2Cont li img{ width:120px; height:70px; border:solid 1px #d4d4d4; padding:1px; display:inline; margin-bottom:3px;}
+.Newsidebar_A3{ width:239px; float:left;}
+.Newsidebar_A3_flv{ width:235px; height:130px; background:#FFFF99; margin-left:2px;}
+.Newsidebar_A3_list li{height:24px;width:190px;margin:0 10px;line-height:24px;list-style: disc inside;overflow:hidden; border-bottom:dashed 1px #909090;}
+.Newsidebar_A3_list li span{ margin-left:3px;}
+h5{ font-size:12px; line-height:22px; text-indent:10px; color:#000;}
+.Newsidebar_banner { width:980px; height:100px; margin:8px 0; background-color:#FFFFCC; clear:both;}
+.Newsidebar_banner img{ width:980px; height:100px;}
+.Newsidebar_sexyBody{width:729px; margin-right:9px; float:left; height:auto;}
+.Newsidebar_sexyTop{background:url(../images/newArrival_border1.gif) top no-repeat; height:7px; width:729px; font-size:0px;}
+.Newsidebar_sexyFoot{background:url(../images/newArrival_border2.gif) top no-repeat; height:7px; width:729px; font-size:0px;}
+.Newsidebar_sexy{border-right:solid 2px #e8e8e8; border-left:solid 2px #e8e8e8; width:725px; overflow:hidden;}
+.Newsidebar_sexy_title{ height:22px; padding:3px 0 0 8px; float:left; width:200px; }
+.Newsidebar_sexy_title img{ margin-right:8px;}
+.Newsidebar_sexyCont ul{ width:729px;}
+.Newsidebar_sexyCont li{ width:120px; margin:10px 0 0px 21px; float:left; display:inline;}
+.Newsidebar_sexyCont li p{ height:20px; line-height:20px; overflow:hidden; text-align:center; margin-top:8px;}
+.Newsidebar_sexyCont li img{ width:120px; height:160px; display:block;}
+.Newsidebar_expr{border:solid 1px #d4d4d4; float:left; padding-bottom:3px; width:239px;}
+.Newsidebar_expr p{ margin:8px 11px 0 13px;}
+.Newsidebar_expr .txt_Gray{ margin:8px 11px 0 13px; height:66px; overflow:hidden;}
+.Newsidebar_expr .txt_Gray p{margin:0px; padding:0px;}
+.Newsidebar_expr p.b{font-weight: bold; float:left;}
+.Newsidebar_expr p img{ width:210px; height:110px;}
+.Newsidebar_expr_list li{height:24px;margin:0 10px;line-height:24px;list-style: disc inside;overflow:hidden; border-bottom:dashed 1px #909090;}
+.Newsidebar_expr_list li span{ width:125px; overflow:hidden; margin-right:5px;}
+.txt_Gray{ color:#666; line-height:22px;}
+.txt_Gray1{ color:#666; line-height:22px;}
+.Newsidebar_more{ background-color:#e5e5e5;height:13px;overflow:hidden; width:500px; float:left; line-height:13px; margin:5px 0;}
+.Newsidebar_more ul{background:url(../images/newArrival_more.gif) no-repeat;height:13px; width:500px;overflow:hidden;}
+.Newsidebar_more li{background:url(../images/newArrival_more.gif) no-repeat right -14px;height:13px;padding:0 8px; text-align:right;overflow:hidden;}
+.Newsidebar_more li a{height:13px; overflow:hidden; display:block; text-align:right; line-height:13px; float:right;}
+.barboardListDown{background:url(../images/movieBillboardConBg.jpg) repeat-x 0 -36px;height:8px;line-height:0px;font-size:0px;}
+.barboardListDown ul{background:url(../images/movieBillboardConBg.jpg) no-repeat left -27px;height:8px;}
+.barboardListDown li{background:url(../images/movieBillboardConBg.jpg) no-repeat right -45px;height:8px;}
+
+/*new_infolist.*/
+.spaceTitle{background:url(../images/spaceTitle_hBg.jpg) repeat-x 0 -30px;height:29px;overflow:hidden;}
+.spaceTitle ul{background:url(../images/spaceTitle_hBg.jpg) no-repeat;height:29px;}
+.spaceTitle li{background:url(../images/spaceTitle_hBg.jpg) no-repeat right -60px;height:23px;padding:6px 0 0 8px;}
+.spaceTitle li img{float:left;padding-right:12px;}
+.infoSidebar{width:175px; float:left;}
+.infoSidebar_cont{width:173px; border-bottom:solid 1px #d8d8d8;border-left:solid 1px #d8d8d8;border-right:solid 1px #d8d8d8; padding-bottom:15px; overflow: hidden;}
+.infoSidebar_cont li{float:left; width:120px; margin:10px 0 0 27px; display:inline;}
+.infoSidebar_cont_img160X120 img{height:160px; width:120px; display:block;}
+.infoSidebar_cont li span{display:block; text-align:center; margin-top:8px; width:120px; height:15px;overflow:hidden;}
+.infoSidebar_cont li span img{ margin-right:5px;}
+.infoSidebar_lable{ height:35px; line-height:35px; padding-left:20px;}
+.infoSidebar_list{ width:612px; margin:0 8px; border:solid 1px #d8d8d8; float:left;overflow: hidden;}
+.infoSidebar_listTitle{height:23px; padding:0 8px; margin:8px 0 10px 0;}
+.infoSidebar_listTitle img{ display:block; float:left;}
+.infoSidebar_listTitle span{ float:right; display:block;}
+.infoSidebar_list_txt{ margin:0 10px 17px 10px;  border-bottom:solid 1px #d8d8d8; padding-bottom:29px;}
+.infoSidebar_list_txt li{height:28px;line-height:28px;font-size:14px;}
+.infoSidebar_list_txt li span{color:#999;float:right;}
+.infoSidebar_list_list{ margin:0 10px 4px 10px; padding-bottom:16px;}
+.infoSidebar_list_list li{height:28px;line-height:28px;font-size:14px;}
+.infoSidebar_list_list li span{color:#999;float:right;}

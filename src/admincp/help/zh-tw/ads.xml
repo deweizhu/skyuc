@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<help>
+  <section id="list">
+    <title>廣告列表</title>
+    <content>
+    <![CDATA[
+	<p>廣告列表頁面列出您所有的廣告信息，包括站內廣告以及您在其他網站投放的站外廣告信息。</p>
+	<p>在此您可以進行如下操作:</p>
+	
+	<strong>快速編輯廣告名稱</strong>
+	<p>您只要單擊需要修改的<span class="link"> 廣告名稱 </span>，即可出現編輯文本框。輸入您的新內容後回車，修改即可生效！</p>
+	<p class="tips"> 提示：快速編輯廣告名稱時，新的廣告名稱不能與現有的重復。另外廣告名稱建議不宜過長，3～5個字符為最佳！</p>
+	
+	<strong>廣告的添加</strong>
+	<p>您只要點擊頁面右上角的<a href="ads.php?act=add" target="main-frame"><span class="link"> 添加廣告 </span></a>鏈接，進入到添加的操作頁面。</p>
+	
+	<strong>廣告的編輯</strong>
+	<p>您只要點擊列表右邊的<span class="link"> 編輯 </span>鏈接，即可進入到編輯的操作頁面。</p>
+	
+	<strong>廣告的刪除</strong>
+	<p>您只要點擊列表右邊的<span class="link"> 刪除 </span>鏈接，按系統提示即可完成相應的操作。</p>
+
+	<strong>生成廣告的JS代碼</strong>
+	<p>如果您的廣告要投放在其他的網站，那麼列表右邊的操作項裡有一<span class="link"> 生成JS代碼 </span>的鏈接，點擊即可完成相應的操作。</p>
+	]]>
+    </content>
+  </section>
+  <section id="add">
+    <title>添加廣告頁面</title>
+    <content>
+    <![CDATA[
+	<p>您可以在此進行廣告的添加操作</p>
+	
+	<strong>媒介類型</strong>
+	<p>您可以添加四種類型的廣告：分別是<span class="link">圖片、Flash、代碼</span>和<span class="link">文字廣告</span></p>
+	
+	<strong>廣告位置</strong>
+	<p>在此選擇新廣告所要顯示的位置，如果是投放到其他網站的廣告，請選擇 <span class="link">站外廣告</span></p>
+	
+	<strong>當添加圖片類型的廣告時</strong>
+	<p>您需要注意以下幾點：</p>
+
+	<strong>上傳廣告圖片</strong>
+	<p>您需要在此上傳廣告的圖片。請注意圖片的格式必須為GIF，JPG，PNG格式。</p>
+
+	<strong>或圖片網址</strong>
+	<p>在此提供了遠程調用廣告圖片的功能。如果您的廣告圖片不在本地，您可以在此輸入廣告圖片所在的URL網址。</p>
+	<p class="tips">提示：在添加圖片類型的廣告時，如果您既上傳了圖片又填寫了遠程圖片URL，那麼廣告圖片將以遠程URL地址的圖片為准。</p>
+
+	<strong>當添加Flash廣告時</strong>
+	<p>添加Flash廣告的操作與添加圖片廣告的操作類似。</p>
+	
+	<strong>當添加代碼廣告時</strong>
+	<p>添加代碼廣告時，您需要在 <span class="link">輸入廣告內容</span> 一欄輸入您的廣告代碼即可。</p>
+
+	<strong>添加文字廣告</strong>
+	<p>文字廣告的操作類似代碼廣告</p>
+
+    <strong>是否開啟</strong>
+	<p>提供了廣告的 <span class="link">開啟/關閉</span> 功能。如果您要提前結束或者暫時關閉某條廣告，選擇 <span class="link">關閉</span> 即可。</p>
+
+	]]>
+    </content>
+  </section>
+  <section id="edit">
+    <title>編輯廣告</title>
+    <content>
+    <![CDATA[
+	<p>您可以在此進行廣告的編輯操作<br>(詳細幫助信息請參見 <span class="link">添加廣告</span> 部分)</p>
+    <p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+
+]]>
+    </content>
+  </section>
+
+  <section id="add_js">
+    <title>生成廣告JS代碼</title>
+    <content>
+    <![CDATA[
+	<p>您可以在此進行廣告的JS代碼復制操作</p>
+	<strong>投放廣告的站點名稱</strong>
+	<p>此表單用於填寫您的站外廣告所要投放的網站名稱。如：天空網絡</p>
+
+	<strong>生成JS代碼</strong>
+	<p>此處的JS代碼您可以用於在其他網站投放此條廣告。<br>點擊<span class="link"> 復制JS代碼 </span>按鈕，即可將此段JS代碼復制到剪貼板</p>
+]]>
+    </content>
+  </section>
+
+
+</help>

@@ -1,0 +1,63 @@
+@charset "utf-8";
+/* news_detail */
+.topmainnav{ height:22px; padding:8px 0 0 5px;}
+.da980a{ padding:5px 0 5px;}
+
+#content { width:731px; float:left;}
+#siderbar { width:239px; float:right;}
+
+.all_Title{background:url(../images/news_detail_tt_bg.gif) repeat-x;height:22px;overflow:hidden;}
+.all_Title ul{background:url(../images/news_detail_tt_l.gif) no-repeat;height:22px;}
+.all_Title li{background:url(../images/news_detail_tt_r.gif) no-repeat right;height:22px;}
+.all_Title li img{margin:3px 0 0 6px;}
+
+#siderbar .bottom{ background:url(../images/news_detail_left_bottom.gif) no-repeat; height:6px;line-height:1%; font-size:1%;}
+
+/* 文章内容部门 */
+.article {}
+.article_top{height:6px;background: url(../images/news_detail_corn1.gif) no-repeat;line-height:1%; font-size:1%;}
+.article_bottom{height:6px;background: url(../images/news_detail_corn2.gif) no-repeat;line-height:1%; font-size:1%;}
+.article_con {border-left:#D2D2D2 1px solid; border-right:#D2D2D2 1px solid; padding:0 8px 0;}
+.article .title { height:50px; border-bottom:#D2D2D2 1px solid; color:#000000; font-size:18px; font-weight:bold; text-align:center; line-height:50px;}
+.article .date { height:30px; line-height:30px; text-align:center;}	
+.article .main_text { padding:10px 0 0 0; text-indent:20px; color:#000000; line-height:22px;}
+.article .main_text p { margin-top:20px;}
+
+
+/* 相关影片 */
+.related_film { border:#D4D4D4 1px solid;  margin-top:5px; height:308px; padding:6px 0 0 8px; text-align:center;}
+.related_film li { width:91px; padding:6px 5px 0 10px; float:left; }
+.related_film .m_r_0 { margin-right:0px;}
+.related_film .poster_pic {width:87px; height:117px; border:#444442 1px solid; padding:1px;}
+.related_film .poster_tt {height:15px; padding:10px 0 6px 0; text-align:center;}
+.related_film .poster_tt a{ color:#010101; text-decoration:none;}
+.related_film .poster_tt a:hover { color:#E95000; text-decoration:underline;}
+
+/
+/*目录索引栏目样式*/
+	.movieConIndex{margin-top:8px;border:1px solid #DFDFDF;}
+	.movieConIndexCon{border:1px solid #DFDFDF;padding:6px 7px;margin-top:3px;}
+	.movieConIndexCon h1{clear:both;font-size:12px;height:18px;border-bottom:1px solid #B9B9B9;line-height:17px;padding-left:3px;}
+	.movieConIndexCon h1.Padding_10px{padding-top:10px;}
+	.movieConIndexCon p{float:left;display:block;width:52px;line-height:24px;padding-left:2px;}
+	.movieConIndexCon p.Tv{float:left;display:block;width:72px;line-height:24px;padding-left:2px;}
+	.movieConIndexCon img{float:left;border:1px solid #999;margin:6px 0px 0px 3px;}
+	.movieConIndexCon li.listStyle{background:url(../images/play_online_name_bg.jpg) repeat-x left 25px;padding:0px 6px;height:26px;line-height:26px;margin:0px 4px;overflow:hidden;}
+	.movieConIndexCon li.listStyleNow{background:url(../images/play_online_name_bg.jpg) repeat-x left 25px;padding:0px 6px;height:26px;font-weight:bold;color:#E82C00;line-height:26px;margin:0px 4px;overflow:hidden;}
+	
+
+
+/*new_infolist*/
+.spaceTitle{background:url(../images/spaceTitle_hBg.jpg) repeat-x 0 -30px;height:29px;overflow:hidden;margin-top:5px;}
+.spaceTitle ul{background:url(../images/spaceTitle_hBg.jpg) no-repeat;height:29px;}
+.spaceTitle li{background:url(../images/spaceTitle_hBg.jpg) no-repeat right -60px;height:23px;padding:6px 0 0 8px;}
+.spaceTitle li img{float:left;padding-right:12px;}
+
+.infoSidebar_cont{border:solid 1px #d8d8d8;  padding:6px 5px 0 10px; margin-top:0px;text-align:center; height:500px; }
+.infoSidebar_cont li { width:91px; padding:6px 5px 0 10px; float:left; overflow:hidden;}
+.infoSidebar_cont_img160X120 img{width:87px; height:117x; border:#444442 1px solid; padding:1px;}
+.pic_160{margin-top:-117px; display:block;height:117x;}
+.infoSidebar_cont li span {height:25px; padding:10px 0 6px 0; text-align:center;  white-space: nowrap; }
+.infoSidebar_cont li span img{display:none;}
+.infoSidebar_cont li span a{color:#010101; text-decoration:none;}
+.infoSidebar_cont li span a:hover { color:#E95000; text-decoration:underline;}

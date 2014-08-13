@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<help>
+
+  <section id="main">
+    <title>管理中心起始页</title>
+    <content>
+    <![CDATA[
+      <p>起始页将显示系统运行的信息。除此之外在起始页还会来自天空网络官方站点的一些最新消息，让您迅速的掌握系统运行动态。</p>
+    ]]>
+    </content>
+  </section>
+
+</help>

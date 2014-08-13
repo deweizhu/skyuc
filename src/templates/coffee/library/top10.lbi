@@ -1,0 +1,47 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- {if $top_day} -->
+<script type="text/javascript">
+		function showRank(elm,num,total) {
+			showTab(elm,num,total) ;
+			showSub(elm,num,total) ;
+			//showImage(num) ;
+			document.body.focus();
+		}
+		function showTab(elm,num,total) {
+			for(i=1;i<=total;i++) {
+				document.getElementById(elm+"_"+i).className = "" ;
+			}
+			document.getElementById(elm+"_"+num).className = "select" ;
+		}
+		function showSub(elm,num,total) {
+			for (i=1;i<=total;i++) {
+				document.getElementById(elm+"_sub"+i).style.display = "none" ;
+			}
+			document.getElementById(elm+"_sub"+num).style.display = "block" ;
+		}
+</script>
+<div class="title-01">
+  <div class="title-01-arrow">点播排行Top&nbsp;&nbsp;
+<a href="javascript:void(0)" class="select"  id="rank_1" onmouseover="showRank('rank',1,3);"><b>{$lang.top_day}</b></a>
+<a href="javascript:void(0)" id="rank_2"  onmouseover="showRank('rank',2,3);"><b>{$lang.top_week}</b></a>
+<a href="javascript:void(0)" id="rank_3"  onmouseover="showRank('rank',3,3);"><b>{$lang.top_month}</b></a>
+</div>
+</div>
+<div class="sort-box01" id="top10">
+  <ul id="rank_sub1">
+    <!-- {foreach name=top_day from=$top_day item=top_day}-->
+    <li><img src="images/top_{$smarty.foreach.top_day.iteration}.gif" alt="" /> <span><a href="{$top_day.url}" title="{$top_day.title|escape:html}">{$top_day.title|truncate:12:true}</a></span></li>
+    <!--{/foreach}-->
+  </ul>
+  <ul id="rank_sub2" style="display: none;">
+    <!-- {foreach name=top_week from=$top_week item=top_week}-->
+    <li><img src="images/top_{$smarty.foreach.top_week.iteration}.gif" alt="" /> <span><a href="{$top_week.url}" title="{$top_week.title|escape:html}">{$top_week.title|truncate:12:true}</a></span></li>
+    <!--{/foreach}-->
+  </ul>
+  <ul id="rank_sub3" style="display: none;">
+    <!-- {foreach name=top_month from=$top_month item=top_month}-->
+    <li><img src="images/top_{$smarty.foreach.top_month.iteration}.gif" alt="" /> <span><a href="{$top_month.url}" title="{$top_month.title|escape:html}">{$top_month.title|truncate:12:true}</a></span></li>
+    <!--{/foreach}-->
+  </ul>
+</div>
+<!--{/if}-->

@@ -1,0 +1,30 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- {if $subject} -->
+<div class="movieDesign">
+	  <div class="movieDesignTitle">
+		<ul>
+		  <li><img src="images/movieDesignTitleTxt.jpg" alt="影视专题" /></li>
+		</ul>
+	  </div>
+	  <div class="movieDesignCon clearfix">
+		<ul>
+		<!--{foreach name=subject from=$subject item=subject}-->
+		<!--{if $subject.recom}-->
+		  <li><a href="{$subject.link}" target="_blank"><img src="{$subject.poster}" alt="电影专题名称" width="215" height="170" /><img src="images/pic_215x170.gif" alt="{$subject.title|escape:html}" class="pic_170" /></a></li>
+		  <li>
+			<h1><a href="{$subject.link}" class="HotBg" target="_blank">{$subject.title}</a></h1>
+			<div class="minfo">{$subject.intro}<span>[<a href="{$subject.link}" target="_blank">详情</a>]</span></div>
+		  </li>
+		<!--{else}-->
+		  <li><a href="{$subject.link}" target="_blank"><img src="{$subject.thumb}" alt="电影专题名称" width="215" height="60" /><img src="images/pic_215x60.gif" alt="{$subject.title|escape:html}" class="pic_60" /></a></li>
+		  <li>
+			<h1 class="dottedLine"><a href="{$subject.link}" target="_blank">{$subject.title}</a></h1>
+			<div class="Height60">{$subject.intro}<span>[<a href="{$subject.link}" target="_blank">详情</a>]</span></div>
+		  </li>
+		 <!--{/if}-->
+		<!--{/foreach}-->
+
+		</ul>
+	  </div>
+  </div>
+  <!-- {/if} -->

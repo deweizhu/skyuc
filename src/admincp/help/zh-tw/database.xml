@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<help>
+
+  <section id="backup">
+    <title>資料庫管理</title>
+    <content>
+    <![CDATA[
+	<p><strong>資料庫備份(SQL)</strong></p>
+	<p>標准備份備份包括除系統運行日志以外的所有資料表。備份結束將所有備份文件打包下載。<br />
+	備份文件名可以隨意更改，但後綴名必須為.zip。
+	</p>
+
+    <p><strong>備份恢復</strong></p>
+	<p>備份回復只能能識別sql文件。使用本軟件備份的資料需解壓縮後才能上傳。</p>
+	]]>
+    </content>
+  </section>
+
+  <section id="optimize">
+    <title>資料庫表優化</title>
+    <content>
+    <![CDATA[
+	<p><strong>資料庫備份</strong></p>
+	<p>該頁面顯示 SKYUC! 所使用得所有資料表的記錄數，資料大小，索引值，碎片個數。當最後一列碎片數太多時就需要進行資料表優化。<br />資料表優化可以清理碎片，提高資料表訪問速度。</p>
+	]]>
+    </content>
+  </section>
+
+</help>

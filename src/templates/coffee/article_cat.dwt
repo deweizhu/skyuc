@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>{$page_title}</title>
+<!-- TemplateEndEditable -->
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="icon" href="animated_favicon.gif" type="image/gif" />
+<link href="{$skyuc_css_path}" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<!-- #BeginLibraryItem "/library/page_header.lbi" -->
+<!-- #EndLibraryItem -->
+<div id="globalWrapper">
+<!-- TemplateBeginEditable name="导航栏下方搜索条" -->
+
+	<!-- #BeginLibraryItem "/library/search_form.lbi" -->
+	<!-- #EndLibraryItem -->
+<!-- TemplateEndEditable-->
+<div id="container">
+    <div id="page-left"> <!-- TemplateBeginEditable name="主区域左侧" -->
+
+	<!-- #BeginLibraryItem "/library/member.lbi" -->
+	<!-- #EndLibraryItem -->
+
+	<!-- #BeginLibraryItem "/library/article_cate_tree.lbi" -->
+	<!-- #EndLibraryItem -->
+
+	<!-- #BeginLibraryItem "/library/history.lbi" -->
+	<!-- #EndLibraryItem -->
+<!-- TemplateEndEditable--> </div>
+    <!--End #page-left-->
+    <div id="page-middle"> <!-- TemplateBeginEditable name="主区域" -->
+
+	<!-- #BeginLibraryItem "/library/ur_here.lbi" -->
+	<!-- #EndLibraryItem -->
+
+	<!-- #BeginLibraryItem "/library/article_cate.lbi" -->
+	<!-- #EndLibraryItem -->
+
+	<!-- #BeginLibraryItem "/library/pages.lbi" -->
+	<!-- #EndLibraryItem -->
+<!-- TemplateEndEditable-->
+</div></div>
+    <!--End #page-middle-->
+    <div id="page-right"> <!-- TemplateBeginEditable name="主区域右侧" -->
+
+	<!-- #BeginLibraryItem "/library/new10_article.lbi" -->
+	<!-- #EndLibraryItem -->
+
+	<!-- #BeginLibraryItem "/library/top10_article.lbi" -->
+	<!-- #EndLibraryItem -->
+<!-- TemplateEndEditable--> </div>
+    <!--End #page-right-->
+    <br />
+    <div class="hack"></div>
+  </div>
+  <!-- End #container -->
+</div>
+  <!-- TemplateBeginEditable name="帮助上方通栏广告位" -->
+<!-- TemplateEndEditable -->
+<!--End #globalWrapper-->
+<div id="footer">
+<!-- #BeginLibraryItem "/library/help.lbi" -->
+<!-- #EndLibraryItem -->
+
+<!-- #BeginLibraryItem "/library/page_footer.lbi" -->
+<!-- #EndLibraryItem --></div>
+<!--End #footer-->
+</body>
+</html>

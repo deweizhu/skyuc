@@ -1,0 +1,30 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<div class="spaceMenu">
+ <div class="personalManagementAccount">
+	 <div class="spaceCommonTitle1"><ul><li><img src="images/spaceManageAccount.jpg" alt="个人管理账号" /></li></ul></div>
+	 <div class="spaceMenuContent">
+		 <ul>
+			<li><a href="user.php">{$lang.label_welcome}</a></li>
+			<li><a href="user.php?act=profile">{$lang.label_profile}</a></li>
+			<li><a href="user.php?act=buyrank">{$lang.label_buyrank}</a></li>
+			<li><a href="user.php?act=card">{$lang.label_card}</a></li>
+			<li><a href="user.php?act=play_log">{$lang.label_play_log}</a></li>
+			<li><a href="user.php?act=tag_list">{$lang.label_tag}</a></li>
+			<li><a href="user.php?act=comment_list">{$lang.label_comment}</a></li>
+			<li><a href="user.php?act=order_list">{$lang.label_order}</a></li>
+			<li><a href="user.php?act=message_list">{$lang.label_message}</a></li>
+			<li><a href="user.php?act=account_log">{$lang.label_user_surplus}</a></li>
+			{if $show_transform_points}
+			<li><a href="user.php?act=transform_points">{$lang.label_transform_points}</a></li>
+			{/if}
+			<li><a href="user.php?act=get_integral">{$lang.label_get_integral}</a></li>
+			<li><a href="user.php?act=logout">{$lang.label_logout}</a></li>
+		  </ul>
+	 </div>
+	 <div class="spaceMenuLineDown"><ul><li> </li></ul></div>
+ </div>
+
+
+
+
+</div>

@@ -1,0 +1,102 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- {if $top_month} -->
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+		//得到i_top10的轮显函数
+	var iTop10LableChang=CreateLabelChangeFun('i_top10_label1', 0, 'up');
+//-->
+</SCRIPT>
+            <div class="i_top10">
+                <div class="movieSearchBillboard">
+                     <div class="movieSearchBillboardT">
+						<ul>
+						<li><img src="images/movieSearchBillboard.jpg" alt="点播排行榜" />
+						<p class="up" id="i_top10_label1" onmousemove="iTop10LableChang('i_top10_label1');">{$lang.top_day}</p>
+						<p id="i_top10_label2" onmousemove="iTop10LableChang('i_top10_label2');">{$lang.top_week}</p>
+						<p id="i_top10_label3" onmousemove="iTop10LableChang('i_top10_label3');">{$lang.top_month}</p>
+						</li>
+						</ul>
+					</div>
+                        <!-- 周排行start -->
+                        <div class="same_movie_info" id="i_top10_label1_div">
+
+					  <!-- {foreach name=top_day from=$top_day item=top_day}-->
+
+                        <!--{if $smarty.foreach.top_day.iteration lt 4 }-->
+                          <div class="homeGuessCon1 clearfix">
+								<a href="{$top_day.url}" target="_blank"><img src="{$top_day.thumb}" alt="{$top_day.title|escape:html}" width="90" height="120" /><img src="images/pic_90x120.gif" alt="{$top_day.title|escape:html}" class="pic_120" /></a>
+				<h1 class="HotNo0{$smarty.foreach.top_day.iteration}"><a href="{$top_day.url}" target="_blank">{$top_day.title}</a></h1><span class="HotListImg"><a href="{$top_day.url}" target="_blank"><img src="images/movie_note_dot.gif"  /></a></span>
+										<p><b>{$lang.description}</b>{$top_day.description|truncate:40:true}</p>
+									</div>
+                          <div class="clear"></div>
+                          <!--{else}-->
+
+                            <div class="TvCon1LeftConCCTit" id="TvCon1LeftConCCTit{$smarty.foreach.top_day.iteration}" >
+                                <div class="TvCon1LeftConCCMoreInfNumPos TvCon1LeftConCCMoreInfNumBg{$smarty.foreach.top_day.iteration}"></div>
+                                <div class="TvCon1LeftConCCMoreInfTitName"><a href="{$top_day.url}" target="_blank">{$top_day.title}</a></div>
+                          </div>
+                            <!--{/if}-->
+                          <!--{/foreach}-->
+
+
+				  </div>
+                  <!-- 周排行end -->
+                  <!-- 周排行start -->
+                  <div class="same_movie_info" id="i_top10_label2_div" style="display: none">
+
+
+                 	<!-- {foreach name=top_week from=$top_week item=top_week}-->
+
+                        <!--{if $smarty.foreach.top_week.iteration lt 4 }-->
+                          <div class="homeGuessCon1 clearfix">
+								<a href="{$top_week.url}" target="_blank"><img src="{$top_week.thumb}" alt="{$top_week.title|escape:html}" width="90" height="120" /><img src="images/pic_90x120.gif" alt="{$top_week.title|escape:html}" class="pic_120" /></a>
+				<h1 class="HotNo0{$smarty.foreach.top_week.iteration}"><a href="{$top_week.url}" target="_blank">{$top_week.title}</a></h1><span class="HotListImg"><a href="{$top_week.url}" target="_blank"><img src="images/movie_note_dot.gif"  /></a></span>
+										<p><b>{$lang.description}</b>{$top_week.description|truncate:40:true}</p>
+									</div>
+                          <div class="clear"></div>
+                          <!--{else}-->
+
+                            <div class="TvCon1LeftConCCTit" id="TvCon1LeftConCCTit{$smarty.foreach.top_week.iteration}" >
+                                <div class="TvCon1LeftConCCMoreInfNumPos TvCon1LeftConCCMoreInfNumBg{$smarty.foreach.top_week.iteration}"></div>
+                                <div class="TvCon1LeftConCCMoreInfTitName"><a href="{$top_week.url}" target="_blank">{$top_week.title|truncate:10:true}</a></div>
+                          </div>
+                            <!--{/if}-->
+                          <!--{/foreach}-->
+
+
+                  </div>
+                  <!-- 周排行end -->
+
+				  <!-- 月排行start -->
+                  <div class="same_movie_info" id="i_top10_label3_div" style="display: none">
+
+
+                 	<!-- {foreach name=top_month from=$top_month item=top_month}-->
+
+                        <!--{if $smarty.foreach.top_month.iteration lt 4 }-->
+                          <div class="homeGuessCon1 clearfix">
+								<a href="{$top_month.url}" target="_blank"><img src="{$top_month.thumb}" alt="{$top_month.title|escape:html}" width="90" height="120" /><img src="images/pic_90x120.gif" alt="{$top_month.title|escape:html}" class="pic_120" /></a>
+				<h1 class="HotNo0{$smarty.foreach.top_month.iteration}"><a href="{$top_month.url}" target="_blank">{$top_month.title}</a></h1><span class="HotListImg"><a href="{$top_month.url}" target="_blank"><img src="images/movie_note_dot.gif"  /></a></span>
+										<p><b>{$lang.description}</b>{$top_month.description|truncate:40:true}</p>
+									</div>
+                          <div class="clear"></div>
+                          <!--{else}-->
+
+                            <div class="TvCon1LeftConCCTit" id="TvCon1LeftConCCTit{$smarty.foreach.top_month.iteration}" >
+                                <div class="TvCon1LeftConCCMoreInfNumPos TvCon1LeftConCCMoreInfNumBg{$smarty.foreach.top_month.iteration}"></div>
+                                <div class="TvCon1LeftConCCMoreInfTitName"><a href="{$top_month.url}" target="_blank">{$top_month.title|truncate:10:true}</a></div>
+                          </div>
+                            <!--{/if}-->
+                          <!--{/foreach}-->
+
+
+                  </div>
+                  <!-- 月排行end -->
+
+                        <div class="movieHomeBroadcastConLD"><ul><li></li></ul></div>
+
+                    </div>
+            </div>
+
+
+<!--{/if}-->

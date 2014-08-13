@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>{$page_title}</title>
+<!-- TemplateEndEditable -->
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="icon" href="animated_favicon.gif" type="image/gif" />
+<link href="{$skyuc_css_path}" rel="stylesheet" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS|{$page_title}" href="{$feed_url}" />
+</head>
+<body>
+<!-- #BeginLibraryItem "/library/page_header.lbi" -->
+<!-- #EndLibraryItem -->
+<div id="globalWrapper">
+<!-- TemplateBeginEditable name="搜索条上方通栏广告位" -->
+<!-- TemplateEndEditable -->
+<!-- TemplateBeginEditable name="导航栏下方搜索条" -->
+	<!-- #BeginLibraryItem "/library/search_form.lbi" -->
+	<!-- #EndLibraryItem -->
+<!-- TemplateEndEditable -->
+<div id="login-flash">
+<!-- TemplateBeginEditable name="动画广告左侧" -->
+	<!-- #BeginLibraryItem "/library/member.lbi" -->
+	<!-- #EndLibraryItem -->
+<!-- TemplateEndEditable -->
+<div id="flash">
+	<script type="text/javascript">
+      var swf_width=484;
+      var swf_height=193;
+    </script>
+	<script type="text/javascript" src="data/flashdata/{$flash_theme}/cycle_image.js"></script>
+    </div>
+    <!--End #flash-->
+<div class="notice">
+	<div class="title"><div class="name">网站公告</div></div>
+	<div class="content">
+	<!--{if $film_total.films}-->本站共有影片 {$film_total.films} 部,今日更新 {$film_total.today} 部 <br /><!--{/if}-->
+	{$site_notice}
+	</div>
+</div>
+
+ </div>
+
+  <!--End #login-news-->
+  <div id="container2">
+    <div id="page-left">
+<!-- TemplateBeginEditable name="主区域左侧" -->
+	<!-- #BeginLibraryItem "/library/new_articles.lbi" -->
+	<!-- #EndLibraryItem -->
+
+	<!-- #BeginLibraryItem "/library/new10.lbi" -->
+	<!-- #EndLibraryItem -->
+
+	<!-- #BeginLibraryItem "/library/top10.lbi" -->
+	<!-- #EndLibraryItem -->
+
+	<!-- #BeginLibraryItem "/library/tree.lbi" -->
+	<!-- #EndLibraryItem -->
+
+	<!-- #BeginLibraryItem "/library/vote.lbi" -->
+	<!-- #EndLibraryItem -->
+<!-- TemplateEndEditable -->
+      <p style="text-align:center;"><a href="{$feed_url}"><img src="images/xml_rss2.gif" width="80" height="15" border="0" alt="" /></a></p>
+    </div>
+    <!--End #page-left-->
+
+    <!--End #page-middle-->
+<div id="page-right" style="width:784px;padding-left:1px;">
+<!-- TemplateBeginEditable name="主区域右侧" -->
+	<!-- #BeginLibraryItem "/library/recom.lbi" -->
+	<!-- #EndLibraryItem -->
+
+	<!-- #BeginLibraryItem "/library/cat_show.lbi" -->
+	<!-- #EndLibraryItem -->
+
+	<!-- #BeginLibraryItem "/library/cat_show.lbi" -->
+	<!-- #EndLibraryItem -->
+<!-- TemplateEndEditable -->
+</div>
+    <!--End #page-right-->
+    <br />
+    <div class="hack"></div>
+  <!-- End #container -->
+  <!-- TemplateBeginEditable name="帮助上方通栏广告位" -->
+<!-- TemplateEndEditable --> </div>
+<!--End #globalWrapper-->
+<div id="footer">
+		<!-- #BeginLibraryItem "/library/help.lbi" -->
+<!-- #EndLibraryItem -->
+<!--{if $img_links  or $txt_links }-->
+  <div class="title-02">
+    <div class="title-02-arrow">友情链接</div>
+  </div>
+  <div class="sort-box02" style="text-align:left;padding:5px;">
+    <!-- {if $img_links} -->
+    <div style="padding:3px;">
+      <!--开始图片类型的友情链接{foreach from=$img_links item=link}-->
+      <span style="width: 100px; text-align: center"> <a href="{$link.url}" target="_blank" title="{$link.name}"><img src="{$link.logo}" width="88" height="31" alt="{$link.name}" border="0" /></a> </span>
+      <!--结束图片类型的友情链接{/foreach}-->
+    </div>
+    <!-- {/if} -->
+    <!-- {if $txt_links} -->
+    <div style="padding:3px;">
+      <!--开始文字类型的友情链接{foreach from=$txt_links item=link}-->
+      <span style="width: 100px; text-align: center"> [<a href="{$link.url}" target="_blank" title="{$link.name}">{$link.name}</a>] </span>
+      <!--结束文字类型的友情链接{/foreach}-->
+    </div>
+    <!-- {/if} -->
+  </div>
+  <!--{/if}-->
+
+<!-- #BeginLibraryItem "/library/page_footer.lbi" -->
+<!-- #EndLibraryItem -->
+</div>
+<!--End #footer-->
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>{$page_title}</title>
+<!-- TemplateEndEditable --><!-- TemplateBeginEditable name="head" --><!-- TemplateEndEditable -->
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="icon" href="animated_favicon.gif" type="image/gif" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+{* 包含脚本文件 *}
+{insert_scripts files="common.js,user.js"}
+</head>
+<body>
+<!-- #BeginLibraryItem "/library/page_header.lbi" -->
+<!-- #EndLibraryItem -->
+<div id="globalWrapper">
+<!-- #BeginLibraryItem "/library/search_form.lbi" -->
+  <!-- #EndLibraryItem -->
+  <div style="clear:both;">
+    <!--#登录界面-->
+    <!-- {if $action eq 'login' or  $action eq ''} -->
+    <div class="title-01">
+      <div class="title-01-arrow">网吧登录</div>
+    </div>
+    <div class="content-div">
+      <form name="formLogin" action="netbar.php" method="post" onSubmit="return userLogin()">
+        <br />
+        <table width="70%" border="0" align="center">
+          <tr>
+            <td width="41%" align="right"><strong>{$lang.netbar_name}　</strong></td>
+            <td width="59%"><input name="netbar_name" type="text" size="25" /></td>
+          </tr>
+          <tr>
+            <td align="right"><strong>{$lang.netbar_pwd}　</strong></td>
+            <td><input name="netbar_pwd" type="password" size="25" /></td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td><input type="hidden" name="act" value="act_login" />
+              <input type="submit" name="submit" value="{$lang.confirm_login}" />
+            </td>
+          </tr>
+        </table>
+        <br />
+      </form>
+    </div>
+    <!--{/if}-->
+    <!--#登录界面-->
+		 <!-- 网吧管理界面 -->
+        <!--{if $action eq 'manage'}-->
+        <div class="title-01">
+          <div class="title-01-arrow">网吧管理中心 →<a href='netbar.php?act=logout'>退出登陆</a></div>
+        </div>
+        <div class="content-div"> <br />
+          <form name="formEdit" action="netbar.php" method="post" style="border-bottom:1px dashed #DADADA;padding-bottom:20px;">
+            <table width="70%" border="0" align="center">
+              <tr>
+                <td width="15%"><strong>{$lang.netbar_title} </strong></td>
+                <td width="85%"><input name="title" type="text" value="{$netbar.title}" size="25" /></td>
+              </tr>
+							  <tr>
+                <td width="15%"><strong>{$lang.netbar_sip}</strong></td>
+                <td><input name="sip" type="text"  value="{$ip}" size="15" readonly/> {$lang.autoip}</td>
+              </tr>
+							  <tr>
+                <td width="15%"><strong>{$lang.netbar_eip}</strong></td>
+                <td><input name="eip" type="text"  value="{$ip}" size="15" readonly/> {$lang.autoip}</td>
+              </tr>
+							 <tr>
+                <td width="15%"><strong>{$lang.addtime}</strong></td>
+                <td>{$netbar.addtime}</td>
+              </tr>
+							  <tr>
+                <td width="15%"><strong>{$lang.endtime}</strong></td>
+                <td>{$netbar.endtime} </td>
+              </tr>
+              <tr>
+                <td></td>
+                <td><input name="act" type="hidden" value="act_edit_ip" />
+                  <input name="submit" type="submit" value="{$lang.confirm_edit}" />                </td>
+              </tr>
+            </table>
+          </form>
+          <br />
+          <form name="formPassword" action="netbar.php" method="post" >
+            <table width="70%" border="0" align="center">
+              <tr>
+                <td width="100"><strong>{$lang.old_password}</strong></td>
+                <td width="85%"><input name="old_password" type="password" size="25" /></td>
+              </tr>
+              <tr>
+                <td width="100"><strong>{$lang.new_password}</strong></td>
+                <td><input name="new_password" type="password" size="25" /></td>
+              </tr>
+              <tr>
+                <td width="100"><strong>{$lang.confirm_password}</strong></td>
+                <td><input name="comfirm_password" type="password" size="25" /></td>
+              </tr>
+              <tr>
+                <td>&nbsp;</td>
+                <td><input name="act" type="hidden" value="act_edit_password" />
+                  <input name="submit" type="submit" value="{$lang.confirm_edit}" />                </td>
+              </tr>
+            </table>
+          </form>
+          </table>
+        </div>
+        <!--{/if}-->
+        <!--#网吧管理界面-->
+    <br />
+    <div class="hack"></div>
+  </div>
+  <!-- End #container -->
+</div>
+<!--End #globalWrapper-->
+<div id="footer">
+<!-- #BeginLibraryItem "/library/help.lbi" -->
+  <!-- #EndLibraryItem -->
+	
+	<!-- #BeginLibraryItem "/library/page_footer.lbi" -->
+ <!-- #EndLibraryItem --></div>
+<!--End #footer-->
+</body>
+</html>

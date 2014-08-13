@@ -1,0 +1,43 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- {if $series} -->
+            <div class="i_top10">
+                <div class="movieSearchBillboard">
+                     <div class="movieSearchBillboardT">
+						<ul>
+						<li><img src="images/movie_series.jpg" alt="{$show_cat.name|escape:html}连载更新" />
+
+						</li>
+						</ul>
+					</div>
+                        <!-- 排行start -->
+                        <div class="same_movie_info" id="i_top10_label1_div">
+
+					     <!-- {foreach name=series from=$series item=series}-->
+
+                        <!--{if $smarty.foreach.series.iteration lt 4 }-->
+                          <div class="homeGuessCon1 clearfix">
+								<a href="{$series.url}" target="_blank"><img src="{$series.thumb}" alt="{$series.title|escape:html}" width="90" height="120" /><img src="images/pic_90x120.gif" alt="{$series.title|escape:html}" class="pic_120" /></a>
+				<h1 class="HotNo0{$smarty.foreach.series.iteration}"><a href="{$series.url}" target="_blank">{$series.title}</a></h1><span class="HotListImg"><a href="{$series.url}" target="_blank"><img src="images/movie_note_dot.gif"  /></a></span>
+										<p><b>看点:</b>{$series.description|truncate:40:true}</p>
+									</div>
+                          <div class="clear"></div>
+                          <!--{else}-->
+
+                            <div class="TvCon1LeftConCCTit" id="TvCon1LeftConCCTit{$smarty.foreach.series.iteration}" >
+                                <div class="TvCon1LeftConCCMoreInfNumPos TvCon1LeftConCCMoreInfNumBg{$smarty.foreach.series.iteration}"></div>
+                                <div class="TvCon1LeftConCCMoreInfTitName"><a href="{$series.url}" target="_blank">{$series.title}</a></div>
+                          </div>
+                            <!--{/if}-->
+                          <!--{/foreach}-->
+
+
+				  </div>
+                  <!-- 排行end -->
+
+                        <div class="movieHomeBroadcastConLD"><ul><li></li></ul></div>
+
+                    </div>
+            </div>
+
+
+<!--{/if}-->

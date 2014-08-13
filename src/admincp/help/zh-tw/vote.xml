@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<help>
+  <section id="list">
+    <title>在線調查列表</title>
+    <content>
+    <![CDATA[
+	<p>此頁面列出您的在線調查信息</p>
+	<p>在此您可以進行如下操作:</p>
+	
+	<strong>快速編輯調查標題</strong>
+	<p>您可以快速編輯調查標題，單擊即可出現編輯文本框。輸入您的新內容後回車，修改即可生效！</p>
+	
+	<strong>添加新的在線調查</strong>
+	<p>您只要點擊列表右邊的<a href="vote.php?act=add" target="main-frame"><span class="link"> 添加調查 </span></a>鏈接，即可進入到添加的操作頁面。</p>
+	
+	<strong>添加調查選項</strong>
+	<p>您只要點擊列表右邊的<span class="link"> 調查選項 </span>鏈接，即可進入到調查選項的添加操作頁面。</p>
+	
+	<strong>編輯調查信息</strong>
+	<p>您只要單擊列表右邊的<span class="link"> 編輯 </span>鏈接，即可進行相應的編輯操作。</p>
+	
+	<strong>刪除在線調查</strong>
+	<p>您只要點擊列表右邊的<span class="link"> 刪除 </span>鏈接，按系統提示即可完成刪除的操作。</p>
+	<p class="tips">提示：<br>刪除在線調查標題，該調查的所有選項也相應的被刪除！</p>
+	
+	]]>
+    </content>
+  </section>
+  <section id="add">
+    <title>添加在線調查</title>
+    <content>
+    <![CDATA[
+	<p>您可以在此進行在線調查的添加操作</p>
+	
+	<strong>調查標題</strong>
+	<p>在此您可以輸入您想要進行調查的標題名稱。如：您覺得本站應該在哪些地方作改進呢?...</p>
+	
+	<strong>開始日期</strong>
+	<p>在此選擇該在線調查的開始日期，在結束日期之前，此調查會一直顯示。</p>
+
+	<strong>截止日期</strong>
+	<p>在此選擇您的在線調查的結束日期，如果要提前結束，您也可以在此進行操作。</p>
+
+	<strong>能否多選</strong>
+	<p>此處有兩個選項，指的是您的在線調查的選項是單選還是多選。<br>選擇 能：您的調查選項將可以多選。<br>選擇 不能：調查的選項只能選擇其一。 </p>
+	]]>
+    </content>
+  </section>
+  <section id="edit">
+    <title>編輯在線調查信息</title>
+    <content>
+    <![CDATA[
+	<p>您可以在此進行在線調查的編輯操作<br>(詳細幫助信息請參見<a href="vote.php?act=add" target="main-frame"><span class="link"> 添加在線調查 </span></a> 部分)</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+]]>
+    </content>
+  </section>
+   <section id="option">
+    <title>在線調查選項</title>
+    <content>
+    <![CDATA[
+	<p>此列表列出了當前的在線調查所有的選項列表。</p>
+	<p>您還可以在此進行調查選項的<span class="link"> 添加 </span>操作</p>
+	<p>在<span class="link"> 添加投票選項 </span>後的表單中輸入您想添加的投票選項，按回車鍵或者 確定 鍵均可完成添加的操作。</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+]]>
+    </content>
+  </section>
+
+
+</help>

@@ -1,0 +1,79 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!--{if $show_list}-->
+<div class="title">
+
+			<h2>{$lang.ur_here}{$ur_here}</h2>
+
+			<div class="small_page" id="t_page_area">
+					<!-- {if $pager.page_prev} --><a class="unline" href="{$pager.page_prev}">{$lang.page_prev}</a><!-- {/if} -->
+					<span><em class="c_txt3">{$pager.page}</em>/{$pager.page_count}</span>
+					<!-- {if $pager.page_next} --><a class="unline" href="{$pager.page_next}">{$lang.page_next}</a><!-- {/if} -->
+			</div>
+			<div class="tl"></div>
+			<div class="tr"></div>
+		</div>
+		<div class="tool_bar">
+			<div class="l">
+				排序：
+				 <form action="{$smarty.server.PHP_SELF}" method="get" class="sort" name="listform">
+					<select name="sort">
+					  {html_options options=$lang.sort selected=$pager.sort}
+					</select>
+					<select name="order">
+					  {html_options options=$lang.order selected=$pager.order}
+					</select>
+					<input type="submit" value="提交" style="height:22px;" />
+					<input type="hidden" name="category" value="{$category}" />
+					<input type="hidden" name="keywords" value="{$keywords}" />
+					<input type="hidden" name="display" value="{$pager.display}" id="display" />
+					<input type="hidden" name="page" value="{$pager.page}" />
+				  </form>
+			</div>
+			<div class="r">
+				{$lang.btn_display}：
+				 <a href="javascript:;" onClick="javascript:display_mode('text')" <!-- {if $pager.display eq 'text'} -->class="c_txt3"}<!-- {else} -->class="unline"<!-- {/if} -->>{$lang.display.text}</a> | <a href="javascript:;" onClick="javascript:display_mode('list')" <!-- {if $pager.display eq 'list'} -->class="c_txt3"}<!-- {else} -->class="unline"<!-- {/if} -->>{$lang.display.list}</a>
+			</div>
+		</div>
+
+<!-- 影片列表开始 -->
+<!--{foreach name=show from=$show_list item=show}-->
+<div class="mode_item">
+
+			<a href="{$show.url}" target="_blank" class="pic"><img src="{$show.thumb}" alt="{$show.title|escape:html}" class="bor" /><!-- {if $show.status} --><span class="version">{$show.status}</span><!-- {/if} --></a>
+			<div class="text">
+				<div class="mode_item_title">
+					<h3 class="c_txt"><a href="{$show.url}" target="_blank" title="{$show.title|escape:html}">{$show.title}</a></h3>
+					<div class="mode_item_scores"><strong class="c_txt3">{$show.click_count}<em>℃</em></strong></div>
+					<p>{$show.add_time}</p>
+				</div>
+				<ul class="mode_item_data">
+				 <!-- {if $show.director neq ''} -->
+					<li >{$lang.director}
+								<!--{foreach from=$show.director item=val name=val}-->
+								<!--{if $smarty.foreach.val.iteration eq 1}-->
+								<a href="search.php?keywords={$val|escape:url}" target="_blank">{$val}</a>
+								<!--{/if}-->
+								<!--{/foreach}--></li>
+
+					<!--{/if}-->
+					<li class="actor">{$lang.actor}<!--{foreach from=$show.actor item=val name=val}-->
+							<!--{if $smarty.foreach.val.iteration lt 3}-->
+							<a href="search.php?keywords={$val|escape:url}" target="_blank">{$val}</a>
+							<!--{/if}-->
+							<!--{/foreach}--></li>
+
+					<li>{$lang.area}<a href="search.php?area={$show.area|escape:url}" target="_blank">{$show.area}</a></li>
+					<li>{$lang.lang}<a href="search.php?lang={$show.lang|escape:url}" target="_blank">{$show.lang}</a></li>
+					<li class="pubdate">{$lang.pubdate}{$show.pubdate}</li>
+				</ul>
+				<p class="mode_item_desc">
+				  <!-- {if $pager.display eq 'text'} -->{$show.description|truncate:100:true}<!-- {/if} -->
+				</p>
+			</div>
+		</div>
+
+<!--{/foreach}-->
+
+<!--{else}-->
+<h3 style="text-align:center;padding:50px;">{$lang.no_cate_result}</h3>
+<!--{/if}-->

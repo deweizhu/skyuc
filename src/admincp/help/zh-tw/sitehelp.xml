@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<help>
+
+  <section id="list_cat">
+    <title>幫助分類管理</title>
+    <content>
+    <![CDATA[
+	<p><strong>添加一個新分類</strong></p>
+	<p>在該頁面添加新分類選項中填入“新分類名”，確定即可添加一個新的文章分類</p>
+	<p><strong>對分類的操作</strong></p>
+	<p>添加一新分類後可在該分類下刪除、添加文章或查看分類下的文章列表。分類名，排序可直接編輯。<span class="tips">排序按從小到大順序排列，本頁面排序結果刷新後才能看到</span></p>
+	]]>
+    </content>
+  </section>
+
+  <section id="list_article">
+    <title>幫助文章列表</title>
+    <content>
+    <![CDATA[
+	<p><strong>幫助文章列表</strong></p>
+	<p>在該頁面列出所有某個分類下所有的文章，點擊右上角<span class="link">添加新幫助文章</span>鏈接即可<br />
+	在下拉框中選中某分類就可切換到指定分類下</p>
+	]]>
+    </content>
+  </section>
+
+  <section id="add">
+    <title>添加新幫助文章</title>
+    <content>
+    <![CDATA[
+	<p><strong>添加新幫助文章</strong></p>
+	<p><span class="tips">如果分類名為空，請先添加幫助分類</span><br />點擊<span class="link">幫助分類列表</span>可進行分類編輯</p>
+	]]>
+    </content>
+  </section>
+</help>

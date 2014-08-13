@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<help>
+  <section id="list">
+    <title>订单列表</title>
+    <content>
+    <![CDATA[
+<p>您可进行以下操作：</p>
+<p><strong>查询订单</strong></p>
+<ul>
+  <li>订单号和用户名：按照订单号和用户名进行模糊查询。</li>
+  <li>订单状态：订单有三个状态（未付款、付款中和已付款）。“未付款”是非在线支付产生的订单，“付款中”是在线支付产生的订单,"已付款"是在线支付完成的订单。</li>
+</ul>
+	]]>
+    </content>
+  </section>
+  
+    <section id="info">
+    <title>订单详情</title>
+    <content>
+    <![CDATA[
+<p>您可以进行以下操作：</p>
+<p><strong>查看订单信息</strong></p>
+<p>包括订单基本信息、用户信息</p>
+	]]>
+    </content>
+  </section>
+</help>

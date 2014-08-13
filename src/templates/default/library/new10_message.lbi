@@ -1,0 +1,28 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<!-- {if $new_show} -->
+	<div class="paihang">
+			<img src="images/comment_paihang.gif" alt="新片上映" />
+		</div>
+		<div class="paihang_con">
+			<DIV class="con4_right_stow_tit">
+				<!-- {foreach name=new_show from=$new_show item=new_show}-->
+			<DIV class="con1_right_update_tit3"
+			onmouseover="changTop2('con1_right_update_mo{$smarty.foreach.new_show.iteration}')"><IMG
+			class="con1_right_update_tit1img padl_5" height="13" alt=""
+			src="images/dia{$smarty.foreach.new_show.iteration}.gif" width="13"> <A class="f_l padl_8"
+			href="{$new_show.url}"
+			target="_blank">{$new_show.title|truncate:10}</A></DIV>
+			<DIV class="con1_right_update_tit2" id="con1_right_update_mo{$smarty.foreach.new_show.iteration}">
+			<DIV class="con1_right_update_tit2img"><A href="{$new_show.url}"
+			target="_blank"><IMG height="120" alt="{$new_show.title|escape:html}" src="{$new_show.thumb}"
+			width="90" border="0"> <img class="pic_120" src="images/pic_90x120.gif" border="0" /></A></DIV>
+			<DIV>
+			  <span>{$new_show.description|truncate:30:true}</span><br><br>
+			  <span style="background-color: #ff0000;width:100px;"><a href="{$new_show.url}">预览影片</a></span>
+			</DIV></DIV>
+			<!--{/foreach}-->
+
+			</DIV>
+		</div>
+		<div class="paihang_bottom"></div>
+	<!--{/if}-->

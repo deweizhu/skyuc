@@ -1,0 +1,13 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- {if $cat_hot} -->
+<div class="title-01">
+  <div class="title-01-arrow">&nbsp;{$show_cat.name|escape:html} &nbsp;※&nbsp;点播排行</div>
+</div>
+<div class="sort-box01" id="top10">
+  <ul>
+    <!-- {foreach name=cat_hot from=$cat_hot item=cat_hot}-->
+    <li><img src="../images/top_{$smarty.foreach.cat_hot.iteration}.gif" alt="" /> <span><a href="{$cat_hot.url}" title="{$cat_hot.title|escape:html}">{$cat_hot.title|truncate:12:"..."true}</a></span></li>
+    <!--{/foreach}-->
+  </ul>
+</div>
+<!--{/if}-->

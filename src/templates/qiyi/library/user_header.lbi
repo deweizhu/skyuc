@@ -1,0 +1,56 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+ <!--header start-->
+<div id="header" class="clearfix">
+
+	<div class="logo">
+    	<a href="index.php" title="SKYUC会员中心"><img src="images/user/logo.jpg" alt="SKYUC会员中心" border="0" /></a>
+    </div>
+    <div class="login">
+    	<p id="loginTitle" align="right"><a href="user.php?act=login" style="text-decoration: underline;">会员登录</a> | <a href="user.php?act=register" style="text-decoration: underline;" >注册帐户</a> </P>
+    </div>
+	<div class="announce" id="announce_div" style="overflow: hidden; height: 20px; line-height: 22px;">
+    </div>
+	<!-- 导航S -->
+	  <div class="nav">
+		<!-- {if $lang.label_profile} -->
+			<ul>
+				<li><a href="index.php">{$lang.home}</a></li>
+				<li><a href="user.php">{$lang.label_welcome}</a></li>
+				<li><a href="user.php?act=profile">{$lang.label_profile}</a></li>
+				<li><a href="user.php?act=buyrank">{$lang.label_buyrank}</a></li>
+				<li><a href="user.php?act=card">{$lang.label_card}</a></li>
+				<li><a href="user.php?act=play_log">{$lang.label_play_log}</a></li>
+				<li><a href="user.php?act=tag_list">{$lang.label_tag}</a></li>
+				<li><a href="user.php?act=comment_list">{$lang.label_comment}</a></li>
+				<li><a href="user.php?act=order_list">{$lang.label_order}</a></li>
+				<li><a href="user.php?act=message_list">{$lang.label_message}</a></li>
+				<li><a href="user.php?act=account_log">{$lang.label_user_surplus}</a></li>
+				{if $show_transform_points}
+				<li><a href="user.php?act=transform_points">{$lang.label_transform_points}</a></li>
+				{/if}
+				<li><a href="user.php?act=get_integral">{$lang.label_get_integral}</a></li>
+			</ul>
+		<!-- {else} -->
+			<ul>
+				<li><a href="index.php">首页</a></li>
+				<li><a href="user.php">账户信息</a></li>
+				<li><a href="user.php?act=profile">个人资料</a></li>
+				<li><a href="user.php?act=buyrank">购买等级</a></li>
+				<li><a href="user.php?act=card">影卡充值</a></li>
+				<li><a href="user.php?act=play_log">点播记录</a></li>
+				<li><a href="user.php?act=tag_list">我的标签</a></li>
+				<li><a href="user.php?act=comment_list">我的评论</a></li>
+				<li><a href="user.php?act=order_list">我的订单</a></li>
+				<li><a href="user.php?act=message_list">我的留言</a></li>
+				<li><a href="user.php?act=account_log">账目明细</a></li>
+				<li><a href="user.php?act=get_integral">获取积分</a></li>
+			</ul>
+		<!-- {/if} -->
+
+
+    </div>
+	<!-- 导航O -->
+
+
+</div>
+ <!--header end-->

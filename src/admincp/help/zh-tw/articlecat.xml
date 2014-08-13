@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<help>
+
+  <section id="list">
+    <title>文章分類管理</title>
+    <content>
+    <![CDATA[
+	<p><strong>文章分類管理</strong></p>
+	<p>該頁面列出所有文章分類。分類名稱和排序可以直接編輯。排序值小的排前面。<br />添加新分類請點擊右上角<a href="articlecat.php?act=add" target="main-frame"><span class="link">添加新文章分類</span></a>鏈接</p>
+	]]>
+    </content>
+  </section>
+
+  <section id="add">
+    <title>添加新文章分類</title>
+    <content>
+    <![CDATA[
+	<p><strong>添加新文章分類</strong></p>
+	<p>選項前右“？”圖標的地方可點擊查看幫助
+	<br />點擊右上角<a href="articlecat.php?act=list" target="main-frame"><span class="link">文章分類管理</span></a>即可返回列表頁面。</p>
+	]]>
+    </content>
+  </section>
+
+
+
+</help>

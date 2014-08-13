@@ -1,0 +1,10 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<div class="title-01">
+  <div class="title-01-arrow">浏览历史</div>
+</div>
+<div class="sort-box01" id="history">
+  <ul>
+    {insert name="history"}
+  </ul>
+</div>
+<!--End sort-box02-->

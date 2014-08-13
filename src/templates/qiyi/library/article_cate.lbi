@@ -1,0 +1,13 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<div class="mode form_help">
+			<div class="rm_u">&nbsp;</div>
+			<div class="container clearfix">
+				<h2 class="title">{$lang.article_title} <span class="more font_12">{$lang.article_author}--{$lang.article_add_time}</span></h2>
+				<ol class="help_ol">
+					<!-- {foreach from=$artciles_list item=article} -->
+					<li class="titlelist"><a href="{$article.url}" class="k">{$article.title|truncate:45}</a> <span>{$article.author} 发表于：{$article.add_time} </span></li>
+					<!--{/foreach}-->
+				</ol>
+			</div>
+			<div class="rm_d">&nbsp;</div>﻿
+</div>

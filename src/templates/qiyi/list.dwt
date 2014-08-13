@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Language" content="zh-CN" />
+<meta content="all" name="robots" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+
+<meta http-equiv="imagetoolbar" content="no" />
+<link rel="bookmark" href="favicon.ico" />
+<link rel="icon" type="image/x-icon" href="favicon.ico" />
+
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+<link rel="alternate" type="application/rss+xml" title="RSS|{$page_title}" href="{$feed_url}" />
+<!-- {if $cat_style} -->
+<link href="{$cat_style}" rel="stylesheet" type="text/css" />
+<!--{else}-->
+<link href="{$skyuc_css_path}" rel="stylesheet" type="text/css" />
+<!-- {/if} -->
+<title>{$page_title}</title>
+</head>
+
+<body>
+<!--header start-->
+<!-- #BeginLibraryItem "/library/page_header.lbi" -->
+<!-- #EndLibraryItem -->
+<!--header end-->
+<!--mainbody start-->
+<div class="main">
+<div class="ad_top_980"><!-- TemplateBeginEditable name="头部通栏广告位960x90" -->
+<!-- TemplateEndEditable --></div>
+	<div class="sidebar_cate">
+	<!-- TemplateBeginEditable name="左侧-分类树" -->
+
+	<!-- #BeginLibraryItem "/library/tree_cate.lbi" -->
+	<!-- #EndLibraryItem -->
+<!-- TemplateEndEditable -->
+	<!-- TemplateBeginEditable name="左侧-标签汇总" -->
+
+	<!-- #BeginLibraryItem "/library/tag_cate.lbi" -->
+	<!-- #EndLibraryItem -->
+<!-- TemplateEndEditable -->
+
+	</div>
+
+ <!-- {if $pager.display eq 'text'} -->
+<div class="container_cate">
+<!-- {else} -->
+<div class="container_cate poster">
+ <!-- {/if} -->
+<!-- TemplateBeginEditable name="右侧-分类列表" -->
+
+	<!-- #BeginLibraryItem "/library/show_list.lbi" -->
+	<!-- #EndLibraryItem -->
+<!-- TemplateEndEditable -->
+<!-- TemplateBeginEditable name="右侧-翻页链接" -->
+
+	<!-- #BeginLibraryItem "/library/pages.lbi" -->
+	<!-- #EndLibraryItem -->
+<!-- TemplateEndEditable -->
+ </div>
+<!--mainbody end-->
+
+</div>
+<!--wrapper end-->
+<!--footer start-->
+<!-- #BeginLibraryItem "/library/page_footer.lbi" -->
+<!-- #EndLibraryItem -->
+<!--footer end-->
+</body>
+</html>

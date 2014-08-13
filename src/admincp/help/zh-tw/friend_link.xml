@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<help>
+  <section id="list">
+    <title>友情鏈接列表</title>
+    <content>
+    <![CDATA[
+	<p>此頁面列出您的友情鏈接信息</p>
+	<p>在此您可以進行如下操作:</p>
+	
+	<strong>快速編輯鏈接名稱</strong>
+	<p>您可以快速編輯鏈接名稱，單擊即可出現編輯文本框。輸入您的新內容後回車，修改即可生效！</p>
+	
+	<strong>按字段排序內容</strong>
+	<p>您只要點擊相應的字段名稱，列表內容便會自動按<span class="link"> 升序/降序 </span>來排列列表的內容。<br>也方便您按鏈接類型來排序。</p>
+	
+	<strong>添加新的友情鏈接</strong>
+	<p>您只要點擊列表右邊的<a href="friend_link.php?act=add" target="main-frame"><span class="link"> 添加新鏈接 </span></a>，即可進入到添加的操作頁面。</p>
+
+	<strong>編輯新鏈接</strong>
+	<p>您只要單擊列表右邊的<span class="link"> 編輯 </span>鏈接，即可進行相應的編輯操作。</p>
+	
+	<strong>刪除友情鏈接</strong>
+	<p>您只要點擊列表右邊的<span class="link"> 刪除 </span>鏈接，按系統提示即可完成刪除的操作。</p>
+	
+	]]>
+    </content>
+  </section>
+  <section id="add">
+    <title>添加友情鏈接</title>
+    <content>
+    <![CDATA[
+	<p>您可以在此進行友情鏈接的添加操作</p>
+	
+	<strong>鏈接名稱</strong>
+	<p>在此您可以輸入您新鏈接的鏈接名稱。如：天空網絡</p>
+	<p><span class="tips"> 提示：<br>如果您要添加的友情鏈接只是文字類型的，那麼此鏈接的名稱將作為鏈接的LOGO顯示。 </span></p>
+
+	
+	<strong>鏈接地址</strong>
+	<p>在此輸入點擊此友情鏈接後，頁面跳轉到的網址。必須是一個網址格式！</p>
+
+	<strong>鏈接LOGO</strong>
+	<p>如果您添加的友情鏈接是圖片類型的，那麼您必須在此上傳您的鏈接LOGO圖片。<br>您也可以通過<span class="link"> 或LOGO地址 </span>這個表單來輸入您的鏈接LOGO的圖片。</p>
+	<p><span class="tips"> 提示：<br>如果您既上傳了鏈接LOGO圖片，又指定了遠程圖片地址，那麼鏈接LOGO將以後者為准。 </span></p>
+
+	]]>
+    </content>
+  </section>
+  <section id="edit">
+    <title>編輯友情鏈接</title>
+    <content>
+    <![CDATA[
+	<p>您可以在此進行友情鏈接的編輯操作<br>(詳細幫助信息請參見 <a href="friend_link.php?act=add" target="main-frame"><span class="link">添加友情鏈接 </span></a> 部分)</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+]]>
+    </content>
+  </section>
+</help>

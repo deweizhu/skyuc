@@ -1,0 +1,202 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Language" content="zh-CN" />
+<meta content="all" name="robots" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<meta http-equiv="imagetoolbar" content="no" />
+<link rel="bookmark" href="favicon.ico" />
+<link rel="icon" type="image/x-icon" href="favicon.ico" />
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+<link rel="alternate" type="application/rss+xml" title="RSS|{$page_title}" href="{$feed_url}" />
+<link href="css/basic.css" rel="stylesheet" type="text/css" />
+<link href="css/header_footer.css" rel="stylesheet" type="text/css" />
+<link href="css/index.css" rel="stylesheet" type="text/css" />
+<title>{$page_title}</title>
+<script type="text/javascript" src="js/base.js"></script>
+<script type="text/javascript" src="js/dialog.js"></script>
+</head>
+
+<body id="home_index">
+
+    <!--wrapper start -->
+    <div id="wrapper">
+    <div id="innerwrapper">
+          <!--header start-->
+             <!-- #BeginLibraryItem "/library/page_header.lbi" -->
+			<!-- #EndLibraryItem -->
+        <!--header end-->
+<!-- 首页 二级栏目 -->
+<div id="subnav">
+            <ul><li>
+            <div class="subnav_content">
+			 <!-- {if $navigator_list.config.index eq 1} --><!-- {/if} -->
+        <!-- {foreach name=nav_middle_list from=$navigator_list.middle item=nav} -->
+			<a href="{$nav.url}" <!--{if $nav.opennew eq 1}--> target="_blank" <!-- {/if} -->>{$nav.name}</a> |
+            <!-- {if $smarty.foreach.nav_middle_list.last}-->
+            <!-- {/if} -->
+      <!-- {/foreach} -->
+	  </div>
+                <div class="header_hot"><span title="{$site_notice|escape:html}">网站统计：<!--{if $film_total.films}-->今日更新 {$film_total.today} 部 ，共 {$film_total.films} 部。&nbsp;&nbsp;<!--{/if}--></span>
+                </div>
+            </li></ul>
+</div>
+        <!--mainbody start-->
+ 		<div id="mainbody">
+        <div id="innermainbody">
+		<!-- TemplateBeginEditable name="主区域左侧-首页强力推荐" -->
+
+	<!-- #BeginLibraryItem "/library/recom.lbi" -->
+	<!-- #EndLibraryItem -->
+<!-- TemplateEndEditable -->
+			<div class="movieImgCarousel">
+				<div class="movieImgCarouselCon">
+					<ul>
+						<li>
+							<script type="text/javascript">
+							  var swf_width=474;
+							  var swf_height=213;
+							</script>
+							<script type="text/javascript" src="data/flashdata/{$flash_theme}/cycle_image.js"></script>
+						</li>
+				  </ul>
+				</div>
+			</div>
+		<!-- TemplateBeginEditable name="主区域右侧-新片上映" -->
+
+	<!-- #BeginLibraryItem "/library/new10.lbi" -->
+	<!-- #EndLibraryItem -->
+<!-- TemplateEndEditable -->
+
+          </div>
+			<div class="clear"></div>
+             <!-- #BeginLibraryItem "/library/month12.lbi" -->
+			<!-- #EndLibraryItem -->
+
+			<div class="clear"></div>
+			<!-- TemplateBeginEditable name="主区域左侧-排行榜" -->
+
+	<!-- #BeginLibraryItem "/library/top10.lbi" -->
+	<!-- #EndLibraryItem -->
+<!-- TemplateEndEditable -->
+
+			<!-- TemplateBeginEditable name="主区域-电影栏目" -->
+
+	<!-- #BeginLibraryItem "/library/cat_show.lbi" -->
+	<!-- #EndLibraryItem -->
+<!-- TemplateEndEditable -->
+
+            <div class="clear"></div>
+
+           <div class="movieRowsDaNO1">
+		   <!-- TemplateBeginEditable name="电影分类下方横幅广告位980x54" -->
+<!-- TemplateEndEditable -->
+		   </div>
+
+		<!-- TemplateBeginEditable name="主区域左侧-分类树" -->
+
+	<!-- #BeginLibraryItem "/library/tree.lbi" -->
+	<!-- #EndLibraryItem -->
+<!-- TemplateEndEditable -->
+
+			<!-- TemplateBeginEditable name="主区域-电视栏目" -->
+
+	<!-- #BeginLibraryItem "/library/cat_show.lbi" -->
+	<!-- #EndLibraryItem -->
+<!-- TemplateEndEditable -->
+
+
+
+			<div class="movieRowsDaNO2">
+			<p>
+			<!-- TemplateBeginEditable name="标签汇总上方横幅广告位230x6" -->
+<!-- TemplateEndEditable -->
+			</p>
+
+			  <p class="movieRowsDaNO2_R">
+			<!-- TemplateBeginEditable name="标签汇总上方横幅广告位740x64" -->
+<!-- TemplateEndEditable -->
+
+			  </p>
+		  </div>
+<!-- TemplateBeginEditable name="标签汇总" -->
+
+	<!-- #BeginLibraryItem "/library/tag.lbi" -->
+	<!-- #EndLibraryItem -->
+<!-- TemplateEndEditable -->
+
+			<!-- TemplateBeginEditable name="最新资讯" -->
+
+	<!-- #BeginLibraryItem "/library/new_articles.lbi" -->
+	<!-- #EndLibraryItem -->
+<!-- TemplateEndEditable -->
+
+			</div>
+<!-- TemplateBeginEditable name="影视专题" -->
+
+	<!-- #BeginLibraryItem "/library/subject.lbi" -->
+	<!-- #EndLibraryItem -->
+<!-- TemplateEndEditable -->
+		<div class="i_bottom3">
+
+			<div class="i_bao">
+			<h3></h3>
+  			<div class="side1">
+			<!-- TemplateBeginEditable name="网站调查" -->
+
+	<!-- #BeginLibraryItem "/library/vote.lbi" -->
+	<!-- #EndLibraryItem -->
+<!-- TemplateEndEditable -->
+				<div class="clear"></div>
+				</div>
+			</div>
+
+
+
+		</div>
+			<div class="clear"></div>
+			<!--{if $img_links  or $txt_links }-->
+			<div class="firend_link">
+			 <!-- {if $img_links} -->
+			  <!--开始图片类型的友情链接{foreach from=$img_links item=link}-->
+				<a href="{$link.url}" title="{$link.name|escape:html}"><img src="{$link.logo}" alt="{$link.name|escape:html}" width="168" height="46" /></a>
+				<!--结束图片类型的友情链接{/foreach}-->
+				<!-- {/if} -->
+			 <!-- {if $txt_links} -->
+				<!--开始文字类型的友情链接{foreach from=$txt_links item=link}-->
+				<a href="{$link.url}" title="{$link.name|escape:html}">{$link.name}</a>
+				<!--结束文字类型的友情链接{/foreach}-->
+			 <!-- {/if} -->
+			</div>
+			<!--{/if}-->
+
+
+		<div class="movieRowsDaNO3">
+			<p>
+			<!-- TemplateBeginEditable name="页脚横幅广告位740x75" -->
+<!-- TemplateEndEditable -->
+			</p>
+
+
+		<p class="movieRowsDaNO3_R">
+			<!-- TemplateBeginEditable name="页脚横幅广告位230x75" -->
+<!-- TemplateEndEditable -->
+		</p>
+		  </div>
+
+
+
+
+        </div>
+        </div>
+        <!--mainbody end-->
+        <!--footer start-->
+			<!-- #BeginLibraryItem "/library/page_footer.lbi" -->
+			<!-- #EndLibraryItem -->
+        <!--footer end-->
+    </div>
+    <!--wrapper end-->
+</body>
+</html>

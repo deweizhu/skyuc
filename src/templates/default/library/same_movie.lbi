@@ -1,0 +1,18 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- {if $same_movie} -->
+<!--看过还看过 start-->
+	<div class="same_movie">
+	<h3><img src="images/detail_tit_sb5.gif" /></h3>
+		<div class="same_movie_info">
+			<!-- {foreach name=same_movie from=$same_movie item=same_movie}-->
+			<!--{if $smarty.foreach.same_movie.iteration lt 11}-->
+		<div class="TvCon1LeftConCCTit" id="TvCon1LeftConCCTit{$smarty.foreach.same_movie.iteration}">
+		<div class="TvCon1LeftConCCMoreInfNumPos TvCon1LeftConCCMoreInfNumBg{$smarty.foreach.same_movie.iteration}"></div>
+		<div class="TvCon1LeftConCCMoreInfTitName"><a href="{$same_movie.url}" target="_blank">《{$same_movie.title}》</a></div>
+		</div>
+		<!--{/if}-->
+		  <!--{/foreach}-->
+		  </div>
+	</div>
+	<!--{/if}-->
+<!--看过还看过 end-->

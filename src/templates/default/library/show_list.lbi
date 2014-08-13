@@ -1,0 +1,55 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!--{if $show_list}-->
+
+			<div class="movieSearchResultsTitle1">
+					<ul>
+						<li><p>{$lang.pager_1}<b>{$pager.record_count}</b>{$lang.pager_2}{$lang.pager_3}{$pager.size}{$lang.pager_2}{$lang.pager_4}{$pager.page_count}{$lang.pager_5}</p></li>
+					</ul>
+				</div>
+				<div class="movieSearchSortWay">
+					<p>排序方式：</p>
+					 <form action="{$smarty.server.PHP_SELF}" method="get" class="sort" name="listform">
+					<span><select name="sort">
+					  {html_options options=$lang.sort selected=$pager.sort}
+					</select></span>
+					<span><select name="order">
+					  {html_options options=$lang.order selected=$pager.order}
+					</select></span>
+					<span><input type="submit" value="提交" style="height:22px;" /></span>
+					<span><input type="hidden" name="category" value="{$category}" /><input type="hidden" name="keywords" value="{$keywords}" /><input type="hidden" name="display" value="{$pager.display}" id="display" /><input type="hidden" name="page" value="{$pager.page}" /></span>
+				  </form>
+				</div>
+				<div class="movieSearchCon clearfix">
+					<ul>
+					   <!--{foreach name=show from=$show_list item=show}-->
+						<li>
+							<p class="ImgMovieName">
+								<a href="{$show.url}" class="pic"><img src="{$show.thumb}" alt="{$show.title|escape:html}"/><!-- {if $show.status} --><span class="version">{$show.status}</span><!-- {/if} --></a>
+							</p>
+							<h3 class="pianming"><a href="{$show.url}">{$show.title}</a></h3>
+							<!-- {if $show.director neq ''} -->
+							<h3 class="pianRen">{$lang.director}
+									<!--{foreach from=$show.director item=val name=val}-->
+								<!--{if $smarty.foreach.val.iteration lt 3}-->
+								<a href="search.php?keywords={$val|escape:url}" target="_blank">{$val}</a>
+								<!--{/if}-->
+								<!--{/foreach}-->
+							</h3>
+							<!--{/if}-->
+							<h3 class="pianRen">{$lang.actor}<!--{foreach from=$show.actor item=val name=val}-->
+							<!--{if $smarty.foreach.val.iteration lt 3}-->
+							<a href="search.php?keywords={$val|escape:url}" target="_blank">{$val}</a>
+							<!--{/if}-->
+							<!--{/foreach}--></h3>
+							<h3 class="pianRen">{$lang.click_count}{$show.click_count}</h3>
+							<h3 class="pianRen">{$lang.add_time}<span>{$show.add_time}</span></h3>
+							<h3 class="kandian"><b>{$lang.description}</b>{$show.description|truncate:40:true}</h3>
+							<h3 class="Btn"><a href="{$show.url}" class="xiangqin">{$lang.btn_info}</a><a href="{$show.url}" class="bofang">{$lang.btn_play}</a></h3>
+						</li>
+					<!--{/foreach}-->
+					</ul>
+				</div>
+
+<!--{else}-->
+<h3 style="text-align:center;padding:50px;">{$lang.no_cate_result}</h3>
+<!--{/if}-->

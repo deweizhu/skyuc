@@ -1,0 +1,924 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>{$page_title}</title>
+<!-- TemplateEndEditable -->
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="icon" href="animated_favicon.gif" type="image/gif" />
+<link href="{$skyuc_css_path}" rel="stylesheet" type="text/css" />
+{insert_scripts files='skyuc_user.js'}
+</head>
+<body>
+<!-- #BeginLibraryItem "/library/page_header.lbi" -->
+<!-- #EndLibraryItem -->
+<div id="globalWrapper">
+<!-- #BeginLibraryItem "/library/search_form.lbi" -->
+  <!-- #EndLibraryItem -->
+  <div id="container2">
+    <div id="page-left">
+		<!-- #BeginLibraryItem "/library/user_menu.lbi" -->
+      <!-- #EndLibraryItem --></div>
+    <!--End #page-left-->
+    <div id="page-right" style="width:784px;padding-left:1px;">
+      <div id ="main-div">
+	        <!-- *用户中心默认显示页面 -->
+      <!-- {if $action eq 'default'} -->
+			  <div class="title-01">
+        <div class="title-01-arrow">会员中心</div>
+      </div>
+      <div style="padding:20px;border-top:1px solid #DADADA;">
+		{if $info.is_validate eq 0}
+        <div style="color:red;font-size:12px;">{$lang.not_validated} <a href="javascript:sendHashMail()">{$lang.resend_hash_mail}</a></div>
+        {/if}
+        <br />
+        <div style="margin:5px 0;background:#F4FAFF;border:1px solid #B0D8FF;padding:10px 20px;">&nbsp;{$user_notice} </div>
+        <table style="font-size:12px;margin-top:30px;color:#555;">
+          <tr>
+            <td valign="top"><table>
+                <tr>
+                  <th colspan="2" align="left" style="width:150px;font-size:16px;border-bottom:2px solid #dadada;">{$lang.your_account}：</th>
+                </tr>
+				<tr>
+                  <td align="right">{$lang.your_type}：</td>
+                  <td class="bottom_line">{$info.usertype}</td>
+                </tr>
+				<tr>
+                  <td align="right">{$lang.your_rank}：</td>
+                  <td class="bottom_line">{$info.rank_name}</td>
+                </tr>
+				<tr>
+                  <td align="right">{$info.your_endlook}：</td>
+                  <td class="bottom_line">{$info.endlook}</td>
+                </tr>
+			    <tr>
+                  <td align="right">{$lang.your_integral}：</td>
+                  <td class="bottom_line">{$info.integral}</td>
+                </tr>
+                <tr>
+                  <td align="right">{$lang.your_surplus}： </td>
+                  <td class="bottom_line"><a href="user.php?act=account_log" style="color:#06c;">{$info.surplus}</a></td>
+                </tr>
+				<tr>
+                  <td align="right">{$lang.visit_count}：</td>
+                  <td class="bottom_line">{$info.visit_count}</td>
+                </tr>
+				<tr>
+                  <td align="right">{$lang.minute}：</td>
+                  <td class="bottom_line">{$info.minute}</td>
+                </tr>
+				<tr>
+                  <td align="right">{$lang.playcount}：</td>
+                  <td class="bottom_line">{$info.playcount}</td>
+                </tr>
+				<tr>
+                  <td align="right">{$lang.lastvisit}：</td>
+                  <td class="bottom_line">{$info.lastvisit}</td>
+                </tr>
+				<tr>
+                  <td align="right">{$lang.last_ip}：</td>
+                  <td class="bottom_line">{$info.last_ip}</td>
+                </tr>
+				 <tr>
+                  <td align="right">{$lang.reg_time}：</td>
+                  <td class="bottom_line">{$info.reg_time}</td>
+                </tr>
+              </table></td>
+            <td width="50"></td>
+            <td valign="top"><table width="200">
+                <tr>
+                  <th width="296" align="left" style="width:150px;font-size:16px;border-bottom:2px solid #dadada;">{$lang.your_notice}:</th>
+                </tr>
+                <tr>
+                  <td class="bottom_solid">{$lang.last_month_order}<span style="color:red;">{$info.order_count}</span>{$lang.order_unit}.</td>
+                </tr>
+                <!-- {if $info.payed_order} -->
+                <tr>
+                  <td valign="top">{$lang.detail_order_sn}：<br>
+                    <!-- {foreach from=$info.payed_order item=item}-->
+                    <a href="user.php?act=order_detail&order_id={$item.order_id}" class="bottom_line">{$item.order_sn}</a><br>
+                    <!-- {/foreach} -->
+				 </td>
+                </tr>
+                <!-- {/if}-->
+              </table></td>
+          </tr>
+        </table>
+      </div>
+      <!-- {/if} -->
+      <!-- #用户中心默认显示页面 -->
+        <!-- 用户信息界面 -->
+        <!--{if $action eq 'profile'}-->
+        <script type="text/javascript">
+            {foreach from=$lang.profile_js item=item key=key}
+              var {$key} = "{$item}";
+            {/foreach}
+          </script>
+        <div class="title-01">
+          <div class="title-01-arrow">个人资料</div>
+        </div>
+        <div class="content-div"> <br />
+          <form name="formEdit" action="user.php" method="post" onSubmit="return userEdit()" style="border-bottom:1px dashed #DADADA;padding-bottom:20px;">
+            <table width="80%" border="0">
+              <tr>
+                <td width="100"><strong>{$lang.birthday} </strong></td>
+                <td> {html_select_date field_order=YMD prefix=birthday start_year=-60 end_year=+1 display_days=true month_format=%m day_value_format=%02d time=$profile.birthday}</td>
+              </tr>
+              <tr>
+                <td><strong>{$lang.gender} </strong></td>
+                <td><input type="radio" name="gender" value="0" {if $profile.gender eq 0}checked="checked"{/if} />
+                  {$lang.secrecy}&nbsp;&nbsp;
+                  <input type="radio" name="gender" value="1" {if $profile.gender eq 1}checked="checked"{/if} />
+                  {$lang.male}&nbsp;&nbsp;
+                  <input type="radio" name="gender" value="2" {if $profile.gender eq 2}checked="checked"{/if} />
+                  {$lang.female}&nbsp;&nbsp; </td>
+              </tr>
+              <tr>
+                <td width="15%"><strong>{$lang.email} </strong></td>
+                <td width="85%"><input name="email" type="text" value="{$profile.email}" size="25" /></td>
+              </tr>
+			  <tr>
+                <td width="15%"><strong>{$lang.other_firstname}</strong></td>
+                <td><input name="other[firstname]" type="text"  value="{$profile.firstname}"  size="20" /></td>
+              </tr>
+			<tr>
+                <td width="15%"><strong>{$lang.other_qq}</strong></td>
+                <td><input name="other[qq]" type="text"  value="{$profile.qq}" maxlength="20" size="20" /></td>
+              </tr>
+			 <tr>
+                <td width="15%"><strong>{$lang.other_phone}</strong></td>
+                <td><input name="other[phone]" type="text"  value="{$profile.phone}" maxlength="20" size="20" /></td>
+              </tr>
+			  <tr>
+                <td width="15%"><strong>{$lang.other_msn}</strong></td>
+                <td><input name="other[msn]" type="text"  value="{$profile.msn}"  size="25" /></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td><input name="act" type="hidden" value="act_edit_profile" />
+                  <input name="submit" type="submit" value="{$lang.confirm_edit}" />                </td>
+              </tr>
+            </table>
+          </form>
+          <br />
+          <form name="formPassword" action="user.php" method="post" onSubmit="return editPassword()">
+            <table width="80%" border="0">
+              <tr>
+                <td width="100"><strong>{$lang.old_password}</strong></td>
+                <td width="85%"><input name="old_password" type="password" size="25" /></td>
+              </tr>
+              <tr>
+                <td width="100"><strong>{$lang.new_password}</strong></td>
+                <td><input name="new_password" type="password" size="25" /></td>
+              </tr>
+              <tr>
+                <td width="100"><strong>{$lang.confirm_password}</strong></td>
+                <td><input name="comfirm_password" type="password" size="25" /></td>
+              </tr>
+              <tr>
+                <td>&nbsp;</td>
+                <td><input name="act" type="hidden" value="act_edit_password" />
+                  <input name="submit" type="submit" value="{$lang.confirm_edit}" /></td>
+              </tr>
+            </table>
+          </form>
+          </table>
+        </div>
+        <!--{/if}-->
+        <!--#用户信息界面-->
+		 <!--#会员价格列表界面-->
+ <!-- {if $action eq 'buyrank'} -->
+<script type="text/javascript">
+    var flow_no_payment = "{$flow_no_payment}";
+ </script>
+        <div class="title-01">
+          <div class="title-01-arrow">购买等级</div>
+        </div>
+        <div class="content-div">
+		 <form action="user.php" method="post" name="theForm" id="theForm" onsubmit="return checkOrderForm(this)">
+          <table class="log_amdin_table">
+            <tr class="tr0">
+			  <th><strong>{$lang.select_rank}<strong></th>
+              <th><strong>{$lang.buy_count}<strong></th>
+              <th><strong>{$lang.buy_money}<strong></th>
+              <th><strong>{$lang.buy_type}<strong></th>
+              <th><strong>{$lang.buy_content}<strong></th>
+            </tr>
+            <!--{foreach from=$buyrank item=item}-->
+            <tr class="tr0">
+			  <td><input name="buy_id" type="radio" value="{$item.id}" {if $smarty.foreach.item.first}checked{/if}>{$item.rank_name}</td>
+              <td>{$item.b_count}</td>
+              <td>{$item.b_money}</td>
+			  <td>{$item.b_type}</td>
+              <td>{$item.content}</td>
+            </tr>
+            <!--{/foreach}-->
+
+          </table>
+
+			<table class="log_amdin_table">
+                    <tr class="tr0">
+                      <th colspan="4"><strong>{$lang.payment}<strong></th>
+                    </tr>
+                    <tr class="tr0">
+                      <td width="5"></td>
+                      <td width="100"><strong>{$lang.pay_name}</strong></td>
+                      <td><strong>{$lang.pay_desc}</strong></td>
+                      <td width="80"><strong>{$lang.pay_fee}</strong></td>
+                    </tr>
+                    <!-- {foreach from=$payment item=pay name=pay} -->
+                    <tr class="tr0">
+                      <td><input type="radio" name="payment" value="{$pay.pay_id}"   {if $smarty.foreach.pay.first}checked{/if}/></td>
+                      <td><strong>{$pay.pay_name}</strong></td>
+                      <td>{$pay.pay_desc}</td>
+                      <td>{$pay.pay_fee}</td>
+                    </tr>
+                    <!-- {/foreach} -->
+				 <tr>
+                  <td colspan="4" style="padding:10px;text-align:center;">
+                  <input type="hidden" name="act" value="buydone" />
+                  <input type="submit" name="submit" value="{$lang.submit_request}" />
+					</td>
+				</tr>
+                  </table>
+		</form>
+     </div>
+        <!--{/if}-->
+  <!--#会员价格列表界面 -->
+ <!-- {if $action eq "buydone"} -->
+    <!-- 订单提交成功 -->
+    <div style="padding: 10px; border-top: 1px solid #DADADA; text-align: center;" >
+      <p style="font-size: 14px;">{$lang.remember_order_number}: <strong style="color:red">{$order.order_sn}</strong>。 </p>
+      <table width="80%" border="0" align="center">
+        <tr>
+          <td align="left">{$lang.select_payment}: <strong>{$order.pay_name}</strong>。{$lang.order_amount}: <strong>{$order.amount_formated}</strong></td>
+        </tr>
+        <tr>
+          <td align="left">{$order.pay_desc}</td>
+        </tr>
+        <!-- {if $pay_online} -->
+        <!-- 如果是线上支付则显示支付按钮 -->
+        <tr>
+          <td>{$pay_online}</td>
+        </tr>
+        <!-- {/if} -->
+      </table>
+      <p>{$order_submit_back}。</p>
+    </div>
+    <!-- {/if} -->
+
+		<!-- 影卡充值界面 -->
+        <!--{if $action eq 'card'}-->
+        <script type="text/javascript">
+            {foreach from=$lang.card_js item=item key=key}
+              var {$key} = "{$item}";
+            {/foreach}
+          </script>
+        <div class="title-01">
+          <div class="title-01-arrow">影卡充值</div>
+        </div>
+        <div class="content-div"> <br />
+          <form name="formEdit" action="user.php" method="post" onSubmit="return card()" style="border-bottom:1px dashed #DADADA;padding-bottom:20px;">
+            <table width="80%" border="0">
+							  <tr>
+                <td width="15%"><strong>{$lang.carduser}</strong></td>
+                <td><input name="carduser" type="text" value="{$username}"/></td>
+              </tr>
+							  <tr>
+                <td width="15%"><strong>{$lang.cardid}</strong></td>
+                <td><input name="cardid" type="text"  /></td>
+              </tr>
+							  <tr>
+                <td width="15%"><strong>{$lang.cardpwd}</strong></td>
+                <td><input name="cardpwd" type="text"  /></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td><input name="act" type="hidden" value="act_card_ok" />
+                  <input name="submit" type="submit" value="{$lang.btn_card}" />   </td>
+              </tr>
+            </table>
+          </form>
+
+        </div>
+        <!--{/if}-->
+        <!--#影卡充值界面-->
+	  <!--#点播记录界面-->
+        <!-- {if $action eq 'play_log'} -->
+        <div class="title-01">
+          <div class="title-01-arrow">点播记录</div>
+        </div>
+        <div class="content-div">
+         <table class="log_amdin_table">
+           <tr class="tr0">
+              <th>{$lang.play_log_name}</th>
+			  <th>{$lang.play_log_movid}</th>
+              <th>{$lang.play_log_time}</th>
+              <th>{$lang.play_log_type}</th>
+			  <th>{$lang.play_log_counts}</th>
+			  <th>{$lang.play_log_minute}</th>
+              <th>{$lang.user_ip}</th>
+            </tr>
+            <!--{foreach from=$play_log item=item}-->
+            <tr class="tr0">
+                <td><a href="show.php?id={$item.mov_id}" target='_blank'>{$item.title}</a></td>
+				<td>{$item.lookid}</td>
+				<td>{$item.looktime}</td>
+				<td>{$item.looktype}</td>
+				<td>{$item.counts}</td>
+				<td>{$item.minute}</td>
+                <td>{$item.userip}</td>
+            </tr>
+            <!--{/foreach}-->
+          </table>
+          <!-- #BeginLibraryItem "/library/pages.lbi" -->
+          <!-- #EndLibraryItem --></div>
+
+        <!--{/if}-->
+        <!--#点播记录记录界面 -->
+
+	   <!-- {if $action eq 'tag_list'} 我的标签 -->
+      <div class="title-01">
+        <div class="title-01-arrow">我的标签</div>
+      </div>
+        <div  style="background:#FFF;padding:5px;">
+          <!-- {if $tags} -->
+          <!-- 标签云开始 {foreach from=$tags item=tag}-->
+          <a href="search.php?keywords={$tag.tag_words|escape:url}" style="color:{$tag.color};font-size:{$tag.size};">{$tag.tag_words|escape:html}</a> <a href="user.php?act=act_del_tag&amp;tag_words={$tag.tag_words|escape:url}" onclick="if (!confirm('{$lang.confirm_drop_tag}')) return false;" title="{$lang.drop}" class="textDel"><img src="images/btn_delete.gif" alt="{$lang.drop}" /></a>
+          <!-- 标签云结束 {/foreach}-->
+          <!-- {else} -->
+		  <h3 style="text-align:center;padding:50px;">{$lang.no_tag}</h3>
+          <!-- {/if} -->
+        </div>
+      </div>
+      <!-- {/if} 我的标签 -->
+ <!-- {if $action eq 'comment_list'} 我的评论 -->
+       <div class="title-01">
+        <div class="title-01-arrow">我的评论</div>
+      </div>
+        <div  style="background:#FFF;padding:5px;">
+
+          <table cellspacing="0" cellpadding="3" class="log_amdin_table">
+		  		 <tr>
+					<th width="160">我的评论</th>
+					<th>评论内容</th>
+					<th width="40">操作</th>
+				  </tr>
+			     <!-- {foreach from=$comment_list item=comment} -->
+				<tr class="tr0">
+				  	<td>{$comment.formated_add_time} <BR>&nbsp;&nbsp;&nbsp;<!-- {if $comment.comment_type eq '0'} -->
+                {$lang.show_comment} <!-- {else} --> {$lang.article_comment}<!-- {/if} -->: {$comment.comment_id}</td>
+				    <td>{$comment.content}</td>
+					<td class="text_c"><a href="user.php?act=del_cmt&amp;id={$comment.comment_id}" onclick="if (!confirm('{$lang.confirm_remove_msg}')) return false;"><img src="images/msg_delete.gif" alt="{$lang.drop}" border="0" /></a></td>
+				  </tr>
+
+				 <!--{if $comment.reply_content}-->
+				<tr class="tr0">
+					<td>{$comment.formated_reply_time} <BR>&nbsp;&nbsp;&nbsp;{$lang.siteman_reply}：</td>
+					<td>{$comment.reply_content}</td>
+					<td></td>
+				</tr>
+		          <!-- {/if} -->
+				   <!--{/foreach}-->
+          </table>
+
+          <!-- {if $comment_list} -->
+          <!-- #BeginLibraryItem "/library/pages.lbi" --><!-- #EndLibraryItem -->
+          <!-- {else} -->
+		   <h3 style="text-align:center;padding:50px;">{$lang.no_comments}</h3>
+          <!-- {/if} -->
+      </div>
+      <!-- {/if} 我的评论 -->
+	 <!--* 积分兑换-->
+       <!--{if $action eq 'transform_points'} -->
+       <div class="title-01">
+          <div class="title-01-arrow">积分兑换</div>
+        </div>
+	<!--{if $exchange_type eq 'ucenter'}-->
+        <script type="text/javascript">
+        {foreach from=$lang.exchange_js item=lang_js key=key}
+        var {$key} = '{$lang_js}';
+        {/foreach}
+
+        var out_exchange_allow = new Array();
+        {foreach from=$out_exchange_allow item=ratio key=key}
+        out_exchange_allow['{$key}'] = '{$ratio}';
+        {/foreach}
+
+        function calcredit()
+        {
+            var frm = document.forms['transForm'];
+            var src_credit = frm.fromcredits.value;
+            var dest_credit = frm.tocredits.value;
+            var in_credit = frm.amount.value;
+            var org_title = frm.fromcredits[frm.fromcredits.selectedIndex].innerHTML;
+            var dst_title = frm.tocredits[frm.tocredits.selectedIndex].innerHTML;
+            var radio = 0;
+            var site_points = ['pay_points'];
+            if (parseFloat(in_credit) > parseFloat(document.getElementById(site_points[src_credit]).value))
+            {
+                alert(balance.replace('{%s}', org_title));
+                frm.amount.value = frm.desamount.value = 0;
+                return false;
+            }
+            if (typeof(out_exchange_allow[dest_credit+'|'+src_credit]) == 'string')
+            {
+                radio = (1 / parseFloat(out_exchange_allow[dest_credit+'|'+src_credit])).toFixed(2);
+            }
+            document.getElementById('orgcredittitle').innerHTML = org_title;
+            document.getElementById('descreditamount').innerHTML = radio;
+            document.getElementById('descredittitle').innerHTML = dst_title;
+            if (in_credit > 0)
+            {
+                if (typeof(out_exchange_allow[dest_credit+'|'+src_credit]) == 'string')
+                {
+                    frm.desamount.value = Math.floor(parseFloat(in_credit) / parseFloat(out_exchange_allow[dest_credit+'|'+src_credit]));
+                    frm.transfrom.disabled = false;
+                    return true;
+                }
+                else
+                {
+                    frm.desamount.value = deny;
+                    frm.transfrom.disabled = true;
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
+       </script>
+			 <form action="user.php" method="post" name="transForm" onsubmit="return calcredit();">
+			    <table class="log_amdin_table">
+				 <tr>
+					<th>{$lang.cur_points}</th>
+				   <th>{$lang.rule_list}</th>
+				  </tr>
+				<tr class="tr0">
+				 <td class="text_c">
+						<table style="width:400px;">
+						  <tr class="tr0">
+							<td style="width:120px;" class="text_c">{$lang.exchange_points.0}：</td>
+							<td class="text_c"><input type="text" size="15" id="pay_points" name="pay_points" value="{$site_points.pay_point}" style="border:0;border-bottom:1px solid #DADADA;" readonly="readonly" /></td>
+						  </tr>
+						  <tr class="tr0">
+						   <td class="text_c">{$lang.exchange_amount}：</td>
+						  <td class="text_c">
+						  <input size="15" name="amount" id="amount" value="0" onkeyup="calcredit();" type="text" />
+							<select name="fromcredits" id="fromcredits" onchange="calcredit();">
+							  {html_options options=$lang.exchange_points selected=$selected_org}
+							</select></td>
+						  </tr>
+						<tr class="tr0">
+						   <td class="text_c">{$lang.exchange_desamount}：</td>
+						  <td class="text_c">
+						  <input type="text" name="desamount" id="desamount" disabled="disabled" value="0" size="15" />
+						  <select name="tocredits" id="tocredits" onchange="calcredit();">
+							{html_options options=$to_credits_options selected=$selected_dst}
+						  </select>
+						  </tr>
+						  <tr class="tr0">
+						   <td class="text_c">{$lang.exchange_ratio}：</td>
+						  <td class="text_c">
+						 1 <span id="orgcreditunit">{$orgcreditunit}</span> <span id="orgcredittitle">{$orgcredittitle}</span> {$lang.exchange_action} <span id="descreditamount">{$descreditamount}</span> <span id="descreditunit">{$descreditunit}</span> <span id="descredittitle">{$descredittitle}</span>
+						  </tr>
+						<tr class="tr0">
+						  <td class="text_c" colspan="2">
+						<input type="hidden" name="act" value="act_transform_ucenter_points" /><input type="submit" name="transfrom" value="{$lang.transform_now}" />
+						  </tr>
+						</table>
+					</td>
+				 <td class="text_c">
+				       {$lang.transform_points_desc}
+					</td>
+				  </tr>
+			</table>
+			 </form>
+
+		 <!--{else}-->
+		<script type="text/javascript">
+          //<![CDATA[
+            var rule_list = new Object();
+            var invalid_input = '{$lang.invalid_input}';
+            {foreach from=$rule_list item=rule key=key}
+            rule_list['{$key}'] = '{$rule.rate}';
+            {/foreach}
+            function calPoints()
+            {
+              var frm = document.forms['theForm'];
+              var rule_index = frm.elements['rule_index'].value;
+              var num = parseInt(frm.elements['num'].value);
+              var rate = rule_list[rule_index];
+
+              if (isNaN(num) || num < 0 || num != frm.elements['num'].value)
+              {
+                document.getElementById('SKYUC_RESULT').innerHTML = invalid_input;
+                rerutn;
+              }
+              var arr = rate.split(':');
+              var from = parseInt(arr[0]);
+              var to = parseInt(arr[1]);
+
+              if (from <=0 || to <=0)
+              {
+                from = 1;
+                to = 0;
+              }
+              document.getElementById('SKYUC_RESULT').innerHTML = parseInt(num * to / from);
+            }
+
+            function changeRule()
+            {
+              document.forms['theForm'].elements['num'].value = 0;
+              document.getElementById('SKYUC_RESULT').innerHTML = 0;
+            }
+          //]]>
+        </script>
+
+		<div class="log_admin_cout" >
+		  <table class="log_amdin_table">
+				 <tr>
+					<th>{$lang.cur_points}</th>
+				   <th>{$lang.rule_list}</th>
+				  </tr>
+				<tr class="tr0">
+				 <td class="text_c" style="width:300px;">
+						<table style="width:250px;">
+						  <!--{foreach from=$bbs_points item=points}-->
+						  <tr class="tr0">
+							<td style="width:120px;">{$points.title}:</td>
+							<td style="width:120px;">{$points.value}</td>
+						  </tr>
+						  <!--{/foreach} -->
+						  <tr class="tr0">
+						   <td class="text_c">{$lang.pay_point}</td>
+						  <td class="text_c">{$site_points.pay_point}</td>
+						  </tr>
+						</table>
+					</td>
+				 <td class="text_c">
+				        <ul>
+						  <!-- {foreach from=$rule_list item=rule} -->
+						  <li>"{$rule.from}" {$lang.transform} "{$rule.to}" {$lang.rate_is} {$rule.rate}</li>
+						  <!-- {/foreach} -->
+						</ul>
+					</td>
+				  </tr>
+			</table>
+			 <form action="user.php" method="post" name="theForm">
+			   <table class="log_amdin_table">
+				 <tr>
+					<th>{$lang.rule}</th>
+					<th>{$lang.transform_num}</th>
+					<th>{$lang.transform_result}</th>
+				  </tr>
+			   <tr class="tr0">
+					   <td class="text_c">
+					   <select name="rule_index" onchange="changeRule()">
+						<!--{foreach from=$rule_list item=rule key=key}-->
+						<option value="{$key}">{$rule.from}->{$rule.to}</option>
+						<!--{/foreach}-->
+					  </select></td>
+					  <td class="text_c"> <input type="text" name="num" value="0" onkeyup="calPoints()"/>&nbsp;<input type="hidden" name="act" value="act_transform_points"  /><input  name="Submit" id="Submit" type="submit"   value="{$lang.transform_now}"></td>
+					  <td class="text_c"><span id="SKYUC_RESULT">0</span></td>
+				</tr>
+			 </table>
+			 </form>
+            <!--{/if}-->
+        <!--{/if} -->
+        <!--#积分兑换 -->
+        <!--#订单列表界面-->
+        <!-- {if $action eq 'order_list'} -->
+        <div class="title-01">
+          <div class="title-01-arrow">我的订单</div>
+        </div>
+        <div class="content-div">
+         <table class="log_amdin_table">
+           <tr class="tr0">
+              <th>{$lang.order_number}</th>
+              <th>{$lang.order_addtime}</th>
+              <th>{$lang.order_money}</th>
+			  <th>{$lang.order_buyinfo}</th>
+              <th>{$lang.order_status}</th>
+              <th>{$lang.handle}</th>
+            </tr>
+            <!--{foreach from=$orders item=item}-->
+           <tr class="tr0">
+              <td><a href="user.php?act=order_detail&order_id={$item.order_id}">{$item.order_sn}</a></td>
+              <td>{$item.order_time}</td>
+              <td align="right">{$item.order_amount}</td>
+							<td align="right">{$item.order_buyinfo}</td>
+              <td>{$item.pay_status}</td>
+              <td>{$item.handler}</td>
+            </tr>
+            <!--{/foreach}-->
+          </table>
+          <!-- #BeginLibraryItem "/library/pages.lbi" -->
+          <!-- #EndLibraryItem --></div>
+
+        <!--{/if}-->
+        <!--#订单列表界面 -->
+        <!--*订单详情页面 -->
+        <!--{if $action eq order_detail} -->
+        <div class="title-01">
+          <div class="title-01-arrow">订单状态</div>
+        </div>
+		<div class="content-div">
+        <table class="log_amdin_table" style="width:700px;">
+          <tr>
+            <th style="text-align:left;padding-left:8px;"><strong>{$lang.detail_order_sn}</strong></th>
+            <th class="bottom_line" style="text-align:left;padding-left:8px;"><strong>{$order.order_sn}</strong></th>
+          </tr>
+		  <tr class="tr0">
+            <td><span style="color:#333;">{$lang.order_addtime}</span></td>
+            <td class="bottom_line">{$order.order_time}</td>
+          </tr>
+          <tr class="tr0">
+            <td>{$lang.detail_pay_status}</td>
+            <td class="bottom_line">{$order.pay_status}&nbsp;&nbsp;&nbsp;&nbsp;{$order.pay_time}</td>
+          </tr>
+		 <tr class="tr0">
+            <td>{$lang.total_money}</td>
+            <td class="bottom_line"> {$lang.order_total_fee}{$order.formated_order_amount}<!-- {if $order.surplus > 0} -->
+                {$lang.minus}  {$lang.use_surplus}：{$order.formated_surplus}
+                <!-- {/if} -->
+                <!-- {if $order.integral> 0} -->
+                {$lang.minus}  {$lang.use_integral}：{$order.formated_integral}，
+                <!-- {/if} -->{$lang.order_amount}：{$order.formated_pay_amount}</td>
+          </tr>
+		<tr class="tr0">
+            <td>{$lang.payment}</td>
+            <td class="bottom_line"> {$lang.select_payment}： <strong>{$order.pay_name}</strong>。{$lang.order_amount}： <strong>{$order.formated_order_amount}</strong></td>
+          </tr>
+		<tr class="tr0">
+            <td>{$lang.order_buyinfo}</td>
+            <td class="bottom_line"> {$order.buyinfo}</td>
+          </tr>
+		<tr class="tr0">
+            <td>{$lang.user_ip}</td>
+            <td class="bottom_line"> {$order.user_ip}</td>
+          </tr>
+        </table>
+        </div>
+        <!--{/if} -->
+        <!--#订单详情页 -->
+        <!--{if $action eq "account_raply" OR $action eq "account_log" OR $action eq "account_deposit" OR $action eq "act_account"} -->
+        <script type="text/javascript">
+            {foreach from=$lang.account_js item=item key=key}
+              var {$key} = "{$item}";
+            {/foreach}
+          </script>
+        <div class="title-01">
+          <div class="title-01-arrow">账目明细</div>
+        </div>
+        <div class="content-div">
+          <table width="100%" border="0">
+            <tr>
+              <td align="right"><a href="user.php?act=account_raply">{$lang.surplus_type_1}</a> | <a href="user.php?act=account_deposit">{$lang.surplus_type_0}</a> | <a href="user.php?act=account_log">{$lang.add_surplus_log}</a> </td>
+            </tr>
+          </table>
+          <!-- {/if} -->
+          <!-- {if $action eq "account_raply"} -->
+          <form name="formSurplus" method="post" action="user.php" onSubmit="return submitSurplus()">
+           <table class="log_amdin_table">
+              <tr>
+                <td width="80"><strong>{$lang.repay_money}：</strong></td>
+                <td><input type="text" name="amount" value="{$order.amount}" size="30" />                </td>
+              </tr>
+              <tr>
+                <td valign="top"><strong>{$lang.process_notic}：</strong></td>
+                <td><textarea name="user_note" cols="55" rows="6">{$order.user_note}</textarea></td>
+              </tr>
+              <tr>
+                <td>&nbsp;</td>
+                <td><input type="hidden" name="surplus_type" value="1" />
+                  <input type="hidden" name="act" value="act_account" />
+                  <input type="submit" name="submit" value="{$lang.submit_request}" />
+                  <input type="reset" name="reset" value="{$lang.button_reset}" />                </td>
+              </tr>
+            </table>
+          </form>
+          <!-- {/if} -->
+          <!-- {if $action eq "account_deposit"} -->
+          <form name="formSurplus" method="post" action="user.php" onSubmit="return submitSurplus()">
+            <table class="log_amdin_table">
+              <tr>
+                <td width="80"><strong>{$lang.deposit_money}：</strong></td>
+                <td><input type="text" name="amount" value="{$order.amount}" size="30" /></td>
+              </tr>
+              <tr>
+                <td width="80" valign="top"><strong>{$lang.process_notic}：</strong></td>
+                <td><textarea name="user_note" cols="55" rows="6">{$order.user_note}</textarea></td>
+              </tr>
+              <tr>
+                <td colspan="2">&nbsp;</td>
+              </tr>
+              <tr>
+                <td align="center" colspan="2" valign="top">
+				<table class="log_amdin_table">
+                    <tr>
+                      <th colspan="4"><strong>{$lang.payment}</strong></th>
+                    </tr>
+                    <tr>
+                      <td width="5"></td>
+                      <td width="100"><strong>{$lang.pay_name}</strong></td>
+                      <td><strong>{$lang.pay_desc}</strong></td>
+                      <td width="80"><strong>{$lang.pay_fee}</strong></td>
+                    </tr>
+                    <!-- {foreach from=$payment item=pay name=pay} -->
+                   <tr class="tr0">
+                      <td><input type="radio" name="payment_id" value="{$pay.pay_id}" {if $smarty.foreach.pay.first}checked{/if}/></td>
+                      <td><strong>{$pay.pay_name}</strong></td>
+                      <td align="left">{$pay.pay_desc}</td>
+                      <td align="right">{$pay.pay_fee}</td>
+                    </tr>
+                    <!-- {/foreach} -->
+                  </table></td>
+              </tr>
+              <tr>
+                <td colspan="2" align="center" style="padding:10px;"><input type="hidden" name="surplus_type" value="0" />
+                  <input type="hidden" name="rec_id" value="{$order.id}" />
+                  <input type="hidden" name="act" value="act_account" />
+                  <input type="submit" name="submit" value="{$lang.submit_request}" />
+                  <input type="reset" name="reset" value="{$lang.button_reset}" />   </td>
+              </tr>
+            </table>
+          </form>
+          <!-- {/if} -->
+          <!-- {if $action eq "act_account"} -->
+          <table class="log_amdin_table">
+            <tr>
+              <td width="25%"><strong>{$lang.surplus_amount}</strong></td>
+              <td width="80%">{$amount}</td>
+            </tr>
+            <tr>
+              <td align="right"><strong>{$lang.payment_name}</strong></td>
+              <td>{$payment.pay_name}</td>
+            </tr>
+            <tr>
+              <td align="right"><strong>{$lang.payment_fee}</strong></td>
+              <td>{$pay_fee}</td>
+            </tr>
+            <tr>
+              <td align="right" valign="middle"><strong>{$lang.payment_desc}</strong></td>
+              <td>{$payment.pay_desc}</td>
+            </tr>
+            <tr>
+              <td colspan="2">{$payment.pay_button}</td>
+            </tr>
+          </table>
+          <!-- {/if} -->
+          <!-- {if $action eq "account_log"} -->
+          <table class="log_amdin_table">
+            <tr>
+              <th>{$lang.process_time}</th>
+              <th>{$lang.surplus_pro_type}</th>
+              <th>{$lang.money}</th>
+              <th>{$lang.process_notic}</th>
+              <th>{$lang.admin_notic}</th>
+              <th>{$lang.is_paid}</th>
+              <th>{$lang.handle}</th>
+            </tr>
+            <!--{foreach from=$account_log item=item}-->
+            <tr class="tr0">
+              <td>{$item.add_time}</td>
+              <td>{$item.type}</td>
+              <td>{$item.amount}</td>
+              <td><a href="#" title="{$item.user_note}">{$item.short_user_note}</a></td>
+              <td><a href="#" title="{$item.admin_note}">{$item.short_admin_note}</a></td>
+              <td>{$item.pay_status}</td>
+              <td>{$item.handle}
+                <!-- {if ($item.is_paid eq 0 && $item.process_type eq 1) || $item.handle} -->
+                <a href="user.php?act=cancel&id={$item.id}" onclick="if (!confirm('{$lang.confirm_remove_account}')) return false;">{$lang.cancel}</a>
+                <!-- {/if} -->              </td>
+            </tr>
+            <!--{/foreach}-->
+            <tr>
+              <td colspan="7" align="right">{$lang.current_surplus}{$surplus_amount}</td>
+            </tr>
+          </table>
+          <!-- #BeginLibraryItem "/library/pages.lbi" -->
+          <!-- #EndLibraryItem -->
+          <!-- {/if} -->
+        </div>
+ <!-- *我的留言 -->
+      <!-- {if $action eq 'message_list'} -->
+      <div class="title-01">
+        <div class="title-01-arrow">我的留言</div>
+      </div>
+		<table class="log_amdin_table">
+				 <tr>
+					<th width="160">我的留言</th>
+					<th>留言内容</th>
+					<th width="80">操作</th>
+				  </tr>
+				    <!--{foreach from=$message_list item=message key=key} -->
+				<tr class="tr0">
+				  	<td>{$message.msg_time} <BR>&nbsp;&nbsp;&nbsp;{$message.msg_type}: {$message.msg_title}</td>
+				    <td>{$message.msg_content}</td>
+					<td class="text_c"><a href="user.php?act=del_msg&amp;id={$key}" title="{$lang.drop}" onclick="if (!confirm('{$lang.confirm_remove_msg}')) return false;"><img src="images/msg_delete.gif" alt="{$lang.drop}" border="0" /></a></td>
+				  </tr>
+				 <!-- {if $message.re_msg_content} -->
+				<tr class="tr0">
+					<td>{$message.re_msg_time} <BR>&nbsp;&nbsp;&nbsp;<a href="mailto:{$message.re_user_email}">{$lang.siteman_reply}</a></td>
+					<td>{$message.re_msg_content}</td>
+					<td> <!-- {if $message.message_img} --><a href="upload/feedbackimg/{$message.message_img}" target="_bank">{$lang.view_upload_file}</a></span></li>
+			          <!-- {/if} --></td>
+				</tr>
+		          <!-- {/if} -->
+				   <!--{/foreach}-->
+			</table>
+        <!-- {if $message_list}-->
+        <!-- #BeginLibraryItem "/library/pages.lbi" -->
+        <!-- #EndLibraryItem -->
+        <!-- {/if}-->
+        <form action="user.php" method="post" enctype="multipart/form-data" name="formMsg" onSubmit="return submitMsg()">
+          <table class="log_amdin_table" style="width:700px;margin-left:20px;">
+            <tr class="tr0">
+              <td>{$lang.message_type}</td>
+              <td><input name="msg_type" type="radio" value="0" checked="checked" />
+                {$lang.type[0]}
+                <input type="radio" name="msg_type" value="1" />
+                {$lang.type[1]}
+                <input type="radio" name="msg_type" value="2" />
+                {$lang.type[2]}
+                <input type="radio" name="msg_type" value="3" />
+                {$lang.type[3]}
+                </td>
+            </tr>
+           <tr class="tr0">
+              <td>{$lang.message_title}</td>
+              <td><input name="msg_title" type="text" size="30" /></td>
+            </tr>
+           <tr class="tr0">
+              <td>{$lang.message_content}</td>
+              <td><textarea name="msg_content" cols="50" rows="4" wrap="virtual"></textarea></td>
+            </tr>
+            <tr class="tr0">
+              <td>{$lang.upload_img}</td>
+              <td><input type="file" name="message_img"  size="45" /></td>
+            </tr>
+            <tr class="tr0">
+              <td>&nbsp;</td>
+              <td><input type="hidden" name="act" value="act_add_message" />
+                <input type="submit" value="{$lang.submit_message}" />
+				</td>
+            </tr>
+            <tr>
+              <td>&nbsp;</td>
+              <td> {$lang.img_type_tips}<br />
+                {$lang.img_type_list} </td>
+            </tr>
+          </table>
+        </form>
+      </div>
+      <!--{/if} -->
+      <!--#我的留言 -->
+
+	  <!-- 下线推广界面 -->
+        <!--{if $action eq 'get_integral'}-->
+       <script>
+
+				function oCopy(obj){
+				obj.select();
+				js=obj.createTextRange();
+				js.execCommand("Copy");
+				alert("下线推广地址已复制！");
+				}
+
+			</script>
+        <div class="title-01">
+          <div class="title-01-arrow">获取积分</div>
+        </div>
+        <div class="content-div">
+               <ul>
+				   <li><span>推广地址：</span>	<input name="textfield" type="text" value="{$hosturl}affiche.php?id={$userid}" onClick="oCopy(this);" class="inputstyle" style="width:400px;"/></li>
+				   <li>1、完整复制以上URL发送给网友，每当有一个网友通过<font color="#FF0000">以上的URL</font>访问网站，则随机奖励 1-10 积分。</li>
+				   <li>2、为防止作弊，24小时内同一IP访问不计积分。</li>
+				   <li>3、通过以上URL注册成为本站会员，并在本站成功消费（购买VIP会员）后，你可以获得 10% 的佣金。</span></li>
+				</ul>
+        </div>
+        <!--{/if}-->
+        <!--#下线推广界面-->
+      </div>
+      </div>
+    <!--End #page-right-->
+    <br />
+    <div class="hack"></div>
+  </div>
+  <!-- End #container -->
+</div>
+<!--End #globalWrapper-->
+<div id="footer">
+<!-- #BeginLibraryItem "/library/help.lbi" -->
+  <!-- #EndLibraryItem -->
+
+	<!-- #BeginLibraryItem "/library/page_footer.lbi" -->
+  <!-- #EndLibraryItem --></div>
+<!--End #footer-->
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Language" content="zh-CN" />
+<meta content="all" name="robots" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<meta http-equiv="imagetoolbar" content="no" />
+<link rel="bookmark" href="favicon.ico" />
+<link rel="icon" type="image/x-icon" href="favicon.ico" />
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+<link rel="alternate" type="application/rss+xml" title="RSS|{$page_title}" href="{$feed_url}" />
+<link href="css/user.css" rel="stylesheet" type="text/css" />
+<title>{$page_title}</title>
+{insert_scripts files="skyuc_common.js"}
+</head>
+
+<body>
+<!--header start-->
+<!-- #BeginLibraryItem "/library/user_header.lbi" -->
+<!-- #EndLibraryItem -->
+<!--header end-->
+<!--主体-->
+<div id="main" >
+           <div class="mode">
+			<div class="rl_u">&nbsp;</div>
+			<div class="container clearfix">
+				<h1>系统提示</h1>
+				<form id="formEdit">
+				<ul>
+				   <li>{$message}</li>
+				   <li><a href="{$site_url}" class="k">{$lang.back_home}</a></li>
+				</form>
+			 </div>
+			<div class="rl_d">&nbsp;</div>﻿
+		</div>
+</div>
+ <!--主体 end-->
+
+<!--footer start-->
+<!-- #BeginLibraryItem "/library/user_footer.lbi" -->
+<!-- #EndLibraryItem -->
+<!--footer end-->
+</body>
+</html>

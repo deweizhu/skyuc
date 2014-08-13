@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+	<title>$options[site_name] 数据库错误</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="ROBOTS" content="NOINDEX,NOFOLLOW,NOARCHIVE" />
+	<style type="text/css">
+	<!--
+	body { background-color: white; color: black; }
+	#container { width: 400px; }
+	#message   { width: 400px; color: black; background-color: #FFFFCC; }
+	#bodytitle { font: 13pt/15pt verdana, arial, sans-serif; height: 35px; vertical-align: top; }
+	.bodytext  { font: 9pt/11pt verdana, arial, sans-serif; }
+	a:link     { font: 9pt/11pt verdana, arial, sans-serif; color: red; }
+	a:visited  { font: 9pt/11pt verdana, arial, sans-serif; color: #4e4e4e; }
+	-->
+	</style>
+</head>
+<body>
+<table cellpadding="3" cellspacing="5" id="container">
+<tr>
+	<td><img src="$imagepath/image.php?type=dberror" alt="Database Error" width="36" height="48" /></td>
+	<td id="bodytitle" width="100%">数据库错误</td>
+</tr>
+<tr>
+	<td class="bodytext" colspan="2">$options[site_name] 的数据库遇到了问题。</td>
+</tr>
+<tr>
+	<td colspan="2"><hr /></td>
+</tr>
+<tr>
+	<td class="bodytext" colspan="2">
+		请尝试进行如下操作:
+		<ul>
+			<li>在您的 Web 浏览器中点击<a href="#" onclick="window.location = window.location;">刷新</a>按钮，重新装载本页面。</li>
+			<li>打开 <a href="/">$_SERVER[HTTP_HOST]</a> 首页，并尝试打开另一个页面。</li>
+			<li>点击<a href="javascript:history.back(1)">后退</a>按钮尝试其它链接。</li>
+		</ul>
+	</td>
+</tr>
+<tr>
+	<td class="bodytext" colspan="2">系统已经自动将此错误通知 $_SERVER[HTTP_HOST] 网站的技术人员，但若此问题持续发生，您也可以直接<a href="mailto:$technicalemail">联系他们</a>。</td>
+</tr>
+<tr>
+	<td class="bodytext" colspan="2">&nbsp;<br />给您带来不便我们十分抱歉。</td>
+</tr>
+</table>
+
+$message
+
+</body>

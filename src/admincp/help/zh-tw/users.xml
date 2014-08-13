@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<help>
+  <section id="list">
+    <title>會員帳號列表</title>
+    <content>
+    <![CDATA[
+    <p><strong>編輯會員信息</strong></p>
+    <p>點擊每行中的會員姓名，郵件地址就可以對會員的姓名及郵件地址進行快速編輯，點擊右側的<span class="link">編輯</span>即可編輯該會員的詳細信息。</p>
+    <p><strong>查詢會員帳號</strong></p>
+    <p>在列表上方的查詢輸入框中輸入相應的關鍵字即可查詢到相應的會員帳號。</p>
+    <p><strong>刪除會員帳號</strong></p>
+    <p>點擊每行右側的<span class="link">刪除</span>，或者選定每行前面的復選框後點擊列表下方的<span class="link">刪除</span>按鈕即可完成會員帳號的刪除操作。</p>
+    <p class="tips">刪除會員帳號的同時將會清除與該用戶有關的訂單及其他資料。</p>
+    ]]>
+    </content>
+  </section>
+  <section id="add">
+    <title>添加會員帳號</title>
+    <content>
+    <![CDATA[
+    <p><strong>消費積分</strong></p>
+    <p>消費積分是一種站內貨幣，允許用戶在購買會員時支付一定比例的積分。</p>
+
+    <p><strong>用戶余額</strong></p>
+    <p>用戶余額是指用戶在站內預留下的金額</p>
+    ]]>
+    </content>
+  </section>
+  <section id="edit">
+    <title>編輯會員帳號</title>
+    <content>
+    <![CDATA[請參考添加會員帳號]]>
+    </content>
+  </section>
+</help>

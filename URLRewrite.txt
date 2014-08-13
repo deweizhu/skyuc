@@ -1,0 +1,123 @@
+﻿SKYUC 3.0+以上版本 URL Rewrite 使用说明
+
+*******************************************************************************
+* 一、Apache 服务器
+*******************************************************************************
+
+   1、首先您需要找到 Apache 安装目录，之后找到 conf 目录下的 httpd.conf 文件。
+   2、将下面的代码复制到 httpd.conf 文件中，注意将 /skyuc 替换为您的网站的实际
+   安装目录。
+
+<Directory /skyuc>
+    Options FollowSymLinks
+    AllowOverride All
+</Directory>
+
+   3、在 httpd.conf 中搜索 LoadModule rewrite_module，将该行前面的 # 号删除。
+      如果您的 Apache 是1.3.x版本还需要查找 AddModule mod_rewrite.c，
+      请将前面的#删除。
+   4、保存 httpd.conf。
+   5、将 SKYUC! 目录下的 htaccess.txt 重命名为 .htaccess。
+   6、重新启动 Apache。
+   7、进入 SKYUC! 管理中心->网站设置，将 URL 重写设置为启用。
+
+   如果您想通过 httpd.conf 来设置重写规则，请按照下面的步骤操作：
+   1、执行上面第1-4步操作。
+   2、找到您的网站所在的虚拟主机段，如：
+	<VirtualHost 127.0.0.1>
+	    DocumentRoot "/home/skyuc/"
+	    ServerName www.skyuc.com
+	</VirtualHost>
+   3、将下面的内容加入在</VirtualHost>之前
+
+    <IfModule mod_rewrite.c>
+	RewriteEngine On
+	RewriteRule ^index.html$    index.php [L]
+	RewriteRule ^list.html$     index.php [L]
+	RewriteRule ^show.html$     index.php [L]
+
+	RewriteRule ^rss.xml$                 rss.php [L]
+	RewriteRule ^list-([0-9]+)-([0-9]+)-(.+)-([a-zA-Z]+)-([a-zA-Z]+)(.*)\.html$  list.php?id=$1&page=$2&sort=$3&order=$4&display=$5  [QSA,L]
+	RewriteRule ^list-([0-9]+)(.*)\.html$                              list.php?id=$1 [QSA,L]
+	RewriteRule ^show-([0-9]+)(.*)\.html$                                   show.php?id=$1 [QSA,L] 
+	RewriteRule ^article_cat-([0-9]+)-([0-9]+)-(.+)-([a-zA-Z]+)(.*)\.html$  article_cat.php?id=$1&page=$2&sort=$3&order=$4  [QSA,L]
+	RewriteRule ^article_cat-([0-9]+)-([0-9]+)(.*)\.html$                   article_cat.php?id=$1&page=$2                   [QSA,L]
+	RewriteRule ^article_cat-([0-9]+)(.*)\.html$                            article_cat.php?id=$1                          [QSA,L]
+	RewriteRule ^article-([0-9]+)(.*)\.html$                                article.php?id=$1  [QSA,L] 
+	RewriteRule ^subject-([0-9]+)(.*)\.html$				subject.php?id=$1 [QSA,L] 
+
+    </IfModule>
+
+*******************************************************************************
+* 二、IIS 服务器
+*******************************************************************************
+1、首先请进入以下网址 http://www.helicontech.com/download-isapi_rewrite3.htm，下载免费版的 
+ISAPI_Rewrite组件：ISAPI_Rewrite Lite ( freeware )。如果您仅仅是测试用途使用
+这个就足够了，如果您是商业应用建议您购买完整版的 ISAPI_Rewrite Full。
+
+2、点击下载到本地的文件 ISAPI_Rewrite3_0061_Lite.msi  （该文件名和您下载的版本有关）
+进行安装，安装成功之后进入： 开始菜单->程序->Helicon->ISAPI_Rewrite3->ISAPI_Rewrite Manager
+。
+3、点击Edit按钮，复制下面代码粘贴到窗口中，最后点击Apply，重启IIS。
+4、进入 SKYUC!管理中心->网站设置，将 URL 重写设置为启用。
+
+RewriteCond %{HTTP:Host} (?:www\.)?yourdomain\.com
+RewriteEngine On
+RewriteCompatibility2 On
+RepeatLimit 200
+RewriteBase
+# unsupported directive: [ISAPI_Rewrite]
+#
+RewriteRule ^(.*)/index.html$                $1/index.php          [i]
+RewriteRule ^(.*)/list.html$                 $1/index.php          [i]
+RewriteRule ^(.*)/show.html$                 $1/index.php          [i]
+RewriteRule ^(.*)/rss.xml$                  $1/rss.php           [i]
+RewriteRule ^(.*)/list-([0-9]+)-([0-9]+)-(\w+)(.*)-([a-zA-Z]+)-([a-zA-Z]+)(.*)\.html$            $1/list.php?id=$2&page=$3&sort=$4&order=$5&display=$6  [i]
+RewriteRule ^(.*)/list-([0-9]+)(.*)\.html$                              $1/list.php?id=$2 [i]
+RewriteRule ^(.*)/show-([0-9]+)(.*)\.html$                                   $1/show.php?id=$2 [i]
+RewriteRule ^(.*)/show-([0-9]+)(.*)\.html\?id=([0-9]*)&srv=([0-9]+)$         $1/show\.php\?id=$2&srv=$3 [i]
+RewriteRule ^(.*)/article_cat-([0-9]+)-([0-9]+)-(\w+)-([a-zA-Z]+)(.*)\.html$  $1/article_cat.php?id=$2&page=$3&sort=$4&order=$5  [i]
+RewriteRule ^(.*)/article_cat-([0-9]+)-([0-9]+)(.*)\.html$                   $1/article_cat.php?id=$2&page=$3                   [i]
+RewriteRule ^(.*)/article_cat-([0-9]+)(.*)\.html$                            $1/article_cat.php?id=$2                           [i]
+RewriteRule ^(.*)/article-([0-9]+)(.*)\.html$                                $1/article.php?id=$2	[i]
+RewriteRule ^(.*)/subject-([0-9]+)(.*)\.html$				     $1/subject.php?id=$2	[i]
+
+
+
+*******************************************************************************
+* 三、Nginx 服务器
+*******************************************************************************
+1.打开/usr/local/nginx/conf/nginx.conf文件，找到类似以下代码，并加入include一行内容：
+
+server {
+        listen   80;
+        server_name  skyuc.com;
+ 
+        root /home/www/skyuc.com;
+ 
+        include /usr/local/nginx/conf/rewrite.conf;
+}
+
+2.将以下代码另存为 rewrite.conf 并放置在 /usr/local/nginx/conf 目录下，然后重启nginx服务即可。
+
+location / 
+{
+ rewrite ^/index.html$    /index.php last;
+ rewrite ^/list.html$     /index.php last;
+ rewrite ^/show.html$     /index.php last;
+ rewrite ^/rss.xml$       /rss.php last;
+ 
+ rewrite ^/list-([0-9]+)-([0-9]+)-(.+)-([a-zA-Z]+)-([a-zA-Z]+)(.*)\.html$     /list.php?id=$1&page=$2&sort=$3&order=$4&display=$5  last;
+ rewrite ^/list-([0-9]+)(.*)\.html$                                   /list.php?id=$1  last;
+ rewrite ^/show-([0-9]+)(.*)\.html$                                   /show.php?id=$1  last;
+ rewrite ^/show-([0-9]+)(.*)\.html\?id=([0-9]*)&srv=([0-9]+)$         /show.php?id=$1&srv=$2  last;
+ rewrite ^/article_cat-([0-9]+)-([0-9]+)-(.+)-([a-zA-Z]+)(.*)\.html$  /article_cat.php?id=$1&page=$2&sort=$3&order=$4  last;
+ rewrite ^/article_cat-([0-9]+)-([0-9]+)(.*)\.html$                   /article_cat.php?id=$1&page=$2   last;
+ rewrite ^/article_cat-([0-9]+)(.*)\.html$                            /article_cat.php?id=$1     last;
+ rewrite ^/article-([0-9]+)(.*)\.html$                                /article.php?id=$1    last;
+ rewrite ^/subject-([0-9]+)(.*)\.html$				     /subject.php?id=$1	last;
+ break;
+}
+location ~ .*\.(dwt|lbi)?$ {
+rewrite \.(dwt|lbi)$ /error.png;
+} 

@@ -1,0 +1,65 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<div class="pages">
+	<div class="pages">
+				<!--翻页 start-->
+				<form name="selectPageForm" action="{$smarty.server.PHP_SELF}" method="get">
+				<!-- {if $pager.styleid eq 0 } -->
+				<em>{$lang.pager_1}{$pager.record_count}{$lang.pager_2}{$lang.pager_3}{$pager.size}{$lang.pager_2}{$lang.pager_4}{$pager.page_count}{$lang.pager_5}</em>&nbsp;
+				<a href="{$pager.page_first}">{$lang.page_first}</a>
+				<a href="{$pager.page_prev}">{$lang.page_prev}</a>
+				<span class="current">{$pager.page}</span>
+				<a href="{$pager.page_next}">{$lang.page_next}</a>
+				<a href="{$pager.page_last}">{$lang.page_last}</a>
+	  <!--{foreach from=$pager.search key=key item=item}-->
+      {if $key eq 'keywords'}
+          <input type="hidden" name="{$key}" value="{$item|escape:decode_url}" />
+        {else}
+          <input type="hidden" name="{$key}" value="{$item}" />
+      {/if}
+    <!--{/foreach}-->
+				<select name="page" id="page" onchange="selectPage(this)">
+				{html_options options=$pager.array selected=$pager.page}
+				</select>
+				      <!--{foreach from=$pager.search key=key item=item}-->
+					  <input type="hidden" name="{$key}" value="{$item}" />
+					  <!--{/foreach}-->
+
+					 <!--{else}-->
+					 <!--翻页 start-->
+					  <!-- {if $pager.page_first} --><a href="{$pager.page_first}">{$lang.page_first} ...</a><!-- {/if} -->
+  <!-- {if $pager.page_prev} --><a class="prev" href="{$pager.page_prev}">{$lang.page_prev}</a><!-- {/if} -->
+  <!-- {if $pager.page_count neq 1} -->
+    <!--{foreach from=$pager.page_number key=key item=item}-->
+      <!-- {if $pager.page eq $key} -->
+      <span class="current">{$key}</span>
+      <!-- {else} -->
+      <a href="{$item}">[{$key}]</a>
+      <!-- {/if} -->
+    <!--{/foreach}-->
+  <!-- {/if} -->
+
+  <!-- {if $pager.page_next} --><a class="next" href="{$pager.page_next}">{$lang.page_next}</a><!-- {/if} -->
+  <!-- {if $pager.page_last} --><a class="last" href="{$pager.page_last}">{$lang.page_last}</a><!-- {/if} -->
+  <!-- {if $pager.page_kbd} -->
+    <!--{foreach from=$pager.search key=key item=item}-->
+      {if $key eq 'keywords'}
+          <input type="hidden" name="{$key}" value="{$item|escape:decode_url}" />
+        {else}
+          <input type="hidden" name="{$key}" value="{$item}" />
+      {/if}
+    <!--{/foreach}-->
+    <kbd><input type="text" name="page" onkeydown="if(event.keyCode==13)selectPage(this)" size="3" style="border:1px solid #7F9DB9;" /> <input type="submit" value="{$lang.goto_btn}" style="height:22px;" /></kbd>
+    <!-- {/if} -->
+	<!--翻页 END-->
+
+<!-- {/if} -->
+		  <script type="text/javascript">
+			<!--
+			function selectPage(sel)
+			{
+			  sel.form.submit();
+			}
+			-->
+			</script>
+	</form>
+	</div></div>

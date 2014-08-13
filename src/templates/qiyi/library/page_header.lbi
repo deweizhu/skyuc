@@ -1,0 +1,76 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+{insert_scripts files="skyuc_global.js,skyuc_common.js,skyuc_utils.js,skyuc_search.js"}
+
+<div class="header">
+	<div class="inner">
+		<h1>
+			<span>{$site_name}</span>
+			<a href="index.php" class="hide_focus" target="_self"><img src="images/logo.jpg" title="{$site_title|escape}" alt="{$site_title|escape}" /></a>
+		</h1>
+		<map name="nav" id="nav">
+			<div class="nav">
+				<div class="nav_content">
+					<a href="index.php"  <!-- {if $navigator_list.config.index eq 1} -->class="current" <!-- {/if} -->><strong>{$lang.home}</strong></a>
+				<!-- {foreach name=nav_middle_list from=$navigator_list.middle item=nav} -->
+					<a href="{$nav.url}" <!--{if $nav.opennew eq 1}--> target="_blank" <!-- {/if} --> <!--{if $nav.active eq 1}}--> class="current"<!-- {/if} -->><strong <!--{if $nav.active eq 1}}--> class="tl"<!-- {/if} -->>{$nav.name}</strong></a>
+					<!-- {if $smarty.foreach.nav_middle_list.last}-->
+					<!-- {/if} -->
+			  <!-- {/foreach} -->
+				</div>
+			</div>
+		</map>
+		<div class="sub_nav">
+		  <a href="search.php?intro=best">小编推荐</a>
+			<a href="search.php?intro=series">连载中</a>
+			<a href="message.php" target="_blank" >留言板</a>
+		</div>
+
+		<form action="search.php" method="post" name="searchform" id="searchform">
+		<fieldset class="mod_search">
+			<legend><span>搜索</span></legend>
+			<p>
+				<label for="Search">搜索：</label>
+				<input type="text"  class="mod_search_txt"  name="keywords" id="keywords" {if $search_keywords}value="{$search_keywords|escape}" {else}value="请输入片名、演员、导演名称"{/if} title="{$lang.searchkeywords_notice|escape:html}"  onfocus="this.value=''"  autoComplete="off" />
+				 <input type="hidden" name="category" value="0">
+				<button type="submit" class="mod_search_bt" id="commit"><span>搜索</span></button>
+
+			</p>
+		</fieldset>
+		</form>
+
+		<div class="message">
+			<p class="login" style="display:none;"></p>
+			<p class="online" style="display:none;"></p>
+
+			<p>
+			<a href="#" onmouseover="showCatalog(this)" onmouseout="hideCatalog()">{$lang.all_category}</a>  |
+			 <!-- {foreach name=nav_top_list from=$navigator_list.top item=nav} -->
+            <a href="{$nav.url}" class="unline" <!-- {if $nav.opennew eq 1} --> target="_blank" <!-- {/if} -->>{$nav.name}</a>
+            <!-- {if !$smarty.foreach.nav_top_list.last} -->
+            <!-- {/if} -->
+          <!-- {/foreach} --></p>
+		</div>
+
+		<p id="bk_pic_0" class="slogan" style="display:none;"><a href="http://www.skyuc.com" target="_blank"><img src="images/banner.jpg" alt="5周年" title="5周年"/></a></p>
+		<script type="text/javascript">(function(){var ad = Math.floor(Math.random() * 1 + 0);for(var i = 0; i < 1; i++){var bkpic = document.getElementById("bk_pic_"+i); if(!!bkpic){ if(i == ad) bkpic.style.display="block"; else bkpic.style.display="none";}}})();</script>
+	</div>
+
+</div>
+
+<div id="search_suggest" style="display:none;" ></div>
+<div id="SKYUC_CATALOG" class="catalog-div" style="display:none" onmouseover="if (this.style.display != 'block') this.style.display='block';" onmouseout="if (this.style.display != 'none') this.style.display = 'none';">
+  <ul>
+    <!--{assign var="level" value=0}-->
+    <!-- {foreach from=$catalog_list item=cat} -->
+    <!-- {if $level > $cat.level} -->
+  </ul>
+  <!-- {/if}-->
+  <!-- {if $level < $cat.level} -->
+  <ul>
+    <!-- {/if} -->
+    <li class={if $cat.level eq 0}"top-cate"{else}"snd-cate"{/if}><a href="{$cat.url}"{if $cat.cat_desc neq ''} title="{$cat.cat_desc}"{/if}>{$cat.cat_name}</a></li>
+    <!--{assign var="level" value=$cat.level}-->
+    <!-- {/foreach} -->
+  </ul>
+</div>
+

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<help>
+  <section id="list">
+    <title>訂單列表</title>
+    <content>
+    <![CDATA[
+<p>您可進行以下操作：</p>
+<p><strong>查詢訂單</strong></p>
+<ul>
+  <li>訂單號和用戶名：按照訂單號和用戶名進行模糊查詢。</li>
+  <li>訂單狀態：訂單有三個狀態（未付款、付款中和已付款）。“未付款”是非在線支付產生的訂單，“付款中”是在線支付產生的訂單,"已付款"是在線支付完成的訂單。</li>
+</ul>
+	]]>
+    </content>
+  </section>
+  
+    <section id="info">
+    <title>訂單詳情</title>
+    <content>
+    <![CDATA[
+<p>您可以進行以下操作：</p>
+<p><strong>查看訂單信息</strong></p>
+<p>包括訂單基本信息、用戶信息</p>
+	]]>
+    </content>
+  </section>
+</help>

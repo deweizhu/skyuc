@@ -1,0 +1,18 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<div class="infoSidebar">
+	<!-- {if $recom_show} -->
+				<div class="spaceTitle"><ul><li><img src="images/new_infolist_05.jpg" alt="强力推荐" /></li></ul></div>
+				<div class="infoSidebar_cont">
+					<ul>
+					  <!-- {foreach name=recom_show from=$recom_show item=recom_show}-->
+					  <!--{if $smarty.foreach.recom_show.iteration lt 6}-->
+						<li>
+							<em class="infoSidebar_cont_img160X120"><A href="{$recom_show.url}"><img src="{$recom_show.thumb}" alt="{$recom_show.title|escape}" /><img class="pic_160" src="images/pic_120x160.gif" border="0" /></a></em>
+							<span><img src="images/new_infolist_22.jpg" alt="播放" align="absmiddle" /><a href="{$recom_show.url}">{$recom_show.title} </a></span>
+						</li>
+						<!--{/if}-->
+				     <!--{/foreach}-->
+						</ul>
+				</div>
+	<!--{/if}-->
+			</div>

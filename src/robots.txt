@@ -1,0 +1,13 @@
+User-agent: *
+Disallow: /admincp/
+Disallow: /data/
+Disallow: /includes/
+Disallow: /install/
+Disallow: /languages/
+Disallow: /templates/
+Disallow: affiche.php
+Disallow: ajax.php
+Disallow: image.php
+Disallow: respond.php
+Disallow: search.php
+Disallow: player.php

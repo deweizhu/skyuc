@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<help>
+
+  <section id="list_all">
+    <title>留言管理</title>
+    <content>
+    <![CDATA[
+	<p><strong>留言管理</strong></p>
+	<p>本頁面顯示所有所有用戶發表的留言。留言可以按用戶名，類型，留言時間，是否已經回復進行排序。也可通過留言類型或留言標題進行檢索。</p>
+	]]>
+    </content>
+  </section>
+
+  <section id="view">
+    <title>留言回復</title>
+    <content>
+    <![CDATA[
+	<p><strong>留言回復</strong></p>
+	<p>對用戶留言進行處理和回復。每條留言只能回復一次。重復回復將更新上一次回復。</p>
+	]]>
+    </content>
+  </section>
+
+
+</help>

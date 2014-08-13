@@ -1,0 +1,34 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- {if $top_month} -->
+<!--同类形电影菜单 start-->
+	<div class="same_movie">
+	<h3><img src="images/detail_tit_sb1.gif" /></h3>
+		<div class="same_movie_info">
+			<!-- {foreach name=top_month from=$top_month item=top_month}-->
+		<div class="TvCon1LeftConCCTit" id="TvCon1LeftConCCTit{$smarty.foreach.top_month.iteration}" onmouseover="showMore('TvCon1LeftConCCMore{$smarty.foreach.top_month.iteration}')">
+		<div class="TvCon1LeftConCCMoreInfNumPos TvCon1LeftConCCMoreInfNumBg{$smarty.foreach.top_month.iteration}"></div>
+		<div class="TvCon1LeftConCCMoreInfTitName"><a href="{$top_month.url}" target="_blank">{$top_month.title|truncate:14:true}</a></div>
+		</div>
+
+		<div class="TvCon1LeftConCCMore" id="TvCon1LeftConCCMore{$smarty.foreach.top_month.iteration}" {if $smarty.foreach.top_month.iteration gt 1}style="display:none"{/if}  >
+			<div class="TvCon1LeftConCCMoreImg"><a href="{$top_month.url}" target="_blank"><img src="{$top_month.thumb}" alt="{$top_month.title|escape:html}" width="90" height="120" border="0" /></a></div>
+			<div class="TvCon1LeftConCCMoreInf">
+
+				<div class="TvCon1LeftConCCMoreMovInf">
+					<p><b>{$lang.actor}</b><!--{foreach from=$top_month.actor item=val name=val}-->
+							<!--{if $smarty.foreach.val.iteration lt 2}-->
+							<a href="search.php?keywords={$val|escape:url}" target="_blank">{$val}</a>
+							<!--{/if}-->
+							<!--{/foreach}-->
+					</p>
+					<p class="mov_intro"><b>{$lang.description}</b>{$top_month.description|truncate:30:true}</p>
+					<p><a href="{$top_month.url}" class="btn_watch">{$lang.btn_info}</a></p>
+				</div>
+			</div>
+		</div>
+		  <!--{/foreach}-->
+
+	</div>
+	</div>
+	<!--{/if}-->
+	<!--同类形电影菜单 end-->

@@ -1,0 +1,46 @@
+/*tab-link*/
+#tab-link{height:30px;padding:0 20px;margin:20px 0;border-bottom:2px solid #c00;overflow:visible;}
+#tab-link li{height:30px;padding-right:16px;background:url(../images/bg_allsort.jpg) #E4E4E4 no-repeat right -313px;margin-right:5px;line-height:30px;font-weight:bold;font-size:14px;}
+#tab-link li a{height:30px;padding-left:16px;background:url(../images/bg_allsort.jpg) no-repeat 0 -282px;line-height:30px;}
+#tab-link li.curr{background-position:right -251px;}
+#tab-link li.curr a{background-position:0 -220px;color:#fff;}
+/*tab-sort*/
+#tab-sort .i-w{border:1px solid #e4e4e4; margin-bottom:10px;}
+#tab-sort .text{text-align:center; font-size:18px; font-family:"Î¢ÈíÑÅºÚ"; font-weight:bold; margin:16px 0}
+#tab-sort ul{width:920px;padding:0 0 16px 34px;overflow:hidden;zoom:1;}
+#tab-sort li{width:80px;height:64px;margin-right:3px;background:url(../images/bg_allsort.jpg) no-repeat 0 -81px;line-height:22px;}
+#tab-sort li.curr{width:88px;height:80px;padding-bottom:0;background-position:0 0;}
+#tab-sort li a{display:block;width:80px;height:44px;padding:8px 0;text-align:center;font-size:14px;}
+#tab-sort li a:link,#tab-sort li a:visited,#tab-sort li a:active{color:#015A9C;text-decoration:none;}
+#tab-sort li a:hover{color:#cc0000;text-decoration:underline;}
+#tab-sort li.curr a{width:88px;font-weight:bold;color:#fff;}
+#tab-sort li.l1{line-height:44px;}
+/*allsort*/
+#allsort{position:relative;margin-bottom:10px;}
+#allsort .corner{position:absolute;z-index:1;width:980px;background-image:url(../images/bg_allsort_3.jpg);background-repeat:repeat-x;overflow:hidden;}
+#allsort .corner b{display:block;width:36px;background-image:url(../images/bg_allsort_1.jpg);background-repeat:no-repeat;}
+#allsort .corner-t{height:16px;top:0;background-position:0 -17px;}
+#allsort .corner-b{height:96px;bottom:0;background-position:0 80px;}
+#allsort .tl{float:left;height:16px;background-position:-74px -76px;}
+#allsort .tr{float:right;height:16px;background-position:-111px -76px;}
+#allsort .bl{float:left;height:96px;background-position:0 0;}
+#allsort .br{float:right;height:96px;background-position:-37px 0;}
+#allsort .content{padding-left:40px;background:url(../images/bg_allsort_2.jpg) -37px 0 repeat-y;}
+#i-allsort{padding:10px 40px 20px 0;background:url(../images/bg_allsort_2.jpg) 904px 0 repeat-y;zoom:1;}
+#i-allsort .fl,#i-allsort .fr{position:relative;z-index:3;}
+#allsort .m{width:480px;border:1px solid #E9E9E9;}
+#allsort .mt{height:28px;background:url(../images/bg_allsort.jpg) repeat-x 0 -162px;border-bottom:1px solid #E9E9E9;line-height:28px;}
+#allsort .mt h2{font-size:14px;height:28px;padding:0 5px 0 20px;background:url(../images/bg_allsort.jpg) no-repeat 0 -191px;}
+#allsort .mc{padding:0 5px;}
+#allsort .mc .fore{border-top:none;}
+#allsort .current{background:#FFF6F0;}
+#allsort dl{width:460px;padding:5px;border-top:1px dotted #ccc;overflow:hidden;line-height:24px;}
+#allsort dt{float:left;width:55px;padding-right:10px;font-weight:bold;text-align:right;color:#CC0000;}
+#allsort dt a{color:#CC0000;}
+#allsort dd{float:left;width:395px;}
+#allsort dd em{float:left;}
+#allsort dd a{white-space:nowrap;margin-right:16px;}
+
+/*link*/
+#allsort a:link,a:visited{text-decoration:none;}
+#allsort a:hover{color:#f00;text-decoration:underline;}

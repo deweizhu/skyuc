@@ -1,0 +1,174 @@
+@charset "utf-8";
+
+	/*电影广告banner*/
+	.movieRowsDaNO1{height:54px;clear:both;}
+	.movieRowsDaNO1 img{width:980px;height:54px;}
+	.movieRowsDaNO2{height:64px;clear:both;margin-top:6px;}
+	.movieRowsDaNO3{height:75px;clear:both;}
+	.movieRowsDaNO2 p,.movieRowsDaNO3 p{float:left;}
+	.movieRowsDaNO2 p.movieRowsDaNO2_R,.movieRowsDaNO3 p.movieRowsDaNO3_R{float:right;}
+
+
+
+/*电影频道列表页面样式汇总*/
+
+	.topmainnav{ height:22px; padding:8px 0 0 5px;}
+	.movieRowsDa_44{height:44px;clear:both;}
+	.movieRowsDa_44 img{width:980px;height:44px;}
+	.movieSearchL{width:239px;float:left;margin-top:8px;}
+	.movieSearchLTitle{background:url(../images/movieSearchL_titleBg.jpg) repeat-x 0 -25px;height:24px;line-height:24px;overflow:hidden;}
+	.movieSearchLTitle ul{background:url(../images/movieSearchL_titleBg.jpg) no-repeat;height:24px;}
+	.movieSearchLTitle li{background:url(../images/movieSearchL_titleBg.jpg) no-repeat right -50px;height:24px;}
+	.movieSearchLTitle li img{margin:3px 0 0 9px;float:left;}
+	.movieSearchLTitle li span{float:left;padding-left:5px;}
+	.movieSearchLTitle li span a:link,.movieSearchLTitle li span a:visited,.movieSearchLTitle li span a:hover{color:#F4511A;}
+
+	/*目录索引栏目样式*/
+	.movieConIndexCon{border:1px dashed #B2B2B2;padding:6px 7px;margin-top:3px;}
+	.movieConIndexCon h1{clear:both;font-size:12px;height:18px;border-bottom:1px solid #B9B9B9;line-height:17px;padding-left:3px;}
+	.movieConIndexCon h1.Padding_10px{padding-top:10px;}
+	.movieConIndexCon p{float:left;display:block;width:52px;line-height:24px;padding-left:2px;}
+	.movieConIndexCon p.Tv{float:left;display:block;width:72px;line-height:24px;padding-left:2px;}
+	.movieConIndexCon img{float:left;border:1px solid #999;margin:6px 0px 0px 3px;}
+	.movieConIndexCon li.listStyle{background:url(../images/play_online_name_bg.jpg) repeat-x left 25px;padding:0px 6px;height:26px;line-height:26px;margin:0px 4px;overflow:hidden;}
+	.movieConIndexCon li.listStyleNow{background:url(../images/play_online_name_bg.jpg) repeat-x left 25px;padding:0px 6px;height:26px;font-weight:bold;color:#E82C00;line-height:26px;margin:0px 4px;overflow:hidden;}
+
+	/*标签汇总栏目样式*/
+	.movieLabelsSummary{margin-top:8px;}
+	.movieLabelsSummaryCon{border:1px dashed #B2B2B2;padding:6px 7px;margin-top:3px;}
+	.movieLabelsSummaryCon ul{overflow:hidden;height:220px;}
+	.movieLabelsSummaryCon li{float:left;border-left:1px solid #7D7D7D;margin:5px 0 0 -1px;padding:0 6px;color:#7D7D7D;line-height:16px;}
+	.movieLabelsSummaryCon li a:link,.movieLabelsSummaryCon li a:visited,.movieLabelsSummaryCon li a:hover{color:#7D7D7D;}
+
+
+	/*热门巨星栏目样式*/
+	.movieSuperstar{margin-top:8px;}
+	.movieSuperstarCon{border:1px dashed #B2B2B2;padding:6px 7px;margin-top:3px;}
+	.movieSuperstarCon ul{height:108px;}
+	.movieSuperstarCon li{float:left;margin:6px 0 0 0;padding:0 6px;color:#7D7D7D;line-height:16px;width:38px;height:18px;overflow:hidden;}
+	.movieSuperstarCon li a:link,.movieSuperstarCon li a:visited,.movieSuperstarCon li a:hover{color:#7D7D7D;}
+
+	/*电影排行榜栏目样式*/
+
+	.movieSearchBillboard{margin-top:8px;}
+	.movieSearchBillboardT{background:url(../images/spaceHomeGuess.jpg) repeat-x 0 -27px;height:26px;overflow:hidden;}
+	.movieSearchBillboardT ul{background:url(../images/spaceHomeGuess.jpg) no-repeat;height:26px;}
+	.movieSearchBillboardT li{background:url(../images/spaceHomeGuess.jpg) no-repeat right -54px;padding-left:5px;height:26px;}
+	.movieSearchBillboardT li img{float:left;}
+	.movieSearchBillboardT li p{float:left;width:39px;height:25px;line-height:25px;text-align:center;margin-left:5px;}
+	.movieSearchBillboardT li p.up{background:url(../images/movieSearchBillboardWeek.jpg) no-repeat;}
+	.same_movie_info{border:1px solid #DFDFDF; border-bottom:0px;}
+	.TvCon1LeftConCCMore{ height:120px; padding:5px 10px 5px 6px;}
+	.TvCon1LeftConCCTit{  height:24px; background:url(../images/play_online_name_bg.jpg) 0px 0px repeat-x; line-height:24px; border-top:2px #fff solid;}
+	.TvCon1LeftConCCMoreImg{ width:90px; height:120px;  background-color:#FFFFFF; float:left; display:inline; margin-left:5px; margin-top:3px; margin-right:5px;}
+	.TvCon1LeftConCCMoreInf{ height:128px; line-height:20px; overflow:hidden; text-align:left;}
+	.TvCon1LeftConCCMoreInf p{height:18px; overflow:hidden; color:#999;}
+	.TvCon1LeftConCCMoreInf p.mov_intro{ height:80px; overflow:hidden;padding-top:5px;}
+	.TvCon1LeftConCCMoreInf p b{font-weight:normal;color:#000;}
+	.TvCon1LeftConCCMoreInf p span{ font-weight:normal;}
+	.TvCon1LeftConCCMoreInfName{ width:160px; height:30px; overflow:hidden}
+	.TvCon1LeftConCCMoreInfNumPos{ width:13px; height:13px; float:left; display:inline; margin-left:2px; margin-top:7px; margin-left:10px;}
+	.TvCon1LeftConCCMoreInfMovName{ width:90px; height:30px; overflow:hidden; float:left; display:inline; margin-left:0px; line-height:30px; text-align:left}
+	.TvCon1LeftConCCMoreInfMovType{ width:48px; height:28px; line-height:28px; float:right; display:inline; text-align:right}
+	.TvCon1LeftConCCMoreInfTitName{cursor:pointer;width:190px;background:url(../images/spaceHomeGuessList.jpg) no-repeat right;height:24px; line-height:24px; float:left; display:inline; overflow:hidden; margin-left:8px; text-align:left;}
+	.TvCon1LeftConCCMoreInfTitType{ width:45px; height:24px; line-height:24px; float:right; display:inline; overflow:hidden; text-align:right; margin-right:2px;}
+	.TvCon1LeftConCCMoreInfNumBg1{background:url(../images/numbg.gif) 0px 0px no-repeat;}
+	.TvCon1LeftConCCMoreInfNumBg2{background:url(../images/numbg.gif) 0px -20px no-repeat;}
+	.TvCon1LeftConCCMoreInfNumBg3{background:url(../images/numbg.gif) 0px -40px no-repeat;}
+	.TvCon1LeftConCCMoreInfNumBg4{background:url(../images/numbg.gif) 0px -60px no-repeat;}
+	.TvCon1LeftConCCMoreInfNumBg5{background:url(../images/numbg.gif) 0px -80px no-repeat;}
+	.TvCon1LeftConCCMoreInfNumBg6{background:url(../images/numbg.gif) 0px -100px no-repeat;}
+	.TvCon1LeftConCCMoreInfNumBg7{background:url(../images/numbg.gif) 0px -120px no-repeat;}
+	.TvCon1LeftConCCMoreInfNumBg8{background:url(../images/numbg.gif) 0px -140px no-repeat;}
+	.TvCon1LeftConCCMoreInfNumBg9{background:url(../images/numbg.gif) 0px -160px no-repeat;}
+	.TvCon1LeftConCCMoreInfNumBg10{background:url(../images/numbg.gif) 0px -180px no-repeat;}
+
+
+
+
+	.movieSearchR{width:731px;float:right;margin-top:8px;}
+	/*右侧搜索结果样式*/
+	.movieSearchResultsTitle1{background:url(../images/movieSearchResultsTitleBg1.jpg) repeat-x 0 -30px;height:29px;overflow:hidden;}
+	.movieSearchResultsTitle1 ul{background:url(../images/movieSearchResultsTitleBg1.jpg) no-repeat;height:29px;}
+	.movieSearchResultsTitle1 li{background:url(../images/movieSearchResultsTitleBg1.jpg) no-repeat right -60px;height:29px;padding:0 12px 0 26px;}
+	.movieSearchResultsTitle1 li p{float:left;color:#8A8A8A;line-height:29px;}
+	.movieSearchResultsTitle1 li p b{font-weight:normal;color:red;}
+	.movieSearchResultsTitle1 li span{float:right;padding-top:6px;line-height:19px;}
+	.movieSearchResultsTitle1 li span b{float:left;font-weight:normal;}
+	.movieSearchResultsTitle1 li span b input{border:1px solid #7F9DB9;width:14px;height:14px;margin:0px 3px;}
+	.movieSearchResultsTitle1 li span a:link,.movieSearchResultsTitle1 li span a:visited,.movieSearchResultsTitle1 li span a:hover{background:url(../images/list_gray_shezhi.gif) no-repeat;height:19px;width:39px;margin:0px 5px;text-align:center;text-decoration:none;display:block;float:left;}
+	.movieSearchSortWay{background:#F7F7F7;height:26px;line-height:26px;overflow:hidden;padding-left:20px;}
+	.movieSearchSortWay p{float:left;font-weight:bold;}
+	.movieSearchSortWay span{float:left;}
+	.movieSearchSortWay span input{height:24px;}
+
+	.movieSearchCon{padding:0px 0px 7px 10px;}
+	.movieSearchCon li p.ImgMovieName{float:left;display:block;width:120px;height:188px;margin-right:4px;}
+	.movieSearchCon li p.ImgMovieName span{float:left;display:block;width:116px;height:26px;line-height:26px;text-align:center;color:#FF5B15;font-weight:bold;overflow:hidden;}
+	.movieSearchCon li img{float:left; width:116px;height:156px;padding:1px;border:1px solid #D5D9DB;}
+	.movieSearchCon ul li {margin:7px 0 0 0; float:left;width:346px;}
+	.movieSearchCon ul li a:link,.movieSearchCon ul li a:visited,.movieSearchCon ul li a:hover{color:#000;font-weight:normal;}
+	.movieSearchCon ul li h3{display:block;font-size:12px;height:22px;line-height:22px;width:200px;}
+	.movieSearchCon ul li h3.pianRen{overflow:hidden;}
+	.movieSearchCon ul li h3.pianRen span{font-weight:normal;color:#888;}
+	.movieSearchCon ul li h3.pianming{font-size:14px;font-weight:bold;overflow:hidden;}
+	.movieSearchCon ul li h3.pianming a:link,.movieSearchCon ul li h3.pianming a:visited,.movieSearchCon ul li h3.pianming a:hover{color:#F35C0C;}
+	.movieSearchCon ul li h3.kandian{height:40px;overflow:hidden;line-height:20px;font-weight:normal;color:#888;}
+	.movieSearchCon ul li h3.kandian b{color:#000;}
+	.movieSearchCon ul li p{line-height:18px;}
+	.movieSearchCon ul li p span{color:#666;display:block;height:56px;padding-right:5px; overflow:hidden;}
+	.movieSearchCon ul li h3.Btn{overflow:hidden;}
+	.movieSearchCon ul li h3.Btn a:link,.movieSearchCon ul li h3.Btn a:visited,.movieSearchCon ul li h3.Btn a:hover{display:block;float:left;font-weight:bold;margin-right:8px;padding-right:16px;}
+	.movieSearchCon ul li h3.Btn a.xiangqin:link,.movieSearchCon ul li h3 a.xiangqin:visited,.movieSearchCon ul li h3 a.xiangqin:hover{background:url(../images/movieLogoPlay.jpg) no-repeat right center;}
+	.movieSearchCon ul li h3.Btn a.bofang:link,.movieSearchCon ul li h3 a.bofang:visited,.movieSearchCon ul li h3 a.bofang:hover{background:url(../images/movieSearchPlayIco.jpg) no-repeat right center;}
+.movieHomeBroadcastConLD {
+    background: url("../images/movieList_lineDown1.jpg") repeat-x scroll 0 -6px transparent;
+    font-size: 0;
+    height: 5px;
+    line-height: 0;
+}
+
+/*标签日志页面样式*/
+.movie_list2{ float:left; margin:0px 20px 10px 9px;}
+.movie_list2 h3{ font-size:12px; text-align:center; padding:5px 0px;}
+.log_date{margin:5px 0px 0px 20px;height:36px;line-height:36px;}
+.log_date img{float:left;border:1px solid #B6B6B6;padding:2px;width:30px;height:30px;margin-right:6px;}
+
+.log_list_center {padding:0px 18px 10px 18px;}
+.log_list_center ul li{ border-bottom:1px solid #C7C7C7; margin-top:10px;}
+.log_list_center ul li h2{ font-size:12px; font-weight:bold; background:url(../images/spaceUserInformationDot.jpg) 0px 2px no-repeat; padding-left:15px;}
+.log_list_center ul li h2 a:link,.log_list_center ul li h2 a:visited,.log_list_center ul li h2 a:hover,.log_list_center ul li h2 a:active{ text-decoration:underline;}
+.log_list_txt{ padding:10px 15px 10px 20px ; color:#666; line-height:20px;}
+.log_con2{margin:5px 22px 5px 10px; text-align:right; clear:both;}
+.log_con2 a:link,.log_con2 a:visited,.log_con2 a:hover,.log_con2 a:active{ text-decoration:underline;}
+
+.movieSearchCon li .pic {
+float:left;
+height:160px;
+overflow:hidden;
+position:relative;
+width:116px;
+}
+.movieSearchCon li p.ImgMovieName .version {
+background:url("../images/bg_version.png") no-repeat scroll left top transparent;
+bottom:2px;
+color:#F3F3F3;
+font-weight: normal;
+cursor:pointer;
+height:16px;
+left:2px;
+line-height:16px;
+overflow:hidden;
+padding-right:2px;
+position:absolute;
+text-align:right;
+width:112px;
+}
+
+
+
+
+
+
+
+

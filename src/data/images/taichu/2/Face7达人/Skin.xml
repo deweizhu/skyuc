@@ -1,0 +1,66 @@
+<skin version="2" name="Face7´ïÈËÆ¤·ô" author="FACE7" url="http://www.face7.com/" email="zojie@face7.com"
+	transparent_color="#ff00ff">
+	<player_window image="player_skin.bmp">
+		<play position="51, 117, 76, 142" image="play.bmp" />
+		<pause position="51, 117, 76, 142" image="pause.bmp" />
+		<stop position="83, 117, 108, 142" image="stop.bmp" />
+		<prev position="21, 117, 46, 142" image="prev.bmp" />
+		<next position="115, 117, 140, 142" image="next.bmp" />
+		<mute position="201, 97, 226, 132" image="mute.bmp" />
+		<open position="156, 117, 186, 142" image="open.bmp" />
+		<lyric position="207, 127, 234, 144" image="lyric.bmp" />
+		<equalizer position="239, 127, 266, 144" image="equalizer.bmp" />
+		<playlist position="271, 127, 298, 144" image="playlist.bmp" />
+		<minimize position="251, 5, 265, 16" image="minimize.bmp" />
+		<minimode position="272, 5, 284, 16" image="minimode.bmp" />
+		<exit position="293, 5, 305, 16" image="close.bmp" />
+		<progress position="9, 103, 194, 114" bar_image="" thumb_image="progress_thumb.bmp" fill_image="progress_fill.bmp" />
+		<volume position="233, 104, 306, 115" vertical="false" bar_image="" fill_image="volume_fill.bmp" />
+		<volume position="231, 104, 306, 115" vertical="false" bar_image="" thumb_image="thumb.bmp" />
+		<visual position="158, 34, 293, 74" />
+		<icon position="10, 3, 24, 19" />
+		<info position="18, 77, 292, 90" color="#ffffff" font="SimSun" font_size="12" />
+		<led position="26, 47, 88, 64" image="number.bmp" align="right" />
+		<stereo position="89, 42, 154, 57" color="#ffffff" font="SimSun" font_size="12" align="right" />
+		<status position="89, 58, 154, 73" color="#ffffff" font="SimSun" font_size="12" align="right" />
+	</player_window>
+	<mini_window image="mini_skin.bmp">
+		<icon position="8, 5, 24, 21" />
+		<prev position="123, 1, 148, 27" image="mini_prev.bmp" />
+		<play position="148, 1, 173, 27" image="mini_play.bmp" />
+		<pause position="148, 1, 173, 27" image="mini_pause.bmp" />
+		<stop position="173, 1, 198, 27" image="mini_stop.bmp" />
+		<next position="198, 1, 223, 27" image="mini_next.bmp" />
+		<mute position="228, 3, 251, 26" image="mini_mute.bmp" />
+		<exit position="342, 3, 354, 14" image="mini_close.bmp" />
+		<minimode position="330, 3, 343, 14" image="mini_normal.bmp" />
+		<minimize position="318, 3, 331, 14" image="mini_ minimize.bmp" />
+		<lyric position="319, 16, 352, 25" image="mini_lrc.bmp" />
+		<visual position="37, 6, 112, 21" />
+		<volume position="257, 10, 310, 19" vertical="false" bar_image="" thumb_image="mini_thumb.bmp" fill_image="mini_volume_fill.bmp" />
+	</mini_window>
+	<lyric_window position="313, 152, 626, 364" resize_rect="30, 34, 250, 36" image="lyric_skin.bmp">
+	  <mini_border left_top_color="#000000" right_bottom_color="#000000" />
+		<title position="33, 0, 106, 21" image="lyric_title.bmp" align="left" />
+		<close position="293, 5, 305, 16" image="close.bmp" align="right" />
+		<ontop position="272, 6, 284, 17" image="ontop.bmp" align="right" />
+		<lyric position="7, 29, 306, 205" />
+	</lyric_window>
+	<equalizer_window position="313, 0, 626, 152" image="equalizer_skin.bmp" eq_interval="9">
+		<close position="293, 5, 305, 16" image="close.bmp" align="right" />
+		<enabled position="21, 36, 46, 61" image="eq_enabled.bmp" />
+		<profile position="16, 74, 61, 91" image="eq_profile.bmp" />
+		<reset position="16, 94, 61, 111" image="eq_reset.bmp" />
+		<balance position="132, 126, 190, 137" thumb_image="eq_thumb1.bmp" bar_image="" />
+		<surround position="238, 126, 297, 137" thumb_image="eq_thumb1.bmp" bar_image="" />
+		<preamp position="59, 35, 68, 113" thumb_image="eq_thumb.bmp" bar_image="" />
+		<eqfactor position="129, 35, 138, 113" thumb_image="eq_thumb.bmp" bar_image="" fill_image="" />
+	</equalizer_window>
+	<playlist_window position="0, 152, 313, 346" resize_rect="30, 55, 260, 120" image="playlist_skin.bmp">
+		<title position="33, 0, 118, 21" image="playlist_title.bmp" align="left" />
+		<close position="293, 5, 305, 16" image="close.bmp" align="right" />
+		<toolbar position="1, 23, 295, 41" image="playlist_toolbar.bmp" hot_image="hot_playlist_toolbar.bmp" />
+		<scrollbar buttons_image="scrollbar_button.bmp" thumb_image="scrollbar_thumb.bmp" bar_image="scrollbar_bar.bmp" />
+		<playlist position="7, 49, 306, 205" />
+	</playlist_window>
+</skin>

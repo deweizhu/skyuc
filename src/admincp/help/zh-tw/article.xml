@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<help>
+
+  <section id="list">
+    <title>文章列表</title>
+    <content>
+    <![CDATA[
+	<p><strong>文章列表</strong></p>
+	<p>列出所有的文章，可對文章標題，是否顯示進行直接編輯。點擊標題欄可對該欄目進行排序。<br />搜索欄可對文章標題進行關鍵字搜索<br />選中文章編號前的復選框可進行批量刪除。</p>
+    <p><strong>添加新文章</strong></p>
+	<p>點擊頁面右上角的<a href="article.php?act=add" target="main-frame"><span class="link">添加新文章</span></a>鏈接即可。<span class="tips">第一次添加新文章前需先添加文章分類</span></p>
+	]]>
+    </content>
+  </section>
+
+  <section id="add">
+    <title>添加新文章</title>
+    <content>
+    <![CDATA[
+	<p><strong>添加新文章</strong></p>
+	<p>添加文章起始是文章一些基礎信息。如果文章分類為空，說明你還沒有添加文章分類，請先添加文章分類。帶有紅色星號選項必須填寫。為文章增加內容請點擊<span class="link">文章內容</span>標簽。<span class="tips">如果在firefox下出現不能編輯文章情況請點擊兩次編輯區工具欄中的“源代碼”按鈕。</span>。<br />
+	點擊頁面右上角的<a href="article.php?act=list" target="main-frame"><span class="link">文章列表</span></a>鏈接即可返回列表頁面。
+	</p>
+	]]>
+    </content>
+  </section>
+
+  <section id="edit">
+    <title>編輯文章</title>
+    <content>
+    <![CDATA[
+	<p><strong>編輯文章</strong></p>
+	<p><span class="tips">請在文章編輯器的載入完後再提交編輯內容，點擊文章內容標簽可查看文章編輯器是否載入完成</span></p>
+	]]>
+    </content>
+  </section>
+
+</help>

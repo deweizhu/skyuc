@@ -1,0 +1,16 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!--看过还看过 start-->
+<!-- {if $same_movie} -->
+<div class="title-01">
+  <div class="title-01-arrow">看过本片的用户还看过
+</div>
+</div>
+<div class="sort-box01" id="top10">
+  <ul>
+  <!-- {foreach name=same_movie from=$same_movie item=same_movie}-->
+    <li><img src="images/top_{$smarty.foreach.same_movie.iteration}.gif" alt="" /> <span><a href="{$same_movie.url}" title="{$same_movie.title|escape:html}">{$same_movie.title|truncate:12:true}</a></span></li>
+    <!--{/foreach}-->
+  </ul>
+</div>
+<!--{/if}-->
+<!--看过还看过 end-->

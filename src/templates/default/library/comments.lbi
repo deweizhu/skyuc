@@ -1,0 +1,6 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<div id="SKYUC_COMMENT">
+{insert_scripts files="skyuc_global.js,skyuc_utils.js"}
+{* SKYUC 提醒您：动态载入comments_list.lbi，显示评论列表和评论表单 *}
+{insert name="comments" type=$type id=$id}
+</div>

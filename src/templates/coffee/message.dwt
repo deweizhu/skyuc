@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>{$page_title}</title>
+<!-- TemplateEndEditable -->
+{if $auto_redirect}
+<meta http-equiv="refresh" content="3;URL={$message.back_url}" />
+{/if}
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="icon" href="animated_favicon.gif" type="image/gif" />
+<link href="{$skyuc_css_path}" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<!-- #BeginLibraryItem "/library/page_header.lbi" -->
+<!-- #EndLibraryItem -->
+<div id="globalWrapper">
+<!-- #BeginLibraryItem "/library/search_form.lbi" -->
+<!-- #EndLibraryItem -->
+  <div style="clear:both;">
+    <div class="sort-box01" id="cotalog-list" style="padding:10px;">
+      <div style="text-align:center;padding:50px;">
+        <h3 style="font-size: 14px; font-weight:bold; color: red;">{$message.content}</h3>
+					<!-- {if $message.url_info} -->
+					 <p>
+					 <!--{foreach from=$message.url_info key=info item=url}-->
+						  <!--{if $info eq 'reg_succeed'}-->
+						 <a href="{$url}" >{$lang.edit_user_info}</a>
+						  <!--{else}-->
+						 &nbsp;&nbsp;<a href="{$url}">{$info}</a>
+						  <!--{/if}-->
+					  <!--{/foreach}-->
+					  </p>
+					<!--{/if}-->
+      </div>
+    </div>
+    <div class="hack"></div>
+  </div>
+  <!-- End #container -->
+</div>
+<!--End #globalWrapper-->
+<div id="footer">
+<!-- #BeginLibraryItem "/library/help.lbi" -->
+<!-- #EndLibraryItem -->
+<!-- #BeginLibraryItem "/library/page_footer.lbi" -->
+<!-- #EndLibraryItem -->
+</div>
+<!--End #footer-->
+</body>
+</html>

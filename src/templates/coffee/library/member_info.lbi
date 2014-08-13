@@ -1,0 +1,110 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+{if $netbar}
+<div class="title-01">
+  <div class="title-01-arrow">{$lang.netbar_user}</div>
+</div>
+<div class="sort-box01">
+  <div>{$lang.hello}，〖{$netbar.title}〗！</div>
+	<div>{$lang.welcome_return}！</div>
+	<div>{$lang.addtime}： {$netbar.addtime}  </div>
+  <div>{$lang.endtime}： {$netbar.endtime}  </div>
+	<div>{$lang.netbarip}： {$netbar.curip}  </div>
+</div>
+{else}
+{if $user_info}
+<div class="title-01">
+  <div class="title-01-arrow">{$lang.hello},{$user_info.username|truncate:18}</div>
+</div>
+<div class="sort-box01">
+	<p>{$user_info.username|truncate:18}，{$lang.welcome_return}！<BR><BR>
+	{$lang.your_type}：{$user_info.usertype}<BR>
+	{$user_info.your_endlook}：{$user_info.endlook}<BR>
+	{$lang.your_integral}：{$user_info.integral}</p>
+  <div style="margin-top:25px;text-align:right;"><a href="user.php">{$lang.edit_user_info}</a> | <a href="user.php?act=logout">{$lang.logout}</a></div>
+</div>
+<!--End sort-box01-->
+{else}
+{insert_scripts files="transport.js"}
+<div class="title-01" >
+  <div class="title-01-arrow" >会员登录</div>
+</div>
+<div class="sort-box01">
+  <form id="SKYUC_LOGINFORM" name="SKYUC_LOGINFORM" method="post" action="javascript:signIn()">
+    <label for="username">{$lang.member_name}:</label>
+    <input id="username" name="username" class="login-input" type="text" value="{$skyuc_username}" />
+    <label for="password">{$lang.password}:</label>
+    <input id="password" name="password" class="login-input" type="password" />
+     <!-- 判断是否启用验证码{if $enabled_captcha} -->
+      <label for="captcha">{$lang.comment_captcha}:</label>
+      <input type="text"  name="captcha" id="captcha" class="login-input" style="width:45px;" size="5" />
+      <img src="captcha.php?is_login=1&amp;{$rand}" alt="captcha" style="width:52px;height:18px;vertical-align:middle;margin-left:2px;cursor:pointer;" onClick="this.src='captcha.php?is_login=1&amp;'+Math.random()" />
+      <!-- {/if} -->
+		<p style="margin-top: 5px">
+        <input type="submit" class="login-btn" value="登录" />
+        <input type="reset" class="login-btn" value="重置" />
+      </p>
+      <p>
+        <a href="user.php?act=register">&gt;&gt;{$lang.sign_up}</a><br />
+        <a href="user.php?act=get_password">&gt;&gt;{$lang.forgot_password}</a>
+      </p>
+  </form>
+</div>
+<!--End sort-box01-->
+
+<script type="text/javascript">
+/**
+ * 会员登录
+ */
+function signIn()
+{
+  var frm = document.forms['SKYUC_LOGINFORM'];
+
+  if (frm)
+  {
+    var username = frm.elements['username'].value;
+    var password = frm.elements['password'].value;
+
+    if (username.length == 0 || password.length == 0)
+    {
+
+       alert("{$lang.empty_username_password}");
+
+        return;
+    }
+    else
+    {
+       Ajax.call('user.php?act=signin', 'username=' + username + '&password=' + password, signinResponse, "POST", "TEXT");
+    }
+  }
+  else
+  {
+    alert('Template error!');
+  }
+}
+
+function signinResponse(result)
+{
+  var mzone = document.getElementById("SKYUC_MEMBERZONE");
+  var res   = $.evalJSON(result);
+
+  if (res.error > 0)
+  {
+    // 登录失败
+    alert(res.content);
+  }
+  else
+  {
+    if (mzone)
+    {
+      mzone.innerHTML = res.content;
+    }
+    else
+    {
+      alert("Template Error!");
+    }
+  }
+}
+</script>
+
+{/if}
+{/if}

@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Language" content="zh-CN" />
+<meta content="all" name="robots" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<meta http-equiv="imagetoolbar" content="no" />
+<link rel="bookmark" href="favicon.ico" />
+<link rel="icon" type="image/x-icon" href="favicon.ico" />
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+<link rel="alternate" type="application/rss+xml" title="RSS|{$page_title}" href="{$feed_url}" />
+<link href="css/basic.css" rel="stylesheet" type="text/css" />
+<link href="css/openbox.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+body{padding:0px;margin:0px;font-size:12px;color:#000;font-family:verdana,'宋体',arial,'Lucida Grande','Lucida Sans Unicode',sans-serif;}
+</style>
+<script type="text/javascript" src="js/base.js"></script>
+{insert_scripts files="skyuc_global.js"}
+<title>{$page_title}</title>
+</head>
+<body id="movie_iframe1" onload="document.theform.title.focus();">
+<table onselectstart="return false;" style="-moz-user-select:none;" width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr height="5" bgcolor="#FFA73E"><td colspan="4"></td></tr>
+<tr height="25" bgcolor="#FF9518">
+	<td width="20" height="25"></td>
+	<td id="title" align="left" style="font-size:14px;font-weight:bold;color:#fff;">系统提示</td>
+	<td width="28"><input type="image" id="dialogBoxClose" onclick="new parent.dialog().reset();" src="images/openbox4_x.gif" border="0" title="关闭" alt="关闭" width="28" height="25" align="absmiddle" /></td>
+	<td width="10"></td>
+</tr>
+</table>
+<div style="border:5px solid #FF9518; background-color:#fff;">
+	<div id="dialogHeight" style="margin:10px;">
+	<!--{if $act eq 'response'}-->
+	<div id="dialogMsg">
+		<div class="openbox_content">{$content}
+			<div id="dialogFunc" class="btn"><input id="dialogOk" type="button"  value="确  认" onclick="new parent.dialog().reset();" /> <input id="dialogCancel" type="button"  value="取  消" onclick="new parent.dialog().reset();" /></div>
+		</div>
+	</div>
+
+	<!--{else}-->
+		<div id="dialogMsg">
+<!-- cont -->
+	<form name="theform" action="ajax.php?do=adderror" method="post" onsubmit="return sub_frm();">
+		<div class="openbox_content">
+			<h4 id="error">{$titleshow} <img src='images/openbox1_dot2.gif' width='13' height='13' /></h4>
+            	<dl>
+				<dt>标题：</dt><dd>
+				<input type="hidden" name="type" id="type" value="{$type}">
+				<input name="title" id="title" type="text" class="input" style="width:260px;" value="{$title}" /></dd>
+				<dt>描述：</dt><dd><textarea name="cont" id="cont" class="textarea" style="height:100px; width:260px;">{$content}</textarea></dd>
+				<div id="dialogFunc" class="btn"><input id="dialogOk" type="button"  value="确  认" onclick="sub_frm();" /> <input id="dialogCancel" type="button" value="取  消" onclick="new parent.dialog().reset();" /></div>
+                </dl>
+          </div>
+	</form>
+<!-- cont -->
+<!--{/if}-->
+		</div>
+	</div>
+	<div style="clear:both;line-height:0px;font-size:0px;height:0px;"></div>
+</div>
+</body>
+</html>
+<script type="text/javascript">
+function sub_frm(){
+	if (document.getElementById('title').value=='')
+	{
+		document.getElementById('title').focus();
+		document.getElementById('error').innerHTML = '标题不能为空';
+		return false;
+	}else if(document.getElementById('cont').value=='')
+	{
+		document.getElementById('cont').focus();
+		document.getElementById('error').innerHTML = '描述不能为空';
+		return false;
+	}else
+	{
+		document.getElementById('error').innerHTML = '信息正在提交，感谢您的反馈！';
+		document.theform.submit();
+	}
+}
+</script>

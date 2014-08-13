@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<help>
+
+  <section id="list">
+    <title>郵件模板管理</title>
+    <content>
+    <![CDATA[
+	<p><strong>郵件模板管理</strong></p>
+	<p>網站在進行某些操作時可以向用戶發送郵件提示。在本頁你可以定制自己個性化的郵件的模板。郵件主題為發送郵件的標題。郵件模板中有可以替換的內容都用{$_var}方式表示。以下將解釋所有變量含義。</p>
+	<p><strong>公共變量</strong></p>
+	<p><ul><li>{$site_name}<br />網店名稱</li><li>{$sent_date}<br />郵件發送時間</li></ul></p>
+	<p><strong>發送密碼模板變量</strong></p>
+	<p><ul><li>{$user_name}<br />注冊帳號名</li><li>{$password}<br />系統為用戶生成的新密碼</li></ul></p>
+	]]>
+    </content>
+  </section>
+
+</help>

@@ -1,0 +1,136 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<script language="JavaScript" type="text/javascript">
+var imgurl = "{$gallery.img}";
+var imgDesc = "{$gallery.name}";
+var scale=0;
+var original=0;
+var change=0;
+var iratio=0;
+var objImg=null;
+
+window.onload=function()
+{
+    objImg= ifm_show_prd.document.getElementById("objImg");
+    objImg.src=imgurl;
+    document.getElementById("desc_div").innerHTML = imgDesc;
+}
+
+function doZoomIn()
+{
+    if(original==0)
+    {
+        original=objImg.width;
+        scale=objImg.width;
+        iratio=objImg.width/objImg.height;
+    }
+
+  if(scale-original>2048) return false;
+
+  scale+=5;
+  change+=5;
+    if(change>100) {change=0; return false;}
+  objImg.width=scale;
+  objImg.height=scale/iratio;
+  window.setTimeout("doZoomIn()",50);
+  return true;
+}
+
+function doZoomOut()
+{
+  if(original==0)
+    {
+        original=objImg.width;
+        scale=objImg.width;
+        iratio=objImg.width/objImg.height;
+    }
+
+  if(scale<=100) return false;
+  scale-=5;
+  change+=5;
+    if(change>100) {change=0; return false;}
+  objImg.width=scale;
+  objImg.height=scale/iratio;
+    window.setTimeout("doZoomOut()",50);
+  return true;
+}
+
+
+function doReset()
+{
+    if(original==0)
+    {
+        original=objImg.width;
+        scale=objImg.width;
+        iratio=objImg.width/objImg.height;
+    }
+    else
+    {
+        objImg.width=original;
+      objImg.height=original/iratio;
+      scale=original;
+    }
+
+  return true;
+}
+
+
+var last_img_btn_chg_prd_over=null;
+var last_img_btn_chg_prd_click=null;
+function ImgBtnChgPrd_Mouseover(obj)
+{
+    if(last_img_btn_chg_prd_over!=null)
+        last_img_btn_chg_prd_over.className='img_btn_chg_prd';
+    last_img_btn_chg_prd_over=obj;
+    obj.className='img_btn_chg_prd_active';
+}
+
+
+
+function ImgBtnChgPrd_Click(obj,largepictureurl)
+{
+    if(last_img_btn_chg_prd_click!=null)
+        last_img_btn_chg_prd_click.className='img_btn_chg_prd';
+    last_img_btn_chg_prd_click=obj;
+
+    if(last_img_btn_chg_prd_over==last_img_btn_chg_prd_click)
+        last_img_btn_chg_prd_over=null;
+
+    obj.className='img_btn_chg_prd_active';
+     objImg.src=largepictureurl;
+
+        original=objImg.width;
+        scale=objImg.width;
+        iratio=objImg.width/objImg.height;
+}
+
+</script>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$gallery.name} - 的图片</title>
+<link rel="shortcut icon" href="favicon.ico" >
+<link rel="icon" href="animated_favicon.gif" type="image/gif" >
+<link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div style="background-color:#FFFFFF; height:700px">
+<div align="center" style="padding-bottom: 5px">
+  <input type="button" onclick="location.href='gallery.php?id={$gallery.id}&amp;img={$prev_img}'" value="&lt;&lt;&lt;">
+  <input type="button" onclick="location.href='gallery.php?id={$gallery.id}&amp;img={$next_img}'" value="&gt;&gt;&gt;">
+</div>
+<div align="center">
+  <table align="center" class="vpTable">
+    <tr>
+      <td align="center" style="border: 1px solid #eee;"><iframe src="images/picbox.html" frameborder="0" width="600" height="400" name="ifm_show_prd" id="ifm_show_prd"></iframe></td>
+    </tr><div id="desc_div"></div>
+    <tr>
+      <td align="center"><img src="images/picture_zoom+.gif" onclick="doZoomIn()" width="69" height="21" /><img src="images/picture_zoom.gif" onclick="doReset()"  width="96" height="21" /><img src="images/picture_zoom-.gif" onclick="doZoomOut()" width="69" height="21" /> </td>
+    </tr>
+  </table>
+  <p><span style="cursor:pointer"onclick="window.close()">[ 关闭本页 ]</span></p>
+  <p>&nbsp;</p>
+</div>
+
+</div>
+</body>
+</html>

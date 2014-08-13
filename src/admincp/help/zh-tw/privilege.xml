@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<help>
+  <section id="list">
+    <title>管理員列表</title>
+    <content>
+    <![CDATA[
+	<p>本頁面顯示網站的管理員信息。</p>
+	]]>
+    </content>
+  </section>
+
+  <section id="add">
+    <title>添加管理員</title>
+    <content>
+    <![CDATA[
+	<p>為網站添加一個新的管理員的操作。</p>
+	]]>
+    </content>
+  </section>
+  
+  <section id="allot">
+    <title>分配權限</title>
+    <content>
+    <![CDATA[
+	<p>對指定的管理員分配相應的操作權限。</p>
+	]]>
+    </content>
+  </section>
+  
+  <section id="edit">
+    <title>編輯管理員</title>
+    <content>
+    <![CDATA[
+	<p>對指定的管理員信息進行編輯的操作。</p>
+	]]>
+    </content>
+  </section>
+</help>

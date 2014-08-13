@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<help>
+    <section id="list">
+        <title>標簽管理</title>
+        <content>
+            <![CDATA[
+<p>這裡你可以查看用戶添加的標簽</p>
+<p>或者對標簽進行刪除操作</p>
+            ]]>
+        </content>
+    </section>
+</help>

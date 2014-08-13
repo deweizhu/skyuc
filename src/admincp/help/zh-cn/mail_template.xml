@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<help>
+
+  <section id="list">
+    <title>邮件模板管理</title>
+    <content>
+    <![CDATA[
+	<p><strong>邮件模板管理</strong></p>
+	<p>网站在进行某些操作时可以向用户发送邮件提示。在本页你可以定制自己个性化的邮件的模板。邮件主题为发送邮件的标题。邮件模板中有可以替换的内容都用{$_var}方式表示。以下将解释所有变量含义。</p>
+	<p><strong>公共变量</strong></p>
+	<p><ul><li>{$site_name}<br />网店名称</li><li>{$sent_date}<br />邮件发送时间</li></ul></p>
+	<p><strong>发送密码模板变量</strong></p>
+	<p><ul><li>{$user_name}<br />注册帐号名</li><li>{$password}<br />系统为用户生成的新密码</li></ul></p>
+	]]>
+    </content>
+  </section>
+
+</help>

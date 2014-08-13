@@ -1,0 +1,148 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+ <div id="SKYUC_COMMENT" style="padding:10px;" class="sort-box01" >
+	<table width="100%" cellpadding="0" cellspacing="0">
+		  <!--{foreach name=message_lists from=$msg_lists key=key item=msg}-->
+	  <tr>
+	   <td colspan="2" style="border-bottom:1px dashed #ccc;"><b>{$msg.msg_title}</b>[<b>{$msg.msg_type|escape:html}</b>]</td>
+	</tr>
+	   <tr>
+		<td colspan="2" style="background: #F0F0F0;padding:5px;">{$msg.msg_content}
+		</td>
+	  </tr>
+	  <tr>
+		<td colspan="2" align="right" style="font-size:0px;"><img src="images/comment_bottom.gif" width="200" height="9" alt="comment" /> </td>
+	  </tr>
+	  <tr>
+		<td></td>
+		<td align="right">{$msg.user_name}&nbsp;&nbsp;{$lang.yu}&nbsp;&nbsp;{$msg.msg_time}</td>
+	  </tr>
+		<!-- {if $msg.re_msg_content} -->
+	   <tr>
+		 <td colspan="2" align="right" style="font-size:0px;"><img src="images/comment_bottom.gif" width="200" height="9" alt="comment" /> </td>
+	   </tr>
+	   <tr>
+		 <td colspan="2" align="right" style="padding-bottom:10px;"><br />{$msg.re_msg_content}<br /><IMG SRC="images/msg_reply.gif" WIDTH="16" HEIGHT="16" BORDER="0" ALT="{$lang.site_owner_reply}"> {$lang.site_owner_reply}:　{$msg.re_msg_time}</td>
+		</tr>
+			 <!-- {/if} -->
+		  <!--{/foreach}-->
+	</table>
+	<!--{include file="/library/pages.lbi"}-->
+</div>
+
+<div class="title-03">
+		<div class="title-04-arrow">{$lang.post_message}</div>
+	</div>
+	<div class="sort-box01" >
+		<form action="message.php" method="post" name="formMsg" onSubmit="return submitMsgBoard()">
+            <table width="100%" border="0" cellpadding="3">
+              <tr>
+                <td align="right">{$lang.username}</td>
+                <td>
+                <!--{if $smarty.session.user_name}-->
+                <font class="f4_b">{$username}</font><label for="anonymous" style="margin-left:8px;"><input type="checkbox" name="anonymous" value="1" id="anonymous" />{$lang.message_anonymous}</label>
+                <!--{else}-->
+                <input name="user_name" class="inputBg" type="text" size="15" value="{$lang.anonymous}" />
+                <!--{/if}-->
+                </td>
+              </tr>
+              <tr>
+                <td align="right">{$lang.email}</td>
+                <td><input name="user_email" type="text" class="inputBg" size="20" value="{$smarty.session.email|escape}" /></td>
+              </tr>
+              <tr>
+                <td align="right">{$lang.message_board_type}</td>
+                <td><input name="msg_type" type="radio" value="0" checked="checked" />
+                  {$lang.message_type[0]}
+                  <input type="radio" name="msg_type" value="1" />
+                  {$lang.message_type[1]}
+                  <input type="radio" name="msg_type" value="2" />
+                  {$lang.message_type[2]}
+                  <input type="radio" name="msg_type" value="3" />
+                  {$lang.message_type[3]}
+              </tr>
+              <tr>
+                <td align="right">{$lang.message_title}</td>
+                <td><input name="msg_title" type="text" class="inputBg" size="30" /></td>
+              </tr>
+            <!-- 判断是否启用验证码{if $enabled_captcha} -->
+              <tr>
+                <td align="right">{$lang.comment_captcha}</td>
+                <td><input type="text"  name="humanverify[input]"  id="verifycode"  size="10" maxlength="6"  onfocus="try{opencode('menu_gd',this)}catch(e){}" /><input type="hidden" name="humanverify[hash]" id="hash"  value="{$humanverify.hash}" />
+		<div class="menu" id="menu_gd" style="visibility:hidden;height:0;"><img src="image.php?{$session.sessionurl}type=hv&amp;hash={$humanverify.hash}" id="verifyimage"  align="absmiddle" style="cursor:pointer;"  title="{$lang.click_for_another}"  border="0" /></div></td>
+              </tr>
+            <!--{/if}-->
+              <tr>
+                <td align="right" valign="top">{$lang.message_content}</td>
+                <td><textarea name="msg_content" wrap="virtual" id="msg_content"></textarea></td>
+              </tr>
+              <tr>
+                <td>&nbsp;</td>
+                <td><input type="hidden" name="act" value="act_add_message" />
+                  <input type="submit" value="{$lang.post_message}" class="bnt_blue_1" />
+                </td>
+              </tr>
+            </table>
+          </form>
+	</div>
+	<script type="text/javascript">
+        {foreach from=$lang.message_board_js item=item key=key}
+        var {$key} = "{$item}";
+        {/foreach}
+		/**
+		 * 获取图像验证码
+		 */
+		function getimage()
+		 {
+			var url = 'ajax.php?{$session.sessionurl_js}type=hv&do=imagereg&hash=' + $('#verifyimage').attr('alt');
+
+			Ajax.call(url, '', function(data){
+					   var src= 'image.php?{$session.sessionurl_js}type=hv&hash=' + data.message;
+						$('#verifyimage').attr('src', src);
+						$('#verifyimage').attr('alt', data.message);
+						$('#hash').attr('value', data.message);
+					}, 'POST', 'JSON');
+		}
+        /**
+         * 提交评论信息
+        */
+        function submitMsgBoard(frm)
+        {
+            var frm         = document.forms['formMsg'];
+            var msg_title   = frm.elements['msg_title'].value;
+            var msg_content = frm.elements['msg_content'].value;
+
+            var msg = '';
+
+            if (msg_title.length == 0)
+            {
+                msg += msg_title_empty + '\n';
+            }
+            if (frm.elements['captcha'] && frm.elements['captcha'].value.length==0)
+            {
+                msg += msg_captcha_empty + '\n'
+            }
+            if (msg_content.length == 0)
+            {
+                msg += msg_content_empty + '\n'
+            }
+            if (msg_title.length > 200)
+            {
+                msg += msg_title_limit + '\n';
+            }
+			if (document.getElementById('verifycode')  && document.getElementById('verifycode') .value.length==0)
+			{
+				msg += msg_captcha_empty + '\n'
+			}
+
+            if (msg.length > 0)
+            {
+                alert(msg);
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+        </script>
+

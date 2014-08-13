@@ -1,0 +1,280 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>{$page_title}</title>
+<!-- TemplateEndEditable -->
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="icon" href="animated_favicon.gif" type="image/gif" />
+<link href="{$skyuc_css_path}" rel="stylesheet" type="text/css" />
+{insert_scripts files='skyuc_user.js'}
+</head>
+<body>
+<!-- #BeginLibraryItem "/library/page_header.lbi" -->
+<!-- #EndLibraryItem -->
+<div id="globalWrapper">
+<!-- #BeginLibraryItem "/library/search_form.lbi" -->
+  <!-- #EndLibraryItem -->
+  <div style="clear:both;">
+    <!--#登录界面-->
+    <!-- {if $action eq 'login'} -->
+    <div class="title-01">
+      <div class="title-01-arrow">会员登录</div>
+    </div>
+    <div class="content-div">
+      <form name="formLogin" action="user.php" method="post" onSubmit="return userLogin()">
+        <br />
+        <table width="70%" border="0" align="center">
+          <tr>
+            <td width="41%" align="right"><strong>{$lang.label_username}　</strong></td>
+            <td width="59%"><input name="username" type="text" size="25" /></td>
+          </tr>
+          <tr>
+            <td align="right"><strong>{$lang.label_password}　</strong></td>
+            <td><input name="password" type="password" size="25" /></td>
+          </tr>
+		    <!-- {if $enabled_captcha} 判断是否启用验证码 -->
+            <tr>
+			   <td align="right"><strong>{$lang.comment_captcha}：　</strong></td>
+              <td>
+                <input type="text"  name="humanverify[input]"  id="verifycode"  size="10" maxlength="6"  onfocus="try{opencode('menu_gd',this)}catch(e){}"  class="input"/>
+								<input type="hidden" name="humanverify[hash]" id="hash"  value="{$humanverify.hash}" />
+								<div class="menu" id="menu_gd" style="visibility:hidden;display:none;"><img src="image.php?{$session.sessionurl}type=hv&amp;hash={$humanverify.hash}" id="verifyimage"  align="absmiddle" style="cursor:pointer;"  title="{$lang.click_for_another}"  border="0" /></div>
+              </td>
+            </tr>
+			<SCRIPT LANGUAGE="JavaScript">
+			<!--
+			/**
+			 * 获取图像验证码
+			 */
+			function getimage()
+			 {
+				var url = 'ajax.php?{$session.sessionurl_js}type=hv&do=imagereg&hash=' + $('#verifyimage').attr('alt');
+
+				Ajax.call(url, '', function(data){
+						   var src= 'image.php?{$session.sessionurl_js}type=hv&hash=' + data.message;
+							$('#verifyimage').attr('src', src);
+							$('#verifyimage').attr('alt', data.message);
+							$('#hash').attr('value', data.message);
+						}, 'POST', 'JSON');
+			}
+			//-->
+			</SCRIPT>
+            <!-- {/if} -->
+          <tr>
+            <td>&nbsp;</td>
+            <td><input type="hidden" name="act" value="act_login" />
+              <input type="hidden" name="back_act" value="{$back_act}" />
+              <input type="submit" name="submit" value="{$lang.confirm_login}" />
+            </td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td><ul>
+                <li><a href="user.php?act=register">{$lang.sign_up}</a></li>
+                <li><a href="user.php?act=get_password">{$lang.forgot_password}</a></li>
+              </ul></td>
+          </tr>
+        </table>
+        <br />
+      </form>
+    </div>
+    <!--{/if}-->
+    <!--#登录界面-->
+    <!--*会员注册界面-->
+    <!--{if $action eq 'register'}-->
+    {insert_scripts files="utils.js"}
+    <div class="title-01">
+      <div class="title-01-arrow">会员注册</div>
+    </div>
+    <div class="content-div">
+      <form name="frm_reg" method="post" action="user.php">
+        <br />
+        <table width="70%"  border="0" align="center">
+          <tr>
+            <td width="43%" align="right"><strong>{$lang.label_username}：</strong></td>
+            <td width="57%"><input name="username" type="text" id="username" onchange="chk_frm('username');" />
+              <span id="username_notice"></span></td>
+          </tr>
+          <tr>
+            <td align="right"><strong>{$lang.label_email}：</strong></td>
+            <td><input name="email" type="text" id="email" 	onchange="chk_frm('email');" />
+              <span id="email_notice"></span></td>
+          </tr>
+          <tr>
+            <td align="right"><strong>{$lang.label_password}：</strong></td>
+            <td><input name="password" type="password" id="password" onchange="chk_frm('password');" onkeyup="checkIntensity(this.value)"  />
+              <span id="password_notice"></span></td>
+          </tr>
+		   <tr>
+            <th align="right">{$lang.label_password_intensity}：</th>
+            <td>
+              <table width="150" border="0" cellspacing="0">
+                <tr align="center">
+                  <td width="33%" id="pwd_lower">{$lang.pwd_lower}</td>
+                  <td width="33%" id="pwd_middle">{$lang.pwd_middle}</td>
+                  <td width="33%" id="pwd_high">{$lang.pwd_high}</td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td align="right"><strong>{$lang.label_confirm_password}：</strong></td>
+            <td><input name="confirm_password" type="password" id="conform_password" onchange="chk_frm('conform_password');" />
+              <span id="conform_password_notice"></span></td>
+          </tr>
+		    <tr>
+            <td align="right"><strong>{$lang.other_referrer}：</strong></td>
+            <td><input id="referrer" name="other[referrer]" type="text" maxlength="20"  style="color:#aaa;"  {if $referrer}value="{$referrer}" readonly{else}value='可不填'  onfocus="if (this.value == '可不填'){this.value='';this.style.color='#000';}"{/if} /></td>
+          </tr>
+		   <!-- 判断是否启用验证码{if $enabled_captcha} -->
+          <tr>
+            <td align="right"><strong>{$lang.comment_captcha}:</strong></td>
+            <td>
+              <input type="text"  name="humanverify[input]"  id="verifycode"  size="10" maxlength="6"  onfocus="try{opencode('menu_gd',this)}catch(e){}"  />
+		<input type="hidden" name="humanverify[hash]" id="hash"  value="{$humanverify.hash}" />
+
+	<div class="menu" id="menu_gd" style="visibility:hidden;display:none;"><img src="image.php?{$session.sessionurl}type=hv&amp;hash={$humanverify.hash}" id="verifyimage"  align="absmiddle" style="cursor:pointer;"  title="{$lang.click_for_another}"  border="0" /></div>
+
+		<span id="verifycode_notice"></span>
+            </td>
+          </tr>
+		  	<SCRIPT LANGUAGE="JavaScript">
+			<!--
+			/**
+			 * 获取图像验证码
+			 */
+			function getimage()
+			 {
+				var url = 'ajax.php?{$session.sessionurl_js}type=hv&do=imagereg&hash=' + $('#verifyimage').attr('alt');
+
+				Ajax.call(url, '', function(data){
+						   var src= 'image.php?{$session.sessionurl_js}type=hv&hash=' + data.message;
+							$('#verifyimage').attr('src', src);
+							$('#verifyimage').attr('alt', data.message);
+							$('#hash').attr('value', data.message);
+						}, 'POST', 'JSON');
+			}
+			//-->
+			</SCRIPT>
+          <!--{/if}-->
+
+
+          <tr>
+            <td>&nbsp;</td>
+            <td><input name="act" type="hidden" value="act_register" />
+              <input name="Submit" type="submit" value="{$lang.confirm_register}" /></td>
+          </tr>
+          <tr>
+            <td colspan="2">&nbsp;</td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td><ul>
+                <li style="border-bottom: 1px dashed #CECECE;width:150px;"> <a href="user.php?act=login">{$lang.want_login}</a></li>
+                <li style="border-bottom: 1px dashed #CECECE;width:150px;"> <a href="user.php?act=get_password">{$lang.forgot_password}</a></li>
+              </ul></td>
+          </tr>
+        </table>
+        <br />
+      </form>
+    </div>
+    <!--{/if}-->
+    <!--#会员注册界面-->
+    <!--*找回密码界面 -->
+    <!--{if $action eq 'get_password'} -->
+    {insert_scripts files="utils.js"}
+    <script type="text/javascript">
+    {foreach from=$lang.password_js item=item key=key}
+      var {$key} = "{$item}";
+    {/foreach}
+    </script>
+    <div class="title-01">
+      <div class="title-01-arrow">找回密码</div>
+    </div>
+    <div class="content-div">
+      <form action="user.php" method="post" name="getPassword" onsubmit="return submitPwdInfo();">
+        <br />
+        <table width="70%" border="0" align="center">
+          <tr>
+            <td colspan="2" align="center"><strong>{$lang.username_and_email}</strong></td>
+          </tr>
+          <tr>
+            <td width="39%" align="right">{$lang.username}：</td>
+            <td width="61%"><input name="user_name" type="text" size="30" /></td>
+          </tr>
+          <tr>
+            <td align="right">{$lang.email}：</td>
+            <td><input name="email" type="text" size="30" /></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><input type="hidden" name="act" value="send_pwd_email" />
+              <input type="submit" name="submit" value="{$lang.confirm_submit}" />
+              <input name="button" type="button" onclick="history.back()" value="{$lang.back_page_up}" />
+            </td>
+          </tr>
+        </table>
+        <br />
+      </form>
+    </div>
+    <!--{/if}-->
+    <!-- {if $action eq 'reset_password'} -->
+    <script type="text/javascript">
+    {foreach from=$lang.password_js item=item key=key}
+      var {$key} = "{$item}";
+    {/foreach}
+    </script>
+    <div class="title-01">
+      <div class="title-01-arrow">找回密码</div>
+    </div>
+    <form action="user.php" method="post" name="getPassword2" onSubmit="return submitPwd()">
+      <br />
+      <table width="70%" border="0" align="center">
+        <tr>
+          <td width="39%" align="right">{$lang.enter_new_password}：</td>
+          <td width="64%"><input name="new_password" type="password" size="25" /></td>
+        </tr>
+        <tr>
+          <td align="right">{$lang.confirm_password}：</td>
+          <td><input name="confirm_password" type="password" size="25" /></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><input type="hidden" name="act" value="act_edit_password" />
+            <input type="hidden" name="uid" value="{$uid}" />
+            <input type="hidden" name="code" value="{$code}" />
+            <input type="submit" name="submit" value="{$lang.confirm_submit}" />
+          </td>
+        </tr>
+      </table>
+      <br />
+    </form>
+    <!-- {/if} -->
+    <br />
+    <div class="hack"></div>
+  </div>
+  <!-- End #container -->
+</div>
+<!--End #globalWrapper-->
+<div id="footer">
+<!-- #BeginLibraryItem "/library/help.lbi" -->
+  <!-- #EndLibraryItem -->
+
+	<!-- #BeginLibraryItem "/library/page_footer.lbi" -->
+ <!-- #EndLibraryItem --></div>
+<!--End #footer-->
+<script type="text/javascript">
+//<![CDATA[
+  var process_request = "{$lang.process_request}";
+  {foreach from=$lang.passport_js item=item key=key}
+  var {$key} = "{$item}";
+  {/foreach}
+  var username_exist = "{$lang.username_exist}";
+//]]>
+</script>
+</body>
+</html>

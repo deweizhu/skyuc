@@ -1,0 +1,38 @@
+ <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- {if $cat_show} -->
+<div class="i_movie_list">
+				<div class="movieTypeLotTitle">
+					<ul style="background:url(images/indexTypeLot{$show_cat.id}.jpg) no-repeat;">
+						<li class="i_UpStyle">
+					<!--{foreach from=$show_cat.sub item=sub name=sub}-->
+					<!--{if $smarty.foreach.sub.iteration lt 9}-->
+					<a href="{$sub.url}" target="_blank">{$sub.name}</a> |
+					<!--{/if}-->
+					<!--{/foreach}-->
+						</li>
+						<li class="More"><a href="{$show_cat.url}" target="_blank">{$lang.more}</a>>>>></li>
+					</ul>
+				</div>
+				<div class="movieTypeLotCon clearfix">
+					<ul>
+					   <!--{foreach from=$cat_show item=show}-->
+						<li>
+							<a href="{$show.url}" target="_blank"><img src="{$show.thumb}" alt="{$show.title|escape:html}" width="110" height="150" /><img src="images/pic_110x150.gif" class="pic_150" alt="{$show.title|escape:html}" /></a>
+						  <h1><a href="{$show.url}" target="_blank">{$show.title|truncate:8:true}</a></h1>
+                            <p><b>{$lang.actor}</b>
+							<!--{foreach from=$show.actor item=val name=val}-->
+							<!--{if $smarty.foreach.val.iteration eq 1}-->
+							<a href="search.php?keywords={$val|escape:url}" target="_blank">{$val}</a>
+							<!--{/if}-->
+							<!--{/foreach}--></p>
+                            <p><b>{$lang.area}</b>{$show.area}</p>
+							<p class="intro"><b>{$lang.description}</b>{$show.description|truncate:40:true}</p>
+							<span><a href="{$show.url}" target="_blank" class="envelop">{$lang.btn_info}</a><a href="{$show.url}" class="logoPaly">{$lang.btn_play}</a></span>
+						</li>
+					<!--{/foreach}-->
+						<div class="clear"></div>
+					</ul>
+				</div>
+				<div class="movieHomeBroadcastConLD"><ul><li></li></ul></div>
+            </div>
+<!--{/if}-->

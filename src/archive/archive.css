@@ -1,0 +1,130 @@
+﻿/**
+ * SKYUC! 存档
+ * ============================================================================
+ * 版权所有 (C) 2010 天空网络，并保留所有权利。
+ * 网站地址: http://www.skyuc.com
+ * ----------------------------------------------------------------------------
+ * This is NOT a freeware, use is subject to license terms
+ * ============================================================================
+*/
+
+body {
+	background: #EEEEEE;
+}
+body, li, td, div {
+	font: 11px verdana, arial, sans-serif;
+}
+ul {
+	list-style-type: none;
+}
+li {
+	font-size: 10pt;
+}
+i {
+	color: silver;
+}
+#parent {
+	color:#000;
+	font-weight:bold
+}
+p.largefont {
+	text-align: left;
+	font-size: 10pt;
+	font-weight: bold;
+}
+div.pagebody {
+	background: white;
+	padding:16px;
+	border: 1px solid silver;
+}
+div.pda {
+	float: right;
+	background: #F9F9F9;
+	border-left: 1px solid silver;
+	border-right: 1px solid silver;
+	border-bottom: 1px solid silver;
+	padding: 4px;
+}
+div.post {
+	border: 1px solid silver;
+	padding: 1px;
+	margin-bottom: 16px;
+}
+div.posttop {
+	padding: 4px;
+	background: #EEEEEE;
+}
+div.title {
+	font-weight: bold;
+	width: auto;
+	float: left;
+}
+div.playtitle {
+	font-weight: bold;
+	width: auto;
+}
+div.image {
+	width: auto;
+	padding: 10px;
+}
+div.date {
+	width: auto;
+	text-align: right;
+}
+div.posttext {
+	padding: 4px;
+	background: #F9F9F9;
+}
+div.highlight {
+	padding: 4px;
+	background: #FFFFCC;
+}
+span.small {
+	font-size: 10px;
+}
+#content {
+	margin-bottom: 8px;
+	border: 1px solid silver;
+	padding: 4px;
+	padding-left: 24px;
+        clear:both;
+}
+#navbar {
+	background: #F9F9F9;
+	border: 1px solid silver;
+	padding: 4px;
+}
+#pagenumbers {
+	text-align: center;
+	margin-bottom: 4px;
+}
+#copyright {
+	text-align: center;
+}
+hr {
+	visibility: hidden;
+	display: none;
+}
+div.floatcontainer {
+display: block;
+float: left;
+margin-bottom: 5px;
+width: 100%;
+}
+/*************************************************/
+/* ADS ARCHIVE */
+#ad_archive_above_content1 {
+        float: left;
+        width: 48%;
+        padding:5px 0px;
+}
+#ad_archive_above_content2 {
+        float: left;
+        width: 48%;
+        padding:5px 0px;
+}
+#ad_archive_below_content {
+        width:100%;
+        padding:5px 0px;
+}
+

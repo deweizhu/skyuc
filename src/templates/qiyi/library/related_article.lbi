@@ -1,0 +1,21 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- {if $related_article} -->
+<!--相关影片-->
+   <div class="right">
+			<div class="rs_u">&nbsp;</div>
+			<div class="container">
+				<h2><span class="border_line">相关影片</span></h2>
+				<ul>
+					  <!-- {foreach  from=$related_article item=related_article}-->
+						<li>
+							<a href="{$related_article.url}" target="_blank">{$related_article.title|truncate:8}</a>
+						</li>
+				     <!--{/foreach}-->
+				</ul>
+
+			</div>
+			<div class="rs_d">&nbsp;</div>
+		</div>
+
+<!--相关影片结束-->
+<!--{/if}-->

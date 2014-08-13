@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<help>
+  <section id="list">
+    <title>管理員操作日志</title>
+    <content>
+    <![CDATA[
+	<p>本頁面記錄了管理員在後台的操作記錄。</p>
+	]]>
+    </content>
+  </section>
+</help>

@@ -1,0 +1,28 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- {if $categories} -->
+<div class="movieConIndex">
+			<div class="movieSearchLTitle">
+			<ul>
+			<li><img src="images/movieSearchL_ConIndex.jpg" alt="目录索引" /></li></ul>
+			</div>
+		  <div class="movieConIndexCon clearfix">
+			 <!--{foreach from=$categories item=cat}-->
+				<h1><a href="{$cat.url}">{$cat.name|escape:html}</a></h1>
+			  <!--{foreach from=$cat.children item=child}-->
+				<p>[<a href="{$child.url}" title="{$child.name|escape:html}">{$child.name|truncate:3}</a>]</p>
+			  <!--{/foreach}-->
+			<!-- {/foreach}-->
+				<h1 class="Padding_10px">{$lang.cate_type_area}</h1>
+				<!--{foreach from=$area_list item=item}-->
+				  <p>[<a href="search.php?area={$item|escape:url}&category={$category}" title="{$item|escape:html}">{$item}</a>]</p>
+				 <!--{/foreach}-->
+				 <!-- 按语言搜索隐藏：开始 -->
+				<!-- <h1 class="Padding_10px">{$lang.cate_type_lang}</h1> -->
+				<!--{foreach from=$lang_list item=item}-->
+				  <!-- <p>[<a href="search.php?lang={$item|escape:url}&category={$category}" title="{$item|escape:html}">{$item|truncate:3}</a>]</p> -->
+				 <!--{/foreach}-->
+				<!-- 按语言搜索隐藏：结束 -->
+			</div>
+		</div>
+<div class="clear"></div>
+<!-- {/if} -->

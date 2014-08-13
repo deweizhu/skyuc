@@ -1,0 +1,39 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- {if $recom_show} -->
+<!-- {if $cat_rec_sign neq 1} -->
+<div class="title-01">
+  <div class="title-01-arrow" id="itemBest"><span><a href="../search.php?intro=best">更多&gt;</a></span>
+ 热门推荐&nbsp;&nbsp;
+  <!--{if $cat_rec}-->
+<!--{foreach from=$cat_rec item=rec_data  name=rec_data}-->
+<!--{if $smarty.foreach.rec_data.iteration eq 1}-->
+<label><a href="javascript:void(0)" onclick="change_tab_style('itemBest', 'label', this);get_cat_recommend({$rec_data.cat_id})">{$rec_data.cat_name}</a></label>
+<!--{/if}-->
+<!--{if $smarty.foreach.rec_data.iteration > 1}-->
+<label><a href="javascript:void(0)" onclick="change_tab_style('itemBest', 'label', this);get_cat_recommend({$rec_data.cat_id})">{$rec_data.cat_name}</a></label>
+<!--{/if}-->
+<!-- {/foreach}-->
+<label><a href="javascript:void(0)" onclick="change_tab_style('itemBest', 'label', this);get_cat_recommend(0)">全部</a></label>
+<!--{/if}--></div>
+</div>
+<!--{/if}-->
+<div class="sort-box01" style="background:#FFF;padding:10px;" id="show_best_area">
+  <ul class="product-list">
+    <!--{foreach from=$recom_show item=show}-->
+    <li>
+      <div class="photo"><a href="{$show.url}"><img src="{$show.thumb}"  width="85" height="117" /></a></div>
+      <div class="info">
+        <div class="name"><a href="{$show.url}">{$show.title|truncate:10}</a></div>
+		<div class="show"><!--{foreach from=$show.actor item=val name=val}-->
+							<!--{if $smarty.foreach.val.iteration lt 5}-->
+							<a href="search.php?keywords={$val|escape:url}" target="_blank">{$val}</a>
+							<!--{/if}-->
+							<!--{/foreach}--></div>
+        <div class="info">{$show.description|truncate:40:"..."true}</div>
+      </div>
+    </li>
+    <!--{/foreach}-->
+  </ul>
+</div>
+<!--End sort-box01-->
+<!--{/if}-->

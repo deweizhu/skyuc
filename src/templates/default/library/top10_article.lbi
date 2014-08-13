@@ -1,0 +1,18 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<div class="infoSidebar">
+	<!-- {if $top_month} -->
+				<div class="spaceTitle"><ul><li><img src="images/new_infolist_05.jpg" alt="热门影片" /></li></ul></div>
+				<div class="infoSidebar_cont">
+					<ul>
+					  <!-- {foreach name=top_month from=$top_month item=top_month}-->
+					  <!--{if $smarty.foreach.top_month.iteration lt 6}-->
+						<li>
+							<em class="infoSidebar_cont_img160X120"><A href="{$top_month.url}"><img src="{$top_month.thumb}" alt="{$top_month.title|escape}" /><img class="pic_160" src="images/pic_120x160.gif" border="0" /></a></em>
+							<span><img src="images/new_infolist_22.jpg" alt="播放" align="absmiddle" /><a href="{$top_month.url}">{$top_month.title} </a></span>
+						</li>
+						<!--{/if}-->
+				     <!--{/foreach}-->
+						</ul>
+				</div>
+	<!--{/if}-->
+			</div>

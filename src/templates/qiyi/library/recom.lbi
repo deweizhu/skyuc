@@ -1,0 +1,80 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- {if $recom_show} -->
+<!-- 推荐 -->
+  <div class="mode_A">
+    <div class="m725">
+        <h2 class="h2Title_"> <a href="search.php?intro=best"> <img src="images/best.jpg" alt="强力推荐" title="强力推荐" width="71" height="44" /> </a> </h2>
+        <div class="yl_c1">
+		<!--{foreach name=recom_show from=$recom_show item=show }-->
+						<!--{if $smarty.foreach.recom_show.iteration eq 1 }-->
+         <a class="imgBg1" href="{$show.url}"><img src="{$show.image}" alt="{$show.title|escape:html}" width="265" height="178" border="0" ><span class="tmBg1"></span><span class="tmC1">{$show.status}</span></a> <strong><a href="{$show.url}">{$show.title}</a></strong>        </div>
+
+        <div class="yl_c2">
+
+          <dl class="yl_dl">
+            <dt>
+             <a href="{$show.url}">{$show.title}</a>
+            </dt>
+			<dd>{$show.description|truncate:70:true}  <a href="{$show.url}">详细&gt;&gt;</a></dd>
+          </dl>
+
+          <ul class="yl_ul">
+		  <!--{elseif $smarty.foreach.recom_show.iteration lt 5}-->
+            <li>
+              <div align="left"><a class="imgBg1" href="{$show.url}"><img src="{$show.thumb}" alt="{$show.title|escape:html}" width="107" height="75" border="0"><span class="tmBg1"></span><span class="tmC1">{$show.status}</span></a><a href="{$show.url}">{$show.title|truncate:14:true}</a></div>
+            </li>
+				<!--{/if}-->
+			<!--{/foreach}-->
+          </ul>
+          <p class="pMore3"><a href="search.php?intro=best">更多&gt;&gt;</a></p>
+        </div>
+
+      </div>
+
+    <div class="m240">
+  <h2 class="h2Title2"><span id="span1" class="selected">最近更新</span><span id="span2">网站公告</span></h2>
+  <div id="divspan1">
+    <!-- {foreach name=new_show from=$new_show item=new_show}-->
+		<!--{if $smarty.foreach.new_show.iteration eq 1 }-->
+    <p class="yl_tw"><a class="imgBg1" href="{$new_show.url}"><img width="75" height="100" title="{$new_show.title|escape:html}" alt="{$new_show.title|escape:html}" src="{$new_show.thumb}"></a><a href="{$new_show.url}"><strong>{$new_show.title|truncate:12}</strong></a><br />
+      {$new_show.status}<br /><br />
+		<!--{foreach from=$new_show.actor item=val name=val}-->
+		<!--{if $smarty.foreach.val.iteration lt 3}-->
+		<a href="search.php?keywords={$val|escape:url}" target="_blank">{$val}</a>
+		<!--{/if}-->
+		<!--{/foreach}--><br />
+      {$new_show.add_time}</p>
+    <ul class="ulList2">
+		<!--{elseif $smarty.foreach.new_show.iteration lt 7}-->
+		<li>· <a href="{$new_show.url}"  title="{$new_show.title|escape:html}">{$new_show.title}</a></li>
+		<!--{/if}-->
+     <!--{/foreach}-->
+
+    </ul>
+  </div>
+  <div id="divspan2" style="display:none;">
+  <p class="yl_tw">{$site_notice}</p>
+    <ul class="ulList2">
+      <li>·网站统计：<!--{if $film_total.films}-->今日更新 {$film_total.today} 部 ，共 {$film_total.films} 部。<!--{/if}--></li>
+    </ul>
+  </div>
+</div>
+
+  </div>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+	$(document).ready(function(){
+	$('#span2').hover(function(){
+		$('#divspan1').hide();
+		$('#divspan2').show();
+	});
+	$('#span1').hover(function(){
+		$('#divspan1').show();
+		$('#divspan2').hide();
+	});
+});
+//-->
+</SCRIPT>
+  <!-- 推荐 end -->
+
+<!--{/if}-->

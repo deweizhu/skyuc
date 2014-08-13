@@ -1,0 +1,15 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- {if $new_articles} -->
+<div class="title-01">
+  <div class="title-01-arrow">最新文章</div>
+</div>
+<div class="sort-box01" style="padding:10px;">
+  <ul class="article-list" style="list-style:none;">
+    <!--{foreach from=$new_articles item=article}-->
+	 <!-- {if $smarty.foreach.new_articles.iteration lte 6} 限制文章显示数量 -->
+    <li>[<a href="{$article.cat_url}">{$article.cat_name}</a>] <a href="{$article.url}" title="{$article.title|escape:html}">{$article.title|truncate:18}</a></li>
+	 <!-- {/if} -->
+    <!--{/foreach}-->
+  </ul>
+</div>
+ <!-- {/if} -->

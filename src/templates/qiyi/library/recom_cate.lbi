@@ -1,0 +1,19 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- {if $recom_show} -->
+        <div class="recom_list-1">
+            <div class="recom_list-1-1">
+                300*300广告            </div>
+
+         <div class="recom_list-1-3">
+         <div align="center" class="recom_list-1-2">
+                <!--{foreach name=recom_show from=$recom_show item=show }-->
+                <!--{if $smarty.foreach.recom_show.iteration eq 1 }-->
+                <a href="{$show.url}" target="_blank"><img border="0" alt="{$show.title|escape:html}" src="{$show.image}" width="170" height="244"></a>
+     <div class="gen-3"><a href="{$show.url}" target="_blank">{$show.title}</a></div>
+             </div><dl class="recom_list"><!--{else}--><!--{if $smarty.foreach.recom_show.iteration lt 10}-->
+<dd><h1>{$smarty.foreach.recom_show.iteration}</h1><a href="{$show.url}" target="_blank">{$show.title|truncate:7:true}</a> {$show.description|truncate:16:true}</dd>
+<!--{/if}-->
+                    <!--{/if}--><!--{/foreach}-->
+</dl></div>
+        </div>
+        <!--{/if}-->

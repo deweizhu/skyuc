@@ -1,0 +1,17 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- {if $tags} -->
+<div class="mode_list">
+			<h2 class="title"><span class="t_03"><a>标签索引</a></span></h2>
+			<div class="content_cate">
+						<dl class="list_item_byname">
+							<dt>按标签</dt>
+							<!--{foreach from=$tags item=tag}-->
+							<dd><li><a href="search.php?keywords={$tag.tag_words|escape:url}" target="_blank">{$tag.tag_words|escape:html}</a></dd>
+							<!--{/foreach}-->
+						</dl>
+          </div>
+ </div>
+<!-- {/if} -->
+
+
+

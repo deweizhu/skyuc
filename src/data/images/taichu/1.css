@@ -1,0 +1,245 @@
+/* ³ÁÄ¬ */
+
+body{margin:0px;
+	font-size:12px;
+	font-family: Arial, Helvetica, sans-serif;
+	text-align:center;
+	color:#000000;}
+
+	#player{
+		height:81px;
+		width:100%;
+		border:#fff 1px solid;
+		}
+	#player #p_msg{
+		height:19px;
+		padding-top:4px;
+		color:#fff;
+		background:#000;
+		vertical-align:middle;
+	}
+	#player .p_right{
+		float:right;
+		
+		}
+	#player #progname{
+		float:left;
+		padding-left:16px;}
+		
+	#player .p_right #screen{
+		float:right;
+		padding:0px;
+		vertical-align:middle;}
+	#player .p_right #sound{
+		float:right;
+		width:90px;}
+	#player .p_right #playtims{
+		float:right;
+		font-size:13px;
+		font-weight:bold;
+		padding-right:10px;
+		}
+	#paly_bg{
+		height:55px;
+		background:url(1/player_bg.gif);
+		}
+	#tool{
+		margin-top:2px;
+	
+		}
+	#tool #toolleft{
+		float:left;
+		padding-left:10px;
+		padding-top:5px;
+		}
+	#tool #toolright{
+		float:right;
+		}
+	#tool .tool_left{
+		float:left;
+		background:url(1/tool_left.gif) no-repeat;
+		width:2px;
+		}
+	#tool .tool_right{
+		float:left;
+		background:url(1/tool_right.gif) no-repeat;
+		width:2px;
+		}
+	
+		
+	#tool #tool_bg{
+		float:left;
+		width:80%;
+		height:9px;
+		background:url(1/tool_bg.gif) repeat-x;
+		text-align:left;
+		/*border:#f60 1px solid;*/
+		}
+	#tool #tool_bg #tool_block{
+		/*float:left;*/
+		position:absolute;
+		width:32px;
+		height:9px;
+		margin-left:0px;
+		background:url(1/tool_block.gif) no-repeat;
+		}
+	
+	#all_screen{
+		float:right;
+		margin-right:12px;
+		width:23px;
+		height:14px;
+		background:url(1/all_screen.gif) no-repeat;
+		}
+	#skin{
+		float:right;
+		margin-right:10px;
+		cursor:hand;
+		width:16px;
+		height:12px;
+		background:url(1/skin.gif) no-repeat;
+		background-position:center;}
+
+		
+	#skin_menu{
+	position:absolute;
+		width:70px;
+		text-align:left;
+		margin-top:10px;
+		margin-left:-10px;
+		background:#fff;
+		padding:3px;
+		padding-left:10px;
+		z-index:2;
+		display:none;
+	}
+	#skin_menu ul{
+		margin:0px;
+		list-style-type:none;}
+	#skin_menu li{
+		cursor:hand;}
+	
+	#bts{clear:both;
+		height:auto;}
+	
+	#bts #play1{
+		float:left;
+		width:172px;
+		padding-left:10px;
+		}
+	#bts #play_logo{
+		float:left;
+		
+		}
+	#bts #play_logo .logoimg{
+		width:100px;
+		height:20px;
+		background:url(1/logo2.gif) no-repeat;
+		background-position:center;
+	}
+	#bts #play3{
+		float:right;
+		margin-right:10px;}
+		
+	#bts #bt_1{
+		float:left;
+		width:25px;
+		height:29px;
+		background:url(1/play_1.gif) no-repeat;
+		background-position:0px 4px;
+	}
+	#bts #bt_2{
+		float:left;
+		width:29px;
+		height:29px;
+		margin-left:5px;
+		
+	}
+	.play{
+		background:url(1/play_play.gif) no-repeat;
+		}
+	.Pause{
+		background:url(1/play_p.gif) no-repeat;
+	}
+	#bts #bt_3{
+		float:left;
+		width:25px;
+		height:29px;
+		margin-left:3px;
+		background:url(1/play_stop.gif) no-repeat;
+		background-position:0px 4px;
+	}
+	#bts #bt_4{
+		float:left;
+		width:27px;
+		height:29px;
+		margin-left:5px;
+		background:url(1/play_2.gif) no-repeat;
+		background-position:0px 4px;
+	}
+	#bts #bt_5{
+		float:left;
+		width:19px;
+		height:29px;
+		margin-left:10px;
+		background:url(1/play_jy.gif) no-repeat;
+		background-position:0px 4px;
+	}
+	
+	#play_sound{
+		float:left;
+		width:74px;
+		margin-top:10px;}
+	#play_track{
+		float:left;
+		margin-top:10px;
+		margin-left:10px;}
+	#play_sound .left{
+		float:left;
+		width:2px;
+		background:url(1/play_s_left.gif) no-repeat;
+	}
+	#play_sound .right{
+		float:right;
+		width:2px;
+		background:url(1/play_s_right.gif) no-repeat;
+	}
+	#play_sound #paly_s_bg{
+		float:left;
+		width:70px;
+		height:9px;
+		background:url(1/play_s_bg.gif) repeat-x;
+		text-align:left;
+		}
+	#play_sound #paly_s{
+		position:absolute;
+		width:17px;
+		height:9px;
+		margin-left:0px;
+		background:url(1/play_s.gif) repeat-x;}
+	#play_track .left{
+		float:left;
+		width:2px;
+		background:url(1/play_t_left.gif) no-repeat;
+	}
+	#play_track .right{
+		float:left;
+		width:2px;
+		background:url(1/play_t_left.gif) no-repeat;
+	}
+	#play_track #paly_t_bg{
+		float:left;
+		width:50px;
+		height:9px;
+		background:url(1/play_t_bg.gif) repeat-x;
+		text-align:left;
+		}
+	#play_track #paly_t{
+		position:absolute;
+		width:17px;
+		height:9px;
+		margin-left:0px;
+		background:url(1/play_t_block.gif) repeat-x;}
+
+
+

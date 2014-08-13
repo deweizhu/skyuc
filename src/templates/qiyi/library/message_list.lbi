@@ -1,0 +1,126 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+ <div class="mode form_help">
+			<div class="rm_u">&nbsp;</div>
+			<div class="container clearfix">
+				<h2 class="title">留言板</h2>
+				<ol class="help_ol">
+				 			 <!--{foreach name=message_lists from=$msg_lists key=key item=msg}-->
+							   <li class="dashed"><b>{$msg.msg_title}</b>&nbsp;&nbsp; [{$msg.msg_type|escape:html}]  &nbsp;&nbsp;{$lang.nickname}:{$msg.user_name} <span>  {$lang.publish_comment}: {$msg.msg_time}</span></li>
+							   <li class="autoheight">{$msg.msg_content}</li>
+							   <!-- {if $msg.re_msg_content} -->
+							   <li>{$lang.site_owner_reply} <span> {$lang.reply_comment}: {$msg.re_msg_time}</span></li>
+							   <li class="autoheight">{$msg.re_msg_content}</li>
+								  <!-- {/if} -->
+					<!--{/foreach}-->
+				</ol>
+				<!--{include file="/library/pages.lbi"}-->
+			<!--发表留言 start-->
+			<div class="rm_u">&nbsp;</div>
+			<h2 class="title">我要留言</h2>
+			<form action="message.php" id="formEdit" method="post" name="formMsg" onSubmit="return submitMsgBoard()">
+			<ul>
+				<li>&nbsp;&nbsp;&nbsp;&nbsp;{$lang.username}：
+					       <!--{if $smarty.session.user_name}-->
+							{$username}
+							<input type="checkbox" name="anonymous" value="1" id="anonymous" />{$lang.message_anonymous}
+							<!--{else}-->
+							<input name="user_name"  type="text" class="inputstyle" value="{$lang.anonymous}" />
+							<!--{/if}-->
+				</li>
+			   <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$lang.email}：
+				<input type="text" class="inputstyle" name="email" id="email"  maxlength="60"  value="{$smarty.session.email|escape}"/>
+				</li>
+			 <li>{$lang.message_board_type}：
+					<input name="msg_type" type="radio" value="0" checked="checked" />
+						  {$lang.message_type[0]}
+						  <input type="radio" name="msg_type" value="1" />
+						  {$lang.message_type[1]}
+						  <input type="radio" name="msg_type" value="2" />
+						  {$lang.message_type[2]}
+						  <input type="radio" name="msg_type" value="3" />
+						  {$lang.message_type[3]}
+			</li>
+			<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$lang.message_title}：
+				<input name="msg_title" type="text" class="inputstyle" />
+			</li>
+			<!--{if $enabled_captcha eq 1}-->
+			<li>&nbsp;&nbsp;&nbsp;{$lang.comment_captcha}：
+				<input type="text"  name="humanverify[input]"  id="verifycode"  class="inputstyle" maxlength="6"  onfocus="try{opencode('menu_gd',this)}catch(e){}" />
+				<input type="hidden" name="humanverify[hash]" id="hash"  value="{$humanverify.hash}" />
+				<div class="menu" id="menu_gd" style="visibility:hidden;"><img src="image.php?{$session.sessionurl}type=hv&amp;hash={$humanverify.hash}" id="verifyimage"  align="absmiddle" style="cursor:pointer;"  title="{$lang.click_for_another}"  border="0" /></div>
+			</li>
+			<!--{/if}-->
+			<li><textarea name="msg_content"  id="msg_content" style="width:300px;height:60px;" class="inputstyle"></textarea></li>
+			<li>
+				<input type="hidden" name="act" value="act_add_message" />
+				<button type="submit" class="btn_blue_f"  >{$lang.post_message}</button>
+			</li>
+		</form>
+			<!--发表留言 end-->
+			</div>
+			<div class="rm_d">&nbsp;</div>﻿
+</div>
+
+
+
+<script type="text/javascript">
+	{foreach from=$lang.message_board_js item=item key=key}
+	var {$key} = "{$item}";
+	{/foreach}
+	{literal}
+
+/**
+ * 获取图像验证码
+*/
+function getimage()
+ {
+	var url = 'ajax.php?{$session.sessionurl_js}type=hv&do=imagereg&hash=' + $('#verifyimage').attr('alt');
+
+	Ajax.call(url, '', function(data){
+			   var src= 'image.php?{$session.sessionurl_js}type=hv&hash=' + data.message;
+				$('#verifyimage').attr('src', src);
+				$('#verifyimage').attr('alt', data.message);
+				$('#hash').attr('value', data.message);
+			}, 'POST', 'JSON');
+}
+
+/**
+ * 提交评论信息
+*/
+function submitMsgBoard(frm)
+{
+	var frm         = document.forms['formMsg'];
+	var msg_title   = frm.elements['msg_title'].value;
+	var msg_content = frm.elements['msg_content'].value;
+	var msg = '';
+
+
+	if (msg_title.length == 0)
+	{
+		msg += msg_title_empty + '\n';
+	}
+	if (document.getElementById('verifycode')  && document.getElementById('verifycode') .value.length==0)
+	{
+		msg += msg_captcha_empty + '\n'
+	}
+	if (msg_content.length == 0)
+	{
+		msg += msg_content_empty + '\n'
+	}
+	if (msg_title.length > 200)
+	{
+		msg += msg_title_limit + '\n';
+	}
+
+	if (msg.length > 0)
+	{
+		alert(msg);
+		return false;
+	}
+	else
+	{
+		return true;
+	}
+}
+
+</script>

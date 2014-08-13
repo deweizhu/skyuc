@@ -1,0 +1,142 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Language" content="zh-CN" />
+<meta content="all" name="robots" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<meta http-equiv="imagetoolbar" content="no" />
+<link rel="bookmark" href="favicon.ico" />
+<link rel="icon" type="image/x-icon" href="favicon.ico" />
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+<link rel="alternate" type="application/rss+xml" title="RSS|{$page_title}" href="{$feed_url}" />
+<link href="css/basic.css" rel="stylesheet" type="text/css" />
+<link href="css/header_footer.css" rel="stylesheet" type="text/css" />
+<link href="css/member.css" rel="stylesheet" type="text/css" />
+<link href="css/member_center.css" rel="stylesheet" type="text/css" />
+<title>{$page_title}</title>
+<script type="text/javascript" src="js/base.js"></script>
+<script type="text/javascript" src="js/dialog.js"></script>
+</head>
+
+<body id="member_index_page">
+{insert_scripts files="skyuc_global.js,skyuc_common.js,skyuc_utils.js"}
+<!--wrapper start -->
+<div id="wrapper">
+<div id="innerwrapper">
+	<!--header start-->
+             <!-- #BeginLibraryItem "/library/page_header.lbi" -->
+			<!-- #EndLibraryItem -->
+        <!--header end-->
+		<!--mainbody start-->
+<div id="mainbody">
+<div id="innermainbody">
+<div class="member_top">
+<ul>
+	<li>
+	<div class="member_top_bg"></div>
+	</li>
+</ul>
+</div>
+<!--#登录界面-->
+ <!-- {if $action eq 'login' or  $action eq ''} -->
+	  <div id="content">
+                <div class="member_login">
+            	<div class="inner_member_login">
+				<form name="frm_login" method="post" action="netbar.php" >
+				<div class="member_login_border">
+                	<h2><img src="images/login_tit.gif" width="71" height="31" /></h2>
+               	  <p><span class="red"></span></p>
+						<dl>
+                       	  	<dt>{$lang.netbar_name}:</dt>
+                          	<dd><input name="netbar_name" id="netbar_name" type="text" class="input" value="" />
+                            </dd>
+                            <dt>{$lang.netbar_pwd}:</dt>
+                            <dd><input name="netbar_pwd" id="netbar_pwd" type="password" class="input" />　</dd>
+						</dl>
+                        <input type="hidden" name="act" value="act_login" />
+                        <div class="btn"><input name="imageField" type="image" src="images/login_btn1.gif" /></div>
+</form>
+
+                </div>
+
+                </div>
+              	</div>
+          </div>
+
+<div id="siderbar">             	<h2>什么是网吧用户？</h2>
+                <div>网吧用户即拥有固定IP段的用户,这部分用户开通后,只要在对应的 IP 段内访问本站,无需注册登陆即可观看所有影片。</div>
+			 </div>
+			<!--{/if}-->
+    <!--#会员登陆界面-->
+
+    <!-- 网吧管理界面 -->
+    <!--{if $action eq 'manage'}-->
+<div class="informationManagementContent" style="width:980px; margin-left:0;">
+		<div class="Personal_information" >
+			<div class="spaceCommonTitle1"><ul><li><img src="images/spaceNetbarInformation.jpg" alt="个人信息" /> →<a href='netbar.php?act=logout'>退出登陆</a></li></ul></div>
+	 <div class="Personal_informationContent" >
+		  <form name="formEdit" action="netbar.php" method="post" >
+		   <ul>
+                <li class="PersonalData"><p class="Title">{$lang.netbar_title}：</p></li>
+                <li class="PersonalData"><input name="title" type="text" value="{$netbar.title}" size="50" /></li>
+            </ul>
+			<ul>
+                <li class="PersonalData"><p class="Title">{$lang.netbar_sip}：</p></li>
+                <li class="PersonalData"><input name="sip" type="text"  value="{$ip}" size="15" readonly/> {$lang.autoip}</li>
+            </ul>
+			<ul>
+                <li class="PersonalData"><p class="Title">{$lang.netbar_eip}：</p></li>
+                <li class="PersonalData"><input name="eip" type="text"  value="{$ip}" size="15" readonly/> {$lang.autoip}</li>
+            </ul>
+			<ul>
+                <li class="PersonalData"><p class="Title">{$lang.addtime}：</p></li>
+                <li class="PersonalData">{$netbar.addtime}</li>
+            </ul>
+			<ul>
+                <li class="PersonalData"><p class="Title">{$lang.endtime}：</p></li>
+                <li class="PersonalData">{$netbar.endtime}</li>
+            </ul>
+			 <ul>
+			 <li><p class="SaveCancel">
+			 	<input name="act" type="hidden" value="act_edit_ip" />
+			 <span class="Personal_inforConBtn"><button type="submit" name="submit" id="submit" class="Btn" >{$lang.confirm_edit}</button></span><span class="Personal_inforConBtn"><button type="reset" class="Btn" >取 消</button></span></p></li>
+			  </ul>
+			  </form>
+
+           <form name="formPassword" action="netbar.php" method="post" >
+			<ul>
+				 <li class="PersonalData"><p class="Title">{$lang.old_password}：</p></li>
+				 <li class="PersonalData"><input name="old_password" type="password" size="50" maxlength="50"  /></li>
+			</ul>
+			<ul>
+				<li class="PersonalData"><p class="Title">{$lang.new_password}：</p></li>
+				<li class="PersonalData"><input name="new_password" type="password" size="25" maxlength="32"  /> </li>
+			</ul>
+			<ul>
+				<li class="PersonalData"><p class="Title">{$lang.confirm_password}：</p></li>
+				<li class="PersonalData"><input name="comfirm_password" type="password" size="25" maxlength="32"  /> </li>
+			</ul>
+			 <ul>
+			 <li><p class="SaveCancel">
+			 <input name="act" type="hidden" value="act_edit_password" />
+			 <span class="Personal_inforConBtn"><button type="submit" name="submit" id="submit" class="Btn" >{$lang.confirm_edit}</button></span><span class="Personal_inforConBtn"><button type="reset" class="Btn" >取 消</button></span></p></li>
+			</ul>
+          </form>
+      <!--{/if}-->
+     <!--#网吧管理界面-->
+</div>
+</div>
+<!--mainbody end-->
+
+
+	<!--footer start-->
+			<!-- #BeginLibraryItem "/library/page_footer.lbi" -->
+			<!-- #EndLibraryItem -->
+        <!--footer end-->
+    </div>
+    </div>
+    <!--wrapper end-->
+</body>
+</html>

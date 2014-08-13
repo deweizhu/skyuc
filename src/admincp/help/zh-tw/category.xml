@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<help>
+  <section id="list">
+    <title>分類列表</title>
+    <content>
+    <![CDATA[
+	<p>您可以進行如下操作:</p>
+	<strong>列表的折疊</strong>
+	<p>影片分類列表采用折疊技術，您可以對列表的內容進行展開和折疊。</p>
+	<p class="tips">提示：<br>將鼠標置於分類名稱一欄單擊，或者點擊分類名稱左邊的圖標,即可進行 折疊/展開 的操作。</p>
+	
+	<strong>按分類查詢影片</strong>
+	<p>您可以快速簡潔的按分類查詢影片信息,只要單擊某一分類的名稱，頁面即跳轉到此分類的影片列表頁面。</p>
+	
+	<strong>轉移影片</strong>
+	<p>點擊<span class="link"> 轉移影片 </span>鏈接,即可進入相應的操作頁面</p>
+	<p class="tips">提示：<br>如果某一影片分類還存在有下級子分類時，轉移影片這一操作的鏈接將不會顯示。</p>
+
+	<strong>添加影片分類</strong>
+	<p>點擊頁面右上角<a href="category.php?act=add" target="main-frame"><span class="link"> 添加新分類 </span></a> 鏈接就即可進行添加的操作。</p>
+	
+	<strong>編輯影片分類</strong>
+	<p>點擊<span class="link"> 編輯 </span>鏈接,即可進入編輯頁面,進行相應的操作。</p>
+
+    <strong>刪除影片分類</strong>
+	<p>點擊<span class="link"> 刪除 </span>鏈接,系統彈出您是否要刪除的確認對話框，點擊“是”即可刪除當前的影片分類。</p>
+	<p class="tips">提示：<br>刪除影片分類時，必須滿足兩個條件：<br>該分類下不存在有其他子分類<br>該分類底下不存在有其它的影片</p>
+	]]>
+    </content>
+  </section>
+  <section id="add">
+    <title>添加新影片分類</title>
+    <content>
+    <![CDATA[
+	<p>您可以在此進行影片分類的添加操作</p>
+	<strong>分類名稱</strong>
+	<p>在此輸入影片的分類名稱：如 動作片 科幻片 愛情片 電視劇...</p>
+	<p class="tips">說明：<br>影片分類的名稱應盡量簡潔、明了。可在2～4個漢字之間為最佳。</p>
+	
+	<strong>上級分類</strong>
+	<p>在此選擇新分類的上級分類名稱，必須是一個非末級的分類。</p>
+	
+	<strong>是否允許有子分類</strong>
+	<p>通俗的理解為該分類是否設為末級。<br>在兩個選項中：<br>選擇“不允許”，則當前的新分類將是一個末級分類，可直接為此分類添加影片。<br>選擇“允許”，則當前的新分類是一個非末級的分類，還可以繼續添加下級子分類，但不能直接為此分類添加影片。 </p>
+	]]>
+    </content>
+  </section>
+  <section id="edit">
+    <title>編輯影片分類</title>
+    <content>
+    <![CDATA[
+	<p>您可以在此進行影片分類的編輯操作<br>(詳細幫助信息請參見<a href="category.php?act=add" target="main-frame"><span class="link"> 添加新分類 </span></a>部分)</p>
+	<strong>其它說明</strong>
+	<p>上級分類<br>需要注意以下兩點：<br>1、上級分類必須是一個非末級的分類<br>2、上級分類不能是當前分類。</p>
+]]>
+    </content>
+  </section>
+</help>

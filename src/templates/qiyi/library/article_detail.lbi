@@ -1,0 +1,17 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!--文章内容部分-->
+<div class="mode form_help">
+			<div class="rm_u">&nbsp;</div>
+			<div class="container clearfix">
+				<h2 class="title">{$article.title} <span class="more font_12">{$article.add_time} 作者：{$article.author|escape:html}</span></h2>
+				<ol class="help_ol">
+					<li class="autoheight">{$article.content}
+						{if $article.open_type eq 2 or $article.open_type eq 1}<br />
+						<p><a href="{$article.file_url}" target="_blank" class="k">{$lang.relative_file}</a></p>
+						{/if}</li>
+
+				</ol>
+			</div>
+			<div class="rm_d">&nbsp;</div>﻿
+</div>
+  <!--文章内容部分结束-->

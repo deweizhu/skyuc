@@ -1,0 +1,16 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- {if $related_director} -->
+<!--相关导演电影 start-->
+<div class="title-01">
+  <div class="title-01-arrow">相关导演的影片</div>
+</div>
+<div class="actor_movie_info">
+	<!--{foreach key=key from=$related_director item=director name=director}-->
+	<h4>导演：{$key}</h4>
+   <!--{foreach item=show from=$director}-->
+	<span>《<a href="{$show.url}" target="_blank">{$show.title}</a>》</span>
+  <!--{/foreach}-->
+    <!--{/foreach}-->
+</div>
+<!--相关导演电影 end-->
+<!--{/if}-->

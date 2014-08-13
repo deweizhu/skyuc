@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Language" content="zh-CN" />
+<meta content="all" name="robots" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<meta http-equiv="imagetoolbar" content="no" />
+{if $auto_redirect}
+<meta http-equiv="refresh" content="3;URL={$message.back_url}" />
+{/if}
+<title>{$page_title}</title>
+<link rel="bookmark" href="favicon.ico" />
+<link rel="icon" type="image/x-icon" href="favicon.ico" />
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+<link rel="alternate" type="application/rss+xml" title="RSS|{$page_title}" href="{$feed_url}" />
+<link href="css/user.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+{insert_scripts files="skyuc_common.js"}
+<!--header start-->
+<!-- #BeginLibraryItem "/library/user_header.lbi" -->
+<!-- #EndLibraryItem -->
+<!--header end-->
+<!--主体-->
+<div id="main" >
+           <div class="mode">
+			<div class="rl_u">&nbsp;</div>
+			<div class="container clearfix">
+				<h1>系统提示</h1>
+				<form id="formEdit">
+				<ul>
+				   <li>{$message.content}</li>
+					 <!-- {if $message.url_info} -->
+				   <li>
+					 <!--{foreach from=$message.url_info key=info item=url}-->
+						  <!--{if $info eq 'reg_succeed'}-->
+						 <a href="{$url}" class="k">会员中心</a>
+						  <!--{else}-->
+						 &nbsp;&nbsp;<a href="{$url}" class="k">{$info}</a>
+						  <!--{/if}-->
+					  <!--{/foreach}-->
+					  </li>
+					<!--{/if}-->
+				</form>
+			 </div>
+			<div class="rl_d">&nbsp;</div>﻿
+		</div>
+
+
+
+</div>
+
+<!--footer start-->
+<!-- #BeginLibraryItem "/library/user_footer.lbi" -->
+<!-- #EndLibraryItem -->
+<!--footer end-->
+
+</body>
+</html>

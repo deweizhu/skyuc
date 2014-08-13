@@ -1,0 +1,39 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- {if $top_month} -->
+<div class="movieSearchBillboard">
+	<div class="movieSearchBillboardT"><ul><li><img src="images/tvSearchBillboard.jpg" alt="本类排行榜" /></li></ul></div>
+	<div class="same_movie_info">
+	  <!-- {foreach name=top_month from=$top_month item=top_month}-->
+			<div class="TvCon1LeftConCCTit" id="TvCon1LeftConCCTit{$smarty.foreach.top_month.iteration}" onmouseover="showMore('TvCon1LeftConCCMore{$smarty.foreach.top_month.iteration}')">
+			<div class="TvCon1LeftConCCMoreInfNumPos TvCon1LeftConCCMoreInfNumBg{$smarty.foreach.top_month.iteration}"></div>
+			<a href="{$top_month.url}" target="_blank"><div class="TvCon1LeftConCCMoreInfTitName">{$top_month.title|truncate:14:true}</div></a>
+			</div>
+			<div class="TvCon1LeftConCCMore" id="TvCon1LeftConCCMore{$smarty.foreach.top_month.iteration}" {if $smarty.foreach.top_month.iteration gt 1}style="display:none"{/if} >
+			<div class="TvCon1LeftConCCMoreImg"><a href="{$top_month.url}" target="_blank"><img src="{$top_month.thumb}" alt="{$top_month.title|escape:html}" width="90" height="120" border="0" /><img src="images/pic_90x120.gif" alt="{$top_month.title|escape:html}" border="0" class="pic_120" /></a></div>
+			<div class="TvCon1LeftConCCMoreInf">
+				<div class="TvCon1LeftConCCMoreMovInf">
+				<!-- {if $top_month.director neq ''} -->
+					<p><b>{$lang.director}</b>
+								<!--{foreach from=$top_month.director item=val name=val}-->
+								<!--{if $smarty.foreach.val.iteration lt 3}-->
+								<a href="search.php?keywords={$val|escape:url}" target="_blank">{$val}</a>
+								<!--{/if}-->
+								<!--{/foreach}-->
+					</p>
+				<!--{/if}-->
+					<p><b>{$lang.actor}</b><!--{foreach from=$top_month.actor item=val name=val}-->
+							<!--{if $smarty.foreach.val.iteration lt 3}-->
+							<a href="search.php?keywords={$val|escape:url}" target="_blank">{$val}</a>
+							<!--{/if}-->
+							<!--{/foreach}--></p>
+					<p class="mov_intro"><b>{$lang.description}</b>{$top_month.description|truncate:30:true}</p>
+				</div>
+			</div>
+		</div>
+		  <!--{/foreach}-->
+
+		</div>
+	<div class="movieHomeBroadcastConLD"><ul><li></li></ul></div>
+
+	</div>
+<!--{/if}-->

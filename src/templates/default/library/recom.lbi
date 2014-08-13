@@ -1,0 +1,30 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- {if $recom_show} -->
+            <div class="index_new_movie">
+
+                 <div class="index_new_movie_top clearfix">
+					<!--{foreach name=recom_show from=$recom_show item=show }-->
+						<!--{if $smarty.foreach.recom_show.iteration eq 1 }-->
+                    <div class="img_float"><a href="{$show.url}" target="_blank"><img src="{$show.thumb}" alt="{$show.title|escape:html}" width="90" height="120" /><img src="images/pic_90x120.gif" class="pic_120" alt="{$show.title|escape:html}" /></a>                    </div>
+                    <h1><a href="{$show.url}" target="_blank">{$show.title}</a></h1>
+                    <p><b>{$lang.actor}</b>	<!--{foreach from=$show.actor item=val name=val}-->
+							<!--{if $smarty.foreach.val.iteration lt 5}-->
+							<a href="search.php?keywords={$val|escape:url}" target="_blank">{$val}</a>
+							<!--{/if}-->
+							<!--{/foreach}--></p>
+                    <p class="look_point"><b>{$lang.description}</b>{$show.description|truncate:26:true}</p>
+                    <p><b>{$lang.add_time}</b>{$show.add_time}</p>
+					<!--{else}-->
+                </div>
+                <div class="index_new_movie_list clearfix">
+                	<ul>
+						<!--{if $smarty.foreach.recom_show.iteration lt 6}-->
+                    	<li class="num{$smarty.foreach.recom_show.iteration}"><a href="{$show.url}" target="_blank">{$show.title|truncate:14:true}</a></li>
+						<!--{/if}-->
+					<!--{/if}-->
+					<!--{/foreach}-->
+                    </ul>
+                </div>
+
+            </div>
+<!--{/if}-->

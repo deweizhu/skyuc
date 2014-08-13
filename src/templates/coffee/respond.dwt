@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>{$page_title}</title>
+<!-- TemplateEndEditable -->
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="icon" href="animated_favicon.gif" type="image/gif" />
+<link href="{$skyuc_css_path}" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<!-- #BeginLibraryItem "/library/page_header.lbi" -->
+<!-- #EndLibraryItem -->
+<div id="globalWrapper">
+<!-- #BeginLibraryItem "/library/search_form.lbi" -->
+  <!-- #EndLibraryItem -->
+  <div style="clear:both;">
+	<!-- #BeginLibraryItem "/library/ur_here.lbi" -->
+    <!-- #EndLibraryItem -->
+    <div class="title-01" >
+      <div class="title-01-arrow" >在线支付</div>
+    </div>
+    <div class="sort-box01" id="cotalog-list" style="padding:10px;">
+      <div style="text-align:center;padding:50px;">
+        <h3>{$message}</h3>
+        <a href="{$site_url}">{$lang.back_home}</a> </div>
+    </div>
+    <div class="hack"></div>
+  </div>
+  <!-- End #container -->
+</div>
+<!--End #globalWrapper-->
+<div id="footer">
+<!-- #BeginLibraryItem "/library/help.lbi" -->
+  <!-- #EndLibraryItem -->
+
+	<!-- #BeginLibraryItem "/library/page_footer.lbi" -->
+  <!-- #EndLibraryItem --></div>
+<!--End #footer-->
+</body>
+</html>

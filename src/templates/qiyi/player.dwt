@@ -1,0 +1,74 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>正在播放 - {$skyuc_name}-{$skyuc_title}</title>
+{insert_scripts files="skyuc_global.js"}
+<style type="text/css">
+<!--  -->
+<!--
+body {
+  color: #FFF;
+	background-color: #000;
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+a:link {
+	color: #FFF;
+}
+a:hover {
+	color: #F00;
+}
+a:visited {
+	color: #00CFF7;
+}
+-->
+</style>
+</head>
+<body oncontextmenu='return false' onselectstart='return false' onkeydown='return false' ondragstart='return false'>
+<!-- {if $action eq 'netbar_date'} -->
+<div align="center">
+<table width="400" border="1" cellspacing="0" cellpadding="0" bordercolorlight="#666666" bordercolordark="#ffffff" align="center">
+<tr><td height="27" bgcolor="#666666"><div align="center">系统提示！！</div></td>
+</tr>
+<tr><td height="89"><div align="center">您的网吧帐号已到期，请及时冲值！</div></td>
+</tr></table>
+</div>
+<!--{/if}-->
+<!-- {if $action eq 'netbar_max'} -->
+<div align=center>
+<table width="400" border="1" cellspacing="0" cellpadding="0" bordercolorlight="#666666" bordercolordark="#ffffff" align="center">
+<tr>
+<td height="27" bgcolor="#666666"><div align="center">系统提示！！</div></td>
+</tr>
+<tr>
+<td height="89"><div align="center">您的网吧当前在线【{$bar.online}】人，超过最多【{$bar.max}】人同时观看限制，请稍后再试！！</div></td>
+</tr>
+</table>
+</div>
+<!--{/if}-->
+<!--{if $action eq 'user'}-->
+<div align="center">
+<table width="400" border="1" cellspacing="0" cellpadding="0" bordercolorlight="#666666" bordercolordark="#ffffff" align="center">
+<tr>
+<td bgcolor="#666666" height="27"> <div align="center">系统提示！！</div></td>
+</tr>
+<tr>
+<td height="89"><div align="center">{$msg}<a target="_blank" href="user.php">请进行充值</a></div></td>
+</tr>
+</table>
+</div>
+<!--{/if}-->
+
+
+<!-- {if $action eq 'player'} -->
+{$player_code}
+<!--{/if}-->
+
+<!-- {if $action eq 'download'} -->
+<!-- #BeginLibraryItem "/library/download.lbi" -->
+<!-- #EndLibraryItem -->
+<!--{/if}-->
+</body>
+</html>

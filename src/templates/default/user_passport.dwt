@@ -1,0 +1,445 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Language" content="zh-CN" />
+<meta content="all" name="robots" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<meta http-equiv="imagetoolbar" content="no" />
+<link rel="bookmark" href="favicon.ico" />
+<link rel="icon" type="image/x-icon" href="favicon.ico" />
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+<link rel="alternate" type="application/rss+xml" title="RSS|{$page_title}" href="{$feed_url}" />
+<link href="css/basic.css" rel="stylesheet" type="text/css" />
+<link href="css/header_footer.css" rel="stylesheet" type="text/css" />
+<link href="css/member.css" rel="stylesheet" type="text/css" />
+<title>{$page_title}</title>
+<script type="text/javascript" src="js/base.js"></script>
+<script type="text/javascript" src="js/dialog.js"></script>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+ var process_request = "{$lang.process_request}";
+  {foreach from=$lang.passport_js item=item key=key}
+  var {$key} = "{$item}";
+  {/foreach}
+  var username_exist = "{$lang.username_exist}";
+//-->
+</SCRIPT>
+</head>
+
+<body id="member_index_page">
+{insert_scripts files="skyuc_global.js,skyuc_common.js,skyuc_utils.js,skyuc_user.js"}
+<!--wrapper start -->
+<div id="wrapper">
+<div id="innerwrapper">
+	<!--header start-->
+             <!-- #BeginLibraryItem "/library/page_header.lbi" -->
+			<!-- #EndLibraryItem -->
+        <!--header end-->
+		<!--mainbody start-->
+<div id="mainbody">
+<div id="innermainbody">
+<div class="member_top">
+<ul>
+	<li>
+	<div class="member_top_bg"></div>
+	</li>
+</ul>
+</div>
+    <!--*会员登陆界面-->
+    <!--{if $action eq 'login'}-->
+	  <div id="content">
+                <div class="member_login">
+            	<div class="inner_member_login">
+				<form name="frm_login" method="post" action="user.php" onsubmit="return check_login(this);">
+				<div class="member_login_border">
+                	<h2><img src="images/login_tit.gif" width="71" height="31" /></h2>
+               	  <p><span class="red"></span></p>
+						<dl>
+                       	  	<dt>{$lang.label_username}:</dt>
+                          	<dd><input name="username" id="username" type="text" class="input" value="" />
+                            </dd>
+                            <dt>{$lang.label_password}:</dt>
+                            <dd><input name="password" id="password" type="password" class="input" />　<a href="user.php?act=get_password">忘记密码</a></dd>
+							<!-- {if $enabled_captcha} 判断是否启用验证码 -->
+						    <dt>{$lang.comment_captcha}:</dt>
+                          	<dd> <input type="text"  name="humanverify[input]"  id="verifycode"  size="10" maxlength="6"  onfocus="try{opencode('menu_gd',this)}catch(e){}"  class="input"/>
+								<input type="hidden" name="humanverify[hash]" id="hash"  value="{$humanverify.hash}" />
+
+								<div class="menu" id="menu_gd" style="visibility:hidden;"><img src="image.php?{$session.sessionurl}type=hv&amp;hash={$humanverify.hash}" id="verifyimage"  align="absmiddle" style="cursor:pointer;"  title="{$lang.click_for_another}"  border="0" /></div>
+                            </dd>
+							 <!-- {/if} -->
+						</dl>
+                        <input type="hidden" name="act" value="act_login" />
+						<input type="hidden" name="back_act" value="{$back_act}" />
+                        <div class="btn"><input name="imageField" type="image" src="images/login_btn1.gif" /></div>
+</form>
+                         <div class="quick_reg">
+                         	还不是本站的用户？
+                            <p><a href="user.php?act=register" class="member_login_btn3"/><span class="undis">快速注册</span></a></p>
+                         </div>
+                </div>
+
+                </div>
+              	</div>
+          </div>
+
+<div id="siderbar">             	<h2>TA们在天空网络玩什么……</h2>
+                <div class="member_reg_bg">
+                	<ul>
+                   	  <li class="member_reg_01"><img src="images/member_face01.gif" class="face_mid" />
+               	      <p class="now">喜欢看电影的<span class="orange">恶魔化石</span></p>                    	</li>
+                      <li class="member_reg_02"><img src="images/member_face02.gif" class="face_mid" />
+                      <p class="now">喜欢拍照片的<span class="orange">kitty宝贝</span></p>                    	</li>
+
+                      <li class="member_reg_03"><img src="images/member_face03.gif" class="face_mid" />
+                      <p class="now">喜欢看娱乐资讯的<span class="orange">cmul</span></p>                    	</li>
+
+                      <li class="member_reg_04"><img src="images/member_face04.gif" class="face_mid" />
+                      <p class="now">喜欢写博客的<span class="orange">大亮天圣</span></p>                    	</li>
+                      <li class="member_reg_05"><img src="images/member_face05.gif" class="face_mid" />
+                      <p><a href="#" class="orange"></a></p><p class="now">喜欢看电视剧的<span class="orange">山妖溜</span></p>                    	</li>
+                      <li class="member_reg_06"><img src="images/member_face06.gif" class="face_mid" />
+                      <p class="now">喜欢看视频<br />
+                      的<span class="orange">鹦哥在线</span></p></li>
+
+                      <li class="member_reg_07"><img src="images/member_face07.gif" class="face_mid" />
+                      <p class="now">喜欢写影评<br/>
+                      的<span class="orange">吉文精舍</span></p>                    	</li>
+
+                      <li class="member_reg_08"><img src="images/member_face08.gif" class="face_mid" />
+                      <p class="now">喜欢交朋友的<span class="orange">云南杂文</span></p>                    	</li>
+                  </ul>
+               </div></div>
+			<!--{/if}-->
+    <!--#会员登陆界面-->
+
+    <!--*会员注册界面-->
+    <!--{if $action eq 'register'}-->
+<div id="content">
+<div class="member_edit">
+<h2>快速注册 <span>已经注册请<a href="user.php?act=login"
+class="orange">登录</a></span></h2>
+<form name="frm_reg" method="post" action="user.php">
+<dl>
+	<dt>{$lang.label_username}:</dt>
+	<dd><input id="username" name="username" type="text" class="input"
+		onchange="chk_frm('username');" /> <span id="username_notice"></span></dd>
+	<dt>{$lang.label_password}:</dt>
+	<dd><input id="password" name="password" type="password" class="input"
+		onchange="chk_frm('password');" onkeyup="checkIntensity(this.value)" /> <span id="password_notice"></span></dd>
+	<dt>{$lang.label_password_intensity}:</dt>
+	<dd>         <table width="150" border="0" cellspacing="0">
+                <tr align="center">
+                  <td width="33%" id="pwd_lower">{$lang.pwd_lower}</td>
+                  <td width="33%" id="pwd_middle">{$lang.pwd_middle}</td>
+                  <td width="33%" id="pwd_high">{$lang.pwd_high}</td>
+                </tr>
+              </table></dd>
+	<dt>{$lang.label_confirm_password}:</dt>
+	<dd><input id="conform_password" name="conform_password" type="password" class="input"
+		onchange="chk_frm('conform_password');" /> <span id="conform_password_notice"></span></dd>
+	<dt>{$lang.label_email}:</dt>
+	<dd><input id="email" name="email" type="text" class="input"
+		onchange="chk_frm('email');" /> <span id="email_notice"></span></dd>
+	<dt>{$lang.other_referrer}:</dt>
+	<dd><input id="referrer" name="other[referrer]" type="text" class="input" maxlength="20"   {if $referrer}value="{$referrer}" readonly{else}value='可不填' style="color:#aaa;" onfocus="if (this.value == '可不填'){this.value='';this.style.color='#000';}"{/if} /></dd>
+	<!-- 判断是否启用验证码{if $enabled_captcha} -->
+	<dt>{$lang.comment_captcha}:</dt>
+	<dd><input type="text"  name="humanverify[input]"  id="verifycode"  size="10" maxlength="6"  onfocus="try{opencode('menu_gd',this)}catch(e){}"  class="input"/>
+		<input type="hidden" name="humanverify[hash]" id="hash"  value="{$humanverify.hash}" />
+
+	<div class="menu" id="menu_gd" style="visibility:hidden;"><img src="image.php?{$session.sessionurl}type=hv&amp;hash={$humanverify.hash}" id="verifyimage"  align="absmiddle" style="cursor:pointer;"  title="{$lang.click_for_another}"  border="0" /></div>
+
+		<span id="verifycode_notice"></span></dd>
+
+	 <!--{/if}-->
+	<dt></dt>
+	<dd class="agree"><input id="chkbox" type="checkbox" value="1"
+		checked="checked" /> 我已阅读并接受服务协议</dd>
+</dl>
+<input name="act" type="hidden" value="act_register" />
+<div class="btn"><input type="image" name="imagefield"
+	value="imagefield" src="images/membe_btn1.jpg"
+onclick="javascript:return chek_reg();" /></div>
+</form>
+<div class="member_agreement">
+<p class="agreement_info">1．用户服务协议条款的接受<br />
+
+感谢您光临天空网络。天空网络将根据以下服务条款为您提供服务。您在使用天空网络提供的各项服务之前，应仔细阅读本服务公约。如您不同意本服务公约及随时对其的修改，您可以主动取消天空网络提供的服务；您一旦使用天空网络提供的服务，即视为您已了解并完全同意本服务公约各项内容，包括天空网络对服务公约随时所做的任何修改，并成为天空网络的用户（以下简称“用户”）。
+<br />
+2．用户服务协议的变更和修改<br />
+（1）天空网络有权随时对本协议进行修改，并且一旦发生变动，天空网络将在页面上显示修改后的内容；当用户使用天空网络提供的服务时，被视为接受天空网络随时提供的相关规则或说明，并且这些规则或说明均构成本协议的一部分。用户如果不同意协议的修改，可以主动取消已经获得的服务；如果用户继续享用服务，则视为用户已经接受该修改。
+<br />
+（2）协议的修改或其他事项变更时，天空网络将会在网站相关页面发布，发布之日视为已送达收件人。<br />
+3．服务说明<br />
+（1）天空网络运用自己的系统平台通过互联网向用户提供丰富的网上资源，包括视频点播、音乐点播，个性化内容和服务等（以下简称本服务）。除非另有明确规定，增强或强化目前服务的任何新功能，包括新产品，均无条件地适用本协议。<br />
+（2）天空网络对网络服务不承担任何责任，即用户对网络服务的使用承担风险。天空网络不保证服务一定会满足用户的使用要求，也不保证服务不会受中断，对服务的及时性、安全性、准确性也不作担保。<br />
+（3）为使用本服务，用户必须： <br />
+
+a. 自行配备进入国际互联网所必需的设备，包括计算机、数据机或其他存取装置； <br />
+
+b. 自行支付与此服务有关的费用； <br />
+（4）本服务仅依其当前所呈现的状况提供，对于任何用户通讯或个人化设定之时效、删除、传递错误、未予储存或其它任何问题，天空网络均不承担任何责任。
+<br />
+（5）天空网络保留不经事先通知为维修保养、升级或其它目的暂停本服务任何部分的权利。 <br />
+（6）用户接受本服务须同意提供完整、真实、准确、最新的个人资料。<br />
+（7）天空网络提示您：您提供的电子邮箱地址将成为您在天空网络的唯一账号和身份识别依据，所以请您务必提供您本人的真实有效的电子邮箱地址。否则，凡因您提供的电子邮箱地址不准确或非您本人电子邮箱等原因造成的账号丢失、被盗等后果及由此受到的损失概由您本人负责，天空网络不承担任何责任。<br />
+
+4．用户应遵守以下法律及法规<br />
+（1）您同意遵守《中华人民共和国合同法》、《中华人民共和国著作权法》及其实施条例、《全国人民代表大会常务委员会关于维护互联网安全的决定》（“人大安全决定”）[相关网站部分]、《中华人民共和国保守国家秘密法》、《中华人民共和国电信条例》(“电信条例”
+)[
+相关网站部分]、《中华人民共和国计算机信息系统安全保护条例》、《中华人民共和国计算机信息网络国际联网管理暂行规定》及其实施办法、《计算机信息系统国际联网保密管理规定》、《互联网信息服务管理办法》、《计算机信息网络国际联网安全保护管理办法》、《互联网电子公告服务管理规定》（“电子公告规定”）[相关网站部分]等相关中国法律法规的任何及所有的规定，并对以任何方式使用您的密码和您的账号使用本服务的任何行为及其结果承担全部责任。如违反《人大安全决定》有可能构成犯罪，您将可能被追究刑事责任。《电子公告规定》则有明文规定，上网用户使用电子公告服务系统对所发布的信息负责。《电信条例》也强调，使用电信网络传输信息的内容及其后果由电信用户负责。在任何情况下，如果天空网络有理由认为您的任何行为，包括但不限于您的任何言论和其它行为违反或可能违反上述法律和法规的任何规定，天空网络可在任何时候不经任何事先通知终止向您提供服务。
+<br />
+（2）用户应了解国际互联网的无国界性，应特别注意遵守当地所有有关的法律和法规。<br />
+5．用户隐私权制度<br />
+（1）当用户注册天空网络的服务时，用户须提供真实有效的个人信息。天空网络收集个人信息的目的是为用户提供尽可能多的个人化网上服务以及为广告商提供一个方便的途径来接触到适合的用户，并且可以发送具有相关性的内容和广告。在此过程中，广告商绝对不会接触到用户的个人信息。天空网络不会在未经合法用户授权时，公开、编辑或透露其个人信息及保存在天空网络中的非公开内容，除非有下列情况：
+<br />
+
+a. 有关法律规定或天空网络合法服务程序规定； <br />
+
+b. 在紧急情况下，为维护用户及公众的权益； <br />
+
+c. 为维护天空网络的商标权； <br />
+
+d. 其他需要公开、编辑或透露个人信息的情况。 <br />
+（2）在以下（包括但不限于）几种情况下，用户同意天空网络使用用户的个人信息： <br />
+
+a.
+在进行促销或抽奖时，天空网络可能会与赞助商共享用户的个人信息，在这些情况下天空网络会在发送用户信息之前进行提示，并且用户可以通过不参与来终止传送过程。
+<br />
+
+b. 天空网络会通过透露用户统计数据，向未来的合作伙伴、广告商及其他第三方以及为了其他合法目的而描述天空网络的服务。 <br />
+
+c. 天空网络会向用户发送关于天空网络不同产品和服务的信息或者天空网络认为用户会感兴趣的其他产品和服务。
+如果用户不希望收到这样的邮件，只需在提供个人信息时或其他任何时候告知即可。另外，天空网络会竭尽全力保护用户的信息，但天空网络不能确信或保证任何个人信息的安全性，用户须自己承担风险。比如用户联机公布可被公众访问的个人信息时，用户有可能会收到未经用户同意的消息；天空网络的合作伙伴和可通过天空网络访问的第三方因特网站点和服务或通过抽奖、促销等活动得知用户个人信息的其他第三方会进行独立的数据收集工作等活动，天空网络对用户及其他任何第三方的上述行为，不负担任何责任。<br />
+6．用户账号、密码和安全<br />
+（1）用户一旦注册成功，便成为天空网络的用户，并得到一个密码和账号。用户有义务保证密码和账号的安全。用户对利用该密码和账号所进行的一切活动负全部责任；因此所衍生的任何损失或损害，天空网络无法也不负担任何责任。
+<br />
+（2）用户的密码和账号遭到未授权的使用或发生其他任何安全问题，用户可以立即通知天空网络，并且用户在每次连线结束，应使用户账号处于退出状态，否则用户可能得不到天空网络的安全保护。<br />
+7．禁止用户从事以下行为<br />
+（1）上载、张贴或传送任何非法、有害、胁迫、骚扰、侵害、中伤、粗俗、猥亵、诽谤、淫秽、侵害他人因隐私、种族歧视或其他另人不快的包括但不限于资讯、资料、文字、软件、音乐、照片、视频、图形、信息或其他资料（以下简称内容）。
+<br />
+（2）以任何方式危害未成年人。 <br />
+（3）冒充任何人或机构，或以虚伪不实的方式谎称或使人误认为与任何人或任何机构有关。<br />
+（4）伪造标题或以其他方式操控识别资料，使人误认为该内容为天空网络所传送。<br />
+（5）将无权传送的内容（例如内部资料、机密资料）进行上载、张贴或以其他方式传送。 <br />
+（6）将侵犯任何人的专利、商标、著作权、商业秘密或其他专属权利之内容加以上载、张贴或以其他方式传送。 <br />
+（7）将广告函件、促销资料等，加以上载、张贴或以其他方式传送。供前述目的使用的专用区域除外。<br />
+（8）将有关干扰、破坏或限制任何计算机软件、硬件或通讯设备功能的软件病毒或其他计算机代码、档案和程序之资料，加以上载、张贴或以其他方式传送。<br />
+（9）干扰或破坏本服务或与本服务相连的服务器和网络，或不遵守本服务网络使用之规定。 <br />
+（10）故意或非故意违反任何相关的中国法律、法规、规章、条例等其他具有法律效力的规范。<br />
+（11）跟踪或以其他方式骚扰他人。<br />
+（12）用户对经由本服务上载、张贴或传送的内容负全部责任。 <br />
+（13）对于经由本服务而传送的内容，天空网络不保证前述内容的正确性、完整性或品质。用户在接受本服务时，有可能会接触到令人不快、不适当或令人厌恶的内容。在任何情况下，天空网络均不对任何内容负责，包括但不限于任何内容发生任何错误或纰漏以及衍生的任何损失或损害。天空网络有权（但无义务）根据本协议自行拒绝或删除经由本服务提供的任何内容。用户使用上述内容，应自行承担风险。
+<br />
+（14）天空网络有权利在下述情况下，对内容进行保存或披露：<br />
+
+a. 法律程序所规定；<br />
+
+b. 本服务条款规定；<br />
+
+c. 被侵害的第三人提出权利主张；<br />
+
+d. 为保护天空网络、其使用者及社会公众的权利、财产或人身安全。<br />
+
+e. 天空网络认为的其他有必要的情况。<br />
+8．关于用户在天空网络公开使用区域张贴的内容<br />
+（1）在本服务公约中，“本服务公开使用区域”系指一般公众可以使用的区域。 <br />
+（2）您同意已就您于本服务公开使用区域及本服务其它任何公开使用区域张贴之有使用权和著作权的内容，或包括照片、图形或影音资料等内容，授予天空网络全球性、免许可费及非独家的使用权，天空网络可以为了展示、散布及推广张贴前述内容之特定服务目的，将前述内容复制、修改、改写、改编或出版，对于照片及图形资料的上述使用，仅为张贴该照片或图形于本服务之目的而为之。在您将前述内容放入本服务期间，使用权持续有效；若您将前述内容自本服务中删除，则使用权于删除时终止。
+<br />
+（3）您同意已就您于本服务其它公开使用区域张贴的其它有使用权和著作权的内容，授予天空网络免许可费、永久有效、不可撤销、非独家及可完全再授权之权利在全球使用、复制、修改、改写、改编、发行、翻译、创造衍生性著作，及/或将前述内容（部分或全部）加以散布、表演、展示，及或者放入利用任何现在已知和未来开发出之形式、媒体和科技之其它著作物当中。
+（4）您就张贴的照片、图形或影音资料等内容的合法性负责，如果造成侵权或损害，自行负责。<br />
+9．赔偿<br />
+
+由于您通过本服务提供、张贴或传送之内容、您与本服务连线、您违反本服务公约、或您侵害他人任何权利因而衍生或导致任何第三人提出任何索赔或请求，由您自行承担，如果导致天空网络及其子公司、关联企业、高级职员、代理人、品牌共有人或其它合作伙伴及员工损失或被追究责任的，包括合理的律师费，您同意赔偿天空网络及其子公司、关联企业、高级职员、代理人、品牌共有人或其它合作伙伴及员工，并使其免受损害。<br />
+10. 禁止的商业行为 <br />
+
+您同意不对本服务内容的权利义务进行转让或用于其他目的，不对天空网络的相关内容进行复制、拷贝、出售、转售或用于任何其它商业目的。 <br />
+11. 关于使用及储存的一般措施<br />
+
+您承认关于本服务的使用，天空网络有权制订一般措施及限制，包含但不限于本服务将保留所张贴内容或其它上载内容之最长期间、本服务一个帐号当中可收发讯息的最大数量、本服务一个帐号当中可收发的单个讯息的大小、天空网络服务器为您分配的最大磁盘空间，以及一定期间内您使用本服务之次数上限（及每次使用时间之上限）。通过本服务存储或传送之任何信息、通讯资料和其它内容，如被删除或未予储存，您同意天空网络毋须承担任何责任。您亦同意，长时间未使用的帐号，天空网络有权关闭。您也同意，天空网络有权依其自行之考虑，不论通知与否，随时变更这些一般措施及限制。<br />
+12. 服务之修改<br />
+
+天空网络有权于任何时间暂时或永久修改或终止本服务（或其任何部分），而无论其通知与否。您同意对于本服务所作的任何修改、暂停或终止，天空网络对您和任何第三人均无需承担任何责任。<br />
+13. 终止服务<br />
+
+您同意天空网络基于其自行之考虑，因任何理由，包含但不限于缺乏使用，或天空网络认为您已经违反本服务公约的文字及精神，终止您的密码、帐号或本服务之使用（或服务之任何部分），并将您在本服务内任何内容加以移除并删除。天空网络亦可以基于自身考虑，在通知或未通知之情形下，随时终止本服务或其任何部分。您同意依本服务公约任何规定提供之本服务，无需进行事先通知即可中断或终止，您承认并同意，天空网络可立即关闭或删除您的帐号及您帐号中所有相关信息及文件，及/或禁止继续使用前述文件或本服务。此外，您同意若本服务之使用被中断或终止或您的帐号及相关信息和文件被关闭或删除，天空网络对您或任何第三人均不承担任何责任。<br />
+14. 与广告商进行之交易<br />
+
+您通过本服务与广告商进行任何形式的通讯或商业往来，或参与促销活动，包含相关商品或服务之付款及交付，以及达成的其它任何相关条款、条件、保证或声明，完全为您与广告商之间之行为。，您因前述任何交易或前述广告商而遭受的任何性质的损失或损害，天空网络均不予负责。
+<br />
+15. 链接<br />
+
+本服务或第三人可提供与其它国际互联网上之网站或资源之链接。由于天空网络无法控制这些网站及资源，您了解并同意，此类网站或资源是否可供利用，天空网络不予负责，存在或源于此类网站或资源之任何内容、广告、产品或其它资料，天空网络亦不予保证或负责。因使用或依赖任何此类网站或资源发布的或经由此类网站或资源获得的任何内容、商品或服务所产生的任何损害或损失，天空网络不负任何直接或间接之责任。
+<br />
+16. 天空网络的知识产权及其他权利<br />
+
+您了解并同意，本服务及本服务所使用之相关软件（以下简称“软件”）含有受到相关知识产权及其它法律保护之专有保密资料。您也了解并同意，经由本服务或广告商向您呈现之赞助广告或信息所包含之内容，亦受到著作权、商标权、服务商标、专利权或其它专属权利之法律保护。未经天空网络或广告商明示授权，您不得修改、出租、出借、出售、散布本服务或软件之任何部份或全部，或据以制作衍生著作，或使用擅自修改后的软件，包括但不限于为了未经授权而使用本服务之目的。天空网络仅授予您个人、不可移转及非专属之使用权，使您得于单机计算机使用其软件之目标码，但您不得（并不得允许任何第三人）复制、修改、创作衍生著作、进行还原工程、反向编译，或以其它方式发现原码，或出售、转让、再授权或提供软件设定担保，或以其它方式移转软件之任何权利。您同意将通过由天空网络所提供的界面而非任何其它途径使用本服务。
+<br />
+17.免责声明<br />
+（1）天空网络对于任何包含、经由或连接、下载或从任何与有关本服务所获得的任何内容、信息或广告，不声明或保证其正确性或可靠性；并且对于用户经本服务上的广告、展示而购买、取得的任何产品、信息或资料，天空网络不负保证责任。用户自行负担使用本服务的风险。
+<br />
+（2）天空网络有权但无义务，改善或更正本服务任何部分之任何疏漏、错误。 <br />
+（3）天空网络不保证（包括但不限于）： <br />
+
+a. 本服务适合用户的使用要求； <br />
+
+b. 本服务不受干扰，及时、安全、可靠或不出现错误，包括黑客入侵，网络中断，电信问题及其他不可抗力等; <br />
+
+c. 用户经由本服务取得的任何产品、服务或其他材料符合用户的期望； <br />
+（4）用户使用经由本服务下载的或取得的任何资料，其风险自行负担；因该使用而导致用户电脑系统损坏或资料流失，用户应负完全责任；<br />
+（5）基于以下原因而造成的利润、商业信誉、资料损失或其他有形或无形损失，天空网络不承担任何直接、间接、附带、衍生或惩罚性的赔偿： <br />
+
+a. 本服务使用或无法使用； <br />
+
+b. 经由本服务购买或取得的任何产品、资料或服务； <br />
+
+c. 用户资料遭到未授权的使用或修改； <br />
+
+d. 其他与本服务相关的事宜。 <br />
+18. 担保与保证<br />
+您明确了解并同意∶ <br />
+（1）.
+您使用本服务之风险由您个人负担。本服务系依“现状”及“现有”基础提供。天空网络对本服务不提供任何明示或默示的担保或保证，包含但不限于商业适售性、特定目的之适用性及未侵害他人权利等担保或保证。
+<br />
+（2）. 天空网络不保证以下事项∶ <br />
+
+A 本服务将符合您的要求； <br />
+
+B 本服务将不受干扰、及时提供、安全可靠或不会出错； <br />
+
+C 使用本服务取得之结果正确，可靠； <br />
+
+D 您经由本服务购买或取得之任何产品、服务、资讯或其它信息将符合您的期望； <br />
+
+E 软件中任何错误都将得到更正。 <br />
+（3）. 是否使用本服务下载或取得任何资料应由您自行考虑且自负风险，因任何资料之下载而导致的您电脑系统之任何损坏或数据流失等后果，由您自行承担。
+<br />
+（4）. 您自天空网络或经由本服务取得的任何建议或信息，无论是书面或口头形式，除非本服务公约有明确规定，将不构成本服务公约以外之任何保证。<br />
+19.内容品质<br />
+
+天空网络在此郑重提请您注意，任何经由本服务以上载、张贴或任何其它方式传送的资讯、资料、文字、软件、音乐、音讯、照片、图形、视讯、信息或其它资料（以下简称“内容”），无论系公开还是私下传送，均由内容提供者承担责任。天空网络无法控制经由本服务传送的内容，因而不保证内容的正确性、完整性或品质。您已预知使用本服务时，可能会接触到令人不快、不适当或令人厌恶之内容。在任何情况下，天空网络均不为任何内容负责，包含但不限于任何内容的任何错误或遗漏，以及经由本服务以张贴、发送电子邮件或其它方式传送任何内容而衍生的任何损失或损害。但天空网络有权依法停止传输任何前述内容并采取相应行动，包括但不限于暂停用户使用本服务的全部或部分，保存有关记录，并向有关机关报告。<br />
+20.法律的适用和管辖<br />
+
+本服务条款的生效、履行、解释及争议的解决均适用中华人民共和国法律，发生的争议提交北京仲裁委员会，其仲裁裁决是终局的。本服务条款因与中华人民共和国现行法律相抵触而导致部分无效，不影响其他部分的效力。<br />
+本服务公约的解释权归天空网络。<br />
+</p>
+</div>
+</div>
+</div>
+<div id="siderbar">             	<h2>TA们在天空网络玩什么……</h2>
+                <div class="member_reg_bg">
+                	<ul>
+                   	  <li class="member_reg_01"><img src="images/member_face01.gif" class="face_mid" />
+               	      <p class="now">喜欢看电影的<span class="orange">恶魔化石</span></p>                    	</li>
+                      <li class="member_reg_02"><img src="images/member_face02.gif" class="face_mid" />
+                      <p class="now">喜欢拍照片的<span class="orange">kitty宝贝</span></p>                    	</li>
+
+                      <li class="member_reg_03"><img src="images/member_face03.gif" class="face_mid" />
+                      <p class="now">喜欢看娱乐资讯的<span class="orange">cmul</span></p>                    	</li>
+
+                      <li class="member_reg_04"><img src="images/member_face04.gif" class="face_mid" />
+                      <p class="now">喜欢写博客的<span class="orange">大亮天圣</span></p>                    	</li>
+                      <li class="member_reg_05"><img src="images/member_face05.gif" class="face_mid" />
+                      <p><a href="#" class="orange"></a></p><p class="now">喜欢看电视剧的<span class="orange">山妖溜</span></p>                    	</li>
+                      <li class="member_reg_06"><img src="images/member_face06.gif" class="face_mid" />
+                      <p class="now">喜欢看视频<br />
+                      的<span class="orange">鹦哥在线</span></p></li>
+
+                      <li class="member_reg_07"><img src="images/member_face07.gif" class="face_mid" />
+                      <p class="now">喜欢写影评<br/>
+                      的<span class="orange">吉文精舍</span></p>                    	</li>
+
+                      <li class="member_reg_08"><img src="images/member_face08.gif" class="face_mid" />
+                      <p class="now">喜欢交朋友的<span class="orange">云南杂文</span></p>                    	</li>
+                  </ul>
+               </div></div>
+			<!--{/if}-->
+    <!--#会员注册界面-->
+
+	  <!--*找回密码界面 -->
+    <!--{if $action eq 'get_password'} -->
+	<SCRIPT LANGUAGE="JavaScript">
+	<!--
+	{foreach from=$lang.password_js item=item key=key}
+      var {$key} = "{$item}";
+    {/foreach}
+	//-->
+	</SCRIPT>
+	 <div class="succeed">
+             	<form name="frm_sdmail" method="post" action="user.php">
+             		<div class="f_email"><b>忘记密码 <img src="images/dot_forget.gif" /></b>&nbsp;&nbsp;&nbsp;&nbsp;
+             		             		{$lang.username_and_email}
+
+             		<br /><br />
+											<div class="edit_username">{$lang.username}：<input name="user_name" id="user_name" type="text" class="input" /><span id="errinfo_name" style="color:red;height:20px;"></span></div>
+
+											<div class="edit_email">{$lang.email}：<input name="email" id="email" type="text" class="input" /><span id="errinfo" style="color:red;height:20px;"></span></div>
+					</div>
+					<div><input type="hidden" name="act" value="send_pwd_email" />
+					<a href="#" onclick="sendmail();" class="member_btn_send"></a></div>
+				 </form>
+            </div>
+
+	    <!--{/if}-->
+    <!-- {if $action eq 'reset_password'} -->
+	<SCRIPT LANGUAGE="JavaScript">
+	<!--
+	{foreach from=$lang.password_js item=item key=key}
+      var {$key} = "{$item}";
+    {/foreach}
+	//-->
+	</SCRIPT>
+		 <div class="succeed">
+					<form name="frm_resetpwd" method="post" action="user.php">
+             		<div class="f_email"><b>重设密码<img src="images/dot_forget.gif" /></b>&nbsp;&nbsp;&nbsp;&nbsp;
+             		             		{$lang.reset_pwd_title}
+
+             		<br /><br />
+											<div class="edit_username">{$lang.enter_new_password}：<input name="new_password" id="new_password" type="password" type="text" class="input" /><span id="errinfo_newpwd" style="color:red;height:20px;"></span></div>
+
+											<div class="edit_email">{$lang.confirm_password}：<input name="confirm_password" id="confirm_password" type="password" class="input" /><span id="errinfo" style="color:red;height:20px;"></span></div>
+					</div>
+					<div>
+					<input type="hidden" name="act" value="act_edit_password" />
+					<input type="hidden" name="uid" value="{$uid}" />
+					<input type="hidden" name="code" value="{$code}" />
+					<a href="#" onclick="resetpwd();" class="member_btn_reset"></a></div>
+				 </form>
+		</div>
+
+	   <!-- {/if} -->
+</div>
+</div>
+<!--mainbody end-->
+
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+	/**
+ * 获取图像验证码
+*/
+function getimage()
+ {
+	var url = 'ajax.php?{$session.sessionurl_js}type=hv&do=imagereg&hash=' + $('#verifyimage').attr('alt');
+
+	Ajax.call(url, '', function(data){
+			   var src= 'image.php?{$session.sessionurl_js}type=hv&hash=' + data.message;
+				$('#verifyimage').attr('src', src);
+				$('#verifyimage').attr('alt', data.message);
+				$('#hash').attr('value', data.message);
+			}, 'POST', 'JSON');
+}
+
+//-->
+</SCRIPT>
+	<!--footer start-->
+			<!-- #BeginLibraryItem "/library/page_footer.lbi" -->
+			<!-- #EndLibraryItem -->
+        <!--footer end-->
+    </div>
+    </div>
+    <!--wrapper end-->
+</body>
+</html>

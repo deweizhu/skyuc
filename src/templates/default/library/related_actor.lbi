@@ -1,0 +1,19 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- {if $related_actor} -->
+<!--相关演员电影 start-->
+	<div class="actor_movie">
+	<h3><img src="images/detail_tit_sb2.gif" /></h3>
+	<div class="actor_movie_info">
+	 <!--{foreach key=key from=$related_actor item=actor name=actor}-->
+	<h4>演员：{$key}</h4>
+	<p class="sb_list1 clearfix">
+   <!--{foreach item=show from=$actor}-->
+	<span>《<a href="{$show.url}" target="_blank">{$show.title}</a>》</span>
+  <!--{/foreach}-->
+	</p>
+    <!--{/foreach}-->
+
+	</div>
+	</div>
+<!--相关演员电影 end-->
+<!--{/if}-->

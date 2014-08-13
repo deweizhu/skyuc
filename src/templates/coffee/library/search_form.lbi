@@ -1,0 +1,20 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+{insert_scripts files="skyuc_search.js"}
+<div id="globalSearch">
+  <div style="background:url(images/search-rl.gif) no-repeat center left;">
+    <div style="background:url(images/search-rl.gif) no-repeat center right;height:44px;">
+      <form id="searchForm" name="searchForm" method="post" action="search.php" style="padding:10px 0 0 30px;">
+        <img src="images/search-icon.gif" alt="" style="float:left;" />
+        <input name="keywords" type="text" id="keyword" value="{$search_keywords|escape}"  autoComplete="off"/>
+        <select name="category" id="category" style="float:left;height:20px;">
+        <option value="0">{$lang.all_category}</option>
+    {$category_list}
+        </select>
+         <span id="show_type"><div id="search_suggest" style="display:none"></div></span>
+
+        <input type="image" src="images/search-submit.gif" style="float:left;margin-left:10px !important;margin-left:8px;" />
+        <span style="float:right;padding:5px 20px;"> {$lang.searchkeywords_notice}</span>
+      </form>
+    </div>
+  </div>
+</div>

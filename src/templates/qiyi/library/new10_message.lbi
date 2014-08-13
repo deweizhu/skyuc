@@ -1,0 +1,18 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<!-- {if $new_show} -->
+			   <div class="right">
+			<div class="rs_u">&nbsp;</div>
+			<div class="container">
+				<h2><span class="border_line">新片速递</span></h2>
+				<ul>
+					<!-- {foreach name=new_show from=$new_show item=new_show}-->
+						<li>
+							<a href="{$new_show.url}">{$new_show.title} </a>
+						</li>
+				     <!--{/foreach}-->
+				</ul>
+
+			</div>
+			<div class="rs_d">&nbsp;</div>
+	</div>
+	<!--{/if}-->

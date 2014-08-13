@@ -1,0 +1,17 @@
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<!-- {if $new_show} -->
+				<div class="spaceTitle"><ul><li><img src="images/new_infolist_03.jpg" alt="新片速递" /></li></ul></div>
+				<div class="infoSidebar_cont">
+					<ul>
+					  <!-- {foreach name=new_show from=$new_show item=new_show}-->
+					  <!--{if $smarty.foreach.new_show.iteration lt 6}-->
+						<li>
+							<em class="infoSidebar_cont_img160X120"><A href="{$new_show.url}"><img src="{$new_show.thumb}" alt="{$new_show.title|escape}" /><img class="pic_160" src="images/pic_120x160.gif" border="0" /></a></em>
+							<span><img src="images/new_infolist_22.jpg" alt="播放" align="absmiddle" /><a href="{$new_show.url}">{$new_show.title} </a></span>
+						</li>
+						<!--{/if}-->
+				     <!--{/foreach}-->
+						</ul>
+				</div>
+	<!--{/if}-->
+			</div>

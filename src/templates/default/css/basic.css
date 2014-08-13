@@ -1,0 +1,139 @@
+@charset "utf-8";
+/* 全局*/
+body{padding:0px;margin:0px;font-size:12px;font-family:verdana,'宋体',arial,'Lucida Grande','Lucida Sans Unicode',sans-serif;color:#000;text-align:center; background:#fff url(../images/home_bg.gif) center 0px no-repeat;}
+div,form,p,ul,li,ol,dl,dt,dd,h1,h2,h3,h4,h5,h6{ margin:0px;padding:0px;text-align:left;}
+button{ margin:0px;padding:0px; font-size:12px;}
+ul,ol,li,dl,dt,dd{list-style:none;}
+img{border:0;}
+table,td,tr,th,select,input,textarea{font-size:12px;}
+em,strong{ font-style:normal; font-weight:normal;}
+/*默认链接*/
+a:link{ color:#000; text-decoration:underline;}
+a:visited{ color:#000; text-decoration:underline;}
+a:hover{color:#E95000; text-decoration:underline;}
+a:active{ color:#E95000; text-decoration:underline;}
+/*常用字体*/
+.fBold{ font-weight:bold;}
+.fVer{font-family:verdana;}
+.fAri{font-family:arial;}
+.f18{ font-size:18px;}
+.f16{ font-size:16px;}
+.f14{ font-size:14px;}
+.f13{ font-size:13px;}
+.f12{ font-size:12px;}
+/*常用颜色*/
+.white{ color:#FFFFFF;}
+.red{ color:#FF0000;}
+.black{ color:#000000;}
+.orange{ color:#ff6600}
+/*常用行间距*/
+.lh26{ line-height:26px;}
+.lh24{ line-height:24px;}
+.lh22{ line-height:22px;}
+.lh20{ line-height:20px;}
+.lh18{ line-height:18px;}
+/*统一文章标题*/
+h1{ font-size:16px; font-weight:bold;}
+/*统一栏目标题*/
+h3{ font-size:14px;}
+/*统一标签页*/
+h4{ font-size:13px;}
+h4 a{width:100%; height:100%; display:block;}
+/*常用图片边框*/
+.img_b1{ border:1px solid #000; padding:1px; background:#fff;}
+/* 翻页 */
+.pages {
+	margin-top: 15px; margin-bottom: 10px;text-align:right; padding:5px 0px; text-align:center;
+}
+.pages a:link {
+	border: 1px solid #A8A8A8; padding-right: 5px; padding-left: 5px; padding-bottom: 2px; color: #000; margin-right: 2px; padding-top: 2px; text-decoration: none
+}
+.pages a:visited {
+	border: 1px solid #A8A8A8; padding-right: 5px; padding-left: 5px; padding-bottom: 2px; color: #000; margin-right: 2px; padding-top: 2px; text-decoration: none
+}
+.pages a:hover {
+	border: 1px solid #fe5615; padding-right: 5px; padding-left: 5px; padding-bottom: 2px; color: #000 margin-right: 2px; padding-top: 2px; color:#fe5615;
+}
+.pages a:active {
+	border: 1px solid #fe5615; padding-right: 5px; padding-left: 5px; padding-bottom: 2px; color: #000 margin-right: 2px; padding-top: 2px; color:#fe5615;
+}
+.pages a.dif {
+	padding-right: 5px; padding-left: 5px; padding-bottom: 2px; color: #000; margin-right: 2px; padding-top: 2px; text-decoration: none; border:0px;  color:#000; text-decoration:underline;background:none;
+}
+.pages a.dif:visited {
+	padding-right: 5px; padding-left: 5px; padding-bottom: 2px; color: #000; margin-right: 2px; padding-top: 2px; text-decoration: none; border:0px;  color:#000;background:none;
+}
+.pages a.dif:hover {
+	padding-right: 5px; padding-left: 5px; padding-bottom: 2px; margin-right: 2px; padding-top: 2px; border:0px; color:#FE5615;background:none;
+}
+.pages a.dif:active {
+	padding-right: 5px; padding-left: 5px; padding-bottom: 2px; margin-right: 2px; padding-top: 2px;  border:0px; color:#FE5615;background:none;
+}
+.pages span.current {
+	border: 1px solid #FE5615; padding-right: 5px;  padding-left: 5px; font-weight: bold; padding-bottom: 2px;  color: #FE5615; margin-right: 2px; padding-top: 2px;
+}
+.pages span.disabled {
+	padding-right: 5px; padding-left: 5px; padding-bottom: 2px;  color: #444; margin-right: 2px; padding-top: 2px; 
+}
+
+/*其它常用*/
+.fl{ float:left;}
+.fr{ float:right;}
+.dis{ display:block;}
+.undis{ display:none;}
+.tc{ text-align:center}
+.tl{ text-align:left}
+.tr{ text-align:right}
+.cur{ cursor:pointer}
+.time{ font-size:11px;}
+.clear{clear:both;width:0px;height:0px;line-height:0px;font-size:0px;visibility:hidden;}
+.clear1{clear:both;font-size:1px;width:1px;visibility:hidden;margin-top:0px!important;*margin-top:-1px;line-height:0}/*ie and firefox1.5 updata */
+/* Clearfix清除浮动 */
+.clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden;}
+.clearfix{display:inline-table;}/* Hides from IE-mac \*/
+* html .clearfix{height:1%;}
+.clearfix{display:block;}/* End hide from IE-mac */
+*+html .clearfix{min-height:1%;}/* IE7 */
+
+/*默认全局定义*/
+/*默认外容器*/
+#wrapper{}
+#innerwrapper{}
+
+
+/*默认菜单*/
+#menu{}
+/*默认输入框*/
+.input_0{ border:0px;}
+/*默认按钮*/
+.btn1{}
+/*默认主要容器*/
+#mainbody{ width:980px; margin:0 auto; background:#fff;}
+#innermainbody{}
+/*默认主要内容*/
+#content{}
+/*默认侧边*/
+#sidebar{}
+
+/*圆角图片 名称数字代表图片的高度*/
+.pic_100{margin-top:-100px; display:block;}
+.pic_120{margin-top:-120px; display:block;}
+.pic_150{margin-top:-150px; display:block;}
+.pic_90{margin-top:-90px; display:block;}
+.pic_160{margin-top:-160px; display:block;}
+.pic_60{margin-top:-60px; display:block;}
+.pic_140{margin-top:-140px; display:block;}
+.pic_170{margin-top:-170px; display:block;}
+.pic_95{margin-top:-95px; display:block;}
+.pic_70{margin-top:-70px; display:block;}
+.pic_110{margin-top:-110px; display:block;}
+img.pic_111{display:block;margin-top:-111px;}
+img.pic_54{display:block;margin-top:-54px;}
+img.pic_117{display:block;margin-top:-117px;}
+img.pic_77{display:block;margin-top:-77px;}
+img.pic_64{display:block;margin-top:-64px;}
+img.pic_75{display:block;margin-top:-75px;}
+img.pic_206{display:block;margin-top:-206px;}
+img.pic_108{display:block;margin-top:-108px;}
+img.pic_44{display:block;margin-top:-44px;}
+

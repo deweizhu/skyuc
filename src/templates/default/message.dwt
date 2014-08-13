@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Language" content="zh-CN" />
+<meta content="all" name="robots" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<meta http-equiv="imagetoolbar" content="no" />
+{if $auto_redirect}
+<meta http-equiv="refresh" content="3;URL={$message.back_url}" />
+{/if}
+<link rel="bookmark" href="favicon.ico" />
+<link rel="icon" type="image/x-icon" href="favicon.ico" />
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+<link rel="alternate" type="application/rss+xml" title="RSS|{$page_title}" href="{$feed_url}" />
+<title>{$page_title}</title>
+<link href="css/basic.css" rel="stylesheet" type="text/css" />
+<link href="css/header_footer.css" rel="stylesheet" type="text/css" />
+<link href="css/member.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/base.js"></script>
+</head>
+
+<body id="member_index_page">
+{insert_scripts files="skyuc_common.js"}
+<!--wrapper start -->
+<div id="wrapper">
+<div id="innerwrapper">
+	<!--header start-->
+             <!-- #BeginLibraryItem "/library/page_header.lbi" -->
+			<!-- #EndLibraryItem -->
+        <!--header end-->
+
+	<!--mainbody start-->
+     <div id="mainbody">
+        <div id="innermainbody">
+            <div class="member_top">
+                <ul><li>
+
+                <div class="member_top_bg"></div>
+                </li></ul>
+            </div>
+
+             <div class="succeed">
+	   	              <p>{$message.content}</p>
+					 <!-- {if $message.url_info} -->
+					 <p>
+					 <!--{foreach from=$message.url_info key=info item=url}-->
+						  <!--{if $info eq 'reg_succeed'}-->
+						 <a href="{$url}" class="member_btn_home"></a>
+						  <!--{else}-->
+						 &nbsp;&nbsp;<a href="{$url}">{$info}</a>
+						  <!--{/if}-->
+					  <!--{/foreach}-->
+					  </p>
+					<!--{/if}-->
+					<div>
+					</div>
+
+			 </div>
+        </div>
+        </div>
+        <!--mainbody end-->
+
+	<!--footer start-->
+			<!-- #BeginLibraryItem "/library/page_footer.lbi" -->
+			<!-- #EndLibraryItem -->
+        <!--footer end-->
+    </div>
+    </div>
+    <!--wrapper end-->
+</body>
+</html>

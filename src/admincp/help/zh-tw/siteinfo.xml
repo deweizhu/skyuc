@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<help>
+
+  <section id="list">
+    <title>網站信息管理</title>
+    <content>
+    <![CDATA[
+	<p><strong>網站信息管理</strong></p>
+	<p>本頁面列出所有網站信息文章。文章標題可在本頁面直接編輯</p>
+	]]>
+    </content>
+  </section>
+
+  <section id="add">
+    <title>添加新網站信息文章</title>
+    <content>
+    <![CDATA[
+	<p><strong>添加新網站信息文章</strong></p>
+	<p>在本頁面可添加新網站信息文章</p>
+	]]>
+    </content>
+  </section>
+
+  <section id="edit">
+    <title>編輯網站文章</title>
+    <content>
+    <![CDATA[
+	<p><strong>編輯新網站信息文章</strong></p>
+	<p>在本頁面可編輯網站信息文章</p>
+	]]>
+    </content>
+  </section>
+</help>

@@ -1,0 +1,50 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+{* 包含脚本文件 *}
+{insert_scripts files="skyuc_global.js,skyuc_common.js,skyuc_utils.js"}
+<div id="page-top">
+  <div id="logo-topnav">
+    <div id="logo"> <img src="images/logo.gif"  style="float:left;" />
+      <div id="topnav"><a href="#" onmouseover="showCatalog(this)" onmouseout="hideCatalog()">{$lang.catalog}</a>  |
+			 <!-- {foreach name=nav_top_list from=$navigator_list.top item=nav} -->
+            <a href="{$nav.url}" <!-- {if $nav.opennew eq 1} --> target="_blank" <!-- {/if} -->>{$nav.name}</a>
+            <!-- {if !$smarty.foreach.nav_top_list.last} -->
+            |
+            <!-- {/if} -->
+          <!-- {/foreach} --></div>
+    </div>
+  </div>
+  <!--End #logo-nav-->
+  <div id="global-nav">
+    <div id="main-nav">
+      <ul>
+        <li><a href="index.php" name="top" id="top">{$lang.home}</a></li>
+       <!-- {if $navigator_list.config.index eq 1} --><!-- {/if} --></li>
+        <!-- {foreach name=nav_middle_list from=$navigator_list.middle item=nav} -->
+					<li><a href="{$nav.url}" <!-- {if $nav.opennew eq 1} --> target="_blank" <!-- {/if} -->>{$nav.name}</a></li>
+            <!-- {if $smarty.foreach.nav_middle_list.last}-->
+            <!-- {/if} -->
+      <!-- {/foreach} -->
+      </ul>
+    </div>
+    <!-- End #main-nav -->
+  </div>
+  <!-- global-nav -->
+</div>
+<!--End #page-top-->
+<div id="SKYUC_CATALOG" class="catalog-div" style="display:none"
+onmouseover="if (this.style.display != 'block') this.style.display='block';"
+onmouseout="if (this.style.display != 'none') this.style.display = 'none';">
+  <ul>
+    <!--{assign var="level" value=0}-->
+    <!-- {foreach from=$catalog_list item=cat} -->
+    <!-- {if $level > $cat.level} -->
+  </ul>
+  <!-- {/if}-->
+  <!-- {if $level < $cat.level} -->
+  <ul>
+    <!-- {/if} -->
+    <li class={if $cat.level eq 0}"top-cate"{else}"snd-cate"{/if}><a href="{$cat.url}"{if $cat.cat_desc neq ''} title="{$cat.cat_desc}"{/if}>{$cat.cat_name}</a></li>
+    <!--{assign var="level" value=$cat.level}-->
+    <!-- {/foreach} -->
+  </ul>
+</div>

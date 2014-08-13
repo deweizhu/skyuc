@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<help>
+  <section id="list">
+    <title>賬戶金額</title>
+    <content>
+    <![CDATA[
+	<p>本頁面顯示所有會員的賬戶金額記錄。其中包括會員賬戶金額的來源：會員預付款、會員退款申請。</p>
+	]]>
+    </content>
+  </section>
+
+  <section id="add">
+    <title>添加金額</title>
+    <content>
+    <![CDATA[
+	<p>對會員的賬戶金額進行增、減的操作。</p>
+	]]>
+    </content>
+  </section>
+  
+  <section id="check">
+    <title>到款審核</title>
+    <content>
+    <![CDATA[
+	<p>對會員的賬戶金額操作進行是否有效或者是否到款的操作審核。</p>
+	]]>
+    </content>
+  </section>
+</help>

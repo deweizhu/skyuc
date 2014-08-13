@@ -1,0 +1,30 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- {if $cat_show} -->
+<div class="title-01">
+  <div class="title-01-arrow"><span><a href="{$show_cat.url}">更多&gt;</a></span>
+				  <!--{foreach from=$show_cat.sub item=sub name=sub}-->
+					<!--{if $smarty.foreach.sub.iteration lt 9}-->
+					<a href="{$sub.url}" target="_blank">{$sub.name}</a> |
+					<!--{/if}-->
+					<!--{/foreach}--></div>
+</div>
+<div class="sort-box01" style="background:#FFF;padding:10px;">
+  <ul class="product-list">
+    <!--{foreach from=$cat_show item=show}-->
+    <li>
+      <div class="photo"><a href="{$show.url}"><img src="{$show.thumb}" alt="《{$show.title|escape:html}》" width="85" height="117" /></a></div>
+      <div class="info">
+        <div class="name"><a href="{$show.url}">{$show.title|truncate:8}</a></div>
+		<div class="show">{$lang.actor}<!--{foreach from=$show.actor item=val name=val}-->
+							<!--{if $smarty.foreach.val.iteration lt 3}-->
+							<a href="search.php?keywords={$val|escape:url}" target="_blank">{$val}</a>
+							<!--{/if}-->
+							<!--{/foreach}--></div>
+		<div class="show"><p>{$show.description|truncate:40:"..."true}</p></div>
+      </div>
+    </li>
+    <!--{/foreach}-->
+  </ul>
+</div>
+<!--End sort-box01-->
+<!--{/if}-->

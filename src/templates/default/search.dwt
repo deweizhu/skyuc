@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<meta http-equiv="Content-Language" content="zh-CN" />
+
+<meta content="all" name="robots" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+
+<meta http-equiv="imagetoolbar" content="no" />
+<link rel="bookmark" href="favicon.ico" />
+<link rel="icon" type="image/x-icon" href="favicon.ico" />
+
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+<link rel="alternate" type="application/rss+xml" title="RSS|{$page_title}" href="{$feed_url}" />
+<link href="css/basic.css" rel="stylesheet" type="text/css" />
+<link href="css/header_footer.css" rel="stylesheet" type="text/css" />
+<link href="css/list.css" rel="stylesheet" type="text/css" />
+<title>{$page_title}</title>
+
+<script type="text/javascript" src="js/base.js"></script>
+<script type="text/javascript" src="js/movieTree.js"></script>
+<script type="text/javascript" src="js/movie_toptab.js"></script>
+<script type="text/javascript" src="js/dialog.js"></script>
+</head>
+
+<body id="movie">
+<!--wrapper start -->
+<div id="wrapper" class="index">
+<div id="innerwrapper">
+<!--header start-->
+<!-- #BeginLibraryItem "/library/page_header.lbi" -->
+<!-- #EndLibraryItem -->
+<!--header end-->
+<!--mainbody start-->
+
+<div id="mainbody">
+<div id="innermainbody">
+<!-- TemplateBeginEditable name="头部通栏-当前位置" -->
+
+	<!-- #BeginLibraryItem "/library/ur_here.lbi" -->
+	<!-- #EndLibraryItem -->
+<!-- TemplateEndEditable -->
+<div class="movieRowsDa_44">
+<img src="images/da_movie_980x44.jpg" alt="电影频道横条广告1" /><img src="images/pic_980x44.gif" class="pic_44" />
+</div>
+<div class="movieSearchL">
+<!-- TemplateBeginEditable name="左侧-分类树" -->
+
+	<!-- #BeginLibraryItem "/library/tree_cate.lbi" -->
+	<!-- #EndLibraryItem -->
+<!-- TemplateEndEditable -->
+
+<!-- TemplateBeginEditable name="左侧-标签汇总" -->
+
+	<!-- #BeginLibraryItem "/library/tag_cate.lbi" -->
+	<!-- #EndLibraryItem -->
+<!-- TemplateEndEditable -->
+
+<!-- TemplateBeginEditable name="左侧-本类点播排行" -->
+
+	<!-- #BeginLibraryItem "/library/top10_cate.lbi" -->
+	<!-- #EndLibraryItem -->
+<!-- TemplateEndEditable -->
+
+</div>
+
+
+<div class="movieSearchR">
+<!-- TemplateBeginEditable name="右侧-分类列表" -->
+
+	<!-- #BeginLibraryItem "/library/show_list.lbi" -->
+	<!-- #EndLibraryItem -->
+<!-- TemplateEndEditable -->
+<!-- TemplateBeginEditable name="右侧-翻页链接" -->
+
+	<!-- #BeginLibraryItem "/library/pages.lbi" -->
+	<!-- #EndLibraryItem -->
+<!-- TemplateEndEditable -->
+<div class="clear"></div>
+		</div>
+	</div>
+<!--mainbody end-->
+
+<!--footer start-->
+<!-- #BeginLibraryItem "/library/page_footer.lbi" -->
+<!-- #EndLibraryItem -->
+<!--footer end-->
+	</div>
+</div>
+<!--wrapper end-->
+</body>
+</html>

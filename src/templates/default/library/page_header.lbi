@@ -1,0 +1,82 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+{insert_scripts files="skyuc_global.js,skyuc_common.js,skyuc_utils.js,skyuc_search.js"}
+<style type="text/css">
+<!--
+#search_div {position: absolute;background: #FFFFFF;text-align: left;border: 1px #666666 solid;display: none;width: 124px;left: 112px;top: 27px;}
+.search_link_over {color: #fff;background-color: #FF790E;padding: 2px 6px;}
+.search_link {padding: 2px 6px;background-color: #FFFFFF;}
+-->
+</style>
+<div id="header">
+<div id="innerheader">
+<div class="header_top">
+<div id="logo"><a href="index.php"><img src="images/logo.gif" alt="{$lang.home}" /></a></div>
+
+<div class="header_login">
+<!--Start #login-->
+<div id="SKYUC_MEMBERZONE">
+{* SKYUC 提醒您：根据用户id来调用member_info.lbi显示不同的界面 *}{insert name="member_info"}
+</div>
+<!--End #login-->
+<div class="user_con">
+<ul>
+	<li>
+	<a href="category.php" onmouseover="showCatalog(this)" onmouseout="hideCatalog()" style="color:red;font-weight:bold;">{$lang.catalog}</a>  |
+			 <!-- {foreach name=nav_top_list from=$navigator_list.top item=nav} -->
+            <a href="{$nav.url}" <!-- {if $nav.opennew eq 1} --> target="_blank" <!-- {/if} -->>{$nav.name}</a>
+            <!-- {if !$smarty.foreach.nav_top_list.last} -->
+            |
+            <!-- {/if} -->
+          <!-- {/foreach} -->
+		  | <a href="javascript:;" onclick="setFavorite();">收藏本站</a> | <a href="javascript:;" onclick="setHome();">设为首页</a>| <a href="javascript:;" onclick="rsstry('rss.php');"> RSS 订阅</a> </li>
+</ul>
+</div>
+</div>
+</div>
+<div id="header_search">
+<div id="innerheader_search">
+    <form id="searchForm" name="searchForm" method="post" action="search.php">
+	<p class="search_class">
+<select  name="category" id="category"  style="width: 77px;">
+	<option value="0">{$lang.all_category}</option>
+	{$category_list}
+</select></p>
+<input type="text" class="input_s" name="keywords" id="keywords" value="{$search_keywords|escape}"  title="{$lang.searchkeywords_notice|escape:html}" autoComplete="off"/>
+<input type="submit" value="搜索" class="btn_s"  id="commit" />
+ </form>
+<div id="search_suggest" style="display:none"></div>
+</div>
+</div>
+<div id="mainnav">
+<ul>
+	<li id="top_1"><a href="index.php"><img  src="../images/main_nav1.jpg" alt="{$lang.home}"	onmouseover="this.src='images/main_nav1s.jpg';" 	onmouseout="this.src='../images/main_nav1.jpg';" /></a></li>
+	<li id="top_3"><a href="list.php?id=28"><img src="../images/main_nav3.jpg" alt="看电影" onmouseover="this.src='../images/main_nav3s.jpg';" onmouseout="this.src='../images/main_nav3.jpg';" /></a></li>
+	<li id="top_4"><a href="list.php?id=29"><img <img  src="../images/main_nav4.jpg"  alt="看电视剧" onmouseover="this.src='../images/main_nav4s.jpg';" onmouseout="this.src='../images/main_nav4.jpg';" /></a></li>
+	<li id="top_7"><a href="list.php?id=31"><img src="../images/main_nav7.jpg" alt="综艺短片" onmouseover="this.src='../images/main_nav7s.jpg';" onmouseout="this.src='../images/main_nav7.jpg';" /></a></li>
+	<li id="top_2"><a href="list.php?id=30"><img src="../images/main_nav2.jpg" alt="看动漫" onmouseover="this.src='../images/main_nav2s.jpg';" 	onmouseout="this.src='../images/main_nav2.jpg';" /></a></li>
+    <li id="top_5"><a href="search.php?intro=best"><img src="../images/main_nav5.jpg" alt="强力推荐" onmouseover="this.src='../images/main_nav5s.jpg';" onmouseout="this.src='../images/main_nav5.jpg';" /></a></li>
+
+</ul>
+<span class="mainnav_bottom"></span></div>
+<div class="clear"></div>
+</div>
+</div>
+
+
+<div id="SKYUC_CATALOG" class="catalog-div" style="display:none"
+onmouseover="if (this.style.display != 'block') this.style.display='block';"
+onmouseout="if (this.style.display != 'none') this.style.display = 'none';">
+  <ul>
+    <!--{assign var="level" value=0}-->
+    <!-- {foreach from=$catalog_list item=cat} -->
+    <!-- {if $level > $cat.level} -->
+  </ul>
+  <!-- {/if}-->
+  <!-- {if $level < $cat.level} -->
+  <ul>
+    <!-- {/if} -->
+    <li class={if $cat.level eq 0}"top-cate"{else}"snd-cate"{/if}><a href="{$cat.url}"{if $cat.cat_desc neq ''} title="{$cat.cat_desc}"{/if}>{$cat.cat_name}</a></li>
+    <!--{assign var="level" value=$cat.level}-->
+    <!-- {/foreach} -->
+  </ul>
+</div>

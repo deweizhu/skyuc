@@ -1,0 +1,25 @@
+<div class="tool">
+			<div class="rs_u">&nbsp;</div>
+			<div class="container">
+				<h2><span class="border_line">快速通道</span></h2>
+				<ul class="li_icon">
+					<li class="icon_mine"><a href="user.php">{$lang.label_welcome}</a></li>
+					<li class="icon_mine"><a href="user.php?act=profile">{$lang.label_profile}</a></li>
+					<li class="icon_protect"><a href="user.php?act=buyrank">{$lang.label_buyrank}</a></li>
+					<li class="icon_protect"><a href="user.php?act=card">{$lang.label_card}</a></li>
+					<li class="icon_school"><a href="user.php?act=play_log">{$lang.label_play_log}</a></li>
+					<li class="icon_school"><a href="user.php?act=tag_list">{$lang.label_tag}</a></li>
+					<li class="icon_report"><a href="user.php?act=comment_list">{$lang.label_comment}</a></li>
+					<li class="icon_school"><a href="user.php?act=order_list">{$lang.label_order}</a></li>
+					<li class="icon_report"><a href="user.php?act=message_list">{$lang.label_message}</a></li>
+					<li class="icon_school"><a href="user.php?act=account_log">{$lang.label_user_surplus}</a></li>
+					{if $show_transform_points}
+					<li class="icon_school"><a href="user.php?act=transform_points">{$lang.label_transform_points}</a></li>
+					{/if}
+					<li class="icon_school"><a href="user.php?act=get_integral">{$lang.label_get_integral}</a></li>
+					<li class="icon_discern"><a href="user.php?act=logout">{$lang.label_logout}</a></li>
+				</ul>
+
+			</div>
+			<div class="rs_d">&nbsp;</div>
+		</div>

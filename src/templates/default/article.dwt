@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Language" content="zh-CN" />
+<meta content="all" name="robots" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<meta http-equiv="imagetoolbar" content="no" />
+<link rel="bookmark" href="favicon.ico" />
+<link rel="icon" type="image/x-icon" href="favicon.ico" />
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+<link rel="alternate" type="application/rss+xml" title="RSS|{$page_title}" href="{$feed_url}" />
+<link href="css/basic.css" rel="stylesheet" type="text/css" />
+<link href="css/header_footer.css" rel="stylesheet" type="text/css" />
+<link href="css/news_detail.css" rel="stylesheet" type="text/css" />
+<title>{$page_title}</title>
+<script type="text/javascript" src="js/base.js"></script>
+<script type="text/javascript" src="js/dialog.js"></script>
+<script type="text/javascript" src="js/news_detail.js"></script>
+</head>
+<body id="news_detail">
+    <!--wrapper start -->
+    <div id="wrapper">
+    <div id="innerwrapper">
+       	<!--header start-->
+             <!-- #BeginLibraryItem "/library/page_header.lbi" -->
+			<!-- #EndLibraryItem -->
+        <!--header end-->
+ <!--mainbody start-->
+        <div id="mainbody">
+        <div id="innermainbody">
+		<!-- TemplateBeginEditable name="头部通栏-当前位置" -->
+<!-- TemplateEndEditable -->
+		<div class="da980a">
+				<img src="images/12300134812.jpg" width="980" height="44" />
+			</div>
+
+  <div id="content">
+ <!-- TemplateBeginEditable name="主区域-文章内容" -->
+
+	<!-- #BeginLibraryItem "/library/article_detail.lbi" -->
+	<!-- #EndLibraryItem -->
+<!-- TemplateEndEditable-->
+
+
+         </div>
+			<div id="siderbar">
+
+			<!-- TemplateBeginEditable name="右侧-相关影片" -->
+
+	<!-- #BeginLibraryItem "/library/related_article.lbi" -->
+	<!-- #EndLibraryItem -->
+<!-- TemplateEndEditable-->
+			 <div class="clear"></div>
+			 <!-- TemplateBeginEditable name="右侧-文章分类树" -->
+
+	<!-- #BeginLibraryItem "/library/article_cate_tree.lbi" -->
+	<!-- #EndLibraryItem -->
+<!-- TemplateEndEditable-->
+
+		 <!-- TemplateBeginEditable name="右侧-最新影片" -->
+
+	<!-- #BeginLibraryItem "/library/new10_article.lbi" -->
+	<!-- #EndLibraryItem -->
+<!-- TemplateEndEditable-->
+			 </div>
+   </div>
+</div>
+<!--mainbody end-->
+  <!--footer start-->
+			<!-- #BeginLibraryItem "/library/page_footer.lbi" -->
+			<!-- #EndLibraryItem -->
+        <!--footer end-->
+    </div>
+    </div>
+    <!--wrapper end-->
+</body>
+</html>

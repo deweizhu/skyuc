@@ -1,0 +1,20 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- {if $related_article} -->
+<!--相关影片-->
+			  <div class="all_Title"><ul><li><img src="images/news_detail_related_tit.gif" width="174" height="17" /></li>
+			  </ul>
+			  </div>
+			  <div class="related_film">
+			   <ul>
+			     <!-- {foreach  from=$related_article item=related_article}-->
+			   	<li>
+				 <div class="poster_pic"><a href="{$related_article.url}" target="_blank"><img src="{$related_article.thumb}" alt="{$related_article.title|escape:html}" width="87" height="117" border="0" /></a></div>
+				 <div class="poster_tt"><a href="{$related_article.url}" target="_blank">{$related_article.title|truncate:8}</a></div>
+				</li>
+                <!--{/foreach}-->
+
+			   </ul>
+			  </div>
+			  <div class="bottom"></div>
+<!--相关影片结束-->
+<!--{/if}-->

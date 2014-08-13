@@ -1,0 +1,126 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Language" content="zh-CN" />
+<meta content="all" name="robots" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<meta http-equiv="imagetoolbar" content="no" />
+<link rel="bookmark" href="favicon.ico" />
+<link rel="icon" type="image/x-icon" href="favicon.ico" />
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+<link rel="alternate" type="application/rss+xml" title="RSS|{$page_title}" href="{$feed_url}" />
+<link href="{$skyuc_css_path}" rel="stylesheet" type="text/css" />
+<title>{$page_title}</title>
+</head>
+
+<body>
+	<!--header start-->
+<!-- #BeginLibraryItem "/library/page_header.lbi" -->
+<!-- #EndLibraryItem -->
+	<!--header end-->
+<!--mainbody start-->
+  <div class="main">
+	   <div id="flashbox" class="flash">
+			<script type="text/javascript">
+			  var swf_width=980;
+			  var swf_height=392;
+			</script>
+			<script type="text/javascript" src="data/flashdata/{$flash_theme}/cycle_image.js"></script> </div>
+		<div class="ad_top_980"><!-- TemplateBeginEditable name="头部通栏广告位980x90" --><!-- TemplateEndEditable --></div>
+
+<!-- TemplateBeginEditable name="主区域-首页推荐" -->
+
+	<!-- #BeginLibraryItem "/library/recom.lbi" -->
+	<!-- #EndLibraryItem -->
+<!-- TemplateEndEditable -->
+
+<!-- TemplateBeginEditable name="主区域-电影栏目" -->
+
+	<!-- #BeginLibraryItem "/library/cat_show.lbi" -->
+	<!-- #EndLibraryItem -->
+<!-- TemplateEndEditable -->
+<!-- TemplateBeginEditable name="主区域右侧-电影排行榜" -->
+
+	<!-- #BeginLibraryItem "/library/cat_hot.lbi" -->
+	<!-- #EndLibraryItem -->
+<!-- TemplateEndEditable -->
+
+<!-- TemplateBeginEditable name="主区域-电视栏目" -->
+
+	<!-- #BeginLibraryItem "/library/cat_show.lbi" -->
+	<!-- #EndLibraryItem -->
+<!-- TemplateEndEditable -->
+<!-- TemplateBeginEditable name="主区域右侧-电视排行榜" -->
+
+	<!-- #BeginLibraryItem "/library/cat_hot.lbi" -->
+	<!-- #EndLibraryItem -->
+<!-- TemplateEndEditable -->
+
+<!-- TemplateBeginEditable name="主区域-综艺栏目" -->
+
+	<!-- #BeginLibraryItem "/library/cat_show.lbi" -->
+	<!-- #EndLibraryItem -->
+<!-- TemplateEndEditable -->
+<!-- TemplateBeginEditable name="主区域右侧-综艺排行榜" -->
+
+	<!-- #BeginLibraryItem "/library/cat_hot.lbi" -->
+	<!-- #EndLibraryItem -->
+<!-- TemplateEndEditable -->
+
+<!-- TemplateBeginEditable name="主区域-动漫栏目" -->
+
+	<!-- #BeginLibraryItem "/library/cat_show.lbi" -->
+	<!-- #EndLibraryItem -->
+<!-- TemplateEndEditable -->
+<!-- TemplateBeginEditable name="主区域右侧-动漫排行榜" -->
+
+	<!-- #BeginLibraryItem "/library/cat_hot.lbi" -->
+	<!-- #EndLibraryItem -->
+<!-- TemplateEndEditable -->
+
+
+<!-- TemplateBeginEditable name="隐藏区域" -->
+
+	<!-- #BeginLibraryItem "/library/tree.lbi" -->
+	<!-- #EndLibraryItem -->
+
+	<!-- #BeginLibraryItem "/library/new10.lbi" -->
+	<!-- #EndLibraryItem -->
+<!-- TemplateEndEditable -->
+<!--mainbody end-->
+
+	<!-- 友情链接 -->
+	<div class="content">
+		<div class="dewei">
+			<h1 class="linkh1">友情链接</h1>
+
+
+			<ul class="linkul">
+			<!--{if $img_links  or $txt_links }-->
+			 <!-- {if $img_links} -->
+			  <!--开始图片类型的友情链接{foreach from=$img_links item=link}-->
+				<li><a href="{$link.url}" title="{$link.name|escape:html}"><img src="{$link.logo}" alt="{$link.name|escape:html}"/></a></li>
+				<!--结束图片类型的友情链接{/foreach}-->
+				<!-- {/if} -->
+			 <!-- {if $txt_links} -->
+				<!--开始文字类型的友情链接{foreach from=$txt_links item=link}-->
+				<li><a href="{$link.url}" title="{$link.name|escape:html}">{$link.name}</a></li>
+				<!--结束文字类型的友情链接{/foreach}-->
+			 <!-- {/if} -->
+			<!--{/if}-->
+			</ul>
+
+		</div>
+
+	</div>
+
+   </div>
+    <!--main end-->
+ <!--footer start-->
+		<!-- #BeginLibraryItem "/library/page_footer.lbi" -->
+		<!-- #EndLibraryItem -->
+<!--footer end-->
+</body>
+</html>
