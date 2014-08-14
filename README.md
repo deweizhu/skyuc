@@ -10,6 +10,4 @@ SKYUC这套源码从2007年10月起开始编写，经由2009年改换内核，�
 
 鸣谢（排名不分先后）： ecshop.com,vbulletin.com,shopex.cn chinaz.com,admin5.com,mycodes.net,uudog.com,qvod.com
 
-
-版权所有:天空网络
-主站:http://www.skyuc.com
+讨论区：http://www.skyuc.com
