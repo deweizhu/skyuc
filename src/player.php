@@ -115,7 +115,7 @@ if ($video['show_point'] === 0 && $skyuc->options['no_login'] == 1) {
                 $hours = explode(':', $time);
                 $message = sprintf($_LANG['message_nopoints'], $hours[0], $hours[1]);
                 window_message($message);
-            } elseif ($skyuc->userinfo['user_point'] > $video['show_point']) {
+            } elseif ($skyuc->userinfo['user_point'] >= $video['show_point']) {
                 // 提示此次点播扣除点数
                 $validated = 3;
                 $message = sprintf($_LANG['message_points'], $video['show_point']);
