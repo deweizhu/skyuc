@@ -152,7 +152,7 @@ if ($validated > 0) {
     $db->query_write(
         'UPDATE ' . TABLE_PREFIX . 'show' .
         " SET click_count = click_count + 1, click_month = click_month + 1, click_week = click_week + 1, click_time = '" .
-        TIMENOW . "' WHERE show_id = '$mov_id'");
+        TIMENOW . "' WHERE show_id =". intval($video['mov_id']));
     //现在时间是12:00~12:10，可能是中午或午夜
     if (skyuc_date('hi') < '1210' and skyuc_date('hi') > '1200') {
         if (skyuc_date('w') == 1) {
@@ -190,6 +190,7 @@ if ($validated > 0) {
             $uid . '&mov_id=' . $video['mov_id'] . '&look_id=' . $video['look_id'] .
             '&rnd="+(Math.ceil(Math.random()*1000))+" #refresh");},60000);});</script><div id="refresh" style="display:none"></div>';
     }
+
     $smarty->assign('player_code', $player_code);
     $smarty->assign('skyuc_name', $video['show_name']);
     $smarty->assign('skyuc_title', $video['skyuc_title']);
