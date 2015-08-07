@@ -193,7 +193,7 @@ define ( 'SAPI_NAME', PHP_SAPI );
 define ( 'NOSHUTDOWNFUNC', true );
 
 // 获取引用(来源)页的 URL
-$skyuc->url = & $skyuc->input->fetch_url ();
+$skyuc->url = $skyuc->input->fetch_url ();
 define ( 'REFERRER_PASSTHRU', $skyuc->url );
 
 // #############################################################################

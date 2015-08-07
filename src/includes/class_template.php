@@ -246,7 +246,7 @@ class Template
             $source = $this->smarty_prefilter_preCompile($source);
         }
         $source = preg_replace("/<\?[^><]+\?>/i", "", $source);
-        return preg_replace("/{([^\}\{\n]*)}/e", "\$this->select('\\1');",
+        return preg_replace_callback("/{([^\}\{\n]*)}/", function($r){return $this->select($r[1]);},
                             $source);
     }
 
@@ -343,7 +343,8 @@ class Template
                     break;
             }
         } else {
-            $tag_sel = array_shift(explode(' ', $tag));
+        	$tag_arr = explode(' ', $tag);
+            $tag_sel = array_shift($tag_arr);
             switch ($tag_sel) {
                 case 'if':
                     return $this->_compile_if_tag(substr($tag, 3));
@@ -397,8 +398,8 @@ class Template
                     break;
                 case 'insert':
                     $t = $this->get_para(substr($tag, 7), false);
-                    $out = "<?php \n" . '$k = ' . preg_replace(
-                        "/(\'\\$[^,]+)/e", "stripslashes(trim('\\1','\''));",
+                    $out = "<?php \n" . '$k = ' . preg_replace_callback(
+                        "/(\'\\$[^,]+)/", function($r){return stripslashes(trim($r[1],'\''));},
                         var_export($t, true)) . ";\n";
                     $out .= 'echo $this->_schash . $k[\'name\'] . \'|\' . serialize($k) . $this->_schash;' .
                             "\n?>";
@@ -455,8 +456,8 @@ class Template
     public function get_val($val)
     {
         if (strrpos($val, '[') !== false) {
-            $val = preg_replace("/\[([^\[\]]*)\]/eis",
-                                "'.'.str_replace('$','\$','\\1')", $val);
+            $val = preg_replace_callback("/\[([^\[\]]*)\]/is",
+                                function($r){ return '.'.str_replace('$','\$', $r[1]);}, $val);
         }
         if (strrpos($val, '|') !== false) {
             $moddb = explode('|', $val);
@@ -879,9 +880,9 @@ class Template
          */
         if ($file_type == '.dwt') {
             /* 将模板中所有library替换为链接 */
-            $pattern = '/<!--\s#BeginLibraryItem\s\"\/(.*?)\"\s-->.*?<!--\s#EndLibraryItem\s-->/se';
-            $replacement = "'{include file='.strtolower('\\1'). '}'";
-            $source = preg_replace($pattern, $replacement, $source);
+            $pattern = '/<!--\s#BeginLibraryItem\s\"\/(.*?)\"\s-->.*?<!--\s#EndLibraryItem\s-->/s';
+            $source = preg_replace_callback($pattern,
+                function($r){return '{include file=\''. strtolower($r[1]).'\'}';}, $source);
             /* 检查有无动态库文件，如果有为其赋值 */
             $dyna_libs = get_dyna_libs($skyuc->options['themes'],
                                        $this->_current_file);
