@@ -1227,7 +1227,8 @@ function dyna_libs_replace($matches)
  */
 function get_dyna_libs($theme, $tmp)
 {
-    $ext = end(explode('.', $tmp));
+    $tmp_arr = explode('.', $tmp);
+    $ext = end($tmp_arr);
     $tmp = basename($tmp, ".$ext");
     $sql = 'SELECT region, library, sort_order, id, number, type' . ' FROM ' .
         TABLE_PREFIX . 'template' . " WHERE theme = '" . $theme .
@@ -1267,7 +1268,9 @@ function assign_dynamic($tmp)
         put_file_cache($key, $arr); //写缓存
     }
     foreach ($arr as $row) {
-        switch ($row['type']) {
+        if (!isset($row['type'])) continue;
+        $type = (int)$row['type'];
+        switch ($type) {
             case 1:
                 // 分类下的影片
                 $GLOBALS['smarty']->assign(
@@ -1680,7 +1683,7 @@ function block_cc()
             }
             if ((int)$GLOBALS['skyuc']->config['Misc']['db_loadavg'] > 0 &&(int)$GLOBALS['skyuc']->loadcache['loadavg'] > 0 ) {
                 (int)$GLOBALS['skyuc']->loadcache['loadavg'] > (int)$GLOBALS['skyuc']->config['Misc']['db_loadavg'] &&
-                    $GLOBALS['skyuc']->config['Misc']['db_cc'] = 2;
+                    $GLOBALS['skyuc']->config['Misc']['db_cc'] == 2;
             }
         }
         if ((!isset($_COOKIE) && !isset($_SERVER['HTTP_USER_AGENT'])) || ($GLOBALS['skyuc']->config['Misc']['db_cc'] == 2 && $c_agentip) ) {

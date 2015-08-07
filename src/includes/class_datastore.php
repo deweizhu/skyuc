@@ -705,7 +705,8 @@ class secache {
 		} else {
 			$this->_rs = fopen ( $this->_file, 'rb+' ) or $this->trigger_error ( 'Can\'t open the cachefile: ' . realpath ( $this->_file ), E_USER_ERROR );
 			$this->_seek ( $this->header_padding );
-			$info = unpack ( 'V1max_size/a*ver', fread ( $this->_rs, $this->info_size ) );
+			$info_size = fread ( $this->_rs, $this->info_size );
+			$info = unpack ( 'V1max_size/Z*ver', $info_size);
 			if ($info ['ver'] != $this->ver) {
 				$this->_format ( true );
 			} else {
