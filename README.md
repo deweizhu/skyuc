@@ -1,5 +1,9 @@
 SKYUC视频内容管理系统
 =====
+推荐运行环境：
+PHP 5.5+
+MySQL 5.1+
+=====
 
 SKYUC这套源码从2007年10月起开始编写，经由2009年改换内核，之后均是锦上添花。
 由于历史久远，代码质量良莠不一，PHP发展至今，各种框架百花齐放。
@@ -9,5 +13,4 @@ SKYUC这套源码从2007年10月起开始编写，经由2009年改换内核，�
 至此，作者本人也无意保留，特将此源码公之于众，供大家赏玩。
 
 鸣谢（排名不分先后）： ecshop.com,vbulletin.com,shopex.cn chinaz.com,admin5.com,mycodes.net,uudog.com,qvod.com
-
 讨论区：http://www.skyuc.com
